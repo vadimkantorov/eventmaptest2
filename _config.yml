@@ -4,7 +4,7 @@ defaults:
     scope:
       path: "data/days/*.md"
     values:
-      permalink: /:basename/
+      permalink: /:basename.html
       layout: default
       
 plugins:
