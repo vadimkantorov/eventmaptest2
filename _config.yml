@@ -1,0 +1,11 @@
+data_source: data
+defaults:
+  -
+    scope:
+      path: "data/days/*.md"
+    values:
+      permalink: /:basename/
+      layout: default
+      
+plugins:
+  - jekyll-optional-front-matter
