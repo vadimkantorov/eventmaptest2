@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
-Hello world 
+Hello world from {{ page.path }} !
 <ul>
-{% for page in site.pages %}<li>{{ page.path }}</li>{% endfor %}
+{% for p in site.pages %}<li>{{ p.path }}</li>{% endfor %}
 </ul>
 </html>
