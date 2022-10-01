@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-US">
 Hello world from {{ page.path }} !
+<pre>
+{{ page.content }}
+</pre>
 <ul>
 {% for p in site.pages %}<li>{{ p.path }}</li>{% endfor %}
 </ul>
