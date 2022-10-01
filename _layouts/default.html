@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en-US"><body>
+
 Hello world from {{ page.path }} !
 <pre>{{ page.content }}</pre>
 <pre>{{ page | jsonify }}</pre>
+
 <h3>Pages</h3>
 <ul>
 {% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}
 </ul>
+
 <h3>Collections</h3>
 <ul>
 {% for p in site.collections %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}
 </ul>
+
+<h3>Site</h3>
+<pre>{{ site | jsonify }}</pre>
+
 </body></html>
