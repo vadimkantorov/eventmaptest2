@@ -6,11 +6,6 @@ defaults:
     values:
       permalink: /:basename.html
       layout: default
-  -
-    scope:
-      path: "data/places/*/*.md"
-    values:
-      output: false
       
 plugins:
   - jekyll-optional-front-matter
