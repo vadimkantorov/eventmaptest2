@@ -10,9 +10,8 @@
 <h3>Page {{ day }}</h3>
 <pre>{{ places | jsonify }}</pre>
 
-<pre>{{ page | jsonify }}</pre>
-
 <h3>Pages</h3>
+<pre>{{ page | jsonify }}</pre>
 <ul>
 {% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}
 </ul>

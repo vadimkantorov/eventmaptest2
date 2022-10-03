@@ -50,6 +50,11 @@ display:none;
         </style>
         <title>{{ site.curdate }}</title>
     </head>
+    <header>
+        <h3>Pages</h3>
+        <pre>{{ page | jsonify }}</pre>
+        <ul>{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
+    </header>
     <body onhashchange="navigate()" onload="body_onload()"> 
         <h1>{{ page.title }}, telegram: <a href="{{ site_data.telegram }}">{{ page.telegram }}</a></h1>
         <pre>{{ page.content }}</pre>
