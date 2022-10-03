@@ -49,41 +49,6 @@ display:none;
 }
         </style>
         <title>{{ day }}</title>
-    </head>
-    <header>
-        <h3>Pages</h3>
-        <pre>{{ page | jsonify }}</pre>
-        <ul>{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
-    </header>
-    <body onhashchange="navigate()" onload="body_onload()"> 
-        <h1>{{ page.title }}, telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h1>
-        <pre>{{ page.content }}</pre>
-
-
-<div id='container'>
-<div id="map"></div>
-<div id="picBox"><img onclick="img_onclick()" id="photo" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto"></img></div>
-</div>
-
-        <div id="info">
-            <h1 id="locality">&nbsp;</h1>
-            <h3 id="address">&nbsp;<a target="_blank" id="maplink"></a></h3>
-        </div>
-
-        <h3>All places:</h3>
-        <ul id="places">
-        
-        {% for country_places in places_grouped_by_country %}
-        <li>
-            {{ country_places.locality }}
-            <ul>
-            {% for place in country_places.items %}
-                <li><a data-photohrefs="{{ place.photos | join: ";" }}" data-latlng='{{ place.latlng }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>
-            {% endfor %}
-            </ul>
-        </li>
-        {% endfor %}
-        </ul>
 
         <script>
 
@@ -148,6 +113,42 @@ display:none;
             }
 
         </script>
+    </head>
+    <header>
+        <pre>{{ places_grouped_by_country | jsonify }}</pre>
+        <h3>Pages</h3>
+        <pre>{{ page | jsonify }}</pre>
+        <ul>{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
+    </header>
+    <body onhashchange="navigate()" onload="body_onload()"> 
+        <h1>{{ page.title }}, telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h1>
+        <pre>{{ page.content }}</pre>
+
+
+<div id='container'>
+<div id="map"></div>
+<div id="picBox"><img onclick="img_onclick()" id="photo" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto"></img></div>
+</div>
+
+        <div id="info">
+            <h1 id="locality">&nbsp;</h1>
+            <h3 id="address">&nbsp;<a target="_blank" id="maplink"></a></h3>
+        </div>
+
+        <h3>All places:</h3>
+        <ul id="places">
+        
+        {% for country_places in places_grouped_by_country %}
+        <li>
+            {{ country_places.locality }}
+            <ul>
+            {% for place in country_places.items %}
+                <li><a data-photohrefs="{{ place.photos | join: ";" }}" data-latlng='{{ place.latlng }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>
+            {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+        </ul>
     </body>
     
     <footer>
