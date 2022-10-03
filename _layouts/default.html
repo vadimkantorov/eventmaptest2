@@ -125,7 +125,7 @@ display:none;
 
     <body onhashchange="navigate()" onload="body_onload()"> 
         <h1>{{ page.title }}, telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h1>
-        <pre>{{ page.content }}</pre>
+        <p>{{ page.content | markdownify }}</p>
 
 
 <div id='container'>
