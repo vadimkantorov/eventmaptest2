@@ -115,7 +115,7 @@ display:none;
         </script>
     </head>
     <header>
-        <ul>{% for p in site.data.static_files %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
+        <ul>{% for p in site.static_files %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
     </header>
     <!--<header>
         <pre>{{ places_grouped_by_country | jsonify }}</pre>
