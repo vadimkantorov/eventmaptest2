@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-US"><body>
 
-Hello world from {{ page.path }} !
+<h3>Hello world from page.path = {{ page.path }}, page.name = {{ page.name }} !</h3>
+
+{% assign day_name_size = page.name | size | minus: 3 %}{% assign day = page.name | slice: 0, day_name_size %}
+<h3>Page {{ day }}</h3>
 <pre>{{ page.content }}</pre>
 <pre>{{ page | jsonify }}</pre>
 
