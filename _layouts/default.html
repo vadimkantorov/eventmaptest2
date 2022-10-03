@@ -1,4 +1,4 @@
-{% assign days = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/days/" %}{% assign day_name_size = p.name | size | minus: 3 %}{% assign day = p.name | slice: 0, day_name_size %}{% assign days = days | push: day %}{% endif %}{% endfor %}
+{% assign days = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/days/" %}{% assign day_name_size = p.name | size | minus: 3 %}{% assign day = p.name | slice: 0, day_name_size %}{% assign days = days | push: day %}{% endif %}{% endfor %}{% assign days = days | sort %}
 {% assign day_name_size = page.name | size | minus: 3 %}{% assign day = page.name | slice: 0, day_name_size %}
 {% assign places = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/places/" and p.name contains day %}{% assign places = places | push: p %}{% endif %}{% endfor %}
 {% assign places_grouped_by_country = places | sort: "country" | group_by: "country" %}
@@ -144,11 +144,7 @@ display:none;
         {% for country_places in places_grouped_by_country %}
         <li>
             {{ country_places.name }}
-            <ul>
-            {% for place in country_places.items %}
-                <li><a data-photohrefs="{{ place.photos | join: ";" }}" data-latlng='{{ place.latlng | jsonify }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>
-            {% endfor %}
-            </ul>
+            <ul>{% for place in country_places.items %}<li><a data-photohrefs="{{ place.photos | join: ";" }}" data-latlng='{{ place.latlng | jsonify }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>{% endfor %}</ul>
         </li>
         {% endfor %}
         </ul>
