@@ -150,7 +150,7 @@ display:none;
         <li>
             {{ country_places.name }}
             <ul>
-                {% for place in country_places.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains place.dir %}{% assign photos = photos | push: p.path %}{% endif %}{% endfor %}
+                {% for place in country_places.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains place.dir %}{% assign photo = p.path | slice: 1 %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
                 
                 <li><a data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ place.latlng | jsonify }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>
                 {% endfor %}
