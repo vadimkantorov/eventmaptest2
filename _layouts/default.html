@@ -140,7 +140,7 @@ display:none;
         
         {% for country_places in places_grouped_by_country %}
         <li>
-            {{ country_places.locality }}
+            {{ country_places.name }}
             <ul>
             {% for place in country_places.items %}
                 <li><a data-photohrefs="{{ place.photos | join: ";" }}" data-latlng='{{ place.latlng }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>
