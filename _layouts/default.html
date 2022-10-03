@@ -7,21 +7,21 @@
 <h3>Page {{ day }}</h3>
 {% assign places = "" | split: "," %}
 {% for page in site.pages %}{% if page.path contains "data/places/" and page.name contains day %}{% assign places = places | push: page %}{% endif %}{% endfor %}
-<pre>{{ places | inspect }}</pre>
+<pre>{{ places | jsonify }}</pre>
 
-<pre>{{ page | inspect }}</pre>
+<pre>{{ page | jsonify }}</pre>
 
 <h3>Pages</h3>
 <ul>
-{% for p in site.pages %}<li><pre>{{ p | inspect }}</pre></li>{% endfor %}
+{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}
 </ul>
 
 <h3>Collections</h3>
 <ul>
-{% for p in site.collections %}<li><pre>{{ p | inspect }}</pre></li>{% endfor %}
+{% for p in site.collections %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}
 </ul>
 
 <h3>Site</h3>
-<pre>{{ site | inspect }}</pre>
+<pre>{{ site | jsonify }}</pre>
 
 </body></html>
