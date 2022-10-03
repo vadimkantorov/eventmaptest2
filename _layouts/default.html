@@ -119,7 +119,10 @@ display:none;
         <h3>Pages</h3>
         <pre>{{ page | jsonify }}</pre>
         <ul>{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
+        <h3>Site</h3>
+        <pre>{{ site | jsonify }}</pre>
     </header>
+
     <body onhashchange="navigate()" onload="body_onload()"> 
         <h1>{{ page.title }}, telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h1>
         <pre>{{ page.content }}</pre>
