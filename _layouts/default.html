@@ -5,6 +5,8 @@
 
 {% assign day_name_size = page.name | size | minus: 3 %}{% assign day = page.name | slice: 0, day_name_size %}
 <h3>Page {{ day }}</h3>
+<h3>site.data.places = {{ site.data.places | inspect }}</h3>
+
 <pre>{{ page.content }}</pre>
 <pre>{{ page | jsonify }}</pre>
 
