@@ -143,7 +143,7 @@ display:none;
             {{ country_places.name }}
             <ul>
             {% for place in country_places.items %}
-                <li><a data-photohrefs="{{ place.photos | join: ";" }}" data-latlng='{{ place.latlng }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>
+                <li><a data-photohrefs="{{ place.photos | join: ";" }}" data-latlng='{{ place.latlng | jsonify }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>
             {% endfor %}
             </ul>
         </li>
