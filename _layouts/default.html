@@ -6,7 +6,7 @@
 {% assign day_name_size = page.name | size | minus: 3 %}{% assign day = page.name | slice: 0, day_name_size %}
 <h3>Page {{ day }}</h3>
 {% assign places = "" | split: "," %}
-{% for page in site.pages %}{% if page.name contains day %}{% assign places = places | push: page %}{% endif %}{% endfor %}
+{% for page in site.pages %}{% if page.path contains "data/places/" and page.name contains day %}{% assign places = places | push: page %}{% endif %}{% endfor %}
 <pre>{{ places | inspect }}</pre>
 
 <pre>{{ page | inspect }}</pre>
