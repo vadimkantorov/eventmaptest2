@@ -1,5 +1,5 @@
 {% assign day_name_size = page.name | size | minus: 3 %}{% assign day = page.name | slice: 0, day_name_size %}
-{% assign places = "" | split: "," %}{% for page in site.pages %}{% if page.path contains "data/places/" and page.name contains day %}{% assign places = places | push: page %}{% endif %}{% endfor %}
+{% assign places = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/places/" and p.name contains day %}{% assign places = places | push: p %}{% endif %}{% endfor %}
 
 {% assign places_grouped_by_country = places | sort: "country" | group_by: "country" %}
 
