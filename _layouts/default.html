@@ -51,7 +51,8 @@ display:none;
         <title>{{ site.curdate }}</title>
     </head>
     <body onhashchange="navigate()" onload="body_onload()"> 
-        <h1>{{ site_data.title }}, telegram: <a href="{{ site_data.telegram }}">{{ site_data.telegram }}</a></h1>
+        <h1>{{ page.title }}, telegram: <a href="{{ site_data.telegram }}">{{ page.telegram }}</a></h1>
+        <pre>{{ page.content }}</pre>
 
 
 <div id='container'>
