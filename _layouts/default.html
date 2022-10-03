@@ -48,7 +48,7 @@ border:1px solid blue;
 display:none;
 }
         </style>
-        <title>{{ day }}</title>
+        <title>{{ day }}: {{ page.title }}</title>
 
         <script>
 
@@ -124,7 +124,7 @@ display:none;
     </header>-->
 
     <body onhashchange="navigate()" onload="body_onload()"> 
-        <h1>{{ page.title }}, telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h1>
+        <h1>{{ day }}: {{ page.title }}, telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h1>
         <p>{{ page.content | markdownify }}</p>
 
 
@@ -152,7 +152,7 @@ display:none;
     
     <footer>
         <h3>Past events:</h3>
-        <ul>{% for day in days %}<li><a href="{{ day }}.html">{{ day }}</a></li>{% endfor %}</ul>
+        <ul>{% for d in days %}<li><a href="{{ d }}.html">{{ d }}</a>{% if d == day %}-you are on this page{% endif %}</li>{% endfor %}</ul>
     </footer>
 
 </html>
