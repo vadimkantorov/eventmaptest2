@@ -48,7 +48,7 @@ border:1px solid blue;
 display:none;
 }
         </style>
-        <title>{{ site.curdate }}</title>
+        <title>{{ day }}</title>
     </head>
     <header>
         <h3>Pages</h3>
@@ -56,7 +56,7 @@ display:none;
         <ul>{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
     </header>
     <body onhashchange="navigate()" onload="body_onload()"> 
-        <h1>{{ page.title }}, telegram: <a href="{{ site_data.telegram }}">{{ page.telegram }}</a></h1>
+        <h1>{{ page.title }}, telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h1>
         <pre>{{ page.content }}</pre>
 
 
@@ -78,7 +78,7 @@ display:none;
             {{ country_places.locality }}
             <ul>
             {% for place in country_places.items %}
-                <li><a data-photohrefs="{{ place.photos | join: ";" }}" data-latlng='{{ place.latlng }}' data-locality="{{ place.locality }}" data-hash="#{{ site.curdate }}_{{ place.locality }}" href="#{{ site.curdate }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>
+                <li><a data-photohrefs="{{ place.photos | join: ";" }}" data-latlng='{{ place.latlng }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>
             {% endfor %}
             </ul>
         </li>
