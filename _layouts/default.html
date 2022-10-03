@@ -5,22 +5,23 @@
 
 {% assign day_name_size = page.name | size | minus: 3 %}{% assign day = page.name | slice: 0, day_name_size %}
 <h3>Page {{ day }}</h3>
-<h3>site.data.places = {{ site.data.places | inspect }}</h3>
+{% assign places = "" | split: "," %}
+{% for page in site.pages %}{% if page.name contains day %}{% assign places = places | push: page %}{% endif %}{% endfor %}
+<pre>{{ places | inspect }}</pre>
 
-<pre>{{ page.content }}</pre>
-<pre>{{ page | jsonify }}</pre>
+<pre>{{ page | inspect }}</pre>
 
 <h3>Pages</h3>
 <ul>
-{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}
+{% for p in site.pages %}<li><pre>{{ p | inspect }}</pre></li>{% endfor %}
 </ul>
 
 <h3>Collections</h3>
 <ul>
-{% for p in site.collections %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}
+{% for p in site.collections %}<li><pre>{{ p | inspect }}</pre></li>{% endfor %}
 </ul>
 
 <h3>Site</h3>
-<pre>{{ site | jsonify }}</pre>
+<pre>{{ site | inspect }}</pre>
 
 </body></html>
