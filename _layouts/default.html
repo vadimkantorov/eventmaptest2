@@ -93,7 +93,7 @@ display:none;
                     const photohrefs = img.dataset.photohrefs.split(';');
                     const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
                     img.src = photohrefs[photohrefsidx];
-                    img.dataset.hrefidx = photohrefsidx;
+                    img.dataset.photohrefsidx = photohrefsidx;
                 }
             }
 
@@ -114,10 +114,8 @@ display:none;
 
         </script>
     </head>
-    <header>
-        <ul>{% for p in site.static_files %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
-    </header>
     <!--<header>
+        <ul>{% for p in site.static_files %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
         <pre>{{ places_grouped_by_country | jsonify }}</pre>
         <h3>Pages</h3>
         <pre>{{ page | jsonify }}</pre>
