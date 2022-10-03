@@ -1,27 +1,156 @@
-<!DOCTYPE html>
-<html lang="en-US"><body>
-
-<h3>Hello world from page.path = {{ page.path }}, page.name = {{ page.name }} !</h3>
-
 {% assign day_name_size = page.name | size | minus: 3 %}{% assign day = page.name | slice: 0, day_name_size %}
-<h3>Page {{ day }}</h3>
-{% assign places = "" | split: "," %}
-{% for page in site.pages %}{% if page.path contains "data/places/" and page.name contains day %}{% assign places = places | push: page %}{% endif %}{% endfor %}
-<pre>{{ places | jsonify }}</pre>
+{% assign places = "" | split: "," %}{% for page in site.pages %}{% if page.path contains "data/places/" and page.name contains day %}{% assign places = places | push: page %}{% endif %}{% endfor %}
 
-<pre>{{ page | jsonify }}</pre>
+{% assign places_grouped_by_country = places | sort: "country" | group_by: "country" %}
 
-<h3>Pages</h3>
-<ul>
-{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+        <link href="https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png" rel="prefetch" id="link_marker_icon" type="image/png" />
+        <link href="https://tile.openstreetmap.org/{z}/{x}/{y}.png" id="link_tiles" />
+        <link href="https://google.com/maps/place/{name}/@{lat},{lng},12z" id="link_map" />
 
-<h3>Collections</h3>
-<ul>
-{% for p in site.collections %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}
-</ul>
+        <style>
+#container
+{
+display:flex;
+flex-direction:row;
+min-height:400px;
+}
 
-<h3>Site</h3>
-<pre>{{ site | jsonify }}</pre>
+#picBox
+{
+flex:5;
+/*background-image:url(https://placeimg.com/1000/1000/tech);
+background-size:cover;
+background-repeat:no-repeat;
+background-position:center;*/
+}
 
-</body></html>
+#map
+{
+flex:5;
+position:relative;
+border:1px solid red;
+}
+
+#infoBox
+{
+flex:20;
+border:1px solid blue;
+display:none;
+}
+        </style>
+        <title>{{ site.curdate }}</title>
+    </head>
+    <body onhashchange="navigate()" onload="body_onload()"> 
+        <h1>{{ site_data.title }}, telegram: <a href="{{ site_data.telegram }}">{{ site_data.telegram }}</a></h1>
+
+
+<div id='container'>
+<div id="map"></div>
+<div id="picBox"><img onclick="img_onclick()" id="photo" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto"></img></div>
+</div>
+
+        <div id="info">
+            <h1 id="locality">&nbsp;</h1>
+            <h3 id="address">&nbsp;<a target="_blank" id="maplink"></a></h3>
+        </div>
+
+        <h3>All places:</h3>
+        <ul id="places">
+        
+        {% for country_places in places_grouped_by_country %}
+        <li>
+            {{ country_places.locality }}
+            <ul>
+            {% for place in country_places.items %}
+                <li><a data-photohrefs="{{ place.photos | join: ";" }}" data-latlng='{{ place.latlng }}' data-locality="{{ place.locality }}" data-hash="#{{ site.curdate }}_{{ place.locality }}" href="#{{ site.curdate }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>
+            {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+        </ul>
+
+        <script>
+
+            function format_place_info(p)
+            {
+                const latlng = JSON.parse(p.dataset.latlng), locality = p.dataset.locality;
+
+                const template_popup = document.getElementById('info');
+                const elem = template_popup.cloneNode(true);
+                const h1 = elem.querySelector('#locality'), a = elem.querySelector('#maplink');
+                
+                const href = decodeURI(document.getElementById('link_map').href).replace('{name}', locality).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString());
+                
+                h1.innerText = locality;
+                a.innerText = locality;
+                a.href = href;
+                
+                return elem;
+            }
+
+            function navigate()
+            {
+                const hash = window.location.hash || '';
+                const a = document.querySelector(`a.place[data-hash~="${window.location.hash}"]`), img = document.getElementById('photo');
+                if(a != null)
+                {
+                    const div = format_place_info(a);
+                    const info = document.getElementById('info');
+                    info.innerHTML = div.innerHTML;
+                    img.dataset.photohrefs = a.dataset.photohrefs;
+                    img.dataset.photohrefsidx = 0;
+                    img.hidden = (img.dataset.photohrefs || '').length == 0;
+                    img.src = img.hidden ? '' : a.dataset.photohrefs.split(';')[0];
+                }
+            }
+
+            function img_onclick()
+            {
+                const img = document.getElementById('photo');
+                if(!img.hidden)
+                {
+                    const photohrefs = img.dataset.photohrefs.split(';');
+                    const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
+                    img.src = photohrefs[photohrefsidx];
+                    img.dataset.hrefidx = photohrefsidx;
+                }
+            }
+
+            function body_onload()
+            {
+                const map = L.map('map').setView([20, 0], 2);
+                L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {maxZoom: 19, attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'}).addTo(map);
+
+                const Icon = L.icon({iconUrl: decodeURI(document.getElementById('link_marker_icon').href), iconSize:     [20, 20], iconAnchor:   [10, 20],  popupAnchor:  [0, -10]  });
+
+                for(const a of document.querySelectorAll('.place'))
+                {
+                    L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).bindPopup(format_place_info(a).innerHTML).on('click', () => window.location.hash = a.dataset.hash).addTo(map);
+                }
+
+                navigate();
+            }
+
+        </script>
+    </body>
+    
+    <footer>
+        <h3>Past events:</h3>
+        <ul>
+            {% for date in dates %}
+                <li><a href="{{ date }}.html">{{ date }}</a></li>
+            {% endfor %}
+        </ul>
+    </footer>
+
+</html>
