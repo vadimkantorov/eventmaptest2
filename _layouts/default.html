@@ -1,6 +1,6 @@
+{% assign days = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/days/" %}{% assign day_name_size = p.name | size | minus: 3 %}{% assign day = p.name | slice: 0, day_name_size %}{% assign days = days | push: day %}{% endif %}{% endfor %}
 {% assign day_name_size = page.name | size | minus: 3 %}{% assign day = page.name | slice: 0, day_name_size %}
 {% assign places = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/places/" and p.name contains day %}{% assign places = places | push: p %}{% endif %}{% endfor %}
-
 {% assign places_grouped_by_country = places | sort: "country" | group_by: "country" %}
 
 <!DOCTYPE html>
@@ -156,11 +156,7 @@ display:none;
     
     <footer>
         <h3>Past events:</h3>
-        <ul>
-            {% for date in dates %}
-                <li><a href="{{ date }}.html">{{ date }}</a></li>
-            {% endfor %}
-        </ul>
+        <ul>{% for day in days %}<li><a href="{{ day }}.html">{{ day }}</a></li>{% endfor %}</ul>
     </footer>
 
 </html>
