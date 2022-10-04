@@ -70,6 +70,11 @@ text-align: center;
 background-color: #0083d6
 }
 
+.activeevent
+{
+background-color: red
+}
+
         </style>
         <title>{{ day }}: {{ page.title }}</title>
 
@@ -186,7 +191,7 @@ background-color: #0083d6
     
     <footer>
         <h3>All events:</h3>
-        <ul>{% for d in event_names %}<li><a href="{{ d }}.html">{{ d }}</a>{% if d == event_name %}-you are on this page{% endif %}</li>{% endfor %}</ul>
+        <ul>{% for d in event_names %}<li {% if d == event_name %}class="activeevent"{% endif %}><a href="{{ d }}.html">{{ d }}</a></li>{% endfor %}</ul>
     </footer>
 
 </html>
