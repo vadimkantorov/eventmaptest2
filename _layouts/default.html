@@ -48,6 +48,11 @@ border:1px solid blue;
 display:none;
 }
 
+.center
+{
+text-align:center
+}
+
 .country
 {
 text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
@@ -150,9 +155,9 @@ background-color: red
     </header>-->
 
     <body onhashchange="navigate()" onload="body_onload()"> 
-        <h1>{{ page.title }}</h1>
-        <h3>telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h3>
-        <p>{{ page.content | markdownify }}</p>
+        <h1 class="center">{{ page.title }}</h1>
+        <h3 class="center">telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h3>
+        <p class="center">{{ page.content | markdownify }}</p>
         <hr />
 
 
@@ -167,7 +172,7 @@ background-color: red
         </div>
 
         <hr />
-        <h3>All places:</h3>
+        <h3 class="center">All places:</h3>
         <ul id="countries">
         
         {% for country_places in places_grouped_by_country %}
@@ -185,7 +190,8 @@ background-color: red
     </body>
     
     <footer>
-        <h3>All events:</h3>
+        <hr />
+        <h3 class="center">All events:</h3>
         <ul id="allevents">{% for d in event_names %}<li class="event {% if d == event_name %}activeevent{% endif %}"><a href="{{ d }}.html">{{ d }}</a></li>{% endfor %}</ul>
     </footer>
 
