@@ -334,16 +334,12 @@ font-size: 90%;
     <body onhashchange="navigate()" onload="body_onload()"> 
         <h1 class="center">{{ page.title }}</h1>
         <!--<h3 class="center">telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h3>-->
-        <div class="center">
-            {{ page.content | markdownify }}
-        </div>
+        <div class="center">{{ page.content | markdownify }}</div>
         <hr />
-
-
-<div id='container'>
-<div id="map"></div>
-<div id="picBox"><img onclick="img_onclick()" id="photo" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto"></img></div>
-</div>
+        <div id='container'>
+            <div id="map"></div>
+            <div id="picBox"><img onclick="img_onclick()" id="photo" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto"></img></div>
+        </div>
 
         <div id="info">
             <h1 id="locality">&nbsp;</h1>
@@ -365,12 +361,13 @@ font-size: 90%;
         </li>
         {% endfor %}
         </ul>
-    </body>
-    
-    <footer>
+        
         <hr />
         <h3 class="center">All events:</h3>
         <ul id="allevents">{% for event in events %}{% assign name_size = event.name | size | minus: 3 %}{% assign d = event.name | slice: 0, name_size %}<li class="event {% if d == event_name %}activeevent{% endif %}"><a href="{{ d }}.html">{{ event.title | xml_escape }}</a></li>{% endfor %}</ul>
+    </body>
+    
+    <footer>
         <hr />
         <div class="center subtitle">created with <a target="_blank" href="https://github.com/vadimkantorov/eventmap">https://github.com/vadimkantorov/eventmap</a></div>
     </footer>
