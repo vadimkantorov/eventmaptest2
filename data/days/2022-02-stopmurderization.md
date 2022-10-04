@@ -1,5 +1,5 @@
 ---
-title: #StopMurderiZation
+title: \#StopMurderiZation
 telegram: https://t.me/vadimkantorov
 ---
 No to mobiliZation!
