@@ -2,4 +2,7 @@
 title: event 2022-02-29
 telegram: https://t.me/vadimkantorov
 ---
-My content
+No to mobiliZation!
+No to annexation!
+#StopMurderiZation
+
