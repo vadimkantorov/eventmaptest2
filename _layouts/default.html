@@ -1,5 +1,4 @@
-{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/days/" %}{% assign events = events | push: event %}{% endif %}{% endfor %}{% assign events = events | sort: "name" %}
-
+{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/days/" %}{% assign events = events | push: p %}{% endif %}{% endfor %}{% assign events = events | sort: "name" %}
 {% assign name_size = page.name | size | minus: 3 %}{% assign event_name = page.name | slice: 0, name_size %}
 {% assign places = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/places/" and p.dir contains event_name %}{% assign places = places | push: p %}{% endif %}{% endfor %}
 {% assign places_grouped_by_country = places | sort: "country" | group_by: "country" %}
