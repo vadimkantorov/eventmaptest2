@@ -52,28 +52,19 @@ display:none;
 {
 text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
 }
-#countries
+#countries, .places, #allevents
 {
 list-style-type: none;
+padding: 0
 }
-.places
-{
-list-style-type: none;
-}
-#allevents
-{
-list-style-type: none;
-}
-.place
+.place, .event
 {
 text-align: center;
 }
-
 .places > li
 {
 background-color: #0083d6
 }
-
 .activeevent
 {
 background-color: red
@@ -195,7 +186,7 @@ background-color: red
     
     <footer>
         <h3>All events:</h3>
-        <ul id="allevents">{% for d in event_names %}<li {% if d == event_name %}class="activeevent"{% endif %}><a href="{{ d }}.html">{{ d }}</a></li>{% endfor %}</ul>
+        <ul id="allevents">{% for d in event_names %}<li class="event {% if d == event_name %}activeevent{% endif %}"><a href="{{ d }}.html">{{ d }}</a></li>{% endfor %}</ul>
     </footer>
 
 </html>
