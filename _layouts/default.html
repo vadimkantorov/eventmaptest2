@@ -1,4 +1,5 @@
-{% assign event_names = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/days/" %}{% assign name_size = p.name | size | minus: 3 %}{% assign event_name = p.name | slice: 0, name_size %}{% assign event_names = event_names | push: event_name %}{% endif %}{% endfor %}{% assign event_names = event_names | sort %}
+{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/days/" %}{% assign events = events | push: event %}{% endif %}{% endfor %}{% assign events = events | sort: "name" %}
+
 {% assign name_size = page.name | size | minus: 3 %}{% assign event_name = page.name | slice: 0, name_size %}
 {% assign places = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/places/" and p.dir contains event_name %}{% assign places = places | push: p %}{% endif %}{% endfor %}
 {% assign places_grouped_by_country = places | sort: "country" | group_by: "country" %}
@@ -197,7 +198,7 @@ background-color: red
     <footer>
         <hr />
         <h3 class="center">All events:</h3>
-        <ul id="allevents">{% for d in event_names %}<li class="event {% if d == event_name %}activeevent{% endif %}"><a href="{{ d }}.html">{{ d }}</a></li>{% endfor %}</ul>
+        <ul id="allevents">{% for event in events %}{% assign name_size = event.name | size | minus: 3 %}{% assign event_name = event.name | slice: 0, name_size %}<li class="event {% if d == event_name %}activeevent{% endif %}"><a href="{{ event_name }}.html">{{ event.title | xml_escape}}</a></li>{% endfor %}</ul>
     </footer>
 
 </html>
