@@ -47,6 +47,12 @@ flex:20;
 border:1px solid blue;
 display:none;
 }
+
+.country
+{
+text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
+}
+
         </style>
         <title>{{ day }}: {{ page.title }}</title>
 
@@ -146,7 +152,7 @@ display:none;
         
         {% for country_places in places_grouped_by_country %}
         <li>
-            {{ country_places.name }}
+            <div class="country">{{ country_places.name }}</div>
             <ul>
                 {% for place in country_places.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains place.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
                 
