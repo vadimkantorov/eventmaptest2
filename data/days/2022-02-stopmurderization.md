@@ -1,5 +1,5 @@
 ---
-title: event 2022-02-29
+title: #StopMurderiZation
 telegram: https://t.me/vadimkantorov
 ---
 No to mobiliZation!
