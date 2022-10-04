@@ -1,6 +1,6 @@
 {% assign event_names = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/days/" %}{% assign name_size = p.name | size | minus: 3 %}{% assign event_name = p.name | slice: 0, name_size %}{% assign event_names = event_names | push: event_name %}{% endif %}{% endfor %}{% assign event_names = event_names | sort %}
 {% assign name_size = page.name | size | minus: 3 %}{% assign event_name = page.name | slice: 0, name_size %}
-{% assign places = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/places/" and p.name contains event_name %}{% assign places = places | push: p %}{% endif %}{% endfor %}
+{% assign places = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/places/" and p.dir contains event_name %}{% assign places = places | push: p %}{% endif %}{% endfor %}
 {% assign places_grouped_by_country = places | sort: "country" | group_by: "country" %}
 
 <!DOCTYPE html>
@@ -126,8 +126,8 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214
         <ul>{% for p in site.static_files %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
         <pre>{{ places_grouped_by_country | jsonify }}</pre>
         <h3>Pages</h3>
-        <pre>{{ page | jsonify }}</pre>
-        <ul>{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
+        Page: <pre>{{ page | jsonify }}</pre>
+        Pages: <ul>{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
         <h3>Site</h3>
         <pre>{{ site | jsonify }}</pre>
     </header>-->
