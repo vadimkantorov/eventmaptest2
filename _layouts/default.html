@@ -362,7 +362,7 @@ font-size: 90%;
         
         <hr />
         <h3 class="center">All events:</h3>
-        <ul id="allevents">{% for event in events %}{% assign name_size = event.name | size | minus: 3 %}{% assign d = event.name | slice: 0, name_size %}<li class="event {% if d == event_name %}activeevent{% endif %}"><a href="{{ d }}.html">{{ event.title | xml_escape }}</a></li>{% endfor %}</ul>
+        <ul id="allevents">{% for event in events %}{% assign name_size = event.name | size | minus: 3 %}{% assign d = event.name | slice: 0, name_size %}<li class="event {% if d == event_name %}activeevent{% endif %}"><a href="{{ d }}.html"><div>{{ event.title | xml_escape }}</div><div class="subtitle">{{ event.dates }}</div></a></li>{% endfor %}</ul>
     
     </div>
     </body>
