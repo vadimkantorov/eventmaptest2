@@ -128,6 +128,12 @@ color: #ffffff;
 text-align: center;
 text-decoration: none;
 }
+
+.place>a:link,    .event>a:link { text-decoration:none; }
+.place>a:visited, .event>a:visited { text-decoration:none; }
+.place>a:hover,   .event>a:hover { text-decoration:none; }
+.place>a:active,  .event>a:active { text-decoration:none; }
+
 .places > li, #allevents >li
 {
 background-color: #0083d6;
@@ -135,7 +141,7 @@ border-radius: 40px;
 }
 .activeevent
 {
-background-color: red
+background-color: red !important
 }
 
 .subtitle
@@ -320,25 +326,16 @@ font-size: 90%;
         <pre>{{ site | jsonify }}</pre>
     </header>-->
     
-    <!--<div id="outer-container">
-        <h1>Example, telegram: <a href="https://t.me/vadimkantorov">https://t.me/<wbr>vadimkantorov</a></h1>
 
-        <div id='container'>
-            <div id="map"></div>
-            <div id="picBox"><img id="photo" src="" alt="Event photo"/></div>
-        </div>
-
-        <div id="info"></div>
-    </div>-->
-
-    <body onhashchange="navigate()" onload="body_onload()"> 
+    <body onhashchange="navigate()" onload="body_onload()">
+    <div id="outer-container">
         <h1 class="center">{{ page.title }}</h1>
         <!--<h3 class="center">telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h3>-->
         <div class="center">{{ page.content | markdownify }}</div>
         <hr />
         <div id='container'>
             <div id="map"></div>
-            <div id="picBox"><img onclick="img_onclick()" id="photo" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto"></img></div>
+            <div id="picBox"><img onclick="img_onclick()" id="photo" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto" alt="Event photo" src=""></img></div>
         </div>
 
         <div id="info">
@@ -365,6 +362,8 @@ font-size: 90%;
         <hr />
         <h3 class="center">All events:</h3>
         <ul id="allevents">{% for event in events %}{% assign name_size = event.name | size | minus: 3 %}{% assign d = event.name | slice: 0, name_size %}<li class="event {% if d == event_name %}activeevent{% endif %}"><a href="{{ d }}.html">{{ event.title | xml_escape }}</a></li>{% endfor %}</ul>
+    
+    </div>
     </body>
     
     <footer>
