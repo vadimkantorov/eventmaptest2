@@ -56,6 +56,10 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214
 {
 list-style-type: none;
 }
+.place
+{
+background-color: #0083d6
+}
 
         </style>
         <title>{{ day }}: {{ page.title }}</title>
@@ -162,7 +166,7 @@ list-style-type: none;
             <ul>
                 {% for place in country_places.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains place.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
                 
-                <li><a data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ place.latlng | jsonify }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place">{{ place.locality }}</a></li>
+                <li><a class="place" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ place.latlng | jsonify }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place"><div>{{ place.locality }}</div><div>{{ place.date }}, {{ place.time }}. {{ place.timezone }}</div></a></li>
                 {% endfor %}
             </ul>
         </li>
