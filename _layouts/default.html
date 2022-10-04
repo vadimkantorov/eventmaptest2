@@ -6,7 +6,9 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
    crossorigin=""/>
@@ -14,10 +16,68 @@
    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
    crossorigin=""></script>
         <link href="https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png" rel="prefetch" id="link_marker_icon" type="image/png" />
+        <!--<script type="text/javascript"
+            src="https://cdn.jsdelivr.net/gh/hosuaby/Leaflet.SmoothMarkerBouncing@v3.0.2/dist/bundle.js"
+            crossorigin="anonymous"></script>-->
+        
         <link href="https://tile.openstreetmap.org/{z}/{x}/{y}.png" id="link_tiles" />
         <link href="https://google.com/maps/place/{name}/@{lat},{lng},12z" id="link_map" />
 
         <style>
+
+/*
+        .marker-highlighted {
+            border: 2px dashed #3388ff;
+            background-color: #3388ff4d;
+        }
+
+        @media screen and (min-width: 800px) {
+            #outer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            #container {
+                display: flex;
+                flex-direction: row;
+                height: 400px;
+            }
+
+            #map {
+                flex: 5;
+                position: relative;
+                border: 1px solid red;
+            }
+
+            #photo {
+                height: 100%;
+            }
+
+            #picBox {
+                flex: 5;
+            }
+        }
+
+        @media screen and (max-width: 799px) {
+            #map {
+                height: 30vh;
+            }
+
+            #picBox {
+                padding-top: 5px;
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                text-align: center;
+            }
+
+            #photo {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+        }
+*/
+
 #container
 {
 display:flex;
@@ -259,6 +319,17 @@ font-size: 90%;
         <h3>Site</h3>
         <pre>{{ site | jsonify }}</pre>
     </header>-->
+    
+    <!--<div id="outer-container">
+        <h1>Example, telegram: <a href="https://t.me/vadimkantorov">https://t.me/<wbr>vadimkantorov</a></h1>
+
+        <div id='container'>
+            <div id="map"></div>
+            <div id="picBox"><img id="photo" src="" alt="Event photo"/></div>
+        </div>
+
+        <div id="info"></div>
+    </div>-->
 
     <body onhashchange="navigate()" onload="body_onload()"> 
         <h1 class="center">{{ page.title }}</h1>
