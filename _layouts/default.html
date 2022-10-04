@@ -78,6 +78,12 @@ border-radius: 40px;
 background-color: red
 }
 
+.subtitle
+{
+opacity: 0.7;
+font-size: 90%;
+}
+
         </style>
 
         <script>
@@ -186,7 +192,7 @@ background-color: red
             <ul class="places">
                 {% for place in country_places.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains place.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
                 
-                <li><a class="place" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ place.latlng | jsonify }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place"><div>{{ place.locality }}</div><div>{{ place.date | date: "%B %-d, %Y" }}, {{ place.time }}, {{ place.timezone }}</div></a></li>
+                <li><a class="place" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ place.latlng | jsonify }}' data-locality="{{ place.locality }}" data-hash="#{{ day }}_{{ place.locality }}" href="#{{ day }}_{{ place.locality }}" class="place"><div>{{ place.locality }}</div><div class="subtitle">{{ place.date | date: "%B %-d, %Y" }}, {{ place.time }}, {{ place.timezone }}</div></a></li>
                 {% endfor %}
             </ul>
         </li>
@@ -198,6 +204,8 @@ background-color: red
         <hr />
         <h3 class="center">All events:</h3>
         <ul id="allevents">{% for event in events %}{% assign name_size = event.name | size | minus: 3 %}{% assign d = event.name | slice: 0, name_size %}<li class="event {% if d == event_name %}activeevent{% endif %}"><a href="{{ d }}.html">{{ event.title | xml_escape }}</a></li>{% endfor %}</ul>
+        <hr />
+        <div>created with <a target="_blank" href="https://github.com/vadimkantorov/eventmap">https://github.com/vadimkantorov/eventmap</a></div>
     </footer>
 
 </html>
