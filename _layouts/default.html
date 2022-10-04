@@ -60,6 +60,10 @@ list-style-type: none;
 {
 list-style-type: none;
 }
+#allevents
+{
+list-style-type: none;
+}
 .place
 {
 text-align: center;
@@ -191,7 +195,7 @@ background-color: red
     
     <footer>
         <h3>All events:</h3>
-        <ul>{% for d in event_names %}<li {% if d == event_name %}class="activeevent"{% endif %}><a href="{{ d }}.html">{{ d }}</a></li>{% endfor %}</ul>
+        <ul id="allevents">{% for d in event_names %}<li {% if d == event_name %}class="activeevent"{% endif %}><a href="{{ d }}.html">{{ d }}</a></li>{% endfor %}</ul>
     </footer>
 
 </html>
