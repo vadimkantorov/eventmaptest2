@@ -1,6 +1,6 @@
-{% assign days = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/days/" %}{% assign day_name_size = p.name | size | minus: 3 %}{% assign day = p.name | slice: 0, day_name_size %}{% assign days = days | push: day %}{% endif %}{% endfor %}{% assign days = days | sort %}
-{% assign day_name_size = page.name | size | minus: 3 %}{% assign day = page.name | slice: 0, day_name_size %}
-{% assign places = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/places/" and p.name contains day %}{% assign places = places | push: p %}{% endif %}{% endfor %}
+{% assign event_names = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/days/" %}{% assign name_size = p.name | size | minus: 3 %}{% assign event_name = p.name | slice: 0, name_size %}{% assign event_names = event_names | push: event_name %}{% endif %}{% endfor %}{% assign event_names = event_names | sort %}
+{% assign name_size = page.name | size | minus: 3 %}{% assign event_name = page.name | slice: 0, name_size %}
+{% assign places = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/places/" and p.name contains event_name %}{% assign places = places | push: p %}{% endif %}{% endfor %}
 {% assign places_grouped_by_country = places | sort: "country" | group_by: "country" %}
 
 <!DOCTYPE html>
@@ -121,6 +121,8 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214
         </script>
     </head>
     <!--<header>
+        Event names: <pre>{{ event_names | jsonify }}</pre>, event name: {{ event_name }}
+        Places: <pre>{{ places | jsonify }}</pre>
         <ul>{% for p in site.static_files %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
         <pre>{{ places_grouped_by_country | jsonify }}</pre>
         <h3>Pages</h3>
@@ -166,7 +168,7 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214
     
     <footer>
         <h3>All events:</h3>
-        <ul>{% for d in days %}<li><a href="{{ d }}.html">{{ d }}</a>{% if d == day %}-you are on this page{% endif %}</li>{% endfor %}</ul>
+        <ul>{% for d in event_names %}<li><a href="{{ d }}.html">{{ d }}</a>{% if d == event_name %}-you are on this page{% endif %}</li>{% endfor %}</ul>
     </footer>
 
 </html>
