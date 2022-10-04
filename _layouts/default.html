@@ -372,7 +372,7 @@ font-size: 90%;
         <h3 class="center">All events:</h3>
         <ul id="allevents">{% for event in events %}{% assign name_size = event.name | size | minus: 3 %}{% assign d = event.name | slice: 0, name_size %}<li class="event {% if d == event_name %}activeevent{% endif %}"><a href="{{ d }}.html">{{ event.title | xml_escape }}</a></li>{% endfor %}</ul>
         <hr />
-        <div class="center">created with <a target="_blank" href="https://github.com/vadimkantorov/eventmap">https://github.com/vadimkantorov/eventmap</a></div>
+        <div class="center subtitle">created with <a target="_blank" href="https://github.com/vadimkantorov/eventmap">https://github.com/vadimkantorov/eventmap</a></div>
     </footer>
 
 </html>
