@@ -147,6 +147,102 @@ font-size: 90%;
 
                 navigate();
             }
+        
+        /*document.addEventListener('DOMContentLoaded',
+            function () {
+
+                const data = {...};
+
+                const map = L.map('map').setView([20, 0], 2);
+                L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
+
+                const bounds = L.latLngBounds(Object.values(data.places).map(place => place.latlng));
+                map.fitBounds(bounds);
+
+                const Icon = L.icon({
+                    iconUrl: decodeURI(document.getElementById('link_marker_icon').href),
+                    iconSize: [12, 20],
+                    iconAnchor: [6, 20],
+                    popupAnchor: [0, -10]
+                });
+
+                const template_popup = document.getElementsByTagName('template')[0],
+                    img = document.getElementById('photo'),
+                    info = document.getElementById('info');
+
+                function showFirstPhoto(placeName) {
+                    const photos = data.places[placeName].photos;
+                    img.src = photos.length > 0 ? photos[0] : '';
+                    img.dataset.hrefidx = '0';
+                    img.onclick = () => {
+                        showNextPhoto(placeName);
+                        stopPlacesSlideshow();
+                    }
+                }
+
+                function showNextPhoto(placeName) {
+                    const photos = data.places[placeName].photos;
+                    if (photos.length > 0) {
+                        const hrefidx = (1 + parseInt(img.dataset.hrefidx)) % photos.length;
+                        img.src = photos[hrefidx];
+                        img.dataset.hrefidx = hrefidx.toString();
+                    }
+                }
+
+                function onclick_popup(placeName, div) {
+                    info.innerHTML = div.innerHTML;
+                    showFirstPhoto(placeName);
+                }
+
+                function highlightMarker(placeName) {
+                    Object.values(data.places).forEach(place => { L.DomUtil.removeClass(place.marker._icon,'marker-highlighted') });
+                    L.DomUtil.addClass(data.places[placeName].marker._icon,'marker-highlighted');
+                }
+
+                for (const [place_name, p] of Object.entries(data.places)) {
+                    const elem = template_popup.content.cloneNode(true);
+                    const h1 = elem.querySelector('#locality'), a = elem.querySelector('#maplink');
+
+                    const href = decodeURI(a.href).replace('{name}', p.locality).replace('{lat}', p.latlng[0].toString()).replace('{lng}', p.latlng[1].toString());
+                    // const photos = p.photos || [];
+
+                    h1.innerText = p.locality;
+                    a.innerText = p.locality;
+                    a.href = href;
+
+                    const div = document.createElement('div');
+                    div.append(elem);
+                    const marker = L.marker(p.latlng, {icon: Icon});
+                    marker.bindPopup(div.innerHTML).on('click', () => {
+                        onclick_popup(place_name, div)
+                    }).addTo(map);
+                    p['marker'] = marker;
+                }
+
+                let currentPlaceIdx = 0;
+                const placeNames = Object.keys(data.places);
+
+                function stopPlacesSlideshow() {
+                    clearInterval(slideshowInterval);
+                }
+
+                function showNextPlace() {
+                    const placeName = placeNames[currentPlaceIdx];
+                    highlightMarker(placeName);
+                    showFirstPhoto(placeName);
+                    currentPlaceIdx += 1;
+                    if (currentPlaceIdx >= placeNames.length) {
+                        // currentPlaceIdx = 0;
+                        stopPlacesSlideshow();
+                    }
+                }
+                showNextPlace();
+                const slideshowInterval = setInterval(showNextPlace, 7000);
+            });
+        */
 
         </script>
         
@@ -205,7 +301,7 @@ font-size: 90%;
         <h3 class="center">All events:</h3>
         <ul id="allevents">{% for event in events %}{% assign name_size = event.name | size | minus: 3 %}{% assign d = event.name | slice: 0, name_size %}<li class="event {% if d == event_name %}activeevent{% endif %}"><a href="{{ d }}.html">{{ event.title | xml_escape }}</a></li>{% endfor %}</ul>
         <hr />
-        <div>created with <a target="_blank" href="https://github.com/vadimkantorov/eventmap">https://github.com/vadimkantorov/eventmap</a></div>
+        <div class="center">created with <a target="_blank" href="https://github.com/vadimkantorov/eventmap">https://github.com/vadimkantorov/eventmap</a></div>
     </footer>
 
 </html>
