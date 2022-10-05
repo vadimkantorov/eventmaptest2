@@ -3,7 +3,7 @@ data_dir: data
 defaults:
   -
     scope:
-      path: "data/days/*.md"
+      path: "data/campaigns/*.md"
     values:
       permalink: /:basename.html
       layout: default
