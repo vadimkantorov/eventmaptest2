@@ -22,7 +22,7 @@
         
         <link href="https://tile.openstreetmap.org/{z}/{x}/{y}.png" id="link_tiles" />
         <link href="https://maps.google.com/maps/place/{name}/@{lat},{lng},12z" id="link_maps_google_pattern" />
-        <link href="https://maps.apple.com/?address={name}&ll=@{lat},{lng}&z=12" id="link_maps_apple_pattern" />
+        <link href="https://maps.apple.com/?q={name}&ll=@{lat},{lng}&z=12" id="link_maps_apple_pattern" />
 
         <style>
 #container
@@ -158,7 +158,7 @@ font-size: 90%;
 
             function format_event_info(p)
             {
-                const latlng = JSON.parse(p.dataset.latlng), locality = p.dataset.locality;
+                const latlng = JSON.parse(p.dataset.latlng), locality = p.dataset.locality, country = p.dataset.country;
 
                 const template_popup = document.getElementById('info');
                 const elem = template_popup.cloneNode(true);
@@ -166,8 +166,9 @@ font-size: 90%;
                 
                 h1.innerText = locality;
                 
-                agoogle.href = decodeURI(document.getElementById('link_maps_google_pattern').href).replace('{name}', locality).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString());
-                aapple.href = decodeURI(document.getElementById('link_maps_apple_pattern').href).replace('{name}', locality).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString());
+                const href = url_pattern => url_pattern.replace('{name}', locality.replace(' ', '+') + ',+' + country.replace(' ', '+')).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString())
+                agoogle.href = href(decodeURI(document.getElementById('link_maps_google_pattern').href));
+                aapple.href = href(decodeURI(document.getElementById('link_maps_apple_pattern').href));
                 
                 return elem;
             }
