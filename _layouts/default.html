@@ -177,10 +177,10 @@ font-size: 90%;
                 return elem;
             }
 
-            function navigate()
+            function navigate(hash)
             {
-                const hash = window.location.hash || '';
-                const a = document.querySelector(`a.place[data-hash~="${window.location.hash}"]`), img = document.getElementById('eventphoto');
+                hash = hash || '';
+                const a = document.querySelector(`a[data-hash~="${hash}"]`), img = document.getElementById('eventphoto');
                 const info = document.getElementById('info');
                 if(a != null)
                 {
@@ -223,7 +223,7 @@ font-size: 90%;
                     L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).bindPopup(format_event_info(a).innerHTML).on('click', () => window.location.hash = a.dataset.hash).addTo(map);
                 }
 
-                navigate();
+                navigate(window.location.hash);
             }
         
         /*document.addEventListener('DOMContentLoaded',
@@ -338,7 +338,7 @@ font-size: 90%;
     </header>-->
     
 
-    <body onhashchange="navigate()" onload="body_onload()">
+    <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
         <h1 id="campaigntitle" class="center">{{ page.title }}</h1>
         <!--<h3 class="center">telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h3>-->
