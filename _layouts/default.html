@@ -21,7 +21,8 @@
             crossorigin="anonymous"></script>-->
         
         <link href="https://tile.openstreetmap.org/{z}/{x}/{y}.png" id="link_tiles" />
-        <link href="https://google.com/maps/place/{name}/@{lat},{lng},12z" id="link_map" />
+        <link href="https://maps.google.com/maps/place/{name}/@{lat},{lng},12z" id="link_maps_google_pattern" />
+        <link href="https://maps.apple.com/?address={name}&ll=@{lat},{lng}&z=12" id="link_maps_apple_pattern" />
 
         <style>
 #container
@@ -161,13 +162,12 @@ font-size: 90%;
 
                 const template_popup = document.getElementById('info');
                 const elem = template_popup.cloneNode(true);
-                const h1 = elem.querySelector('#locality'), a = elem.querySelector('#maplink');
-                
-                const href = decodeURI(document.getElementById('link_map').href).replace('{name}', locality).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString());
+                const h1 = elem.querySelector('#locality'), agoogle = elem.querySelector('#link_maps_google'), aapple = elem.querySelector('#link_maps_apple');
                 
                 h1.innerText = locality;
-                a.innerText = locality;
-                a.href = href;
+                
+                agoogle.href = decodeURI(document.getElementById('link_maps_google_pattern').href).replace('{name}', locality).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString());
+                aapple.href = decodeURI(document.getElementById('link_maps_apple_pattern').href).replace('{name}', locality).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString());
                 
                 return elem;
             }
@@ -340,7 +340,7 @@ font-size: 90%;
 
         <div id="info">
             <h1 id="locality">&nbsp;</h1>
-            <h3 id="address">&nbsp;<a target="_blank" id="maplink"></a></h3>
+            <h3 id="address">&nbsp;<a target="_blank" id="link_maps_google">Google Maps</a><a target="_blank" id="link_maps_apple">Apple Maps</a></h3>
         </div>
 
         <hr />
