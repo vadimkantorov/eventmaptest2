@@ -1,6 +1,6 @@
 {% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 {% assign name_size = page.name | size | minus: 3 %}{% assign campaign_name = page.name | slice: 0, name_size %}
-{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/events/" and p.dir contains event_name %}{% assign events = events | push: p %}{% endif %}{% endfor %}
+{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/events/" and p.dir contains campaign_name %}{% assign events = events | push: p %}{% endif %}{% endfor %}
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 
 <!DOCTYPE html>
