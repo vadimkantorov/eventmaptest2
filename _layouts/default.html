@@ -63,30 +63,30 @@ text-align:center
 {
 text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
 }
-#countries, .places, #allevents
+#countries, .events, #allevents
 {
 list-style-type: none;
 padding: 0
 }
-.place, .event
+.event, .campaign
 {
 color: #ffffff;
 text-align: center;
 text-decoration: none;
 }
 
-.place>a:link,.place>a:visited,.place>a:hover,.place>a:active,     .event>a:link, .event>a:visited,.event>a:hover, .event>a:active  
+.campaign>a:link,.campaign>a:visited,.campaign>a:hover,.campaign>a:active,     .event>a:link, .event>a:visited,.event>a:hover, .event>a:active  
 {
 text-decoration:none; 
 color: inherit
 }
 
-.places > li, #allevents >li
+.events > li, #allcampaigns >li
 {
 background-color: #0083d6;
 border-radius: 40px;
 }
-.activeevent
+.activecampaign
 {
 background-color: red !important
 }
@@ -316,10 +316,9 @@ font-size: 90%;
         <title>{{ page.title }}</title>
     </head>
     <!--<header>
-        Event names: <pre>{{ event_names | jsonify }}</pre>, event name: {{ event_name }}
-        Places: <pre>{{ places | jsonify }}</pre>
+        Places: <pre>{{ events | jsonify }}</pre>
         <ul>{% for p in site.static_files %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
-        <pre>{{ places_grouped_by_country | jsonify }}</pre>
+        <pre>{{ events_grouped_by_country | jsonify }}</pre>
         <h3>Pages</h3>
         Page: <pre>{{ page | jsonify }}</pre>
         Pages: <ul>{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
