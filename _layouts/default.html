@@ -155,20 +155,19 @@ font-size: 90%;
         </style>
 
         <script>
+            function format_maps_link(link_pattern_id, event_dataset)
+            {
+                const latlng = JSON.parse(event_dataset.latlng);
+                const url_pattern = decodeURI(document.getElementById(link_pattern_id).href);
+                return url_pattern.replace('{name}', event_dataset.locality.replace(' ', '+') + ',+' + event_dataset.country.replace(' ', '+')).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString())
+            }
 
             function format_event_info(p)
             {
-                const latlng = JSON.parse(p.dataset.latlng), locality = p.dataset.locality, country = p.dataset.country;
-
-                const template_popup = document.getElementById('info');
-                const elem = template_popup.cloneNode(true);
-                const h1 = elem.querySelector('#locality'), agoogle = elem.querySelector('#link_maps_google'), aapple = elem.querySelector('#link_maps_apple');
-                
-                h1.innerText = locality;
-                
-                const href = url_pattern => url_pattern.replace('{name}', locality.replace(' ', '+') + ',+' + country.replace(' ', '+')).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString())
-                agoogle.href = href(decodeURI(document.getElementById('link_maps_google_pattern').href));
-                aapple.href = href(decodeURI(document.getElementById('link_maps_apple_pattern').href));
+                const elem = document.getElementById('info').cloneNode(true);
+                elem.querySelector('#locality').innerText = p.dataset.locality;
+                elem.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', p.dataset);
+                elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', p.dataset);
                 
                 return elem;
             }
