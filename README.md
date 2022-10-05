@@ -1,6 +1,6 @@
 ## Example directory structure
 ```
 ./data/
-./data/places/
-./data/days/
+./data/campaigns/
+./data/events/
 ```
