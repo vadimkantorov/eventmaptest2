@@ -353,7 +353,7 @@ font-size: 90%;
             <ul class="places">
                 {% for place in country_places.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains place.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
                 
-                <li><a class="place" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ place.latlng | jsonify }}' data-locality="{{ place.locality }}" data-hash="#{{ event_name }}_{{ place.locality }}" href="#{{ event_name }}_{{ place.locality }}" class="place"><div>{{ place.locality }}</div><div class="subtitle">{{ place.date | date: "%B %-d, %Y" }}, {{ place.time }}, {{ place.timezone }}</div></a></li>
+                <li><a class="place" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ place.latlng | jsonify }}' data-locality="{{ place.locality }}" data-hash="#{{ event_name }}_{{ place.locality }}" href="#{{ event_name }}_{{ place.locality }}" class="place"><div>{{ place.locality }}, {{ place.location }}</div><div class="subtitle">{{ place.date | date: "%B %-d, %Y" }}, {{ place.time }}, {{ place.timezone }}</div></a></li>
                 {% endfor %}
             </ul>
         </li>
