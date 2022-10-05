@@ -25,6 +25,11 @@
         <link href="https://maps.apple.com/?q={name}&ll=@{lat},{lng}&z=12" id="link_maps_apple_pattern" />
 
         <style>
+.visibilityhidden
+{
+visibility : hidden;
+}
+
 #container
 {
 display:flex;
@@ -176,15 +181,21 @@ font-size: 90%;
             {
                 const hash = window.location.hash || '';
                 const a = document.querySelector(`a.place[data-hash~="${window.location.hash}"]`), img = document.getElementById('eventphoto');
+                const info = document.getElementById('info');
                 if(a != null)
                 {
                     const div = format_event_info(a);
-                    const info = document.getElementById('info');
                     info.innerHTML = div.innerHTML;
                     img.dataset.photohrefs = a.dataset.photohrefs;
                     img.dataset.photohrefsidx = 0;
                     img.hidden = (img.dataset.photohrefs || '').length == 0;
                     img.src = img.hidden ? '' : a.dataset.photohrefs.split(';')[0];
+                    info.classList.remove('visibilityhidden');
+                }
+                else
+                {
+                    img.hidden = true;
+                    info.classList.add('visibilityhidden');
                 }
             }
 
@@ -338,7 +349,7 @@ font-size: 90%;
             <div id="picBox"><img onclick="img_onclick()" id="eventphoto" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto" alt="Event photo" src="" hidden></img></div>
         </div>
 
-        <div id="info">
+        <div id="info" class="visibilityhidden">
             <h1 id="locality">&nbsp;</h1>
             <h3 id="address">&nbsp;<a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a></h3>
         </div>
