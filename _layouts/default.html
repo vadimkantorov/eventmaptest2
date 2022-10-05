@@ -155,7 +155,7 @@ font-size: 90%;
 
         <script>
 
-            function format_place_info(p)
+            function format_event_info(p)
             {
                 const latlng = JSON.parse(p.dataset.latlng), locality = p.dataset.locality;
 
@@ -178,7 +178,7 @@ font-size: 90%;
                 const a = document.querySelector(`a.place[data-hash~="${window.location.hash}"]`), img = document.getElementById('photo');
                 if(a != null)
                 {
-                    const div = format_place_info(a);
+                    const div = format_event_info(a);
                     const info = document.getElementById('info');
                     info.innerHTML = div.innerHTML;
                     img.dataset.photohrefs = a.dataset.photohrefs;
@@ -207,9 +207,9 @@ font-size: 90%;
 
                 const Icon = L.icon({iconUrl: decodeURI(document.getElementById('link_marker_icon').href), iconSize:     [20, 20], iconAnchor:   [10, 20],  popupAnchor:  [0, -10]  });
 
-                for(const a of document.querySelectorAll('.place'))
+                for(const a of document.querySelectorAll('.event'))
                 {
-                    L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).bindPopup(format_place_info(a).innerHTML).on('click', () => window.location.hash = a.dataset.hash).addTo(map);
+                    L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).bindPopup(format_event_info(a).innerHTML).on('click', () => window.location.hash = a.dataset.hash).addTo(map);
                 }
 
                 navigate();
