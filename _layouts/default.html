@@ -121,7 +121,7 @@ font-size: 90%;
                 border: 1px solid red;
             }
 
-            #photo {
+            #eventphoto {
                 height: 100%;
             }
 
@@ -142,7 +142,7 @@ font-size: 90%;
                 text-align: center;
             }
 
-            #photo {
+            #eventphoto {
                 max-width: 100%;
                 max-height: 100%;
                 object-fit: contain;
@@ -175,7 +175,7 @@ font-size: 90%;
             function navigate()
             {
                 const hash = window.location.hash || '';
-                const a = document.querySelector(`a.place[data-hash~="${window.location.hash}"]`), img = document.getElementById('photo');
+                const a = document.querySelector(`a.place[data-hash~="${window.location.hash}"]`), img = document.getElementById('eventphoto');
                 if(a != null)
                 {
                     const div = format_event_info(a);
@@ -190,7 +190,7 @@ font-size: 90%;
 
             function img_onclick()
             {
-                const img = document.getElementById('photo');
+                const img = document.getElementById('eventphoto');
                 if(!img.hidden)
                 {
                     const photohrefs = img.dataset.photohrefs.split(';');
@@ -329,13 +329,13 @@ font-size: 90%;
 
     <body onhashchange="navigate()" onload="body_onload()">
     <div id="outer-container">
-        <h1 class="center">{{ page.title }}</h1>
+        <h1 id="campaigntitle" class="center">{{ page.title }}</h1>
         <!--<h3 class="center">telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h3>-->
-        <div class="center">{{ page.content | markdownify }}</div>
+        <div id="campaigndescription" class="center">{{ page.content | markdownify }}</div>
         <hr />
         <div id='container'>
             <div id="map"></div>
-            <div id="picBox"><img onclick="img_onclick()" id="photo" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto" alt="Event photo" src="" hidden></img></div>
+            <div id="picBox"><img onclick="img_onclick()" id="eventphoto" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto" alt="Event photo" src="" hidden></img></div>
         </div>
 
         <div id="info">
@@ -346,17 +346,18 @@ font-size: 90%;
         <hr />
         <ul id="countries">
         
-        {% for country_events in events_grouped_by_country %}
-        <li>
-            <div class="country">{{ country_events.name }}</div>
-            <ul class="events">
-                {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
-                
-                <li><a class="event" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-hash="#{{ event_name }}_{{ event.locality }}" href="#{{ event_name }}_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}, {{ event.timezone }}</div></a></li>
-                {% endfor %}
-            </ul>
-        </li>
-        {% endfor %}
+            {% for country_events in events_grouped_by_country %}
+            <li>
+                <div class="country">{{ country_events.name }}</div>
+                <ul class="events">
+                    {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
+                    
+                    <li><a class="event" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-hash="#{{ event_name }}_{{ event.locality }}" href="#{{ event_name }}_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}, {{ event.timezone }}</div></a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+
         </ul>
         
         <hr />
