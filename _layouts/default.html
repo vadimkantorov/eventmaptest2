@@ -208,7 +208,7 @@ function format_maps_link(link_pattern_id, event_dataset)
 function format_event_info(p)
 {
     const elem = document.getElementById('info').cloneNode(true);
-    elem.querySelector('#locality').innerText = `${p.dataset.locality$}, ${p.dataset.country}`;
+    elem.querySelector('#place').innerText = `${p.dataset.locality}, ${p.dataset.country}`;
     elem.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', p.dataset);
     elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', p.dataset);
     return elem;
@@ -386,9 +386,9 @@ function showNextPlace() {
         </div>
 
         <div id="info" class="visibilityhidden">
-            <h1 id="locality">&nbsp;</h1>
-            <h3><a target="_blank" id="eventurl">Event Link</a>&nbsp;|&nbsp;<a target="_blank" id="orgurl">Organizer Link: <span id="orgname"></span></a<</h3>
+            <h1 id="place">&nbsp;</h1>
             <h3 id="address">&nbsp;<a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a></h3>
+            <h3><a target="_blank" id="eventurl">Event Link</a>&nbsp;|&nbsp;<a target="_blank" id="orgurl">Organizer Link: <span id="orgname"></span></a<</h3>
             <p id="orgmessage">Organizer short message</p>
         </div>
 
