@@ -8,6 +8,18 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="{{ campaign_name | xml_escape }}" />
+        <!--
+        <meta property="profile:username" content="(( site.github.owner_name | xml_escape ))" />
+        <meta property="og:title" content="zrxiv for (( site.github.owner_name | xml_escape )){% if tag != "recent" %}, #(( tag | xml_escape )){% endif %}" />
+        <meta property="og:url" content="(( site.github.url )){% if tag != "recent" %}/(( tag | xml_escape )){% endif %}" />
+        <meta property="og:image" content="(( site.github.url ))/logo.png" />
+        <link rel="icon" href="(( site.github.url ))/logo.png" />
+        <link rel="canonical" href="(( site.github.url )){% if tag != "recent" %}/(( tag | xml_escape )){% endif %}" />
+        <link rel="base" href="(( site.github.url ))">
+        -->
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
@@ -87,14 +99,22 @@ text-decoration:none;
 color: inherit
 }
 
-.events > li, #allcampaigns >li
+.events > li
 {
 background-color: #0083d6;
 border-radius: 40px;
 }
-.activecampaign
+
+.campaignactive
 {
-background-color: red !important
+background-color: rgba(0, 131, 216, 1.0);
+border-radius: 40px;
+}
+
+.campaigninactive
+{
+background-color: rgba(0, 131, 216, 0.7);
+border-radius: 40px;
 }
 
 .subtitle
@@ -373,7 +393,7 @@ font-size: 90%;
         
         <hr />
         <h3 class="center">All campaigns:</h3>
-        <ul id="allcampaigns">{% for campaign in campaigns %}{% assign name_size = campaign.name | size | minus: 3 %}{% assign d = campaign.name | slice: 0, name_size %}<li class="campaign {% if d == campaign_name %}activecampaign{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div><div class="subtitle">{{ campaign.date | jsonify }}</div></a></li>{% endfor %}</ul>
+        <ul id="allcampaigns">{% for campaign in campaigns %}{% assign name_size = campaign.name | size | minus: 3 %}{% assign d = campaign.name | slice: 0, name_size %}<li class="campaign {% if d == campaign_name %}campaignactive{% else %}campaigninactive{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div><div class="subtitle">{{ campaign.date | jsonify }}</div></a></li>{% endfor %}</ul>
     
     </div>
     </body>
