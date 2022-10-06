@@ -213,7 +213,7 @@ function format_event_info(p)
     elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', p.dataset);
     elem.querySelector('#eventurl').href = p.dataset.eventurl;
     elem.querySelector('#orgurl').href = p.dataset.orgurl;
-    elem.querySelector('#orgname').innerText = p.dataset.orgname;
+    elem.querySelector('#orgurl').innerText = p.dataset.orgname;
     return elem;
 }
 
@@ -390,8 +390,8 @@ function showNextPlace() {
 
         <div id="info" class="visibilityhidden">
             <h1 id="place">&nbsp;</h1>
-            <h3 id="address">&nbsp;<a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a></h3>
-            <h3><a target="_blank" id="eventurl">Event Link</a>&nbsp;|&nbsp;<a target="_blank" id="orgurl">Organizer Link: <span id="orgname"></span></a></h3>
+            <h3 id="address"><a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a></h3>
+            <h3><a target="_blank" id="eventurl">Event Link</a>&nbsp;by&nbsp;<a target="_blank" id="orgurl"></a></h3>
             <p id="orgmessage">Organizer short message</p>
         </div>
 
