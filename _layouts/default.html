@@ -82,6 +82,11 @@ text-align:center
 text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
 }
 
+#campaigntitle
+{
+text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
+}
+
 #campaigndescription
 {
 text-align: center; color: rgb(0, 131, 214) !important;
@@ -370,9 +375,9 @@ font-size: 90%;
 
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
-        <h1 id="campaigntitle" class="center">{{ page.title }}</h1>
+        <h1 id="campaigntitle">{{ page.title }}</h1>
         <!--<h3 class="center">telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h3>-->
-        <div id="campaigndescription" class="center">{{ page.content | markdownify }}</div>
+        <div id="campaigndescription">{{ page.content | markdownify }}</div>
         <hr />
         <div id='container'>
             <div id="map"></div>
