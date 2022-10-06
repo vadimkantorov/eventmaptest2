@@ -211,6 +211,9 @@ function format_event_info(p)
     elem.querySelector('#place').innerText = `${p.dataset.locality}, ${p.dataset.country}`;
     elem.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', p.dataset);
     elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', p.dataset);
+    elem.querySelector('#eventurl').href = p.dataset.eventurl;
+    elem.querySelector('#orgurl').href = p.dataset.orgurl;
+    elem.querySelector('#orgname').innerText = p.dataset.orgname;
     return elem;
 }
 
@@ -401,7 +404,7 @@ function showNextPlace() {
                 <ul class="events">
                     {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
                     
-                    <li><a class="event" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-hash="#{{ campaign_name }}_{{ event.locality }}" href="#{{ campaign_name }}_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div></a></li>
+                    <li><a class="event" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#{{ campaign_name }}_{{ event.locality }}" href="#{{ campaign_name }}_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div></a></li>
                     {% endfor %}
                 </ul>
             </li>
