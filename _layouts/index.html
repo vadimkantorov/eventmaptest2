@@ -1,1 +1,317 @@
-<html><body>Hello world</body></html>
+{% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
+{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/events/" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
+{% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="{{ campaign_name | xml_escape }}" />
+        <!--
+        <meta property="profile:username" content="(( site.github.owner_name | xml_escape ))" />
+        <meta property="og:title" content="zrxiv for (( site.github.owner_name | xml_escape )){% if tag != "recent" %}, #(( tag | xml_escape )){% endif %}" />
+        <meta property="og:url" content="(( site.github.url )){% if tag != "recent" %}/(( tag | xml_escape )){% endif %}" />
+        <meta property="og:image" content="(( site.github.url ))/logo.png" />
+        <link rel="icon" href="(( site.github.url ))/logo.png" />
+        <link rel="canonical" href="(( site.github.url )){% if tag != "recent" %}/(( tag | xml_escape )){% endif %}" />
+        <link rel="base" href="(( site.github.url ))">
+        -->
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+        <link href="https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png" rel="prefetch" id="link_marker_icon" type="image/png" />
+        <!--<script type="text/javascript"
+            src="https://cdn.jsdelivr.net/gh/hosuaby/Leaflet.SmoothMarkerBouncing@v3.0.2/dist/bundle.js"
+            crossorigin="anonymous"></script>-->
+        
+        <link href="https://tile.openstreetmap.org/{z}/{x}/{y}.png" id="link_tiles" />
+        <link href="https://maps.google.com/maps/place/{name}/@{lat},{lng},12z" id="link_maps_google_pattern" />
+        <link href="https://maps.apple.com/?q={name}&ll=@{lat},{lng}&z=12" id="link_maps_apple_pattern" />
+
+        <style>
+
+.visibilityhidden
+{
+visibility : hidden;
+}
+
+#container
+{
+display:flex;
+flex-direction:row;
+min-height:400px;
+}
+
+#picBox
+{
+flex:5;
+/*background-image:url(https://placeimg.com/1000/1000/tech);
+background-size:cover;
+background-repeat:no-repeat;
+background-position:center;*/
+}
+
+#map
+{
+flex:5;
+position:relative;
+border:1px solid red;
+}
+
+#infoBox
+{
+flex:20;
+border:1px solid blue;
+display:none;
+}
+
+.center
+{
+text-align:center
+}
+
+.header
+{
+text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
+}
+
+#campaigntitle
+{
+text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
+}
+
+#campaigndescription
+{
+text-align: center; color: rgb(0, 131, 214) !important;
+}
+
+.country
+{
+text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
+}
+#countries, .events, #allcampaigns
+{
+list-style-type: none;
+padding: 0px
+}
+.event, .campaign
+{
+color: #ffffff;
+text-align: center;
+text-decoration: none;
+}
+
+.campaign>a:link,.campaign>a:visited,.campaign>a:hover,.campaign>a:active,     .event>a:link, .event>a:visited,.event>a:hover, .event>a:active  
+{
+text-decoration:none; 
+color: inherit
+}
+
+.events > li
+{
+background-color: #0083d6;
+border-radius: 40px;
+}
+
+.campaignactive
+{
+background-color: rgba(0, 131, 216, 1.0);
+border-radius: 40px;
+}
+
+.campaigninactive
+{
+background-color: rgba(0, 131, 216, 0.7);
+border-radius: 40px;
+}
+
+.subtitle
+{
+opacity: 0.7;
+font-size: 90%;
+}
+
+
+
+.marker-highlighted {
+    border: 2px dashed #3388ff;
+    background-color: #3388ff4d;
+}
+
+@media screen and (min-width: 800px) {
+    #outer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        height: 400px;
+    }
+
+    #map {
+        flex: 5;
+        position: relative;
+        border: 1px solid red;
+    }
+
+    #eventphoto {
+        height: 100%;
+    }
+
+    #picBox {
+        flex: 5;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    #map {
+        height: 30vh;
+    }
+
+    #picBox {
+        padding-top: 0px; /*5px*/
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        text-align: center;
+    }
+
+    #eventphoto {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+
+
+        </style>
+
+        <script>
+
+function format_maps_link(link_pattern_id, event_dataset)
+{
+    const latlng = JSON.parse(event_dataset.latlng);
+    const url_pattern = decodeURI(document.getElementById(link_pattern_id).href);
+    return url_pattern.replace('{name}', event_dataset.locality.replace(' ', '+') + ',+' + event_dataset.country.replace(' ', '+')).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString())
+}
+
+function format_event_info(a)
+{
+    const elem = document.getElementById('info').cloneNode(true);
+    elem.querySelector('#place').innerText = `${a.dataset.locality}, ${a.dataset.country}`;
+    elem.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', a.dataset);
+    elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
+    elem.querySelector('#eventurl').href = a.dataset.eventurl;
+    elem.querySelector('#orgurl').href = a.dataset.orgurl;
+    elem.querySelector('#orgurl').innerText = a.dataset.orgname;
+    elem.querySelector('.eventdescription').innerHTML = '';
+    elem.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
+    return elem;
+}
+
+function navigate(hash)
+{
+    hash = hash || '';
+    const a = document.querySelector(`a[data-hash~="${hash}"]`), img = document.getElementById('eventphoto');
+    const info = document.getElementById('info');
+    if(a != null)
+    {
+        const div = format_event_info(a);
+        info.innerHTML = div.innerHTML;
+        img.dataset.photohrefs = a.dataset.photohrefs;
+        img.dataset.photohrefsidx = 0;
+        img.hidden = (img.dataset.photohrefs || '').length == 0;
+        img.src = img.hidden ? '' : a.dataset.photohrefs.split(';')[0];
+        info.classList.remove('visibilityhidden');
+    }
+    else
+    {
+        img.hidden = true;
+        info.classList.add('visibilityhidden');
+    }
+}
+
+function img_onclick()
+{
+    const img = document.getElementById('eventphoto');
+    if(!img.hidden)
+    {
+        const photohrefs = img.dataset.photohrefs.split(';');
+        const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
+        img.src = photohrefs[photohrefsidx];
+        img.dataset.photohrefsidx = photohrefsidx;
+    }
+}
+
+function body_onload()
+{
+    const map = L.map('map').setView([20, 0], 2);
+    L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {maxZoom: 19, attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'}).addTo(map);
+
+    const Icon = L.icon({iconUrl: decodeURI(document.getElementById('link_marker_icon').href), iconSize:     [20, 20], iconAnchor:   [10, 20],  popupAnchor:  [0, -10]  });
+
+    for(const a of document.querySelectorAll('.event'))
+    {
+        L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).bindPopup(format_event_info(a).innerHTML).on('click', () => window.location.hash = a.dataset.hash).addTo(map);
+    }
+
+    navigate(window.location.hash);
+}
+
+
+        </script>
+        
+        <title>All events</title>
+    </head>
+
+    <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
+    <div id="outer-container">
+        <h1>All events:</h1>
+        <hr />
+        <div id='container'>
+            <div id="map"></div>
+            <div id="picBox"><img onclick="img_onclick()" id="eventphoto" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto" alt="Event photo" src="" hidden></img></div>
+        </div>
+
+        <div id="info" class="visibilityhidden">
+            <h1 id="place">&nbsp;</h1>
+            <h3 id="address"><a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a></h3>
+            <h3><a target="_blank" id="eventurl">Event Link</a>&nbsp;by&nbsp;<a target="_blank" id="orgurl"></a></h3>
+            <p class="eventdescription"></p>
+        </div>
+
+        <hr />
+        <ul id="countries">
+        
+            {% for country_events in events_grouped_by_country %}
+            <li>
+                <div class="country">{{ country_events.name }}</div>
+                <ul class="events">
+                    {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
+                    
+                    <li><a class="event" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#_{{ event.locality }}" href="#_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+
+        </ul>
+    
+    </div>
+    </body>
+    
+    <footer>
+        <hr />
+        <div class="center subtitle">created with <a target="_blank" href="https://github.com/vadimkantorov/eventmap">https://github.com/vadimkantorov/eventmap</a></div>
+    </footer>
+
+</html>
