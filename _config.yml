@@ -3,6 +3,13 @@ data_dir: data
 #theme: no-theme
 
 defaults:
+  - scope:
+      path: "assets/css"
+
+  - scope:
+      path: "assets/img"
+    values:
+      image: true
   -
     scope:
       path: "data/campaigns/*.md"
