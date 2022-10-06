@@ -393,7 +393,7 @@ font-size: 90%;
         
         <hr />
         <h3 class="center">All campaigns:</h3>
-        <ul id="allcampaigns">{% for campaign in campaigns %}{% assign name_size = campaign.name | size | minus: 3 %}{% assign d = campaign.name | slice: 0, name_size %}<li class="campaign {% if d == campaign_name %}campaignactive{% else %}campaigninactive{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div><div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date "%B %-d" }}{{ campaign.date[1] " - %B %-d, %Y" }}{% else %}{{ campaign.date | date "%B %-d, %Y" }}{% endif %}</div></a></li>{% endfor %}</ul>
+        <ul id="allcampaigns">{% for campaign in campaigns %}{% assign name_size = campaign.name | size | minus: 3 %}{% assign d = campaign.name | slice: 0, name_size %}<li class="campaign {% if d == campaign_name %}campaignactive{% else %}campaigninactive{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date "%B %-d" }}{{ campaign.date[1] " - %B %-d, %Y" }}{% else %}{{ campaign.date | date "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
     
     </div>
     </body>
