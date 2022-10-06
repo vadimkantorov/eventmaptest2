@@ -37,6 +37,7 @@
         <link href="https://maps.apple.com/?q={name}&ll=@{lat},{lng}&z=12" id="link_maps_apple_pattern" />
 
         <style>
+
 .visibilityhidden
 {
 visibility : hidden;
@@ -139,223 +140,223 @@ font-size: 90%;
 }
 
 
-        .marker-highlighted {
-            border: 2px dashed #3388ff;
-            background-color: #3388ff4d;
-        }
 
-        @media screen and (min-width: 800px) {
-            #outer-container {
-                max-width: 1200px;
-                margin: 0 auto;
-            }
+.marker-highlighted {
+    border: 2px dashed #3388ff;
+    background-color: #3388ff4d;
+}
 
-            #container {
-                display: flex;
-                flex-direction: row;
-                height: 400px;
-            }
+@media screen and (min-width: 800px) {
+    #outer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-            #map {
-                flex: 5;
-                position: relative;
-                border: 1px solid red;
-            }
+    #container {
+        display: flex;
+        flex-direction: row;
+        height: 400px;
+    }
 
-            #eventphoto {
-                height: 100%;
-            }
+    #map {
+        flex: 5;
+        position: relative;
+        border: 1px solid red;
+    }
 
-            #picBox {
-                flex: 5;
-            }
-        }
+    #eventphoto {
+        height: 100%;
+    }
 
-        @media screen and (max-width: 799px) {
-            #map {
-                height: 30vh;
-            }
+    #picBox {
+        flex: 5;
+    }
+}
 
-            #picBox {
-                padding-top: 0px; /*5px*/
-                width: 100%;
-                aspect-ratio: 4 / 3;
-                text-align: center;
-            }
+@media screen and (max-width: 799px) {
+    #map {
+        height: 30vh;
+    }
 
-            #eventphoto {
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain;
-            }
-        }
+    #picBox {
+        padding-top: 0px; /*5px*/
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        text-align: center;
+    }
+
+    #eventphoto {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
 
 
 
         </style>
 
         <script>
-            function format_maps_link(link_pattern_id, event_dataset)
-            {
-                const latlng = JSON.parse(event_dataset.latlng);
-                const url_pattern = decodeURI(document.getElementById(link_pattern_id).href);
-                return url_pattern.replace('{name}', event_dataset.locality.replace(' ', '+') + ',+' + event_dataset.country.replace(' ', '+')).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString())
-            }
 
-            function format_event_info(p)
-            {
-                const elem = document.getElementById('info').cloneNode(true);
-                elem.querySelector('#locality').innerText = p.dataset.locality;
-                elem.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', p.dataset);
-                elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', p.dataset);
-                
-                return elem;
-            }
+function format_maps_link(link_pattern_id, event_dataset)
+{
+    const latlng = JSON.parse(event_dataset.latlng);
+    const url_pattern = decodeURI(document.getElementById(link_pattern_id).href);
+    return url_pattern.replace('{name}', event_dataset.locality.replace(' ', '+') + ',+' + event_dataset.country.replace(' ', '+')).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString())
+}
 
-            function navigate(hash)
-            {
-                hash = hash || '';
-                const a = document.querySelector(`a[data-hash~="${hash}"]`), img = document.getElementById('eventphoto');
-                const info = document.getElementById('info');
-                if(a != null)
-                {
-                    const div = format_event_info(a);
-                    info.innerHTML = div.innerHTML;
-                    img.dataset.photohrefs = a.dataset.photohrefs;
-                    img.dataset.photohrefsidx = 0;
-                    img.hidden = (img.dataset.photohrefs || '').length == 0;
-                    img.src = img.hidden ? '' : a.dataset.photohrefs.split(';')[0];
-                    info.classList.remove('visibilityhidden');
-                }
-                else
-                {
-                    img.hidden = true;
-                    info.classList.add('visibilityhidden');
-                }
-            }
+function format_event_info(p)
+{
+    const elem = document.getElementById('info').cloneNode(true);
+    elem.querySelector('#locality').innerText = `${p.dataset.locality$}, ${p.dataset.country}`;
+    elem.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', p.dataset);
+    elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', p.dataset);
+    return elem;
+}
 
-            function img_onclick()
-            {
-                const img = document.getElementById('eventphoto');
-                if(!img.hidden)
-                {
-                    const photohrefs = img.dataset.photohrefs.split(';');
-                    const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
-                    img.src = photohrefs[photohrefsidx];
-                    img.dataset.photohrefsidx = photohrefsidx;
-                }
-            }
+function navigate(hash)
+{
+    hash = hash || '';
+    const a = document.querySelector(`a[data-hash~="${hash}"]`), img = document.getElementById('eventphoto');
+    const info = document.getElementById('info');
+    if(a != null)
+    {
+        const div = format_event_info(a);
+        info.innerHTML = div.innerHTML;
+        img.dataset.photohrefs = a.dataset.photohrefs;
+        img.dataset.photohrefsidx = 0;
+        img.hidden = (img.dataset.photohrefs || '').length == 0;
+        img.src = img.hidden ? '' : a.dataset.photohrefs.split(';')[0];
+        info.classList.remove('visibilityhidden');
+    }
+    else
+    {
+        img.hidden = true;
+        info.classList.add('visibilityhidden');
+    }
+}
 
-            function body_onload()
-            {
-                const map = L.map('map').setView([20, 0], 2);
-                L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {maxZoom: 19, attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'}).addTo(map);
+function img_onclick()
+{
+    const img = document.getElementById('eventphoto');
+    if(!img.hidden)
+    {
+        const photohrefs = img.dataset.photohrefs.split(';');
+        const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
+        img.src = photohrefs[photohrefsidx];
+        img.dataset.photohrefsidx = photohrefsidx;
+    }
+}
 
-                const Icon = L.icon({iconUrl: decodeURI(document.getElementById('link_marker_icon').href), iconSize:     [20, 20], iconAnchor:   [10, 20],  popupAnchor:  [0, -10]  });
+function body_onload()
+{
+    const map = L.map('map').setView([20, 0], 2);
+    L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {maxZoom: 19, attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'}).addTo(map);
 
-                for(const a of document.querySelectorAll('.event'))
-                {
-                    L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).bindPopup(format_event_info(a).innerHTML).on('click', () => window.location.hash = a.dataset.hash).addTo(map);
-                }
+    const Icon = L.icon({iconUrl: decodeURI(document.getElementById('link_marker_icon').href), iconSize:     [20, 20], iconAnchor:   [10, 20],  popupAnchor:  [0, -10]  });
 
-                navigate(window.location.hash);
-            }
-        
-        /*document.addEventListener('DOMContentLoaded',
-            function () {
+    for(const a of document.querySelectorAll('.event'))
+    {
+        L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).bindPopup(format_event_info(a).innerHTML).on('click', () => window.location.hash = a.dataset.hash).addTo(map);
+    }
 
-                const data = {...};
+    navigate(window.location.hash);
+}
 
-                const map = L.map('map').setView([20, 0], 2);
-                L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {
-                    maxZoom: 19,
-                    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>'
-                }).addTo(map);
+/*//document.addEventListener('DOMContentLoaded', function () {
 
-                const bounds = L.latLngBounds(Object.values(data.places).map(place => place.latlng));
-                map.fitBounds(bounds);
+const data = {...};
 
-                const Icon = L.icon({
-                    iconUrl: decodeURI(document.getElementById('link_marker_icon').href),
-                    iconSize: [12, 20],
-                    iconAnchor: [6, 20],
-                    popupAnchor: [0, -10]
-                });
+const map = L.map('map').setView([20, 0], 2);
+L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
 
-                const template_popup = document.getElementsByTagName('template')[0],
-                    img = document.getElementById('photo'),
-                    info = document.getElementById('info');
+const bounds = L.latLngBounds(Object.values(data.places).map(place => place.latlng));
+map.fitBounds(bounds);
 
-                function showFirstPhoto(placeName) {
-                    const photos = data.places[placeName].photos;
-                    img.src = photos.length > 0 ? photos[0] : '';
-                    img.dataset.hrefidx = '0';
-                    img.onclick = () => {
-                        showNextPhoto(placeName);
-                        stopPlacesSlideshow();
-                    }
-                }
+const Icon = L.icon({
+    iconUrl: decodeURI(document.getElementById('link_marker_icon').href),
+    iconSize: [12, 20],
+    iconAnchor: [6, 20],
+    popupAnchor: [0, -10]
+});
 
-                function showNextPhoto(placeName) {
-                    const photos = data.places[placeName].photos;
-                    if (photos.length > 0) {
-                        const hrefidx = (1 + parseInt(img.dataset.hrefidx)) % photos.length;
-                        img.src = photos[hrefidx];
-                        img.dataset.hrefidx = hrefidx.toString();
-                    }
-                }
+const template_popup = document.getElementsByTagName('template')[0],
+    img = document.getElementById('photo'),
+    info = document.getElementById('info');
 
-                function onclick_popup(placeName, div) {
-                    info.innerHTML = div.innerHTML;
-                    showFirstPhoto(placeName);
-                }
+function showFirstPhoto(placeName) {
+    const photos = data.places[placeName].photos;
+    img.src = photos.length > 0 ? photos[0] : '';
+    img.dataset.hrefidx = '0';
+    img.onclick = () => {
+        showNextPhoto(placeName);
+        stopPlacesSlideshow();
+    }
+}
 
-                function highlightMarker(placeName) {
-                    Object.values(data.places).forEach(place => { L.DomUtil.removeClass(place.marker._icon,'marker-highlighted') });
-                    L.DomUtil.addClass(data.places[placeName].marker._icon,'marker-highlighted');
-                }
+function showNextPhoto(placeName) {
+    const photos = data.places[placeName].photos;
+    if (photos.length > 0) {
+        const hrefidx = (1 + parseInt(img.dataset.hrefidx)) % photos.length;
+        img.src = photos[hrefidx];
+        img.dataset.hrefidx = hrefidx.toString();
+    }
+}
 
-                for (const [place_name, p] of Object.entries(data.places)) {
-                    const elem = template_popup.content.cloneNode(true);
-                    const h1 = elem.querySelector('#locality'), a = elem.querySelector('#maplink');
+function onclick_popup(placeName, div) {
+    info.innerHTML = div.innerHTML;
+    showFirstPhoto(placeName);
+}
 
-                    const href = decodeURI(a.href).replace('{name}', p.locality).replace('{lat}', p.latlng[0].toString()).replace('{lng}', p.latlng[1].toString());
-                    // const photos = p.photos || [];
+function highlightMarker(placeName) {
+    Object.values(data.places).forEach(place => { L.DomUtil.removeClass(place.marker._icon,'marker-highlighted') });
+    L.DomUtil.addClass(data.places[placeName].marker._icon,'marker-highlighted');
+}
 
-                    h1.innerText = p.locality;
-                    a.innerText = p.locality;
-                    a.href = href;
+for (const [place_name, p] of Object.entries(data.places)) {
+    const elem = template_popup.content.cloneNode(true);
+    const h1 = elem.querySelector('#locality'), a = elem.querySelector('#maplink');
 
-                    const div = document.createElement('div');
-                    div.append(elem);
-                    const marker = L.marker(p.latlng, {icon: Icon});
-                    marker.bindPopup(div.innerHTML).on('click', () => {
-                        onclick_popup(place_name, div)
-                    }).addTo(map);
-                    p['marker'] = marker;
-                }
+    const href = decodeURI(a.href).replace('{name}', p.locality).replace('{lat}', p.latlng[0].toString()).replace('{lng}', p.latlng[1].toString());
+    // const photos = p.photos || [];
 
-                let currentPlaceIdx = 0;
-                const placeNames = Object.keys(data.places);
+    h1.innerText = p.locality;
+    a.innerText = p.locality;
+    a.href = href;
 
-                function stopPlacesSlideshow() {
-                    clearInterval(slideshowInterval);
-                }
+    const div = document.createElement('div');
+    div.append(elem);
+    const marker = L.marker(p.latlng, {icon: Icon});
+    marker.bindPopup(div.innerHTML).on('click', () => {
+        onclick_popup(place_name, div)
+    }).addTo(map);
+    p['marker'] = marker;
+}
 
-                function showNextPlace() {
-                    const placeName = placeNames[currentPlaceIdx];
-                    highlightMarker(placeName);
-                    showFirstPhoto(placeName);
-                    currentPlaceIdx += 1;
-                    if (currentPlaceIdx >= placeNames.length) {
-                        // currentPlaceIdx = 0;
-                        stopPlacesSlideshow();
-                    }
-                }
-                showNextPlace();
-                const slideshowInterval = setInterval(showNextPlace, 7000);
-            });
-        */
+let currentPlaceIdx = 0;
+const placeNames = Object.keys(data.places);
+
+function stopPlacesSlideshow() {
+    clearInterval(slideshowInterval);
+}
+
+function showNextPlace() {
+    const placeName = placeNames[currentPlaceIdx];
+    highlightMarker(placeName);
+    showFirstPhoto(placeName);
+    currentPlaceIdx += 1;
+    if (currentPlaceIdx >= placeNames.length) {
+        // currentPlaceIdx = 0;
+        stopPlacesSlideshow();
+    }
+}
+
+//showNextPlace();
+//const slideshowInterval = setInterval(showNextPlace, 7000);
+*/
 
         </script>
         
