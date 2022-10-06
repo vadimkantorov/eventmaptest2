@@ -222,7 +222,7 @@ function showNextPlace() {
 
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
-        <h1 id="campaigntitle">{{ page.title }}</h1>
+        <h1 id="campaigntitle"><a href="">{{ page.title }}</a></h1>
         <!--<h3 class="center">telegram: <a href="{{ page.telegram }}">{{ page.telegram }}</a></h3>-->
         <div id="campaigndescription">{{ page.content | markdownify }}</div>
         <hr />
