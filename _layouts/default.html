@@ -215,7 +215,7 @@ function format_event_info(a)
     elem.querySelector('#orgurl').href = a.dataset.orgurl;
     elem.querySelector('#orgurl').innerText = a.dataset.orgname;
     elem.querySelector('.eventdescription').innerHTML = '';
-    elem.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild);
+    elem.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
     return elem;
 }
 
