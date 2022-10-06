@@ -245,7 +245,7 @@ function showNextPlace() {
             <li>
                 <div class="country">{{ country_events.name }}</div>
                 <ul class="events">
-                    {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign event_hash = event.path | remove: "data/events/", "" | replace: "/", "_" %}
+                    {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign event_hash = event.path | remove: "data/events/" | replace: "/", "_" %}
                     
                     <li><a class="event" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#{{ event_hash }}" href="#{{ event_hash }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
                     {% endfor %}
