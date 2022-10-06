@@ -214,8 +214,8 @@ function format_event_info(a)
     elem.querySelector('#eventurl').href = a.dataset.eventurl;
     elem.querySelector('#orgurl').href = a.dataset.orgurl;
     elem.querySelector('#orgurl').innerText = a.dataset.orgname;
-    elem.querySelector('#eventdescription').innerHTML = '';
-    elem.querySelector('#eventdescription').appendChild(a.querySelector('.eventdescription').firstChild);
+    elem.querySelector('.eventdescription').innerHTML = '';
+    elem.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild);
     return elem;
 }
 
@@ -394,7 +394,7 @@ function showNextPlace() {
             <h1 id="place">&nbsp;</h1>
             <h3 id="address"><a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a></h3>
             <h3><a target="_blank" id="eventurl">Event Link</a>&nbsp;by&nbsp;<a target="_blank" id="orgurl"></a></h3>
-            <p id="orgmessage" class="eventdescription">Organizer short message</p>
+            <p class="eventdescription"></p>
         </div>
 
         <hr />
