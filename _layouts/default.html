@@ -205,15 +205,17 @@ function format_maps_link(link_pattern_id, event_dataset)
     return url_pattern.replace('{name}', event_dataset.locality.replace(' ', '+') + ',+' + event_dataset.country.replace(' ', '+')).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString())
 }
 
-function format_event_info(p)
+function format_event_info(a)
 {
     const elem = document.getElementById('info').cloneNode(true);
-    elem.querySelector('#place').innerText = `${p.dataset.locality}, ${p.dataset.country}`;
-    elem.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', p.dataset);
-    elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', p.dataset);
-    elem.querySelector('#eventurl').href = p.dataset.eventurl;
-    elem.querySelector('#orgurl').href = p.dataset.orgurl;
-    elem.querySelector('#orgurl').innerText = p.dataset.orgname;
+    elem.querySelector('#place').innerText = `${a.dataset.locality}, ${a.dataset.country}`;
+    elem.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', a.dataset);
+    elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
+    elem.querySelector('#eventurl').href = a.dataset.eventurl;
+    elem.querySelector('#orgurl').href = a.dataset.orgurl;
+    elem.querySelector('#orgurl').innerText = a.dataset.orgname;
+    elem.querySelector('#eventdescription').innerHTML = '';
+    elem.querySelector('#eventdescription').appendChild(a.querySelector('.eventdescription').firstChild);
     return elem;
 }
 
@@ -392,7 +394,7 @@ function showNextPlace() {
             <h1 id="place">&nbsp;</h1>
             <h3 id="address"><a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a></h3>
             <h3><a target="_blank" id="eventurl">Event Link</a>&nbsp;by&nbsp;<a target="_blank" id="orgurl"></a></h3>
-            <p id="orgmessage">Organizer short message</p>
+            <p id="orgmessage" class="eventdescription">Organizer short message</p>
         </div>
 
         <hr />
@@ -404,7 +406,7 @@ function showNextPlace() {
                 <ul class="events">
                     {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
                     
-                    <li><a class="event" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#{{ campaign_name }}_{{ event.locality }}" href="#{{ campaign_name }}_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div></a></li>
+                    <li><a class="event" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#{{ campaign_name }}_{{ event.locality }}" href="#{{ campaign_name }}_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></template></a></li>
                     {% endfor %}
                 </ul>
             </li>
