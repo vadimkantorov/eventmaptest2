@@ -1,5 +1,7 @@
 data_dir: data
 
+theme: no-theme
+
 defaults:
   -
     scope:
