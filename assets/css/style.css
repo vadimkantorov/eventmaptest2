@@ -78,9 +78,15 @@ text-decoration:none;
 color: inherit
 }
 
-.events > li
+.eventactive
 {
-background-color: #0083d6;
+background-color: rgba(0, 131, 216, 1.0);
+border-radius: 40px;
+}
+
+.eventinactive
+{
+background-color: rgba(0, 131, 216, 0.7);
 border-radius: 40px;
 }
 
