@@ -115,12 +115,12 @@ function body_onload()
 
 function switch_upcoming_campaigns(today_YYYY_MM_DD)
 {
-    document.querySelectorAll('.campaign').filter(li => li.dataset.dateend >= today_YYYY_MM_DD).map(li => li.classList.add('campaignactive') && li.classList.remove('campaigninactive'));
+    Array.from(document.querySelectorAll('.campaign')).filter(li => li.dataset.dateend >= today_YYYY_MM_DD).map(li => li.classList.add('campaignactive') && li.classList.remove('campaigninactive'));
 }
 
 function switch_upcoming_events(today_YYYY_MM_DD)
 {
-    document.querySelectorAll('.event').filter(a => a.dataset.date >= today_YYYY_MM_DD).map(a => a.classList.add('eventactive') && a.classList.remove('eventinactive'));
+    Array.from(document.querySelectorAll('.event')).filter(a => a.dataset.date >= today_YYYY_MM_DD).map(a => a.classList.add('eventactive') && a.classList.remove('eventinactive'));
 }
         </script>
         
