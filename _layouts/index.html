@@ -151,11 +151,29 @@ function switch_upcoming_events(today_YYYY_MM_DD)
         
         <hr />
         <h3 class="header">Upcoming events everywhere</h3>
-        <ul class="countries">
+        <ul>
+        
+            {% for country_events in events_grouped_by_country %}
+            <li>
+                <div class="country">{{ country_events.name }}</div>
+                <ul class="events">
+                    {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
+                    
+                    <li class="eventinactive"><a class="event" data-date="{{ event.date }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#_{{ event.locality }}" href="#_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+
         </ul>
 
         <hr />
+        
+        <details>
+        <summary>
         <h3 class="header">All events</h3>
+        </summary>
+
         <ul id="countries">
         
             {% for country_events in events_grouped_by_country %}
@@ -172,6 +190,8 @@ function switch_upcoming_events(today_YYYY_MM_DD)
 
         </ul>
         
+        </details>
+
         <hr />
         <h3 class="header">All campaigns</h3> 
         <ul id="allcampaigns">{% for campaign in campaigns %}{% assign name_size = campaign.name | size | minus: 3 %}{% assign d = campaign.name | slice: 0, name_size %}<li class="campaign campaigninactive" {% if campaign.date.first %} data-datebegin="{{ campaign.date[0] }}" data-dateend="{{ campaign.date[1] }}"{% else %} data-datebegin=""{{ campaign.date }}" data-dateend="{{ campaign.date }}" {% endif %}><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date: "%B %-d" }}{{ campaign.date[1] | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
