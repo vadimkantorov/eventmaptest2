@@ -82,35 +82,12 @@ function body_onload()
         <hr />
         <h3 class="header">Upcoming events in your country: <span id="country"></span></h3>
         <ul class="events">
-            {% for country_events in events_grouped_by_country %}
-            <li>
-                <div class="country">{{ country_events.name }}</div>
-                <ul class="events">
-                    {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
-                    
-                    <li class="eventactive"><a class="event" data-date="{{ event.date }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#_{{ event.locality }}" href="#_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
-                    {% endfor %}
-                </ul>
-                {% break %}
-            </li>
-            {% endfor %}
         </ul>
         
         <hr />
         <h3 class="header">Upcoming events everywhere</h3>
         <ul class="events">
         
-            {% for country_events in events_grouped_by_country %}
-            <li>
-                <div class="country">{{ country_events.name }}</div>
-                <ul class="events">
-                    {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
-                    
-                    <li class="eventactive"><a class="event" data-date="{{ event.date }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#_{{ event.locality }}" href="#_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
-                    {% endfor %}
-                </ul>
-            </li>
-            {% endfor %}
 
         </ul>
 
@@ -151,7 +128,7 @@ function body_onload()
     
     <footer>
         <hr />
-        <div class="center subtitle">created with <a target="_blank" href="https://github.com/vadimkantorov/eventmap">https://github.com/vadimkantorov/eventmap</a></div>
+        <div class="center subtitle">created with <a target="_blank" href="https://github.com/vadimkantorov/eventmap">https://github.com/vadimkantorov/eventmap</a>, page generated at {{ site.time | date: '%B %d, %Y %H:%M:%S' }}</div>
     </footer>
 
 </html>
