@@ -602,3 +602,10 @@ function populate_upcoming_events_in_country(today_YYYY_MM_DD, country)
     document.getElementById('country').innerText = country;
     document.getElementById('upcomingeventsincountry').append(...lis);
 }
+
+function populate_upcoming_events_in_everywhere(today_YYYY_MM_DD)
+{
+    const lis = Array.from(document.querySelectorAll(`.events > li:has(>a)`)).filter(li => li.dataset.date >= today_YYYY_MM_DD);
+
+    document.getElementById('upcomingeventseverywhere').append(...lis);
+}
