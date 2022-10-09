@@ -485,7 +485,8 @@ function discover_current_country()
 };
 
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    return timezone2country[timezone];
+    console.log(timezone2country[timezone]);
+    return 'UK';
 }
 
 
