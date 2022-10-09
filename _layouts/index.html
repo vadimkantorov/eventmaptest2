@@ -46,11 +46,6 @@ function body_onload()
 
     const Icon = L.icon({iconUrl: decodeURI(document.getElementById('link_marker_icon').href), iconSize:     [20, 20], iconAnchor:   [10, 20],  popupAnchor:  [0, -10]  });
 
-    for(const a of document.querySelectorAll('.event'))
-    {
-        L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).bindPopup(format_event_info(a).innerHTML).on('click', () => window.location.hash = a.dataset.hash).addTo(map);
-    }
-
     const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
     const current_country = discover_current_country();
 
@@ -58,6 +53,12 @@ function body_onload()
     switch_upcoming_events(today_YYYY_MM_DD);
     populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
     populate_upcoming_events_everywhere(today_YYYY_MM_DD);
+    
+    for(const a of document.querySelectorAll('#upcomingeventseverywhere > .event'))
+    {
+        L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).bindPopup(format_event_info(a).innerHTML).on('click', () => window.location.hash = a.dataset.hash).addTo(map);
+    }
+
 
     navigate(window.location.hash);
 }
