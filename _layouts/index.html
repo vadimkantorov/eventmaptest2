@@ -46,11 +46,12 @@ function body_onload()
 
     const Icon = L.icon({iconUrl: decodeURI(document.getElementById('link_marker_icon').href), iconSize:     [20, 20], iconAnchor:   [10, 20],  popupAnchor:  [0, -10]  });
 
-    const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
     const current_country = discover_current_country();
-
+    
+    const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
     switch_upcoming_campaigns(today_YYYY_MM_DD);
     switch_upcoming_events(today_YYYY_MM_DD);
+    
     populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
     populate_upcoming_events_everywhere(today_YYYY_MM_DD);
     
