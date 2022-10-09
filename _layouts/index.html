@@ -52,8 +52,11 @@ function body_onload()
     }
 
     const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
+    const country = discover_current_country();
+
     switch_upcoming_campaigns(today_YYYY_MM_DD);
     switch_upcoming_events(today_YYYY_MM_DD);
+    populate_upcoming_events_in_country(today_YYYY_MM_DD, country);
 
     navigate(window.location.hash);
 }
@@ -80,25 +83,20 @@ function body_onload()
         
 
         <hr />
-        <h3 class="header">Upcoming events in your country: <span id="country"></span></h3>
-        <ul class="events">
-        </ul>
+        <h3 class="header">Upcoming events in <span id="country"></span></h3>
+        <ul class="events" id="upcomingeventsincountry"></ul>
         
         <hr />
         <h3 class="header">Upcoming events everywhere</h3>
-        <ul class="events">
-        
-
-        </ul>
+        <ul class="events" id="upcomingeventseverywhere"></ul>
 
         <hr />
-        
         <details>
         <summary class="center">
         <span class="header">All events</span>
         </summary>
 
-        <ul id="countries">
+        <ul id="allevents">
         
             {% for country_events in events_grouped_by_country %}
             <li>
@@ -107,7 +105,7 @@ function body_onload()
                     {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
                     
                     {% for campaign in site.pages %}{% assign campaign_path = campaign.path | replace: ".md", "" | replace: "campaigns", "events" | append: "/" %}{% if campaign.path contains "data/campaigns/" and event.dir contains campaign_path %}
-                    <li class="eventinactive"><a class="event" data-date="{{ event.date }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#_{{ event.locality }}" href="#_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }} ({{ campaign.title }})</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+                    <li class="eventinactive" data-date="{{ event.date }}" ><a class="event" data-date="{{ event.date }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#_{{ event.locality }}" href="#_{{ event.locality }}"><div>{{ event.locality }}, {{ event.location }} ({{ campaign.title }})</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
                     {% endif %}{% endfor %}
                     
                     {% endfor %}

@@ -53,7 +53,7 @@ function img_onclick()
     }
 }
 
-function filter_events()
+function discover_current_country()
 {
     // https://www.techighness.com/post/get-user-country-and-region-on-browser-with-javascript-only/
     const timezone2country = {
@@ -484,9 +484,8 @@ function filter_events()
   "Africa/Harare": "Zimbabwe"
 };
 
-    const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    userCountry = timezone2country[timezone];
+    return timezone2country[timezone];
 }
 
 
@@ -587,10 +586,18 @@ function showNextPlace() {
 
 function switch_upcoming_campaigns(today_YYYY_MM_DD)
 {
-    Array.from(document.querySelectorAll('.campaign')).filter(li => li.dataset.dateend >= today_YYYY_MM_DD).map(li => li.classList.add('campaignactive') && li.classList.remove('campaigninactive'));
+    Array.from(document.querySelectorAll('#allcampaigns > .campaign')).filter(li => li.dataset.dateend >= today_YYYY_MM_DD).map(li => li.classList.add('campaignactive') && li.classList.remove('campaigninactive'));
 }
 
 function switch_upcoming_events(today_YYYY_MM_DD)
 {
-    Array.from(document.querySelectorAll('.event')).map(a => a.parentElement).filter(li => li.dataset.date >= today_YYYY_MM_DD).map(li => li.classList.add('eventactive') && li.classList.remove('eventinactive'));
+    Array.from(document.querySelectorAll('#allevents > .event')).map(a => a.parentElement).filter(li => li.dataset.date >= today_YYYY_MM_DD).map(li => li.classList.add('eventactive') && li.classList.remove('eventinactive'));
+}
+
+function populate_upcoming_events_in_country(today_YYYY_MM_DD, country)
+{
+    const lis = Array.from(document.querySelectorAll(`.events > li:has(>a[data-country="${country}"])`)).filter(li => li.dataset.date >= today_YYYY_MM_DD);
+
+    document.getElementById('country').innerText = country;
+    document.getElementById('upcomingeventsincountry').append(...lis);
 }
