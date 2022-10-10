@@ -492,12 +492,10 @@ var slideshow = null;
 
 function slideshow_toggle(interval_millis = 7000)
 {
-    console.log('before', slideshow, '}');
-    if(slideshow === null)
-        slideshow = setInterval(slideshow_tick, interval_millis);
-    else
+    if(slideshow != null)
         slideshow = clearInterval(slideshow);
-    console.log('after', slideshow, '}');
+    else
+        slideshow = setInterval(slideshow_tick, interval_millis);
 }
 
 function slideshow_tick()
