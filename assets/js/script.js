@@ -502,7 +502,7 @@ function slideshow_tick()
     
     const photohrefs = img.dataset.photohrefs.split(';');
     const photohrefsidx = img.dataset.photohrefsidx != '' ? 1 + parseInt(img.dataset.photohrefsidx) : '0';
-    if(photohrefsidx < photohrefs.length)
+    if(img.dataset.photohrefs != '' && photohrefsidx < photohrefs.length)
     {
         img.src = photohrefs[photohrefsidx];
         img.dataset.photohrefsidx = photohrefsidx.toString();
