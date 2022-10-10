@@ -40,7 +40,9 @@ function format_event_info(a)
     elem.querySelector('#orgurl').href = a.dataset.orgurl;
     elem.querySelector('#orgurl').innerText = a.dataset.orgname;
     elem.querySelector('.eventdescription').innerHTML = '';
+    console.log('before appendChild', elem.querySelector('.eventdescription').innerHTML, a.querySelector('.eventdescription').firstChild.cloneNode(true));
     elem.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
+    console.log('after appendChild', elem.querySelector('.eventdescription').innerHTML);
     return elem;
 }
 
