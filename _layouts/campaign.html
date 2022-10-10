@@ -71,17 +71,6 @@ function body_onload()
 
         <title>{{ page.title }}</title>
     </head>
-    <!--<header>
-        Places: <pre>{{ events | jsonify }}</pre>
-        <ul>{% for p in site.static_files %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
-        <pre>{{ events_grouped_by_country | jsonify }}</pre>
-        <h3>Pages</h3>
-        Page: <pre>{{ page | jsonify }}</pre>
-        Pages: <ul>{% for p in site.pages %}<li><pre>{{ p | jsonify }}</pre></li>{% endfor %}</ul>
-        <h3>Site</h3>
-        <pre>{{ site | jsonify }}</pre>
-    </header>-->
-    
 
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
