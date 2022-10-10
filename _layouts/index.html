@@ -1,5 +1,5 @@
 {% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
-{% assign campaign = "" %}{% for p in site.pages %}{% if p.path == "data/index.md" %}{% assign campaign = p %}{% endif %}{% endfor %}
+{% assign index = page %}
 {% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/events/" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 
@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta property="og:locale" content="en_US" />
-        <meta property="og:site_name" content="{{ campaign_name | xml_escape }}" />
+        <meta property="og:site_name" content="{{ index.title | xml_escape }}" />
         <!--
         <meta property="profile:username" content="(( site.github.owner_name | xml_escape ))" />
         <meta property="og:title" content="zrxiv for (( site.github.owner_name | xml_escape )){% if tag != "recent" %}, #(( tag | xml_escape )){% endif %}" />
@@ -73,8 +73,8 @@ function body_onload()
 
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
-        <h1 id="campaigntitle"><a href="">{{ page.title }}</a></h1>
-        <div id="campaigndescription">{{ page.content | markdownify }}</div>
+        <h1 id="campaigntitle"><a href="">{{ index.title }}</a></h1>
+        <div id="campaigndescription">{{ index.content | markdownify }}</div>
         <hr />
         <div id='container'>
             <div id="map"></div>
