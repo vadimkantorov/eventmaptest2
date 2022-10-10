@@ -46,8 +46,10 @@ function body_onload()
 
     const Icon = L.icon({iconUrl: decodeURI(document.getElementById('link_marker_icon').href), iconSize:     [20, 20], iconAnchor:   [10, 20],  popupAnchor:  [0, -10]  });
 
-    const current_country = discover_current_country();
+    slideshow_init(Array.from(document.querySelectorAll('a.event')).filter(a => a.dataset.photohrefs != '').map(a => a.dataset.hash));
     
+    const current_country = discover_current_country();
+
     const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
     switch_upcoming_campaigns(today_YYYY_MM_DD);
     switch_upcoming_events(today_YYYY_MM_DD);
@@ -76,6 +78,8 @@ function body_onload()
             <div id="map"></div>
             <div id="picBox"><img onclick="img_onclick()" id="eventphoto" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto" alt="Event photo" src="" hidden></img></div>
         </div>
+        
+        <span><input data-hash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_toggle" data-hash="" onchange="slideshow_toggle()" /><label for="slideshow_toggle">&nbsp;slideshow</label></span>
 
         <div id="info" class="visibilityhidden">
             <h1 id="place">&nbsp;</h1>
