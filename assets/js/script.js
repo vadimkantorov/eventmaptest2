@@ -487,10 +487,10 @@ function slideshow_init(event_hash_list)
     document.getElementById('slideshow_toggle').dataset.hash = event_hash_list.join(';');
 }
 
-function slideshow_toggle(interval_millis = 7000)
+function slideshow_toggle(stop, interval_millis = 7000)
 {
     const hash = document.getElementById('slideshow_toggle').dataset.hash;
-    slideshow = slideshow != null || hash == null || hash == '' ? clearInterval(slideshow) : setInterval(slideshow_tick, interval_millis)
+    slideshow = stop == true || slideshow != null || hash == null || hash == '' ? (slideshow != null ? clearInterval(slideshow) : null) : setInterval(slideshow_tick, interval_millis)
 }
 
 function slideshow_tick()
@@ -545,6 +545,7 @@ function img_onclick()
     const img = document.getElementById('eventphoto');
     if(!img.hidden)
     {
+        slideshow_toggle(true);
         const photohrefs = img.dataset.photohrefs.split(';');
         const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
         img.src = photohrefs[photohrefsidx];
