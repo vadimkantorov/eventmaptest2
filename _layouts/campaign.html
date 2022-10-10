@@ -12,7 +12,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
         
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:description" content="Event map [{{ campaign.title | xml_escape }}]" />
@@ -123,9 +122,21 @@ function body_onload()
             {% endfor %}
 
         </ul>
+        <hr />
+        <ul id="allevents" class="events">
+        
+            {% for country_events in events_grouped_by_country %}
+            <li><div class="country">{{ country_events.name }}</div></li>
+
+                    {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign event_hash = event.path | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" %}
+                    
+                    <li class="eventinactive"><a class="event" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#{{ event_hash }}" href="#{{ event_hash }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+                    {% endfor %}
+            {% endfor %}
+
+        </ul>
         
         <hr />
-        
         <h3 class="header">All campaigns</h3>
         <nav>
             <ul id="allcampaigns">{% for campaign in campaigns %}{% assign name_size = campaign.name | size | minus: 3 %}{% assign d = campaign.name | slice: 0, name_size %}<li class="campaign {% if d == campaign_name %}campaignactive{% else %}campaigninactive{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date: "%B %-d" }}{{ campaign.date[1] | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
