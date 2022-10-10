@@ -497,7 +497,7 @@ function slideshow_toggle(interval_millis = 7000)
 
 function slideshow_tick()
 {
-    console.log('tick');
+    img_onclick();
 }
 
 /*
