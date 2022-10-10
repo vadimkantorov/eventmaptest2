@@ -1,5 +1,5 @@
-#slideshow_toggle::after {content: "\00a0\00a0\00a0\00a0Start slideshow";}
-#slideshow_toggle:checked::after {content: "\00a0\00a0\00a0\00a0Stop slideshow";}
+#slideshow_toggle+label::before {content: "Start";} /*\00a0\00a0 */
+#slideshow_toggle:checked+label::before {content: "Stop";}
 
 .visibilityhidden
 {
