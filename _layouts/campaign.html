@@ -16,14 +16,14 @@
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:description" content="Event map [{{ campaign.title | xml_escape }}]" />
         <meta property="og:site_name"    content="Event map [{{ index.title    | xml_escape }}]" />
-        <meta property="og:title"        content="Event map [{{ campaign.title | xml_escape }}]"  />
+        <meta property="og:title"        content="Event map [{{ campaign.title | xml_escape }}]" />
         <meta property="twitter:title"   content="Event map [{{ campaign.title | xml_escape }}]" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="{{ site.github.url }}" />
-        <link rel="canonical"      href="{{ site.github.url }}" />
+        <meta property="og:url" content="{{ site.github.url }}{{ page.url }}" />
+        <link rel="canonical"      href="{{ site.github.url }}{{ page.url }}" />
         
-        <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":{{ campaign.title | jsonify }},"name": {{ campaign.title | jsonify }},"url":"{{ site.github.url }}}</script>
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":{{ campaign.title | jsonify }},"name": {{ campaign.title | jsonify }},"url":"{{ site.github.url }}{{ page.url }}" }</script>
 
 <!--
         <meta property="og:image" content="(( site.github.url ))/logo.png" />
