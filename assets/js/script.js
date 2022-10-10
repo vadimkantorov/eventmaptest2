@@ -542,6 +542,14 @@ function navigate(hash)
         img.hidden = (img.dataset.photohrefs || '').length == 0;
         img.src = img.hidden ? '' : a.dataset.photohrefs.split(';')[0];
         info.classList.remove('visibilityhidden');
+
+        const prev_icon = document.querySelector('.markerhighlighted');
+        if(prev_icon != null)
+            prev_icon.classList.remove('markerhighlighted');
+        
+        const next_icon = document.getElementById(a.dataset.hash.replace('#', 'marker_icon_'));
+        if(next_icon != null)
+            next_icon.classList.add('markerhighlighted');
     }
     else
     {
