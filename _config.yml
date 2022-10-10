@@ -20,7 +20,7 @@ defaults:
       path: "data/index.md"
     values:
       permalink: /index.html
-      layout: foo
+      layout: index
       
 plugins:
   - jekyll-optional-front-matter
