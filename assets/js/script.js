@@ -492,7 +492,7 @@ function slideshow_toggle(stop, interval_millis = 7000)
     const input = document.getElementById('slideshow_toggle');
     const hash = input.dataset.hash;
     console.log('Checked', input.checked);
-    slideshow = stop == true || slideshow != null || hash == null || hash == '' ? (slideshow != null ? clearInterval(slideshow) : null) : setInterval(slideshow_tick, interval_millis)
+    slideshow = stop == true || slideshow != null || hash == null || hash == '' ? (slideshow != null ? clearInterval(slideshow) : null) : (slideshow_tick() || setInterval(slideshow_tick, interval_millis));
 }
 
 function slideshow_tick()
@@ -505,7 +505,7 @@ function slideshow_tick()
     if(photohrefsidx < photohrefs.length)
     {
         img.src = photohrefs[photohrefsidx];
-        img.dataset.photohrefsidx = photohrefsidx;
+        img.dataset.photohrefsidx = photohrefsidx.toString();
     }
     else
     {
@@ -555,12 +555,10 @@ function img_onclick()
     }
 }
 
-/*
-map.fitBounds(L.latLngBounds(Object.values(data.places).map(place => place.latlng)));
-
-function highlightMarker(placeName) {
-    Object.values(data.places).forEach(place => { L.DomUtil.removeClass(place.marker._icon,'marker-highlighted') });
+/*map.fitBounds(L.latLngBounds(Object.values(data.places).map(place => place.latlng)));
+function highlightMarker(placeName)
+{
+    Object.values(data.places).forEach(place => L.DomUtil.removeClass(place.marker._icon,'marker-highlighted'));
     L.DomUtil.addClass(data.places[placeName].marker._icon,'marker-highlighted');
-}
-*/
+}*/
 
