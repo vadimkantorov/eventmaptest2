@@ -1,5 +1,10 @@
-#slideshow_toggle+label::before {content: "Start";} /*\00a0\00a0 */
-#slideshow_toggle:checked+label::before {content: "Stop";}
+.markerhighlighted {
+    border: 2px dashed #3388ff;
+    background-color: #3388ff4d;
+}
+
+#slideshow_toggle+label::before         {content: "Start";}
+#slideshow_toggle:checked+label::before {content: "Stop" ;}
 
 .visibilityhidden
 {
@@ -109,13 +114,6 @@ border-radius: 40px;
 {
 opacity: 0.7;
 font-size: 90%;
-}
-
-
-
-.marker-highlighted {
-    border: 2px dashed #3388ff;
-    background-color: #3388ff4d;
 }
 
 @media screen and (min-width: 800px) {

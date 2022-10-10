@@ -562,11 +562,3 @@ function img_onclick()
         img.dataset.photohrefsidx = photohrefsidx;
     }
 }
-
-/*map.fitBounds(L.latLngBounds(Object.values(data.places).map(place => place.latlng)));
-function highlightMarker(placeName)
-{
-    Object.values(data.places).forEach(place => L.DomUtil.removeClass(place.marker._icon,'marker-highlighted'));
-    L.DomUtil.addClass(data.places[placeName].marker._icon,'marker-highlighted');
-}*/
-
