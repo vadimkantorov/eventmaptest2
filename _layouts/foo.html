@@ -1,0 +1,135 @@
+{% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
+{% assign index = page %}
+{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/events/" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
+{% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="{{ index.title | xml_escape }}" />
+        <!--
+        <meta property="profile:username" content="(( site.github.owner_name | xml_escape ))" />
+        <meta property="og:title" content="zrxiv for (( site.github.owner_name | xml_escape )){% if tag != "recent" %}, #(( tag | xml_escape )){% endif %}" />
+        <meta property="og:url" content="(( site.github.url )){% if tag != "recent" %}/(( tag | xml_escape )){% endif %}" />
+        <meta property="og:image" content="(( site.github.url ))/logo.png" />
+        <link rel="icon" href="(( site.github.url ))/logo.png" />
+        <link rel="canonical" href="(( site.github.url )){% if tag != "recent" %}/(( tag | xml_escape )){% endif %}" />
+        <link rel="base" href="(( site.github.url ))">
+        -->
+        <link rel="stylesheet" href="assets/css/style.css" />
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+        <link href="https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png" rel="prefetch" id="link_marker_icon" type="image/png" />
+        <!--<script type="text/javascript"
+            src="https://cdn.jsdelivr.net/gh/hosuaby/Leaflet.SmoothMarkerBouncing@v3.0.2/dist/bundle.js"
+            crossorigin="anonymous"></script>-->
+        
+        <link href="https://tile.openstreetmap.org/{z}/{x}/{y}.png" id="link_tiles" />
+        <link href="https://maps.google.com/maps/place/{name}/@{lat},{lng},12z" id="link_maps_google_pattern" />
+        <link href="https://maps.apple.com/?q={name}&ll=@{lat},{lng}&z=12" id="link_maps_apple_pattern" />
+
+        <script src="assets/js/script.js"></script>
+
+        <script>
+function body_onload()
+{
+    const map = L.map('map').setView([20, 0], 2);
+    L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {maxZoom: 19, attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'}).addTo(map);
+
+    const Icon = L.icon({iconUrl: decodeURI(document.getElementById('link_marker_icon').href), iconSize:     [20, 20], iconAnchor:   [10, 20],  popupAnchor:  [0, -10]  });
+
+    slideshow_init(Array.from(document.querySelectorAll('a.event')).filter(a => a.dataset.photohrefs != '').map(a => a.dataset.hash));
+    
+    const current_country = discover_current_country();
+
+    const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
+    switch_upcoming_campaigns(today_YYYY_MM_DD);
+    switch_upcoming_events(today_YYYY_MM_DD);
+    
+    populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
+    populate_upcoming_events_everywhere(today_YYYY_MM_DD);
+    
+    for(const a of document.querySelectorAll('#upcomingeventseverywhere > .event'))
+    {
+        L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).bindPopup(format_event_info(a).innerHTML).on('click', () => window.location.hash = a.dataset.hash).addTo(map);
+    }
+
+
+    navigate(window.location.hash);
+}
+        </script>
+        
+        <title>Event map</title>
+    </head>
+
+    <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
+    <div id="outer-container">
+        <h1 id="campaigntitle"><a href="">{{ index.title }}</a></h1>
+        <div id="campaigndescription">{{ index.content | markdownify }}</div>
+        <hr />
+        <div id='container'>
+            <div id="map"></div>
+            <div id="picBox"><img data-photohrefs="" data-photohrefsidx="" onclick="img_onclick()" id="eventphoto" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto" alt="Event photo" src="" hidden></img></div>
+        </div>
+        
+        <span><input data-hash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_toggle" data-hash="" onchange="slideshow_toggle()" /><label for="slideshow_toggle">&nbsp;slideshow</label></span>
+
+        <div id="info" class="visibilityhidden">
+            <h1 id="place">&nbsp;</h1>
+            <h3 id="address"><a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a></h3>
+            <h3><a target="_blank" id="eventurl">Event Link</a>&nbsp;by&nbsp;<a target="_blank" id="orgurl"></a></h3>
+            <p class="eventdescription"></p>
+        </div>
+        
+
+        <hr />
+        <h3 class="header">Upcoming events in <span id="country"></span></h3>
+        <ul class="events" id="upcomingeventsincountry"></ul>
+        
+        <hr />
+        <h3 class="header">Upcoming events everywhere</h3>
+        <ul class="events" id="upcomingeventseverywhere"></ul>
+
+        <hr />
+        <details>
+        <summary class="center">
+        <span class="header">All events</span>
+        </summary>
+
+        <ul id="allevents" class="events">
+        
+            {% for country_events in events_grouped_by_country %}
+
+                    {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}
+                    
+                    {% for campaign in site.pages %}{% assign campaign_path = campaign.path | replace: ".md", "" | replace: "campaigns", "events" | append: "/" %}{% if campaign.path contains "data/campaigns/" and event.dir contains campaign_path %}
+                    <li class="eventinactive" data-date="{{ event.date }}" ><a class="event" data-date="{{ event.date }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#_{{ event.locality }}" href="#_{{ event.locality }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }} - {{ campaign.title }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+                    {% endif %}{% endfor %}
+                    
+                    {% endfor %}
+
+            {% endfor %}
+
+        </ul>
+        
+        </details>
+
+        <hr />
+        <h3 class="header">All campaigns</h3> 
+        <ul id="allcampaigns">{% for campaign in campaigns %}{% assign name_size = campaign.name | size | minus: 3 %}{% assign d = campaign.name | slice: 0, name_size %}<li class="campaign campaigninactive" {% if campaign.date.first %} data-datebegin="{{ campaign.date[0] }}" data-dateend="{{ campaign.date[1] }}"{% else %} data-datebegin=""{{ campaign.date }}" data-dateend="{{ campaign.date }}" {% endif %}><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date: "%B %-d" }}{{ campaign.date[1] | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
+    
+    </div>
+    </body>
+
+    {% include footer.html %}
+
+</html>

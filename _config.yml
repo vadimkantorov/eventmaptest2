@@ -17,10 +17,10 @@ defaults:
 
   -
     scope:
-      path: "data/*.md"
+      path: "data/index.md"
     values:
       permalink: /index.html
-      layout: index
+      layout: foo
       
 plugins:
   - jekyll-optional-front-matter
