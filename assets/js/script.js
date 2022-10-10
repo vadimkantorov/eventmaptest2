@@ -44,6 +44,13 @@ function format_event_info(a)
     return elem;
 }
 
+function format_event_popup(a)
+{
+    const elem = document.getElementById('popup').content.cloneNode(true);
+    elem.querySelector('#place').innerText = `${a.dataset.locality}, ${a.dataset.country}`;
+    return elem;
+}
+
 
 function discover_current_country()
 {

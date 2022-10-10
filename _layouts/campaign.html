@@ -63,7 +63,7 @@ function body_onload()
     {
         const marker = L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).addTo(map);
         marker._icon.id = a.dataset.hash.replace('#', 'marker_icon_');
-        //marker.bindPopup(format_event_info(a).innerHTML);
+        marker.bindPopup(format_event_popup(a).innerHTML);
         marker.on('click', e => 
         {
             const _icon = document.querySelector('.markerhighlighted');
@@ -93,7 +93,7 @@ function body_onload()
         <div id="campaigndescription">{{ page.content | markdownify }}</div>
         <hr />
         <div id='container'>
-            <div id="map"></div>
+            <div id="map"><template id="popup"><div><h1 id="place">&nbsp;</h1></div></template></div>
             <div id="picBox"><img data-photohrefs="" data-photohrefsidx="" onclick="img_onclick()" id="eventphoto" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto" alt="Event photo" src="" hidden></img></div>
         </div>
         
