@@ -510,7 +510,7 @@ function slideshow_tick()
     else
     {
         const hash = input.dataset.hash.split(';');
-        input.dataset.eventidx = input.dataset.eventids == '' ? 0 : (1 + parseInt(input.dataset.eventidx)) % hash.length;
+        input.dataset.eventidx = input.dataset.eventidx == '' ? 0 : (1 + parseInt(input.dataset.eventidx)) % hash.length;
         navigate(hash[parseInt(input.dataset.eventidx)]);
     }
 
