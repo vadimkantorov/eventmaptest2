@@ -10,16 +10,25 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:site_name" content="{{ campaign_name | xml_escape }}" />
-        <!--
-        <meta property="og:title" content="zrxiv for (( site.github.owner_name | xml_escape )){% if tag != "recent" %}, #(( tag | xml_escape )){% endif %}" />
-        <meta property="og:url" content="(( site.github.url )){% if tag != "recent" %}/(( tag | xml_escape )){% endif %}" />
-        <link rel="canonical" href="(( site.github.url )){% if tag != "recent" %}/(( tag | xml_escape )){% endif %}" />
+
+
         
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:description" content="Event map [{{ campaign.title | xml_escape }}]" />
+        <meta property="og:site_name"    content="Event map [{{ index.title    | xml_escape }}]" />
+        <meta property="og:title"        content="Event map [{{ campaign.title | xml_escape }}]"  />
+        <meta property="twitter:title"   content="Event map [{{ campaign.title | xml_escape }}]" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ site.github.url }}" />
+        <link rel="canonical"      href="{{ site.github.url }}" />
+        
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":{{ campaign.title | jsonify }},"name": {{ campaign.title | jsonify }},"url":"{{ site.github.url }}}</script>
+
+<!--
         <meta property="og:image" content="(( site.github.url ))/logo.png" />
         <link rel="icon" href="(( site.github.url ))/logo.png" />
-        -->
+-->
         <link rel="stylesheet" href="assets/css/style.css" />
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
