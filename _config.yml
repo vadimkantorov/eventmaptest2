@@ -1,7 +1,5 @@
 data_dir: data
 
-#theme: no-theme
-
 defaults:
   - scope:
       path: "assets/css"
@@ -19,7 +17,7 @@ defaults:
 
   -
     scope:
-      path: "data/index.md"
+      path: "index.md"
     values:
       permalink: /index.html
       layout: index
