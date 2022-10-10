@@ -11,20 +11,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <meta name="twitter:card" content="summary" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="{{ site.github.url }}" />
+        <meta name="twitter:description" content="Event map [{{ index.title | xml_escape }}]" />
         <meta property="og:site_name"    content="Event map [{{ index.title | xml_escape }}]" />
         <meta property="og:title"        content="Event map [{{ index.title | xml_escape }}]"  />
         <meta property="twitter:title"   content="Event map [{{ index.title | xml_escape }}]" />
-        <meta name="twitter:description" content="Event map [{{ index.title | xml_escape }}]" />
-
-        <link rel="canonical" href="{{ site.github.url }}" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ site.github.url }}" />
+        <link rel="canonical"      href="{{ site.github.url }}" />
+        
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":{{ index.title | jsonify }},"name": {{index.title | jsonify }},"url":"{{ site.github.url }}}</script>
 <!--
-        <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":"eventmaptest","name":"eventmaptest","url":"https://vadimkantorov.github.io/eventmaptest/"}</script>
-        <meta property="og:image" content="(( site.github.url ))/logo.png" />
-        <meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" />
-        <link rel="icon" href="(( site.github.url ))/logo.png" />
+        <meta name="twitter:image" content="(( site.github.url ))/logo.png" />
+        <meta property="og:image"  content="(( site.github.url ))/logo.png" />
+        <link rel="icon"              href="(( site.github.url ))/logo.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="/eventmaptest/favicon.ico" />
 -->
         <link rel="stylesheet" href="assets/css/style.css" />
 
@@ -138,6 +139,6 @@ function body_onload()
     </div>
     </body>
 
-    {% include footer.html %}
+    <footer><hr />{% include footer.html %}</footer>
 
 </html>
