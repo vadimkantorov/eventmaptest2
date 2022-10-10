@@ -1,5 +1,5 @@
-#slideshow_toggle::after {content: "Start";}
-#slideshow_toggle:checked::after {content: "Stop";}
+#slideshow_toggle::after {content: "Start slideshow";}
+#slideshow_toggle:checked::after {content: "Stop slideshow";}
 
 .visibilityhidden
 {

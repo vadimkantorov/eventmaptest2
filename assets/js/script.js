@@ -490,18 +490,14 @@ function discover_current_country()
 
 var slideshow = null;
 
-function slideshow_stop()
+function slideshow_toggle(interval_millis = 7000)
 {
-    if(slideshow !== null)
-    {
-        clearInterval(slideshow);
-        slideshow = null;
-    }
-}
-
-function slideshow_start(interval_millis = 7000)
-{
-    slideshow = setInterval(slideshow_tick, interval_millis);
+    console.log('before', slideshow, '}');
+    if(slideshow === null)
+        slideshow = setInterval(slideshow_tick, interval_millis);
+    else
+        slideshow = clearInterval(slideshow);
+    console.log('after', slideshow, '}');
 }
 
 function slideshow_tick()
