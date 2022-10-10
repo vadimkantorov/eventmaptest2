@@ -52,22 +52,30 @@
 
 function body_onload()
 {
+    const events = document.querySelectorAll('.event');
+    
     const map = L.map('map').setView([20, 0], 2);
     L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {maxZoom: 19, attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'}).addTo(map);
     //map.fitBounds(L.latLngBounds(Object.values(data.places).map(place => place.latlng)));
 
     const Icon = L.icon({ iconSize: [20, 20], iconAnchor: [10, 20], popupAnchor: [0, -10], iconUrl: decodeURI(document.getElementById('link_marker_icon').href) });
 
-    for(const a of document.querySelectorAll('.event'))
+    for(const a of events)
     {
         const marker = L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).addTo(map);
         marker._icon.id = a.dataset.hash.replace('#', 'marker_icon_');
         //marker.bindPopup(format_event_info(a).innerHTML);
-        marker.on('click', e => {console.log(e.target); window.location.hash = a.dataset.hash;});
+        marker.on('click', e => 
+        {
+            const _icon = document.querySelector('.markerhighlighted');
+            if(_icon != null)
+                L.DomUtil.removeClass(_icon, 'markerhighlighted');
+            L.DomUtil.addClass(e.target._icon, 'markerhighlighted');
+            //events.map(a => document.getElementById(a.dataset.hash.replace('#', 'marker_icon_'))).forEach(_icon => L.DomUtil.removeClass(_icon,'markerhighlighted'));
+            
+            window.location.hash = a.dataset.hash;
+        });
     }
-
-    //Object.values(data.places).forEach(place => L.DomUtil.removeClass(place.marker._icon,'markerhighlighted'));
-    //L.DomUtil.addClass(data.places[placeName].marker._icon,'markerhighlighted');
 
     const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
     switch_upcoming_events(today_YYYY_MM_DD);
