@@ -492,10 +492,7 @@ var slideshow = null;
 
 function slideshow_toggle(interval_millis = 7000)
 {
-    if(slideshow != null)
-        slideshow = clearInterval(slideshow);
-    else
-        slideshow = setInterval(slideshow_tick, interval_millis);
+    slideshow = slideshow != null ? clearInterval(slideshow) : setInterval(slideshow_tick, interval_millis)
 }
 
 function slideshow_tick()
