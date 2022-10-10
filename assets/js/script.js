@@ -1,3 +1,28 @@
+function switch_upcoming_campaigns(today_YYYY_MM_DD)
+{
+    Array.from(document.querySelectorAll('#allcampaigns > .campaign')).filter(li => li.dataset.dateend >= today_YYYY_MM_DD).forEach(li => li.classList.add('campaignactive') && li.classList.remove('campaigninactive'));
+}
+
+function switch_upcoming_events(today_YYYY_MM_DD)
+{
+    Array.from(document.querySelectorAll('.events>li:has(a.event')).filter(li => li.dataset.date >= today_YYYY_MM_DD).forEach(li => li.classList.add('eventactive') && li.classList.remove('eventinactive'));
+}
+
+function populate_upcoming_events_everywhere(today_YYYY_MM_DD)
+{
+    const lis = Array.from(document.querySelectorAll(`.events>li:has(a.event)`)).filter(li => li.dataset.date >= today_YYYY_MM_DD);
+
+    document.getElementById('upcomingeventseverywhere').append(...lis);
+}
+
+function populate_upcoming_events_in_country(today_YYYY_MM_DD, country)
+{
+    const lis = Array.from(document.querySelectorAll(`.events>li:has(a.event[data-country="${country}"])`)).filter(li => li.dataset.date >= today_YYYY_MM_DD);
+
+    document.getElementById('country').innerText = country;
+    document.getElementById('upcomingeventsincountry').append(...lis);
+}
+
 function format_maps_link(link_pattern_id, event_dataset)
 {
     const latlng = JSON.parse(event_dataset.latlng);
@@ -19,39 +44,6 @@ function format_event_info(a)
     return elem;
 }
 
-function navigate(hash)
-{
-    hash = hash || '';
-    const a = document.querySelector(`a[data-hash~="${hash}"]`), img = document.getElementById('eventphoto');
-    const info = document.getElementById('info');
-    if(a != null)
-    {
-        const div = format_event_info(a);
-        info.innerHTML = div.innerHTML;
-        img.dataset.photohrefs = a.dataset.photohrefs;
-        img.dataset.photohrefsidx = 0;
-        img.hidden = (img.dataset.photohrefs || '').length == 0;
-        img.src = img.hidden ? '' : a.dataset.photohrefs.split(';')[0];
-        info.classList.remove('visibilityhidden');
-    }
-    else
-    {
-        img.hidden = true;
-        info.classList.add('visibilityhidden');
-    }
-}
-
-function img_onclick()
-{
-    const img = document.getElementById('eventphoto');
-    if(!img.hidden)
-    {
-        const photohrefs = img.dataset.photohrefs.split(';');
-        const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
-        img.src = photohrefs[photohrefsidx];
-        img.dataset.photohrefsidx = photohrefsidx;
-    }
-}
 
 function discover_current_country()
 {
@@ -490,12 +482,65 @@ function discover_current_country()
 
 var slideshow = null;
 
+function slideshow_init(event_hash_list)
+{
+    document.getElementById('slideshow_toggle').dataset.hash = event_hash_list.join(';');
+}
+
 function slideshow_toggle(interval_millis = 7000)
 {
-    slideshow = slideshow != null ? clearInterval(slideshow) : setInterval(slideshow_tick, interval_millis)
+    const hash = document.getElementById('slideshow_toggle').dataset.hash;
+    slideshow = slideshow != null || hash == null || hash == '' ? clearInterval(slideshow) : setInterval(slideshow_tick, interval_millis)
 }
 
 function slideshow_tick()
+{
+    const input = document.getElementById('slideshow_toggle');
+    const img = document.getElementById('eventphoto');
+    if(!img.hidden)
+    {
+        const photohrefs = img.dataset.photohrefs.split(';');
+        const photohrefsidx = img.dataset.photohrefsidx != '' ? 1 + parseInt(img.dataset.photohrefsidx) : '0';
+        if(photohrefsidx < photohrefs.length)
+        {
+            img.src = photohrefs[photohrefsidx];
+            img.dataset.photohrefsidx = photohrefsidx;
+        }
+        else
+        {
+            const hash = input.hash.split(';');
+            input.dataset.eventidx = input.dataset.eventids == '' ? 0 : (1 + parseInt(input.dataset.eventidx)) % hash.length;
+            navigate(hash[parseInt(input.dataset.eventidx)]);
+        }
+    }
+}
+
+function navigate(hash)
+{
+    hash = hash || '';
+    
+    const img = document.getElementById('eventphoto');
+    const info = document.getElementById('info');
+    const a = document.querySelector(`a[data-hash~="${hash}"]`); 
+    
+    if(a != null)
+    {
+        const div = format_event_info(a);
+        info.innerHTML = div.innerHTML;
+        img.dataset.photohrefs = a.dataset.photohrefs;
+        img.dataset.photohrefsidx = '0';
+        img.hidden = (img.dataset.photohrefs || '').length == 0;
+        img.src = img.hidden ? '' : a.dataset.photohrefs.split(';')[0];
+        info.classList.remove('visibilityhidden');
+    }
+    else
+    {
+        img.hidden = true;
+        info.classList.add('visibilityhidden');
+    }
+}
+
+function img_onclick()
 {
     const img = document.getElementById('eventphoto');
     if(!img.hidden)
@@ -508,66 +553,11 @@ function slideshow_tick()
 }
 
 /*
-const map = L.map('map').setView([20, 0], 2);
 map.fitBounds(L.latLngBounds(Object.values(data.places).map(place => place.latlng)));
 
 function highlightMarker(placeName) {
     Object.values(data.places).forEach(place => { L.DomUtil.removeClass(place.marker._icon,'marker-highlighted') });
     L.DomUtil.addClass(data.places[placeName].marker._icon,'marker-highlighted');
 }
-
-function showFirstPhoto(placeName) {
-    const photos = data.places[placeName].photos;
-    img.src = photos.length > 0 ? photos[0] : '';
-    img.dataset.hrefidx = '0';
-    img.onclick = () => {
-        showNextPhoto(placeName);
-        stopPlacesSlideshow();
-    }
-}
-
-function showNextPhoto(placeName) {
-    const photos = data.places[placeName].photos;
-    if (photos.length > 0) {
-        const hrefidx = (1 + parseInt(img.dataset.hrefidx)) % photos.length;
-        img.src = photos[hrefidx];
-        img.dataset.hrefidx = hrefidx.toString();
-    }
-}
-
-function showNextPlace() {
-    const placeName = placeNames[currentPlaceIdx];
-    highlightMarker(placeName);
-    showFirstPhoto(placeName);
-    currentPlaceIdx += 1;
-    if (currentPlaceIdx >= placeNames.length) {
-        // currentPlaceIdx = 0;
-        stopPlacesSlideshow();
-    }
-}
 */
 
-function switch_upcoming_campaigns(today_YYYY_MM_DD)
-{
-    Array.from(document.querySelectorAll('#allcampaigns > .campaign')).filter(li => li.dataset.dateend >= today_YYYY_MM_DD).forEach(li => li.classList.add('campaignactive') && li.classList.remove('campaigninactive'));
-}
-
-function switch_upcoming_events(today_YYYY_MM_DD)
-{
-    Array.from(document.querySelectorAll('.events>li:has(a.event')).filter(li => li.dataset.date >= today_YYYY_MM_DD).forEach(li => li.classList.add('eventactive') && li.classList.remove('eventinactive'));
-}
-
-function populate_upcoming_events_everywhere(today_YYYY_MM_DD)
-{
-    const lis = Array.from(document.querySelectorAll(`.events>li:has(a.event)`)).filter(li => li.dataset.date >= today_YYYY_MM_DD);
-
-    document.getElementById('upcomingeventseverywhere').append(...lis);
-}
-
-function populate_upcoming_events_in_country(today_YYYY_MM_DD, country)
-{
-    const lis = Array.from(document.querySelectorAll(`.events>li:has(a.event[data-country="${country}"])`)).filter(li => li.dataset.date >= today_YYYY_MM_DD);
-
-    document.getElementById('country').innerText = country;
-    document.getElementById('upcomingeventsincountry').append(...lis);
-}
