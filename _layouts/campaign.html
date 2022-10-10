@@ -59,7 +59,7 @@ function body_onload()
 
     for(const a of document.querySelectorAll('.event'))
     {
-        L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).bindPopup(format_event_info(a).innerHTML).on('click', () => window.location.hash = a.dataset.hash).addTo(map);
+        L.marker(JSON.parse(a.dataset.latlng), {icon: Icon})/*.bindPopup(format_event_info(a).innerHTML)*/.on('click', () => window.location.hash = a.dataset.hash).addTo(map);
     }
 
     const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
