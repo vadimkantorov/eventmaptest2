@@ -497,7 +497,14 @@ function slideshow_toggle(interval_millis = 7000)
 
 function slideshow_tick()
 {
-    img_onclick();
+    const img = document.getElementById('eventphoto');
+    if(!img.hidden)
+    {
+        const photohrefs = img.dataset.photohrefs.split(';');
+        const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
+        img.src = photohrefs[photohrefsidx];
+        img.dataset.photohrefsidx = photohrefsidx;
+    }
 }
 
 /*
