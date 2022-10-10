@@ -492,7 +492,11 @@ var slideshow = null;
 
 function slideshow_stop()
 {
-    clearInterval(slideshow);
+    if(slideshow !== null)
+    {
+        clearInterval(slideshow);
+        slideshow = null;
+    }
 }
 
 function slideshow_start(interval_millis = 7000)

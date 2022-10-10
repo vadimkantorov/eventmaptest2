@@ -1,3 +1,6 @@
+#slideshow>span::before {content: "Start";}
+/*#slideshow:checked::before + span {content: "Start";}*/
+
 .visibilityhidden
 {
 visibility : hidden;
