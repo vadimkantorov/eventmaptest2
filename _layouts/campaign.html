@@ -63,7 +63,7 @@ function body_onload()
         const marker = L.marker(JSON.parse(a.dataset.latlng), {icon: Icon});
         marker.addTo(map);
         //marker.bindPopup(format_event_info(a).innerHTML);
-        marker.on('click', () => window.location.hash = a.dataset.hash);
+        marker.on('click', e => {console.log(e.target); window.location.hash = a.dataset.hash;});
     }
 
     //Object.values(data.places).forEach(place => L.DomUtil.removeClass(place.marker._icon,'markerhighlighted'));
