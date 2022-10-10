@@ -491,7 +491,6 @@ function slideshow_toggle(stop, interval_millis = 7000)
 {
     const input = document.getElementById('slideshow_toggle');
     const hash = input.dataset.hash;
-    console.log('Checked before', input.checked);
     if(stop == true || slideshow != null || hash == null || hash == '')
     {
         slideshow = slideshow != null ? clearInterval(slideshow) : null
@@ -499,10 +498,9 @@ function slideshow_toggle(stop, interval_millis = 7000)
     }
     else
     {
-        slideshow = slideshow_tick(); //|| setInterval(slideshow_tick, interval_millis);
+        slideshow = slideshow_tick() || setInterval(slideshow_tick, interval_millis);
         input.checked = true;
     }
-    console.log('Checked after', input.checked);
 }
 
 function slideshow_tick()
