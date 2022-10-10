@@ -489,7 +489,9 @@ function slideshow_init(event_hash_list)
 
 function slideshow_toggle(stop, interval_millis = 7000)
 {
-    const hash = document.getElementById('slideshow_toggle').dataset.hash;
+    const input = document.getElementById('slideshow_toggle');
+    const hash = input.dataset.hash;
+    console.log('Checked', input.checked);
     slideshow = stop == true || slideshow != null || hash == null || hash == '' ? (slideshow != null ? clearInterval(slideshow) : null) : setInterval(slideshow_tick, interval_millis)
 }
 
