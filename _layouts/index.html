@@ -6,11 +6,26 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <meta name="twitter:card" content="summary" />
         <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
         <meta property="og:site_name" content="{{ index.title | xml_escape }}" />
+
+<!--
+<link rel="canonical" href="https://vadimkantorov.github.io/eventmaptest/" />
+<meta property="og:url" content="https://vadimkantorov.github.io/eventmaptest/" />
+<meta property="og:title" content="eventmaptest" />
+<meta property="og:site_name" content="eventmaptest" />
+<meta property="twitter:title" content="eventmaptest" />
+<meta name="twitter:description" content="View the album on Flickr." />
+<meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"eventmaptest","name":"eventmaptest","url":"https://vadimkantorov.github.io/eventmaptest/"}</script>-->
+
         <!--
         <meta property="profile:username" content="(( site.github.owner_name | xml_escape ))" />
         <meta property="og:title" content="zrxiv for (( site.github.owner_name | xml_escape )){% if tag != "recent" %}, #(( tag | xml_escape )){% endif %}" />
@@ -68,7 +83,7 @@ function body_onload()
 }
         </script>
         
-        <title>Event map</title>
+        <title>{{ index.title %}}</title>
     </head>
 
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">

@@ -493,7 +493,7 @@ function slideshow_toggle(stop, interval_millis = 7000)
     const hash = input.dataset.hash;
     if(stop == true || slideshow != null || hash == null || hash == '')
     {
-        slideshow = slideshow != null ? clearInterval(slideshow) : null
+        slideshow = clearInterval(slideshow);
         input.checked = false;
     }
     else
@@ -518,7 +518,7 @@ function slideshow_tick()
     else
     {
         const hash = input.dataset.hash.split(';');
-        input.dataset.eventidx = input.dataset.eventidx == '' ? 0 : (1 + parseInt(input.dataset.eventidx)) % hash.length;
+        input.dataset.eventidx = (input.dataset.eventidx == '' ? 0 : (1 + parseInt(input.dataset.eventidx)) % hash.length).toString();
         navigate(hash[parseInt(input.dataset.eventidx)]);
     }
 
