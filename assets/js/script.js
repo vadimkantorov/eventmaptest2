@@ -33,7 +33,7 @@ function format_maps_link(link_pattern_id, event_dataset)
 function format_event_info(a)
 {
     const elem = document.getElementById('info').cloneNode(true);
-    elem.querySelector('#place').innerText = `${a.dataset.locality}, ${a.dataset.country}`;
+    elem.querySelector('#place').innerText = `${a.dataset.locality}, ${a.dataset.country}, ${a.dataset.date} ${a.dataset.time}`;
     elem.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', a.dataset);
     elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
     elem.querySelector('#eventurl').href = a.dataset.eventurl;
