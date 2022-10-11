@@ -539,7 +539,7 @@ function navigate(hash)
     
     const img = document.getElementById('eventphoto');
     const info = document.getElementById('info');
-    const a = document.querySelector(`a[data-hash~="${hash}"]`); 
+    const a = document.querySelector(`a[data-eventhash~="${hash}"]`); 
     
     if(a != null)
     {
