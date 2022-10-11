@@ -6,7 +6,8 @@
 
 #map
 {
-border-radius: 40px;
+border-top-left-radius: 40px;
+border-bottom-left-radius: 40px;
 }
 
 #slideshow_toggle+label::before
@@ -43,7 +44,7 @@ background-position:center;*/
 {
 flex:5;
 position:relative;
-border:1px solid red;
+/*border:1px solid red;*/
 }
 
 #infoBox
