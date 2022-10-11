@@ -67,7 +67,7 @@ function body_onload()
     events = document.querySelectorAll('#upcomingeventseverywhere > .event');
     for(const a of events)
     {
-        const marker = L.marker([parseFloat(a.dataset.lat), parseFloat(a.dataset.lng)].addTo(map);
+        const marker = L.marker([parseFloat(a.dataset.lat), parseFloat(a.dataset.lng)]).addTo(map);
         
         marker.bindPopup(format_event_popup(a).outerHTML);
         
