@@ -48,6 +48,7 @@ function format_event_popup(a)
 {
     const elem = document.getElementById('popup').content.cloneNode(true);
     elem.querySelector('#place').innerText = `${a.dataset.locality}, ${a.dataset.country}`;
+    elem.querySelector('#time').innerText = `${a.dataset.date}, ${a.dataset.time}`;
     return elem.firstChild;
 }
 
