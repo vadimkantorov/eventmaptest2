@@ -41,8 +41,8 @@ function format_event_info(a)
     elem.querySelector('#orgurl').href = a.dataset.orgurl;
     elem.querySelector('#orgurl').innerText = a.dataset.orgname;
     
-    const dateall = a.dataset.dateall == '' ? [] : a.dataset.dateall.split(';');
-    const eventhashall = a.dataset.eventhashall == '' ? [] : a.dataset.eventhashall.split(';');
+    const dateall = a.dataset.dateall.split(';');
+    const eventhashall = a.dataset.eventhashall.split(';');
     const lis = dateall.map((innerText, i) => 
     {
         const li = document.createElement('li');
