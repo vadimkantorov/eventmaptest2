@@ -1,3 +1,8 @@
+#dateall > li
+{
+display: inline-block;
+}
+
 .dateactive
 {
     background-color: 'yellow';
