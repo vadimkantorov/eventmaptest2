@@ -58,21 +58,24 @@ function format_event_info(a)
     elem.querySelector('#orgurl').href = a.dataset.orgurl;
     elem.querySelector('#orgurl').innerText = a.dataset.orgname;
     
-    const dateall = a.dataset.dateall.split(';');
-    const eventhashall = a.dataset.eventhashall.split(';');
-    const lis = dateall.map((innerText, i) => 
+    if(a.dataset.dateall != null && a.dataset.dateall != '')
     {
-        const li = document.createElement('li');
-        li.className = 'date';
-        li.classList.add(a.dataset.eventhash == eventhashall[i] ? 'dateactive' : 'dateinactive');
-        const lia = document.createElement('a');
-        lia.href = eventhashall[i];
-        lia.innerText = innerText;
-        li.appendChild(lia);
-        return li;
-    });
-    elem.querySelector('#dateall').innerHTML = '';
-    elem.querySelector('#dateall').append(...lis)
+        const dateall = a.dataset.dateall.split(';');
+        const eventhashall = a.dataset.eventhashall.split(';');
+        const lis = dateall.map((innerText, i) => 
+        {
+            const li = document.createElement('li');
+            li.className = 'date';
+            li.classList.add(a.dataset.eventhash == eventhashall[i] ? 'dateactive' : 'dateinactive');
+            const lia = document.createElement('a');
+            lia.href = eventhashall[i];
+            lia.innerText = innerText;
+            li.appendChild(lia);
+            return li;
+        });
+        elem.querySelector('#dateall').innerHTML = '';
+        elem.querySelector('#dateall').append(...lis)
+    }
     
     elem.querySelector('.eventdescription').innerHTML = '';
     elem.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
