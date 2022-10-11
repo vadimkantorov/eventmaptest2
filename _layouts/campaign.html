@@ -1,7 +1,7 @@
 {% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir == "/" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 {% assign campaign = page %}
 {% assign campaign_name = page.name | replace: ".md", "" %}
-{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/events/" and p.dir contains campaign_name %}{% assign events = events | push: p %}{% endif %}{% endfor %}
+{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir contains campaign_name %}{% assign events = events | push: p %}{% endif %}{% endfor %}
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 {% assign index = "" %}{% for p in site.pages %}{% if p.path == "data/index.md" %}{% assign index = p %}{% endif %}{% endfor %}
 
@@ -135,10 +135,10 @@ function body_onload()
             {% for locality_events in events_grouped_by_locality %}
             {% assign grouped_events = locality_events.items | sort: "date" | reverse %}
 
-            {% assign eventhashall = grouped_events | map: "path" | join: ";" | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | replace: ";", ";#" | prepend: "#" %}
+            {% assign eventhashall = grouped_events | map: "path" | join: ";" | remove: "data/campaigns/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | replace: ";", ";#" | prepend: "#" %}
             {% assign dateall = grouped_events | map: "date" | join: ";" %}
 
-            {% for event in grouped_events %}{% if forloop.first %}{% assign eventlocality = forloop.first %}{% endif %}{% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign eventhash = event.path | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | prepend: "#" %}
+            {% for event in grouped_events %}{% if forloop.first %}{% assign eventlocality = forloop.first %}{% endif %}{% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign eventhash = event.path | remove: "data/campaigns/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | prepend: "#" %}
                     
             <li class="eventinactive"><a data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" class="event {% if eventlocality %}eventlocality{% endif %}" data-mapmarkerkey="{{ event.locality }}, {{ event.country }}" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
             
