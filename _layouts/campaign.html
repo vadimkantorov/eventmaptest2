@@ -52,21 +52,13 @@ var mapmarkers = {};
 
 function body_onload()
 {
-    const map = L.map('map').setView([20, 0], 2);
-    L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {attribution: document.getElementById('map_copyright').outerHTML, maxZoom: 19 }).addTo(map);
-    //map.fitBounds(L.latLngBounds(Object.values(data.places).map(place => place.latlng)));
-    map.on('popupopen', e => 
-    {
-        e.popup._closeButton.removeAttribute("href");
-        e.popup._closeButton.style.cursor = "pointer";
-    })
-
-    const Icon = L.icon({ iconSize: [20, 20], iconAnchor: [10, 20], popupAnchor: [0, -10], iconUrl: decodeURI(document.getElementById('link_marker_icon').href) });
+    const map = init_map('map');
+    //const Icon = L.icon({ iconSize: [20, 20], iconAnchor: [10, 20], popupAnchor: [0, -10], iconUrl: decodeURI(document.getElementById('link_marker_icon').href) });
 
     let events = document.querySelectorAll('.eventlocality');
     for(const a of events)
     {
-        const marker = L.marker(JSON.parse(a.dataset.latlng)).addTo(map); // , {icon: Icon}
+        const marker = L.marker([parseFloat(a.dataset.lat), parseFloat(a.dataset.lng)].addTo(map);
         
         marker.bindPopup(format_event_popup(a).outerHTML);
         
@@ -88,7 +80,7 @@ function body_onload()
             window.location.hash = a.dataset.eventhash;
         });
 
-        mapmarkers[a.dataset.mapmarker] = marker;
+        mapmarkers[a.dataset.mapmarkerkey] = marker;
     }
     
     events = document.querySelectorAll('a.event:not([data-photohrefs=""])');
@@ -140,7 +132,7 @@ function body_onload()
 
             {% for event in grouped_events %}{% if forloop.first %}{% assign eventlocality = forloop.first %}{% endif %}{% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign eventhash = event.path | remove: "data/campaigns/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | prepend: "#" %}
                     
-            <li class="eventinactive"><a data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" class="event {% if eventlocality %}eventlocality{% endif %}" data-mapmarkerkey="{{ event.locality }}, {{ event.country }}" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+            <li class="eventinactive"><a data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" class="event {% if eventlocality %}eventlocality{% endif %}" data-mapmarkerkey="{{ event.locality }}, {{ event.country }}" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-lat="{{ event.latlng[0] }}" data-lng="{{ event.latlng[1] }}" data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
             
             {% endfor %}
             {% endfor %}

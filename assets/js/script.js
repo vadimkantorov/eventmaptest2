@@ -1,3 +1,15 @@
+function init_map(id)
+{
+    const map = L.map(id).setView([20, 0], 2);
+    L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {attribution: document.getElementById('map_copyright').outerHTML, maxZoom: 19 }).addTo(map);
+    //map.fitBounds(L.latLngBounds(Object.values(data.places).map(place => place.latlng)));
+    map.on('popupopen', e => 
+    {
+        e.popup._closeButton.removeAttribute("href");
+        e.popup._closeButton.style.cursor = "pointer";
+    })
+}
+
 function get_today_YYYY_MM_DD()
 {
     return new Date().toISOString().slice(0, 10);
