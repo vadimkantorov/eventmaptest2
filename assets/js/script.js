@@ -535,7 +535,10 @@ function slideshow_tick()
 
 function navigate(hash)
 {
-    hash = hash || '';
+    hash = (hash == '#undefined' || hash == '#close') ? '' : (hash || '');
+
+    if(hash == '')
+        return;
     
     const img = document.getElementById('eventphoto');
     const info = document.getElementById('info');
