@@ -46,12 +46,12 @@ function format_event_info(a)
     const lis = dateall.map((innerText, i) => 
     {
         const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = eventhashall[i];
-        a.innerText = innerText;
         li.className = 'date';
         li.classList.add(a.dataset.eventhash == eventhashall[i] ? 'dateactive' : 'dateinactive');
-        li.appendChild(a);
+        const lia = document.createElement('a');
+        lia.href = eventhashall[i];
+        lia.innerText = innerText;
+        li.appendChild(lia);
         return li;
     });
     elem.querySelector('#dateall').innerHTML = '';
