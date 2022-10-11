@@ -113,11 +113,19 @@ function body_onload()
             {% for country_events in events_grouped_by_country %}
             
             <li><div class="country">{{ country_events.name }}</div></li>
-
-            {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign event_hash = event.path | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" %}
-                    
-            <li class="eventinactive"><a class="event" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-iconid="" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="#{{ event_hash }}" href="#{{ event_hash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
             
+            {% assign events_grouped_by_locality = country_events.items | sort: "locality", "date" | group_by: "locality" %}
+            {% for locality_events in events_grouped_by_locality %}
+            {% assign grouped_events = locality_events.items %}
+
+            {% assign eventhashother = grouped_events | map: "path" | join: ";" | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | replace: ";", ";#" | prepend: "#" %}
+            {% assign dateother = grouped_events | map: "date" | join: ";" %}
+
+            {% for event in grouped_events %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign eventhash = event.path | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | prepend: "#" %}
+                    
+            <li class="eventinactive"><a data-dateother="{{ dateother }}" data-eventhashother="{{ eventhashother }}" class="event" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+            
+            {% endfor %}
             {% endfor %}
             {% endfor %}
 
