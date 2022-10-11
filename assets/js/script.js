@@ -50,7 +50,7 @@ function format_event_info(a)
         a.href = eventhashall[i];
         a.innerText = innerText;
         li.className = 'date';
-        li.classList.add(a.dataset.eventhash == eventhash[i] ? 'dateactive' : 'dateinactive');
+        li.classList.add(a.dataset.eventhash == eventhashall[i] ? 'dateactive' : 'dateinactive');
         li.appendChild(a);
         return li;
     });
