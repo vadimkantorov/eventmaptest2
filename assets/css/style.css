@@ -3,6 +3,11 @@
 display: inline-block;
 }
 
+.eventdescription
+{
+height: 50px
+}
+
 .dateactive
 {
     background-color: 'yellow';
