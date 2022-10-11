@@ -492,13 +492,13 @@ var slideshow = null;
 
 function slideshow_init(event_hash_list)
 {
-    document.getElementById('slideshow_toggle').dataset.hash = event_hash_list.join(';');
+    document.getElementById('slideshow_toggle').dataset.eventhash = event_hash_list.join(';');
 }
 
 function slideshow_toggle(stop, interval_millis = 7000)
 {
     const input = document.getElementById('slideshow_toggle');
-    const hash = input.dataset.hash;
+    const hash = input.dataset.eventhash;
     if(stop == true || slideshow != null || hash == null || hash == '')
     {
         slideshow = clearInterval(slideshow);
@@ -525,7 +525,7 @@ function slideshow_tick()
     }
     else
     {
-        const hash = input.dataset.hash.split(';');
+        const hash = input.dataset.eventhash.split(';');
         input.dataset.eventidx = (input.dataset.eventidx == '' ? 0 : (1 + parseInt(input.dataset.eventidx)) % hash.length).toString();
         navigate(hash[parseInt(input.dataset.eventidx)]);
     }

@@ -62,9 +62,10 @@ function body_onload()
     for(const a of events)
     {
         const marker = L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).addTo(map);
-        marker._icon.id = a.dataset.hash.replace('#', 'marker_icon_');
+        marker._icon.id = a.dataset.eventhash.replace('#', 'marker_icon_');
         a.dataset.iconid = marker._icon.id;
         marker.bindPopup(format_event_popup(a).outerHTML);
+        marker.eventhash = marker._icon.eventhash = a.dataset.eventhash;
         marker.on('click', e => 
         {
             const _icon = document.querySelector('.markerhighlighted');
@@ -80,7 +81,7 @@ function body_onload()
     switch_upcoming_events(today_YYYY_MM_DD);
     
     navigate(window.location.hash);
-    slideshow_init(Array.from(document.querySelectorAll('a.event')).filter(a => a.dataset.photohrefs != '').map(a => a.dataset.hash));
+    slideshow_init(Array.from(document.querySelectorAll('a.event')).filter(a => a.dataset.photohrefs != '').map(a => a.dataset.eventhash));
 }
 </script>
 
@@ -97,7 +98,7 @@ function body_onload()
             <div id="picBox"><img data-photohrefs="" data-photohrefsidx="" onclick="img_onclick()" id="eventphoto" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto" alt="Event photo" src="" hidden></img></div>
         </div>
         
-        <span><input data-hash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_toggle" data-hash="" onchange="slideshow_toggle()" /><label for="slideshow_toggle">&nbsp;slideshow</label></span>
+        <span><input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_toggle" onchange="slideshow_toggle()" /><label for="slideshow_toggle">&nbsp;slideshow</label></span>
 
         <div id="info" class="visibilityhidden">
             <h1 id="place">&nbsp;</h1>
@@ -115,7 +116,7 @@ function body_onload()
 
             {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign event_hash = event.path | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" %}
                     
-            <li class="eventinactive"><a class="event" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-iconid="" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#{{ event_hash }}" href="#{{ event_hash }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+            <li class="eventinactive"><a class="event" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-iconid="" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="#{{ event_hash }}" href="#{{ event_hash }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
             
             {% endfor %}
             {% endfor %}
