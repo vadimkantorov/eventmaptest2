@@ -490,16 +490,16 @@ function discover_current_country()
 
 var slideshow = null;
 
-function slideshow_init(event_hash_list)
+function slideshow_init(eventhash_list)
 {
-    document.getElementById('slideshow_toggle').dataset.eventhash = event_hash_list.join(';');
+    document.getElementById('slideshow_toggle').dataset.eventhash = eventhash_list.join(';');
 }
 
 function slideshow_toggle(stop, interval_millis = 7000)
 {
     const input = document.getElementById('slideshow_toggle');
-    const hash = input.dataset.eventhash;
-    if(stop == true || slideshow != null || hash == null || hash == '')
+    const eventhash = input.dataset.eventhash;
+    if(stop == true || slideshow != null || eventhash == null || eventhash == '')
     {
         slideshow = clearInterval(slideshow);
         input.checked = false;
