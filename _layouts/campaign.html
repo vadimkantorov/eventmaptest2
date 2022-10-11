@@ -54,7 +54,7 @@ function body_onload()
     const events = document.querySelectorAll('.event');
     
     const map = L.map('map').setView([20, 0], 2);
-    L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {maxZoom: 19, attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'}).addTo(map);
+    L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {attribution: document.getElementById('map_copyright').outerHTML, maxZoom: 19 }).addTo(map);
     //map.fitBounds(L.latLngBounds(Object.values(data.places).map(place => place.latlng)));
 
     const Icon = L.icon({ iconSize: [20, 20], iconAnchor: [10, 20], popupAnchor: [0, -10], iconUrl: decodeURI(document.getElementById('link_marker_icon').href) });
@@ -118,12 +118,12 @@ function body_onload()
             {% for locality_events in events_grouped_by_locality %}
             {% assign grouped_events = locality_events.items | sort: "date" %}
 
-            {% assign eventhashother = grouped_events | map: "path" | join: ";" | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | replace: ";", ";#" | prepend: "#" %}
-            {% assign dateother = grouped_events | map: "date" | join: ";" %}
+            {% assign eventhashall = grouped_events | map: "path" | join: ";" | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | replace: ";", ";#" | prepend: "#" %}
+            {% assign dateall = grouped_events | map: "date" | join: ";" %}
 
             {% for event in grouped_events %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign eventhash = event.path | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | prepend: "#" %}
                     
-            <li class="eventinactive"><a data-dateother="{{ dateother }}" data-eventhashother="{{ eventhashother }}" class="event" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+            <li class="eventinactive"><a data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" class="event" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
             
             {% endfor %}
             {% endfor %}
