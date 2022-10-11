@@ -63,6 +63,7 @@ function body_onload()
     {
         const marker = L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).addTo(map);
         marker._icon.id = a.dataset.hash.replace('#', 'marker_icon_');
+        a.dataset.iconid = marker._icon.id;
         marker.bindPopup(format_event_popup(a).outerHTML);
         marker.on('click', e => 
         {
@@ -70,7 +71,6 @@ function body_onload()
             if(_icon != null)
                 L.DomUtil.removeClass(_icon, 'markerhighlighted');
             L.DomUtil.addClass(e.target._icon, 'markerhighlighted');
-            //events.map(a => document.getElementById(a.dataset.hash.replace('#', 'marker_icon_'))).forEach(_icon => L.DomUtil.removeClass(_icon,'markerhighlighted'));
             
             window.location.hash = a.dataset.hash;
         });
@@ -115,7 +115,7 @@ function body_onload()
 
             {% for event in country_events.items %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign event_hash = event.path | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" %}
                     
-            <li class="eventinactive"><a class="event" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#{{ event_hash }}" href="#{{ event_hash }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+            <li class="eventinactive"><a class="event" data-iconid="" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-hash="#{{ event_hash }}" href="#{{ event_hash }}"><div>{{ event.locality }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
             
             {% endfor %}
             {% endfor %}

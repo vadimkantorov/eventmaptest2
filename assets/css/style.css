@@ -1,10 +1,22 @@
-.markerhighlighted {
+.markerhighlighted
+{
     border: 2px dashed #3388ff;
     background-color: #3388ff4d;
 }
 
-#slideshow_toggle+label::before         {content: "Start";}
-#slideshow_toggle:checked+label::before {content: "Stop" ;}
+#map
+{
+border-radius: 40px;
+}
+
+#slideshow_toggle+label::before
+{
+content: "Start";
+}
+#slideshow_toggle:checked+label::before
+{
+content: "Stop";
+}
 
 .visibilityhidden
 {

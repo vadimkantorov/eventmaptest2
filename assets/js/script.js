@@ -554,7 +554,7 @@ function navigate(hash)
         if(prev_icon != null)
             prev_icon.classList.remove('markerhighlighted');
         
-        const next_icon = document.getElementById(a.dataset.hash.replace('#', 'marker_icon_'));
+        const next_icon = document.getElementById(a.dataset.iconid);
         if(next_icon != null)
             next_icon.classList.add('markerhighlighted');
     }
