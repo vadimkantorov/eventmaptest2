@@ -58,7 +58,7 @@ function body_onload()
     
     const current_country = discover_current_country();
 
-    const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
+    const today_YYYY_MM_DD = get_today_YYYY_MM_DD();
     switch_upcoming_campaigns(today_YYYY_MM_DD);
     switch_upcoming_events(today_YYYY_MM_DD);
     

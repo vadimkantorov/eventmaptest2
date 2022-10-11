@@ -12,18 +12,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:description" content="Event map [{{ campaign.title | xml_escape }}]" />
         <meta property="og:site_name"    content="Event map [{{ index.title    | xml_escape }}]" />
         <meta property="og:title"        content="Event map [{{ campaign.title | xml_escape }}]" />
         <meta property="twitter:title"   content="Event map [{{ campaign.title | xml_escape }}]" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="{{ site.github.url }}{{ page.url }}" />
-        <link rel="canonical"      href="{{ site.github.url }}{{ page.url }}" />
+        <meta property="og:url" content="{{ site.github.url | xml_escape }}{{ page.url | xml_escape }}" />
+        <link rel="canonical"      href="{{ site.github.url | xml_escape }}{{ page.url | xml_escape }}" />
         
-        <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":{{ campaign.title | jsonify }},"name": {{ campaign.title | jsonify }},"url":"{{ site.github.url }}{{ page.url }}" }</script>
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":{{ campaign.title | jsonify }},"name": {{ campaign.title | jsonify }},"url": {{ site.github.url | append: page.url | jsonify }} }</script>
 
 <!--
         <meta property="og:image" content="(( site.github.url ))/logo.png" />
@@ -49,35 +48,40 @@
         <script src="assets/js/script.js"></script>
         <script>
 
+var mapmarkers = {};
+
 function body_onload()
 {
-    const events = document.querySelectorAll('.event');
-    
     const map = L.map('map').setView([20, 0], 2);
     L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {attribution: document.getElementById('map_copyright').outerHTML, maxZoom: 19 }).addTo(map);
     //map.fitBounds(L.latLngBounds(Object.values(data.places).map(place => place.latlng)));
 
     const Icon = L.icon({ iconSize: [20, 20], iconAnchor: [10, 20], popupAnchor: [0, -10], iconUrl: decodeURI(document.getElementById('link_marker_icon').href) });
 
+    const events = document.querySelectorAll('.eventlocality');
     for(const a of events)
     {
         const marker = L.marker(JSON.parse(a.dataset.latlng), {icon: Icon}).addTo(map);
-        marker._icon.id = a.dataset.eventhash.replace('#', 'marker_icon_');
-        a.dataset.iconid = marker._icon.id;
+        
         marker.bindPopup(format_event_popup(a).outerHTML);
+        
+        marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
         marker.eventhash = marker._icon.eventhash = a.dataset.eventhash;
+        
         marker.on('click', e => 
         {
-            const _icon = document.querySelector('.markerhighlighted');
-            if(_icon != null)
-                L.DomUtil.removeClass(_icon, 'markerhighlighted');
-            L.DomUtil.addClass(e.target._icon, 'markerhighlighted');
+            //const _icon = document.querySelector('.markerhighlighted');
+            //if(_icon != null)
+            //    L.DomUtil.removeClass(_icon, 'markerhighlighted');
+            //L.DomUtil.addClass(e.target._icon, 'markerhighlighted');
             
             window.location.hash = a.dataset.eventhash;
         });
+
+        mapmarkers[a.dataset.mapmarker] = marker;
     }
 
-    const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
+    const today_YYYY_MM_DD = get_today_YYYY_MM_DD();
     switch_upcoming_events(today_YYYY_MM_DD);
     
     navigate(window.location.hash);
@@ -117,14 +121,14 @@ function body_onload()
             
             {% assign events_grouped_by_locality = country_events.items | sort: "locality" | group_by: "locality" %}
             {% for locality_events in events_grouped_by_locality %}
-            {% assign grouped_events = locality_events.items | sort: "date" %}
+            {% assign grouped_events = locality_events.items | sort: "date" | reverse %}
 
             {% assign eventhashall = grouped_events | map: "path" | join: ";" | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | replace: ";", ";#" | prepend: "#" %}
             {% assign dateall = grouped_events | map: "date" | join: ";" %}
 
-            {% for event in grouped_events %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign eventhash = event.path | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | prepend: "#" %}
+            {% for event in grouped_events %}{% if forloop.first %}{% assign eventlocality = forloop.first %}{% endif %}{% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign eventhash = event.path | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | prepend: "#" %}
                     
-            <li class="eventinactive"><a data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" class="event" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+            <li class="eventinactive"><a data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" class="event {% if eventlocality %}eventlocality{% endif %}" data-mapmarkerkey="{{ event.locality }} {{ event.country }}" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-latlng='{{ event.latlng | jsonify }}' data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
             
             {% endfor %}
             {% endfor %}

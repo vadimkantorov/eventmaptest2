@@ -1,3 +1,8 @@
+function get_today_YYYY_MM_DD()
+{
+    return new Date().toISOString().slice(0, 10);
+}
+
 function switch_upcoming_campaigns(today_YYYY_MM_DD)
 {
     Array.from(document.querySelectorAll('#allcampaigns > .campaign')).filter(li => li.dataset.dateend >= today_YYYY_MM_DD).forEach(li => li.classList.add('campaignactive') && li.classList.remove('campaigninactive'));
