@@ -1,3 +1,11 @@
+.dateactive
+{
+    background-color: 'yellow';
+}
+.dateinactive
+{
+    background-color: 'gray';
+}
 .markerhighlighted
 {
     border: 2px dashed #3388ff;
