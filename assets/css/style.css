@@ -9,6 +9,11 @@
 border-top-left-radius: 40px;
 border-bottom-left-radius: 40px;
 }
+#eventphoto
+{
+border-top-right-radius: 40px;
+border-bottom-right-radius: 40px;
+}
 
 #slideshow_toggle+label::before
 {
