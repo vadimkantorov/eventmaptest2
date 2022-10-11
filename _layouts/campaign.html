@@ -5,6 +5,14 @@
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 {% assign index = "" %}{% for p in site.pages %}{% if p.path == "data/index/index.md" %}{% assign index = p %}{% endif %}{% endfor %}
 
+<!--
+Campaigns: {{ campaigns | jsonify }}
+
+Events: {{ events | jsonify }}
+
+Index: {{ index | jsonify }}
+-->
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
