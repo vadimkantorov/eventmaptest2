@@ -114,9 +114,9 @@ function body_onload()
             
             <li><div class="country">{{ country_events.name }}</div></li>
             
-            {% assign events_grouped_by_locality = country_events.items | sort: "locality", "date" | group_by: "locality" %}
+            {% assign events_grouped_by_locality = country_events.items | sort: "locality" | group_by: "locality" %}
             {% for locality_events in events_grouped_by_locality %}
-            {% assign grouped_events = locality_events.items %}
+            {% assign grouped_events = locality_events.items | sort: "date" %}
 
             {% assign eventhashother = grouped_events | map: "path" | join: ";" | remove: "data/events/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | replace: ";", ";#" | prepend: "#" %}
             {% assign dateother = grouped_events | map: "date" | join: ";" %}
