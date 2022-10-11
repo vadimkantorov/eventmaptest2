@@ -10,7 +10,7 @@ defaults:
       image: true
   -
     scope:
-      path: "data/campaigns/*.md"
+      path: "data/campaigns/*/*.md"
     values:
       permalink: /:basename.html
       layout: campaign
