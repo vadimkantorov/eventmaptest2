@@ -17,7 +17,7 @@ defaults:
 
   -
     scope:
-      path: "data/_index/_index.md"
+      path: "data/index/index.md"
     values:
       permalink: /index.html
       layout: index
