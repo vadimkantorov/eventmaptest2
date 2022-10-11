@@ -579,7 +579,10 @@ function navigate(hash)
         
         const next_icon = document.getElementById(a.dataset.iconid);
         if(next_icon != null)
+        {
             next_icon.classList.add('markerhighlighted');
+            next_icon.click();
+        }
     }
     else
     {
