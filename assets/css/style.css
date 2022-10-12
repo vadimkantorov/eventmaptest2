@@ -24,7 +24,7 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214
 #indexdescription
 {
 text-align: center; color: rgb(0, 131, 214) !important;
-width: 200px;
+width: 200px !important;
 
 margin: auto;
 width: 50%;
