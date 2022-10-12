@@ -1,5 +1,5 @@
 ---
-title: "Event map"
+title: "#RussiansAainstWar protest map"
 telegram: "https://t.me/vadimkantorov"
 logo: index.png
 ---
