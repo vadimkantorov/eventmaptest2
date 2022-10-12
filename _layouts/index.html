@@ -82,9 +82,6 @@ function body_onload()
         
         <title>{{ index.title %}}</title>
     </head>
-    <header>
-    <pre>{{ events | inspect }}</pre>
-    </header>
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
         <h1 id="campaigntitle"><a href="">{{ index.title }}</a></h1>
@@ -124,8 +121,7 @@ function body_onload()
         <ul id="allevents" class="events">
         
             {% for country_events in events_grouped_by_country %}
-            {% assign grouped_events = country_events.items %}
-            <!-- {{ grouped_events  | jsonify }} -->
+            {% assign grouped_events = country_events.items | sort: "date" | reverse %}
             {% for event in grouped_events %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign event_hash = event.path | remove: "data/campaigns/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" %}
             {% for campaign in site.pages %}{% assign campaign_path = campaign.path | split: "/" | pop | join: "/" %}{% if campaign.path contains "data/campaigns/" and campaign.dir == "/" and event.dir contains campaign_path %}
             

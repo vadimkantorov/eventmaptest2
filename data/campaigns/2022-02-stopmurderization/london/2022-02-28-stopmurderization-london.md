@@ -2,7 +2,7 @@
 locality: London
 country: UK
 latlng : [51.5072, -0.1275]
-date: 2022-02-29
+date: 2022-02-28
 time: "19:00"
 timezone: BST
 location: Ru Embassy
