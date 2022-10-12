@@ -125,7 +125,7 @@ function body_onload()
             
             {% assign events_grouped_by_locality = country_events.items | sort: "locality" | group_by: "locality" %}
             {% for locality_events in events_grouped_by_locality %}
-            {% assign grouped_events = locality_events.items | sort: "date" | reverse %}
+            {% assign grouped_events = locality_events.items | reverse %}
 
             {% assign eventhashall = grouped_events | map: "path" | join: ";" | remove: "data/campaigns/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | replace: ";", ";#" | prepend: "#" %}
             {% assign dateall = grouped_events | map: "date" | join: ";" %}
