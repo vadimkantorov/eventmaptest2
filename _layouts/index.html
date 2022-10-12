@@ -88,7 +88,7 @@ function body_onload()
         <div id="campaigndescription">{{ index.content | markdownify }}</div>
         <hr />
         <div id='container'>
-            <div id="map"></div>
+            <div id="map"><template id="popup"><div><h3 id="place"></h3><h4 id="time"></h4></div></template></div>
             <div id="picBox"><img data-photohrefs="" data-photohrefsidx="" onclick="img_onclick()" id="eventphoto" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto" alt="Event photo" src="" hidden></img></div>
         </div>
         
