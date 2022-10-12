@@ -22,9 +22,9 @@
         
         <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":{{ index.title | jsonify }},"name": {{index.title | jsonify }},"url":"{{ site.github.url }}}</script>
         {% if index.logo %}
-        <meta name="twitter:image" content="{{ site.github.url }}/data/index/logo.png" />
-        <meta property="og:image"  content="{{ site.github.url }}/data/index/logo.png" />
-        <link rel="icon"              href="{{ site.github.url ))/data/index/logo.png" />
+        <meta name="twitter:image" content="{{ site.github.url }}/data/index/{{ index.logo }}" />
+        <meta property="og:image"  content="{{ site.github.url }}/data/index/{{ index.logo }}" />
+        <link rel="icon"              href="{{ site.github.url ))/data/index/{{ index.logo }}" />
         {% endif %}
         <!--<link rel="shortcut icon" type="image/x-icon" href="/eventmaptest/favicon.ico" />-->
         <link rel="stylesheet" href="assets/css/style.css" />
