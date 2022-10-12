@@ -52,7 +52,7 @@ function populate_upcoming_events_in_country(today_YYYY_MM_DD, country)
 
 function format_maps_link(link_pattern_id, event_dataset)
 {
-    const latlng = JSON.parse(event_dataset.latlng);
+    const latlng = [parseFloat(event_dataset.lat), parseFloat(event_dataset.lng)];
     const url_pattern = decodeURI(document.getElementById(link_pattern_id).href);
     return url_pattern.replace('{name}', event_dataset.locality.replace(' ', '+') + ',+' + event_dataset.country.replace(' ', '+')).replace('{lat}', latlng[0].toString()).replace('{lng}', latlng[1].toString())
 }
