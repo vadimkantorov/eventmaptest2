@@ -84,8 +84,8 @@ function body_onload()
     </head>
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
-        <h1 id="campaigntitle"><a href="">{{ index.title }}</a></h1>
-        <div id="campaigndescription">{{ index.content | markdownify }}</div>
+        <h1 id="indextitle"><a href="">{{ index.title }}</a></h1>
+        <div id="indexdescription">{{ index.content | markdownify }}</div>
         <hr />
         <div id='container'>
             <div id="map"><template id="popup"><div><h3 id="place"></h3><h4 id="time"></h4></div></template></div>
