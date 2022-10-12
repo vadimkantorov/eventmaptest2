@@ -1,13 +1,14 @@
 data_dir: data
 
 defaults:
+#
+#  - scope:
+#      path: "assets/img"
+#    values:
+#      image: true
+#
   - scope:
       path: "assets/css"
-
-  - scope:
-      path: "assets/img"
-    values:
-      image: true
   -
     scope:
       path: "data/campaigns/*/*.md"
