@@ -1,7 +1,6 @@
 {% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir == "/" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 {% assign index = page %}
-{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir != "/" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
-<!-- {{ events | jsonify }} -->
+{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir != "/" %}{% assign %} {% assign events = events | push: p %}{% endif %}{% endfor %}
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 
 
@@ -84,7 +83,9 @@ function body_onload()
         
         <title>{{ index.title %}}</title>
     </head>
-
+    <header>
+    <pre>{{ events | inspect }}</pre>
+    </header>
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
         <h1 id="campaigntitle"><a href="">{{ index.title }}</a></h1>
