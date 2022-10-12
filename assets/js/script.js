@@ -7,7 +7,8 @@ function init_map(id)
     {
         e.popup._closeButton.removeAttribute("href");
         e.popup._closeButton.style.cursor = "pointer";
-    })
+    });
+    return map;
 }
 
 function get_today_YYYY_MM_DD()
