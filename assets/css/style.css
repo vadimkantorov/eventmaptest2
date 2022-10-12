@@ -1,3 +1,18 @@
+
+#campaigntitle
+{
+text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
+}
+#campaigntitle > a:link, #campaigntitle > a:visited {
+    color: rgb(0, 131, 214) !important;
+}
+
+#campaigndescription
+{
+text-align: center; color: rgb(0, 131, 214) !important;
+width: 200px;
+}
+
 .eventsnoneerror
 {
 text-align: center; line-height: 1.4; font-size: 1.48rem; color: gray !important;
@@ -100,19 +115,6 @@ text-align:center
 .header
 {
 text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
-}
-
-#campaigntitle
-{
-text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
-}
-#campaigntitle > a:link, #campaigntitle > a:visited {
-    color: rgb(0, 131, 214) !important;
-}
-
-#campaigndescription
-{
-text-align: center; color: rgb(0, 131, 214) !important;
 }
 
 .country

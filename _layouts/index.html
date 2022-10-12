@@ -22,9 +22,9 @@
         
         <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":{{ index.title | jsonify }},"name": {{index.title | jsonify }},"url":"{{ site.github.url }}}</script>
         {% if index.logo %}
-        <meta name="twitter:image" content="{{ site.github.url }}/data/index/{{ index.logo }}" />
-        <meta property="og:image"  content="{{ site.github.url }}/data/index/{{ index.logo }}" />
-        <link rel="icon"              href="{{ site.github.url ))/data/index/{{ index.logo }}" />
+        <meta name="twitter:image" content="{{ site.github.url }}/{{ index.path | replace: "index.md", index.logo }}" />
+        <meta property="og:image"  content="{{ site.github.url }}/{{ index.path | replace: "index.md", index.logo }}" />
+        <link rel="icon"              href="{{ site.github.url ))/{{ index.path | replace: "index.md", index.logo }}" />
         {% endif %}
         <!--<link rel="shortcut icon" type="image/x-icon" href="/eventmaptest/favicon.ico" />-->
         <link rel="stylesheet" href="assets/css/style.css" />
@@ -82,9 +82,6 @@ function body_onload()
         
         <title>{{ index.title %}}</title>
     </head>
-    <header>
-    {{ index | jsonify }}
-    </header>
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
         <h1 id="campaigntitle"><a href="">{{ index.title }}</a></h1>
