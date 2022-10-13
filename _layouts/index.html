@@ -145,7 +145,7 @@ function body_onload()
         </summary>
 
         <nav>
-            <ul id="allcampaigns">{% for campaign in campaigns %}{% assign name_size = campaign.name | size | minus: 3 %}{% assign d = campaign.name | slice: 0, name_size %}<li class="campaign campaigninactive" {% if campaign.date.first %} data-datebegin="{{ campaign.date[0] }}" data-dateend="{{ campaign.date[1] }}"{% else %} data-datebegin=""{{ campaign.date }}" data-dateend="{{ campaign.date }}" {% endif %}><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date: "%B %-d" }}{{ campaign.date[1] | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
+            <ul id="allcampaigns">{% for campaign in campaigns %}{% assign d = campaign.name | remove: ".md" %}<li class="campaign campaigninactive" {% if campaign.date.first %} data-datebegin="{{ campaign.date[0] }}" data-dateend="{{ campaign.date[1] }}"{% else %} data-datebegin=""{{ campaign.date }}" data-dateend="{{ campaign.date }}" {% endif %}><a href="{{ d }}"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date: "%B %-d" }}{{ campaign.date[1] | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
         </nav>
         </details>
     
