@@ -82,11 +82,6 @@ function body_onload()
         
         <title>{{ index.title %}}</title>
     </head>
-    <header><pre>
-    Campaigns: {{ campaigns | jsonify }}
-    Events: {{ events | jsonify }}
-    Pages: {{ site.pages | jsonify }}
-    </pre></header>
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
         <h1 id="indextitle"><a href="">{{ index.title }}</a></h1>
@@ -117,6 +112,7 @@ function body_onload()
         <ul class="events" id="upcomingeventseverywhere">
             <li hidden class="eventsnone"><div class="eventsnoneerror">No upcoming events</div></li>
         </ul>
+        
         <hr />
         <details>
         <summary class="center">
@@ -140,12 +136,17 @@ function body_onload()
         </ul>
         
         </details>
-
+        
         <hr />
-        <h3 class="header">All campaigns</h3> 
+        <details open>
+        <summary class="center">
+        <span class="header">All campaigns</span>
+        </summary>
+
         <nav>
             <ul id="allcampaigns">{% for campaign in campaigns %}{% assign name_size = campaign.name | size | minus: 3 %}{% assign d = campaign.name | slice: 0, name_size %}<li class="campaign campaigninactive" {% if campaign.date.first %} data-datebegin="{{ campaign.date[0] }}" data-dateend="{{ campaign.date[1] }}"{% else %} data-datebegin=""{{ campaign.date }}" data-dateend="{{ campaign.date }}" {% endif %}><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date: "%B %-d" }}{{ campaign.date[1] | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
         </nav>
+        </details>
     
     </div>
     </body>

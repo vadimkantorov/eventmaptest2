@@ -1,4 +1,4 @@
-{% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir == "/" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
+{% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "campaign" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 {% assign campaign = page %}
 {% assign campaign_name = page.name | replace: ".md", "" %}
 {% if campaign.events %}{% assign events = campaign.events %}{% else %}{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir contains campaign_name %}{% assign events = events | push: p %}{% endif %}{% endfor %}{% endif %}
