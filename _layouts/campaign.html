@@ -24,7 +24,6 @@
         
         <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":{{ campaign.title | jsonify }},"name": {{ campaign.title | jsonify }},"url": {{ site.github.url | append: page.url | jsonify }} }</script>
         {% if campaign.logo %}
-        <pre>{{ campaign | jsonify }}</pre>
         <meta name="twitter:image" content="{{ site.github.url }}/{{ campaign.path | split: "/" | pop | join: "/"}}/{{ campaign.logo }}" />
         <meta property="og:image"  content="{{ site.github.url }}/{{ campaign.path | split: "/" | pop | join: "/"}}/{{ campaign.logo }}" />
         <link rel="icon"              href="{{ site.github.url }}/{{ campaign.path | split: "/" | pop | join: "/"}}/{{ campaign.logo }}" />
