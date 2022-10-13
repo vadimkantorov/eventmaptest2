@@ -94,7 +94,8 @@ function body_onload()
 
         <title>{{ page.title | xml_escape}}</title>
     </head>
-    
+   
+    <header><pre>{{ site.static_files | jsonify }}</pre></header>
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
         <h1 id="campaigntitle"><a href="">{{ page.title }}</a>&nbsp;(<a href="./">{{ index.title }}</a>)</h1>
