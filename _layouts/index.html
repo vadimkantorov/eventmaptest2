@@ -82,6 +82,10 @@ function body_onload()
         
         <title>{{ index.title %}}</title>
     </head>
+    <header><pre>
+    Campaigns: {{ campaigns | jsonify }}
+    Events: {{ events | jsonify }}
+    </pre></header>
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
         <h1 id="indextitle"><a href="">{{ index.title }}</a></h1>
