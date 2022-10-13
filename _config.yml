@@ -13,8 +13,8 @@ defaults:
     scope:
       path: "data/campaigns/*/*.md"
     values:
-#     permalink: /:basename/
-      permalink: /:basename.html
+      permalink: /:basename/
+#      permalink: /:basename.html
       layout: campaign
 
   -
