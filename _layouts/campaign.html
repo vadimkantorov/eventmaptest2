@@ -94,6 +94,8 @@ function body_onload()
 
         <title>{{ page.title }}</title>
     </head>
+    
+    <header><pre>{{ events | jsonify }}</pre></header>
 
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
