@@ -23,7 +23,7 @@ function switch_upcoming_campaigns(today_YYYY_MM_DD)
 
 function switch_upcoming_events(today_YYYY_MM_DD)
 {
-    Array.from(document.querySelectorAll('.events>li:has(a.event')).filter(li => li.dataset.date >= today_YYYY_MM_DD).forEach(li => li.classList.add('eventactive') || li.classList.remove('eventinactive'));
+    Array.from(document.querySelectorAll('.events>li:has(a.event)')).filter(li => li.dataset.date >= today_YYYY_MM_DD).forEach(li => li.classList.add('eventactive') || li.classList.remove('eventinactive'));
 }
 
 function populate_upcoming_events_everywhere(today_YYYY_MM_DD)
