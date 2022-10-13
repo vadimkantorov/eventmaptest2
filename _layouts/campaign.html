@@ -1,7 +1,7 @@
 {% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "campaign" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 {% assign campaign = page %}
 {% assign campaign_name = page.name | replace: ".md", "" %}
-{% if campaign.events %}{% assign events = campaign.events %}{% else %}{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir contains campaign_name %}{% assign events = events | push: p %}{% endif %}{% endfor %}{% endif %}
+{% if campaign.events %}{% assign events = campaign.events %}{% else %}{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir contains campaign_name and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}{% endif %}
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 {% assign index = "" %}{% for p in site.pages %}{% if p.path == "data/index/index.md" %}{% assign index = p %}{% endif %}{% endfor %}
 
@@ -92,11 +92,9 @@ function body_onload()
 }
 </script>
 
-        <title>{{ page.title }}</title>
+        <title>{{ page.title | xml_escape}}</title>
     </head>
     
-    <header><pre>{{ events | jsonify }}</pre></header>
-
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
         <h1 id="campaigntitle"><a href="">{{ page.title }}</a>&nbsp;(<a href="./">{{ index.title }}</a>)</h1>
