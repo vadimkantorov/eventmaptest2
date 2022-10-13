@@ -85,6 +85,7 @@ function body_onload()
     <header><pre>
     Campaigns: {{ campaigns | jsonify }}
     Events: {{ events | jsonify }}
+    Pages: {{ site.pages | jsonify }}
     </pre></header>
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
