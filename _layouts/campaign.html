@@ -26,8 +26,8 @@
         {% if campaign.logo %}
         <pre>{{ campaign | jsonify }}</pre>
         <meta name="twitter:image" content="{{ site.github.url }}/{{ campaign.path | split: "/" | pop | join: "/"}}/{{ campaign.logo }}" />
-        <meta property="og:image"  content="{{ site.github.url }}/{{ campaign.dir }}{{ campaign.logo }}" />
-        <link rel="icon"              href="{{ site.github.url }}/{{ campaign.dir }}{{ campaign.logo }}" />
+        <meta property="og:image"  content="{{ site.github.url }}/{{ campaign.path | split: "/" | pop | join: "/"}}/{{ campaign.logo }}" />
+        <link rel="icon"              href="{{ site.github.url }}/{{ campaign.path | split: "/" | pop | join: "/"}}/{{ campaign.logo }}" />
         {% endif %}
         
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
