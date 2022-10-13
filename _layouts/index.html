@@ -1,6 +1,6 @@
-{% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir == "/" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
+{% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "campaign" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 {% assign index = page %}
-{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir != "/" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
+{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 
 <!DOCTYPE html>
@@ -128,7 +128,7 @@ function body_onload()
             {% for country_events in events_grouped_by_country %}
             {% assign grouped_events = country_events.items | sort: "date" | reverse %}
             {% for event in grouped_events %} {% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %}{% assign photo_path_size = p.path | size | minus: 1 %}{% assign photo = p.path | slice: 1, photo_path_size %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% assign event_hash = event.path | remove: "data/campaigns/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" %}
-            {% for campaign in site.pages %}{% assign campaign_path = campaign.path | split: "/" | pop | join: "/" %}{% if campaign.path contains "data/campaigns/" and campaign.dir == "/" and event.dir contains campaign_path %}
+            {% for campaign in site.pages %}{% assign campaign_path = campaign.path | split: "/" | pop | join: "/" %}{% if campaign.path contains "data/campaigns/" and campaign.layout == "campaign" and event.dir contains campaign_path %}
             
             <li class="eventinactive" data-date="{{ event.date }}"><a class="event" data-date="{{ event.date }}" data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-mapmarkerkey="{{ event.locality }}, {{ event.country }}" data-lat="{{ event.latlng[0] }}" data-lng="{{ event.latlng[1] }}" data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="#{{ event_hash }}" href="#{{ event_hash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }} - {{ campaign.title }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
             
