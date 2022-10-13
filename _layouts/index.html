@@ -81,7 +81,7 @@ function body_onload()
 }
         </script>
         
-        <title>{{ index.title %}}</title>
+        <title>{{ index.title | xml_escape %}}</title>
     </head>
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
