@@ -4,9 +4,6 @@
 {% for campaign in campaigns %}{% for event in campaign.events %}{% assign events = events | push: event %}{% endfor %}{% endfor %}
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 
-<!-- events: {{ events | jsonify }} -->
-<!-- events_grouped_by_country: {{ events_grouped_by_country | jsonify }} -->
-
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -130,6 +127,7 @@ function body_onload()
         
             {% for country_events in events_grouped_by_country %}
             {% assign grouped_events = country_events.items | sort: "date" | reverse %}
+
             <!-- grouped_events: {{ grouped_events | jsonify }} -->
 
             {% assign eventhashall = "" | split: "," %}
