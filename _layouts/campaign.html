@@ -1,7 +1,12 @@
 {% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "campaign" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 {% assign campaign = page %}
 {% assign campaign_name = page.name | replace: ".md", "" %}
-{% assign events = "" | split: "," %}<!-- {{ campaign.events | jsonify }}--> {% if campaign.events %}{% assign events = campaign.events %}{% endif %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir contains campaign_name and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
+{% assign events = "" | split: "," %}{% if campaign.events %}{% assign events = campaign.events %}{% endif %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir contains campaign_name and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
+
+{% for event in events %}
+{% if event.path == null %}{% assign event.path = "abcd" %}{% endif %}
+{% endfor %}
+
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 {% assign index = "" %}{% for p in site.pages %}{% if p.path == "data/index/index.md" %}{% assign index = p %}{% endif %}{% endfor %}
 
