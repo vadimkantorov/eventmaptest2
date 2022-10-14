@@ -139,15 +139,6 @@ function body_onload()
             {% for event in grouped_events %}
             {% if forloop.first %}{% assign eventlocality = forloop.first %}{% endif %}
             
-            <!-- {{ event | jsonify }} -->
-
-            {% if event.path %}
-                {% assign eventhash = event.path | remove: "data/campaigns/" | remove: ".md" | replace: "/", "_" | replace: " ", "_"  | prepend: "#" %}
-            {% else %}
-                {% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.locality | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}
-            {% endif %}
-            
-
             {% assign photos = "" | split: "," %}
             {% if event.photos %}
                 {% for photo in event.photos %}
@@ -182,6 +173,13 @@ function body_onload()
                 {% endfor %}
             {% endfor %}
                 
+            {% if event.path %}
+                {% assign eventhash = event.path | remove: "data/campaigns/" | remove: ".md" | replace: "/", "_" | replace: " ", "_"  | prepend: "#" %}
+            {% else %}
+                {% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.locality | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}
+            {% endif %}
+            
+
             
             <li class="eventinactive" data-date="{{ event.date }}"><a class="event" data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" data-date="{{ event.date }}" data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-mapmarkerkey="{{ event.locality }}, {{ event.country }}" data-lat="{{ event.latlng | first }}" data-lng="{{ event.latlng | last }}" data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-location="{{ event.location }}" data-eventhash="#{{ event_hash }}" href="#{{ event_hash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }} - {{ campaign.title }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
             
