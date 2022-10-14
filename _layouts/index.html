@@ -137,9 +137,35 @@ function body_onload()
             {% assign dateall = grouped_events | map: "date" | join: ";" %}
 
             {% for event in grouped_events %}
+            {% if forloop.first %}{% assign eventlocality = forloop.first %}{% endif %}
+            
             <!-- {{ event | jsonify }} -->
 
-            {% if event.path %}{% assign eventhash = event.path | remove: "data/campaigns/" | remove: ".md" | replace: "/", "_" | replace: " ", "_"  | prepend: "#" %}{% else %}{% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.locality | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}{% endif %}{% if forloop.first %}{% assign eventlocality = forloop.first %}{% endif %}{% if event.photos %}{% assign photos = "" | split: "," %}{% for photo in event.photos %}{% if photo contains "https://" %}{% assign httpsphoto = photo %}{% else %}{% assign httpsphoto = campaign.path | split: "/" | pop | join: "/" | prepend: "/" | prepend: site.github.url | append: "/" | append: photo %}{% endif %}{% assign photos = photos | push: httpsphoto %}{% endfor %}{% else %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %} {% assign photo = site.github.url | append: p.path %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% endif %}
+            {% if event.path %}
+                {% assign eventhash = event.path | remove: "data/campaigns/" | remove: ".md" | replace: "/", "_" | replace: " ", "_"  | prepend: "#" %}
+            {% else %}
+                {% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.locality | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}
+            {% endif %}
+            
+
+            {% assign photos = "" | split: "," %}
+            {% if event.photos %}
+                {% for photo in event.photos %}
+                    {% if photo contains "https://" %}
+                        {% assign httpsphoto = photo %}
+                    {% else %}
+                        {% assign httpsphoto = campaign.path | split: "/" | pop | join: "/" | prepend: "/" | prepend: site.github.url | append: "/" | append: photo %}
+                    {% endif %}
+                    {% assign photos = photos | push: httpsphoto %}
+                {% endfor %}
+            {% else %}
+                {% for p in site.static_files %}
+                    {% if p.extname == ".jpg" and p.path contains event.dir %}
+                        {% assign photo = site.github.url | append: p.path %}
+                        {% assign photos = photos | push: photo %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
 
             {% for campaign in site.pages %}{% assign campaign_path = campaign.path | split: "/" | pop | join: "/" %}{% if campaign.path contains "data/campaigns/" and campaign.layout == "campaign" and event.dir contains campaign_path %}
             
