@@ -2,13 +2,6 @@
 {% assign campaign = page %}
 {% assign campaign_name = page.name | replace: ".md", "" %}
 {% assign events = "" | split: "," %}{% if campaign.events %}{% assign events = campaign.events %}{% endif %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir contains campaign_name and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
-
-{% for event in events %}
-{% if event.path %}{$ else %}{% assign event["path"] = "abcd" %}{% endif %}
-{% endfor %}
-
-<!-- {{events|jsonify}} -->
-
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 {% assign index = "" %}{% for p in site.pages %}{% if p.path == "data/index/index.md" %}{% assign index = p %}{% endif %}{% endfor %}
 
@@ -134,10 +127,16 @@ function body_onload()
             {% for locality_events in events_grouped_by_locality %}
             {% assign grouped_events = locality_events.items | sort: "date" | reverse %}
 
-            {% assign eventhashall = grouped_events | map: "path" | join: ";" | remove: "data/campaigns/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | replace: ";", ";#" | prepend: "#" %}
+            {% assign eventhashall = "" | split: "," %}
+            {% for event in grouped_events %}
+                {% if event.path %}{% assign eventhash = event.path | remove: "data/campaigns/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | prepend: "#" %}{% else %}{% assign eventhash = campaign.path | append: "_" | append: event.date | append: "-" | append: event.city | prepend: "#" %}{% endif %}
+                {% assign eventhashall = eventhashall | push: eventhash %}
+            {% endfor %}
+            {% assign eventhashall = eventhashall | join: ";" %}
             {% assign dateall = grouped_events | map: "date" | join: ";" %}
 
-            {% for event in grouped_events %}{% assign eventhash = event.path | remove: "data/campaigns/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | prepend: "#" %}{% if forloop.first %}{% assign eventlocality = forloop.first %}{% endif %}{% if event.photos %}{% assign photos = event.photos %}{% else %}{% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %} {% assign photo = site.github.url | append: p.path %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% endif %}
+            {% for event in grouped_events %}
+            {% if event.path %}{% assign eventhash = event.path | remove: "data/campaigns/" | replace: "/", "_" | replace: " ", "_" | replace: ".md", "" | prepend: "#" %}{% else %}{% assign eventhash = campaign.path | append: "_" | append: event.date | append: "-" | append: event.city | prepend: "#" %}{% endif %}{% if forloop.first %}{% assign eventlocality = forloop.first %}{% endif %}{% if event.photos %}{% assign photos = event.photos %}{% else %}{% assign photos = "" | split: "," %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %} {% assign photo = site.github.url | append: p.path %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% endif %}
                     
             <li class="eventinactive" data-date='{{ event.date }}'><a data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" class="event {% if eventlocality %}eventlocality{% endif %}" data-mapmarkerkey="{{ event.locality }}, {{ event.country }}" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-lat="{{ event.latlng | first }}" data-lng="{{ event.latlng | last }}" data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
             
