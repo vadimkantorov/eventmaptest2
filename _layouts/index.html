@@ -130,6 +130,7 @@ function body_onload()
         
             {% for country_events in events_grouped_by_country %}
             {% assign grouped_events = country_events.items | sort: "date" | reverse %}
+            <!-- grouped_events: {{ grouped_events | jsonify }} -->
 
             {% assign eventhashall = "" | split: "," %}
             {% for event in grouped_events %}
