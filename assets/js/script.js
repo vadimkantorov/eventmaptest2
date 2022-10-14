@@ -67,6 +67,7 @@ function format_event_info(a)
     elem.querySelector('#eventurl').href = a.dataset.eventurl;
     elem.querySelector('#orgurl').href = a.dataset.orgurl;
     elem.querySelector('#orgurl').innerText = a.dataset.orgname;
+    elem.querySelector('#place').innerText = a.dataset.location;
     
     if(a.dataset.dateall != null && a.dataset.dateall != '')
     {
