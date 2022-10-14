@@ -4,7 +4,8 @@
 {% for campaign in campaigns %}{% for event in campaign.events %}{% assign events = events | push: event %}{% endfor %}{% endfor %}
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 
-<!-- {{ events | jsonify }} -->
+<!-- events: {{ events | jsonify }} -->
+<!-- events_grouped_by_country: {{ events_grouped_by_country | jsonify }} -->
 
 <!DOCTYPE html>
 <html lang="en-US">
