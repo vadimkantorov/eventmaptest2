@@ -85,7 +85,7 @@ function body_onload()
     </head>
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
     <div id="outer-container">
-        <h1 id="indextitle"><a href="">{{ index.title }}</a></h1>
+        <h1 id="indextitle"><a href="{{ site.github.url }}">{{ index.title }}</a></h1>
         <div id="indexdescription">{{ index.content | markdownify }}</div>
         <hr />
         <div id='container'>
