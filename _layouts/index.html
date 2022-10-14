@@ -170,7 +170,7 @@ function body_onload()
             {% assign campaign = nil %}
             {% for _campaign in campaigns %}
                 {% assign campaign_path = _campaign.path | split: "/" | pop | join: "/" %}
-                {% if event.dir contains campaign_path and  _campaign.path contains "data/campaigns/" and _campaign.layout == "campaign" and %}
+                {% if event.dir contains campaign_path and  _campaign.path contains "data/campaigns/" and _campaign.layout == "campaign" %}
                     {% assign campaign = _campaign %}
                     {% break %}
                 {% endif %}
