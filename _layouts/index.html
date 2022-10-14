@@ -1,6 +1,6 @@
 {% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "campaign" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 {% assign index = page %}
-{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}{% for campaign in campaigns %} {% if campaign.events %}{% for event in campaign.events %}{% assign events = events | push: event %}{% endfor %}{% endif %}{% endfor %}
+{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}<!-- {{ campaigns | jsonify }} -->{% for campaign in campaigns %}<!-- {{ campaign | jsonify }} -->{% for event in campaign.events %}{% assign events = events | push: event %}{% endfor %}{% endfor %}
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 
 <!-- {{ events | jsonify }} -->
