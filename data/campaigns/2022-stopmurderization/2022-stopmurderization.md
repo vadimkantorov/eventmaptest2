@@ -15,6 +15,7 @@ events:
     eventurl: "https://www.facebook.com/groups/689540562252292/posts/800798687793145/"
     orgurl: "https://linktr.ee/RusDemSociety"
     orgname: "Russian Democratic Society | Russians Against War | London"
+    content: "Hi London 3"
     photos:
       - 2022-02-28-london/309430909_131196996335440_7906077323009256294_n.jpg
       - 2022-02-28-london/310019109_131197006335439_7350403825790849516_n.jpg
