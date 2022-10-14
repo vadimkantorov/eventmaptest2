@@ -4,7 +4,7 @@
 {% assign events = "" | split: "," %}{% if campaign.events %}{% assign events = campaign.events %}{% endif %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir contains campaign_name and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
 
 {% for event in events %}
-{% if event.path %}{$ else %}{% assign event.path = "abcd" %}{% endif %}
+{% if event.path %}{$ else %}{% assign event["path"] = "abcd" %}{% endif %}
 {% endfor %}
 
 <!-- {{events|jsonify}} -->
