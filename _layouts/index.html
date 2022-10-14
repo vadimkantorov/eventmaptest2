@@ -3,6 +3,8 @@
 {% assign events = "" | split: "," %}{% if campaign.events %}{% assign events = campaign.events %}{% endif %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir contains campaign_name and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 
+<!-- {{ events | jsonify }} -->
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -12,6 +14,7 @@
         
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:description" content="Event map [{{ index.title | xml_escape }}]" />
+        <meta name="description"         content="Event map [{{ index.title | xml_escape }}]" />>
         <meta property="og:site_name"    content="Event map [{{ index.title | xml_escape }}]" />
         <meta property="og:title"        content="Event map [{{ index.title | xml_escape }}]"  />
         <meta property="twitter:title"   content="Event map [{{ index.title | xml_escape }}]" />
