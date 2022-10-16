@@ -57,30 +57,30 @@ events:
     time: "12:00"
     country: Ireland
 
-#  - locality: Tampere
-#    location: Keskustori Tampere
-#    date: 2022-09-26
-#    time: "17:00"
-#    country: Finland
-#
-#  - locality: Luxembourg
-#    location: Place d’Armes
-#    date: 2022-10-02
-#    time: "12:00"
-#    country: Luxembourg
-#
-#  - locality: Seoul
-#    location: Myeongdong station, exit 6
-#    date: 2022-10-02
-#    time: "13:00"
-#    country: Korea
-#
-#  - locality: Belgrade
-#    location: Republic Square
-#    date: 2022-10-01
-#    time: "17:00"
-#    country: Serbia
-#
+  - locality: Tampere
+    location: Keskustori Tampere
+    date: 2022-09-26
+    time: "17:00"
+    country: Finland
+
+  - locality: Luxembourg
+    location: Place d’Armes
+    date: 2022-10-02
+    time: "12:00"
+    country: Luxembourg
+
+  - locality: Seoul
+    location: Myeongdong station, exit 6
+    date: 2022-10-02
+    time: "13:00"
+    country: Korea
+
+  - locality: Belgrade
+    location: Republic Square
+    date: 2022-10-01
+    time: "17:00"
+    country: Serbia
+
 #  - locality: Stockholm
 #    location: Ru Embassy
 #    date: 2022-09-29
