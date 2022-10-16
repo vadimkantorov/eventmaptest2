@@ -81,65 +81,66 @@ events:
     time: "17:00"
     country: Serbia
 
-#  - locality: Stockholm
-#    location: Ru Embassy
-#    date: 2022-09-29
-#    time: "18:00"
-#
-#  - locality: Gothenburg
-#    location: Ru Consulate
-#    date: 2022-09-29, 17:00
-#
-#  - locality: Wroclaw
-#    location: Rynek
-#    date: 2022-09-28
-#    time: "19:00"
-#
-#  - locality: London
-#    location: Ru Embassy
-#    date: 2022-09-29
-#    time: "19:00"
-#
-#  - locality: London
-#    location: Ru Embassy
-#    date: 2022-10-01
-#    time: "12:00"
-#
-#  - locality: Chicago
-#    location: Heald Square Monument
-#    date: 2022-10-02
-#    time: "15:00"
-#
-#  - locality: Los Angeles
-#    location: Sakharov Square
-#    date: 2022-10-01
-#    time: "18:00"
-#
-#  - locality: Miami
-#    location: City of Hallandale Beach
-#    date: 2022-10-02
-#    time: "13:00"
-#
-#  - locality: New York
-#    location: Brighton Beach Boardwalk
-#    date: 2022-10-02
-#    time: "16:00"
-#
-#  - locality: Orlando
-#    location: 195 N Rosalind Ave
-#    date: 2022-10-02
-#    time: "12:00"
-#
-#  - locality: Buenos Aires
-#    location: Ru Embassy
-#    date: 2022-09-21
-#    time: "17:00"
-#
-#  - locality: Yerevan
-#    location: Ru Embassy
-#    date: 2022-09-21
-#    time: "19:00"
-#
+  - locality: Stockholm
+    location: Ru Embassy
+    date: 2022-09-29
+    time: "18:00"
+
+  - locality: Gothenburg
+    location: Ru Consulate
+    date: 2022-09-29
+    time: "17:00"
+
+  - locality: Wroclaw
+    location: Rynek
+    date: 2022-09-28
+    time: "19:00"
+
+  - locality: London
+    location: Ru Embassy
+    date: 2022-09-29
+    time: "19:00"
+
+  - locality: London
+    location: Ru Embassy
+    date: 2022-10-01
+    time: "12:00"
+
+  - locality: Chicago
+    location: Heald Square Monument
+    date: 2022-10-02
+    time: "15:00"
+
+  - locality: Los Angeles
+    location: Sakharov Square
+    date: 2022-10-01
+    time: "18:00"
+
+  - locality: Miami
+    location: City of Hallandale Beach
+    date: 2022-10-02
+    time: "13:00"
+
+  - locality: New York
+    location: Brighton Beach Boardwalk
+    date: 2022-10-02
+    time: "16:00"
+
+  - locality: Orlando
+    location: 195 N Rosalind Ave
+    date: 2022-10-02
+    time: "12:00"
+
+  - locality: Buenos Aires
+    location: Ru Embassy
+    date: 2022-09-21
+    time: "17:00"
+
+  - locality: Yerevan
+    location: Ru Embassy
+    date: 2022-09-21
+    time: "19:00"
+
 #  - locality: Yerevan
 #    location: Freedom Square
 #    date: 2022-09-24
