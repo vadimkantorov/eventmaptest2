@@ -36,7 +36,6 @@
         <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
    crossorigin=""></script>
-        <link href="https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png" rel="prefetch" id="link_marker_icon" type="image/png" />
         <!--<script type="text/javascript"
             src="https://cdn.jsdelivr.net/gh/hosuaby/Leaflet.SmoothMarkerBouncing@v3.0.2/dist/bundle.js"
             crossorigin="anonymous"></script>-->
@@ -54,9 +53,8 @@ var mapmarkers = {};
 function body_onload()
 {
     const map = init_map('map');
-    //const Icon = L.icon({ iconSize: [20, 20], iconAnchor: [10, 20], popupAnchor: [0, -10], iconUrl: decodeURI(document.getElementById('link_marker_icon').href) });
 
-    let events = document.querySelectorAll('.eventlocality');
+    let events = document.querySelectorAll('.event:not([data-lat=""]):not([data-lng=""])'); //.eventlocality
     for(const a of events)
     {
         const marker = L.marker([parseFloat(a.dataset.lat), parseFloat(a.dataset.lng)]).addTo(map);
