@@ -108,13 +108,8 @@ function body_onload()
             <span><input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_toggle" onchange="slideshow_toggle()" /><label for="slideshow_toggle">&nbsp;slideshow</label></span>
 
         </div>
-            <div id="info" class="visibilityhidden">
-                <h1 id="place">&nbsp;</h1>
-                <a target="_blank" id="eventurl">Event Link</a>&nbsp;&nbsp;|&nbsp;<a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a>&nbsp;|&nbsp;<span id="location"></span>
-                <br/><a target="_blank" id="orgurl"></a>
-                <ul id="dateall"></ul>
-                <div class="eventdescription"></div>
-            </div>
+        
+        <div id="info" class="visibilityhidden">{% include eventinfo.html %}</div>
         
 
         <hr />
