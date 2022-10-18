@@ -1,3 +1,8 @@
+#infopic
+{
+display:flex
+}
+
 #info
 {
 border: 1px solid black;
@@ -132,9 +137,9 @@ visibility : hidden;
 
 #container
 {
-display:flex;
+/*display:flex;
 flex-direction:row;
-min-height:400px;
+min-height:400px;*/
 }
 
 #picbox
