@@ -153,8 +153,7 @@ function body_onload()
             <ul id="allcampaigns">{% for campaign in campaigns %}{% assign d = campaign.name | replace: ".md", "" %}<li class="campaign {% if d == campaign_name %}campaignactive{% else %}campaigninactive{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date: "%B %-d" }}{{ campaign.date[1] | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
         </nav>
     
-    </div></body>
+    </div><footer><hr />{% include footer.html %}</footer></body>
     
-    <footer><hr />{% include footer.html %}</footer>
 
 </html>
