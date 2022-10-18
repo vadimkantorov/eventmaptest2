@@ -97,7 +97,8 @@ function body_onload()
    
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()"><div id="outer-container">
         
-        <h1 id="campaigntitle"><a href="">{{ page.title }}</a>&nbsp;(<a href="{{ site.github.url }}">{{ index.title }}</a>)</h1>
+        <h1 id="indextitle"><a href="{{ site.github.url }}">{{ index.title }}</a></h1>
+        <h2 id="campaigntitle"><a href="">{{ page.title }}</a></h2>
         
         <div id="campaigndescription">{{ page.content | markdownify }}</div>
 
