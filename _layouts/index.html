@@ -91,10 +91,7 @@ function body_onload()
         <div id="indexdescription">{{ index.content | markdownify }}</div>
         
         <hr />
-        <div id='container'>{% include mapphotos.html %}</div>
-        
-        <div id="info" class="visibilityhidden">{% include eventinfo.html %}</div>
-        
+        {% include mapphotos.html %}
 
         <hr />
         <h3 class="header">Upcoming events in <span id="country"></span></h3>

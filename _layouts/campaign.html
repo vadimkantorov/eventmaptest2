@@ -100,22 +100,10 @@ function body_onload()
         <h1 id="campaigntitle"><a href="">{{ page.title }}</a>&nbsp;(<a href="{{ site.github.url }}">{{ index.title }}</a>)</h1>
         
         <div id="campaigndescription">{{ page.content | markdownify }}</div>
-        <!--<div id="container">{% include mapphotos.html %}</div>-->
-
 
 <hr />
+{% include mapphotos.html %}
 
-<div id="slideshow"><span><input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_toggle" onchange="slideshow_toggle()" /><label for="slideshow_toggle">&nbsp;slideshow</label></span></div>
-
-<div id="container"><div id="map"><template id="popup"><div><h3 id="place"></h3><h4 id="time"></h4></div></template></div></div>
-
-<div id="infopic">
-        
-        <div id="info" class="visibilityhidden">{% include eventinfo.html %}</div>
-        
-        <div id="picbox"><img data-photohrefs="" data-photohrefsidx="" onclick="img_onclick()" id="eventphoto" style="object-fit:cover; max-width:100%; max-height: 100%; height:auto" alt="Event photo" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" hidden /></div>
-        
-</div>
         
         <hr />
         <ul id="allevents" class="events">
