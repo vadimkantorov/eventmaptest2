@@ -105,8 +105,9 @@ background-color: #3388ff4d;
 
 #map
 {
-border-top-left-radius: 40px;
-border-bottom-left-radius: 40px;
+/*border-top-left-radius: 40px;
+border-bottom-left-radius: 40px;*/
+border-radius: 40px;
 }
 #eventphoto
 {
