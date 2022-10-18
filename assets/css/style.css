@@ -240,9 +240,9 @@ font-size: 90%;
     }
 
     #container {
-        display: flex;
+        /*display: flex;
         flex-direction: row;
-        height: 400px;
+        height: 400px;*/
     }
 
     #map {
