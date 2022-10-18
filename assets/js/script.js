@@ -85,7 +85,8 @@ function format_event_info(a)
             return li;
         });
         elem.querySelector('#dateall').innerHTML = '';
-        elem.querySelector('#dateall').append(...lis)
+        if(lis.length > 1)
+            elem.querySelector('#dateall').append(...lis)
     }
     
     elem.querySelector('.eventdescription').innerHTML = '';
