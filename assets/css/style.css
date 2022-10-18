@@ -1,6 +1,6 @@
 #orgurl:not([href=""])::before
 {
-content: "by";
+content: "by ";
 }
 
 .containersticky
