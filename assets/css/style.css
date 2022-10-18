@@ -1,6 +1,7 @@
 #infopic
 {
-display:flex
+display: flex;
+height: 200px;
 }
 
 #map

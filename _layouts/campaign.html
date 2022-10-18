@@ -95,20 +95,22 @@ function body_onload()
         <title>{{ page.title | xml_escape}}</title>
     </head>
    
-    <body onhashchange="navigate(window.location.hash)" onload="body_onload()">
-    <div id="outer-container">
-        <h1 id="campaigntitle"><a href="">{{ page.title }}</a>&nbsp;(<a href="{{ site.github.url }}">{{ index.title }}</a>)</h1>
-        <div id="campaigndescription">{{ page.content | markdownify }}</div>
+    <body onhashchange="navigate(window.location.hash)" onload="body_onload()"><div id="outer-container">
         
-        <hr />
+        <h1 id="campaigntitle"><a href="">{{ page.title }}</a>&nbsp;(<a href="{{ site.github.url }}">{{ index.title }}</a>)</h1>
+        
+        <div id="campaigndescription">
+            {{ page.content | markdownify }}
+
+            <span><input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_toggle" onchange="slideshow_toggle()" /><label for="slideshow_toggle">&nbsp;slideshow</label></span>
+        </div>
+        
 
         <!--<div id="container">{% include mapphotos.html %}</div>-->
 
-<span><input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_toggle" onchange="slideshow_toggle()" /><label for="slideshow_toggle">&nbsp;slideshow</label></span>
 
-<div id="container">
-<div id="map"><template id="popup"><div><h3 id="place"></h3><h4 id="time"></h4></div></template></div>
-</div>
+<hr />
+<div id="container"><div id="map"><template id="popup"><div><h3 id="place"></h3><h4 id="time"></h4></div></template></div></div>
 
 <div id="infopic">
         
@@ -154,8 +156,7 @@ function body_onload()
             <ul id="allcampaigns">{% for campaign in campaigns %}{% assign d = campaign.name | replace: ".md", "" %}<li class="campaign {% if d == campaign_name %}campaignactive{% else %}campaigninactive{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date: "%B %-d" }}{{ campaign.date[1] | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
         </nav>
     
-    </div>
-    </body>
+    </div></body>
     
     <footer><hr />{% include footer.html %}</footer>
 
