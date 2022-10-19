@@ -55,6 +55,7 @@ events:
     time: "18:00"
     country: Cyprus
     eventurl: "https://fb.me/e/2whM65e9O?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02vHtziyspwU2tDjUwTEFRFBBMJodzVdVuwwzer7eA2sbfUe2E67SB5rtTJ9qjKXWol"
 
   - locality: Dublin
     location: The Spire
@@ -62,6 +63,7 @@ events:
     time: "12:00"
     country: Ireland
     eventurl: "https://www.instagram.com/p/CjBIlassVL7/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0hwNTcVxfLbwE4fwtu6VGM8yF49VVJdAHHLpBjnXHdw3skGB5ERZdVKJrkvvWVAMal"
 
   - locality: Tampere
     location: Keskustori Tampere
@@ -83,6 +85,7 @@ events:
     time: "13:00"
     country: Republic of Korea
     eventurl: "https://www.instagram.com/p/CjDygw7v9Ul/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reportul: "https://www.facebook.com/freerussiansglobal/posts/pfbid0mBybiWPSdiSvwPgnbGvar3modUdNkMj9fCtwXGE76XfYGCyTnRNAQ3tyvnEfsM8Dl"
 
   - locality: Belgrade
     location: Republic Square
@@ -104,6 +107,7 @@ events:
     time: "17:00"
     country: Sweden
     eventurl: "https://fb.me/e/1SvY2OQnx?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid024ESKUrVbJckrHUck5zxzrBfetGYFDCb9nvAkBK5ryKuems17BZFz6nRPR596toK2l"
 
   - locality: Wroclaw
     location: Rynek
@@ -132,6 +136,7 @@ events:
     time: "15:00"
     country: United States
     eventurl: "https://fb.me/e/1SFfNY9Yd?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0nE9jeBFGAPStjoTkLWDsnWqDKFMSf1bNPmeu9fx8tnt1aQ3PA4FwqHhRXmnUSGRVl"
 
   - locality: Los Angeles
     location: Sakharov Square
@@ -146,6 +151,7 @@ events:
     time: "13:00"
     country: United States
     eventurl: "https://fb.me/e/4SAXYpRtg?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02ASwU7rsdrW2y8ZKsTcvmiNaUBisEGCYQsF6tjAzs6UrgQGhAHjzgZEHQCsFpZxhDl"
 
   - locality: New York
     location: Brighton Beach Boardwalk
@@ -189,6 +195,7 @@ events:
     date: 2022-09-22
     country: Australia
     eventurl: "https://www.instagram.com/p/Ciz5LMAhCt1/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0orwov6MdzQ65MZ14ctB4KzPpRJamJ9v9MSkxSq8pZroYUnTZQ5Pik5m8JV5ZitUpl"
 
   - locality: Melbourne
     location: Princes Bridge
@@ -224,6 +231,7 @@ events:
     time: "14:00"
     country: Canada
     eventurl: "https://fb.me/e/4i5GtzEdp?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02BEUpkNbez5hwktriiZY8r7rbhw8Fee446nGSqpU4TLkAZRDuadWNsgeufzcqnDtEl"
 
   - locality: Montreal
     location: Ru Consulate
@@ -238,6 +246,7 @@ events:
     time: "12:00"
     country: Canada
     eventurl: "https://fb.me/e/4WNcVoXWX?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0tRTBdiggfEgF5w945dMMsYiFgs1nY7tCpZRsdmenMo9hMD3MXMSM8RZvRFLfY6Unl"
 
   - locality: Toronto
     location: Old City Hall
@@ -245,6 +254,7 @@ events:
     time: "14:00"
     country: Canada
     eventurl: "https://fb.me/e/1YEVmbG9q?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid028W1vJJUfvEHwpoypJ6wJJ5SSg8s9atuH6MAZq1wLMvfjtKtbjoah4LYHfhzdtrXSl"
 
   - locality: Vancouver
     location: Art Gallery Square
@@ -252,6 +262,7 @@ events:
     time: "19:00"
     country: Canada
     eventurl: "https://www.instagram.com/p/CixoclApqTb/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid04vdMpf8pNv8Yo6UMgaUKw8vBgRXgE6kAT5uoS3MTyFLWKanLUPK5jbJcKTcwqdbFl"
 
   - locality: Vancouver
     location: Art Gallery Square
@@ -287,6 +298,7 @@ events:
     time: "18:30"
     country: Cyprus
     eventurl: "https://www.facebook.com/groups/cybrt/permalink/638835224254731/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0yKHjYTEwVZahcJsuFqEQeh8bqu8aY35M3fNUEcaU3MQmcCVRZoQZh1nyibbJf9xLl"
 
   - locality: Paphos
     location: Harbour Kiosk
@@ -308,6 +320,7 @@ events:
     time: "14:00"
     country: Czech Republic
     eventurl: "https://fb.me/e/2nHKmnPky?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0fdhR4SAX1r21J8diPJz9PEreCeoLL5pu9NkW9xw2E3MTD5dgCHPw7JQWTCiqkFpbl"
 
   - locality: Copenhagen
     location: Kristianiagade 5
@@ -315,6 +328,7 @@ events:
     time: "18:00"
     country: Denmark
     eventurl: "https://fb.me/e/28oxxNNKB?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02mu9XZh2KCNSTYKfDtsx3xdn4NK5QFCZgPA7H2o3a8AXsHjeqTTTNHZL1BW9Yyvbnl"
 
   - locality: Copenhagen
     location: Kristianiagade 5
@@ -329,6 +343,7 @@ events:
     time: "14:00"
     country: Estonia
     eventurl: "https://fb.me/e/5HJ1UbyGW?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0UfYnDtqKG5gya2R4ETmJ3R4wQYEz2R2pyzDtXcPQaGuoqGKzTwRNusUNLhMADSnul"
 
   - locality: Helsinki
     location: Ru Embassy
@@ -343,6 +358,7 @@ events:
     time: "17:00"
     country: Finland
     eventurl: "https://fb.me/e/2anoVCZso?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0bXqXsniHBnPWzSRev1o7n3jRY4on89icou6irfXysTG3q8rqero7QwoKiX5fz12Sl"
 
   - locality: Imatra
     date: 2022-09-24
@@ -381,6 +397,7 @@ events:
     time: "17:00"
     country: France
     eventurl: "https://fb.me/e/3yKZToy7g?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0pebXRh8apBLsWzPUeMF5u3U9e3J9zocwERx46yD8MQFqAmjKUHS6grH89eNXi2Al"
 
   - locality: Berlin
     location: Pariser Platz 1
@@ -442,6 +459,7 @@ events:
     time: "18:30"
     country: Germany
     eventurl: "https://fb.me/e/2bcim3S7J?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0wnijXKnpRc1gDZKeWCT8CoPSXLWg4taUtQzZyywzSw2aegAJMAQqyU7u2K49LTCNl"
 
   - locality: Stuttgart
     location: Schlossplatz
@@ -468,6 +486,7 @@ events:
     time: "18:30"
     country: Italy
     eventurl: "https://fb.me/e/1RHpAcEqU?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02pu1XZ6vRKeof8eD4BNVG7GxQrCg6jzdjTeoRjK8PXqdd9w2RmCRTyQjGFgzghYDYl"
 
   - locality: Dublin
     location: The Spire
@@ -475,6 +494,7 @@ events:
     time: "11:30"
     country: Ireland
     eventurl: "https://t.me/irlndinfo/421?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0376YZFtYdvaPQLfSUFep6Ug3ySZdWoDz5joNMRmxrP7qPpRi58djJeYdwpqQMbCdEl"
 
   - locality: Tokyo
     location: Hachiko in Shibuya
@@ -482,6 +502,7 @@ events:
     time: "14:00"
     country: Japan
     eventurl: "https://t.me/irlndinfo/421?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02zrd4eFMXJoawMJCcqAPV3BnNkiidd45EePMY9CQbY75UVVT6qTj6k5iSepsUC3kql"
 
   - locality: Riga
     location: Ru Embassy
@@ -489,6 +510,7 @@ events:
     time: "13:00"
     country: Latvia
     eventurl: "https://fb.me/e/dppPXCXYi?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0iWTibueNdkxrZAYtcZ74CY2Geved8W8Y1x6KtSNiTCEdggf2fbevFfbG54HB89Wdl"
 
   - locality: Vilnius
     location: Vinco Kudirkos aikštė
@@ -517,6 +539,7 @@ events:
     time: "14:00"
     country: Netherlands
     eventurl: "https://www.instagram.com/p/Ciw0mkkDhIq/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reportul: "https://www.facebook.com/freerussiansglobal/posts/pfbid034gD8MTiEyCvYwxs9E3Wx5jmcS3MBXjx6SM2JWFiBG4Z6cksJqkkWNgPam9SSoBkPl"
 
   - locality: Wellington
     location: Ru Embassy
@@ -524,6 +547,7 @@ events:
     time: "17:00"
     country: New Zealand
     eventurl: "https://www.instagram.com/p/Ciw0mkkDhIq/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0yPSS69vNmkvjj8QobU1ECYEJBAkr21VbyBC6UZKdVGzx4rddKEbuoyN1vvjq2tCel"
 
   - locality: Auckland
     date: 2022-09-22
@@ -614,6 +638,7 @@ events:
     time: "18:00"
     country: Portugal
     eventurl: "https://fb.me/e/1IwIkGJOf?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02aK4wnUPG1ZSQFp6SYp3wr7wPX6dRxjw3gyb4rbskAfuPHaUGM3ts6UgeP6pQvhRtl"
 
   - locality: Seoul
     location: Ru Embassy
@@ -698,6 +723,7 @@ events:
     time: "14:00"
     country: Switzerland
     eventurl: "https://fb.me/e/5ieGhQ8ZF?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0CFnM5eKSX3YAWZZwztN7kU4d2oPXegtW5Jjgq3PHZx1WgRWkidiknfXinrSU4haGl"
 
   - locality: Istanbul
     location: Odakule
@@ -712,6 +738,7 @@ events:
     time: "19:00"
     country: Turkey
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02y2UEZFkavzna1KMgT8bjhGnkmeSW6oiYY2PQi39TPmtz7VgqZa1WQnvVgBdemgp5l"
 
   - locality: Antalya
     location: Akdeniz Blv 19/1
@@ -719,6 +746,7 @@ events:
     time: "17:00"
     country: Turkey
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02C9faB59u6ogjWyGMyuF9msenWTAg68VvQLapKg6WcfUywL89jULXztchMtandM6Gl"
 
   - locality: London
     location: Ru Embassy
@@ -761,6 +789,7 @@ events:
     time: "11:00"
     country: United Kingdom
     eventurl: "https://fb.me/e/1PNdhQSGp?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02KeKdjgzv1YN7asB4bqbkbHquG8S1DQaCQSQ33BSjEs4J8YwmEEnEZuu5RCPoSaPMl"
 
   - locality: Washington
     location: Ru Embassy
@@ -782,6 +811,7 @@ events:
     time: "19:00"
     country: United States
     eventurl: "https://fb.me/e/2KblceKxO?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0229sNs7GQPMysns3otZ4WjUcDAbETZzorF32VaiY8NA9TpprFVythJAacNu4NedwAl"
 
   - locality: Denver
     location: 200 E Colfax Ave
@@ -789,6 +819,7 @@ events:
     time: "18:30"
     country: United States
     eventurl: "https://fb.me/e/6oLNPkymf?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02DQwp34ag34E1sBz7MkGCUGg3RkS5hJVPcVT6Rze5pHvaQWSCkuSCRgpyGToBp7qHl"
 
   - locality: Jacksonville
     location: 60 First St N
@@ -857,6 +888,7 @@ events:
     time: "20:00"
     country: United States
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
+    reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0KeehMXAQEDts22d7qStcMvy9KeNWQHesDdga96bcqpcSRYFEAfhsQQLbAE8Whid1l"
 
   - locality: San Diego
     location: Plaza de Panama
