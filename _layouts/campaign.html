@@ -22,14 +22,14 @@
         <meta property="twitter:title"   content="Event map [{{ campaign.title | xml_escape }}]" />
         <meta property="og:url" content="{{ site.github.url | xml_escape }}{{ page.url | xml_escape }}" />
         <link rel="canonical"      href="{{ site.github.url | xml_escape }}{{ page.url | xml_escape }}" />
-        
+
         <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":{{ campaign.title | jsonify }},"name": {{ campaign.title | jsonify }},"url": {{ site.github.url | append: page.url | jsonify }} }</script>
         {% if campaign.logo %}
         <meta name="twitter:image" content="{{ site.github.url }}/{{ campaign.path | split: "/" | pop | join: "/"}}/{{ campaign.logo }}" />
         <meta property="og:image"  content="{{ site.github.url }}/{{ campaign.path | split: "/" | pop | join: "/"}}/{{ campaign.logo }}" />
         <link rel="icon"              href="{{ site.github.url }}/{{ campaign.path | split: "/" | pop | join: "/"}}/{{ campaign.logo }}" />
         {% endif %}
-        
+
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
    crossorigin=""/>
@@ -39,7 +39,7 @@
         <!--<script type="text/javascript"
             src="https://cdn.jsdelivr.net/gh/hosuaby/Leaflet.SmoothMarkerBouncing@v3.0.2/dist/bundle.js"
             crossorigin="anonymous"></script>-->
-        
+
         <link href="https://tile.openstreetmap.org/{z}/{x}/{y}.png" id="link_tiles" />
         <link href="https://maps.google.com/maps/place/{name}/@{latlon},12z" id="link_maps_google_pattern" />
         <link href="https://maps.apple.com/?q={name}&ll=@{latlon}&z=12" id="link_maps_apple_pattern" />
@@ -58,13 +58,13 @@ function body_onload()
     for(const a of events)
     {
         const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat)), {radius: 5}).addTo(map);
-        
+
         marker.bindPopup(format_event_popup(a).outerHTML);
-        
+
         //marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
         marker.eventhash =  a.dataset.eventhash;// marker._icon.eventhash =
-        
-        marker.on('click', e => 
+
+        marker.on('click', e =>
         {
             //const _icon = document.querySelector('.markerhighlighted');
             //if(_icon != null)
@@ -81,38 +81,37 @@ function body_onload()
 
         mapmarkers[a.dataset.mapmarkerkey] = marker;
     }
-    
+
     events = document.querySelectorAll('a.event:not([data-photohrefs=""])');
     slideshow_init(Array.from(events).map(a => a.dataset.eventhash));
 
     const today_YYYY_MM_DD = get_today_YYYY_MM_DD();
     switch_upcoming_events(today_YYYY_MM_DD);
-    
+
     navigate(window.location.hash);
 }
 </script>
 
         <title>{{ page.title | xml_escape}}</title>
     </head>
-   
+
     <body onhashchange="navigate(window.location.hash)" onload="body_onload()"><div id="outer-container">
-        
+
         <h1 id="indextitle"><a href="{{ site.github.url }}">{{ index.title }}</a></h1>
         <h2 id="campaigntitle"><a href="">{{ page.title }}</a></h2>
-        
+
         <div id="campaigndescription">{{ page.content | markdownify }}</div>
 
 <hr />
 {% include mapphotos.html %}
 
-        
-        <hr />
+
         <ul id="allevents" class="events">
-        
+
             {% for country_events in events_grouped_by_country %}
-            
+
             <li><div class="country">{{ country_events.name }}</div></li>
-            
+
             {% assign events_grouped_by_locality = country_events.items | sort: "locality" | group_by: "locality" %}
             {% for locality_events in events_grouped_by_locality %}
             {% assign grouped_events = locality_events.items | sort: "date" | reverse %}
@@ -127,22 +126,23 @@ function body_onload()
 
             {% for event in grouped_events %}
             {% if event.path %}{% assign eventhash = event.path | remove: "data/campaigns/" | remove: ".md" | replace: "/", "_" | replace: " ", "_"  | prepend: "#" %}{% else %}{% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.locality | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}{% endif %}{% if forloop.first %}{% assign eventlocality = forloop.first %}{% endif %}{% if event.photos %}{% assign photos = "" | split: "," %}{% for photo in event.photos %}{% if photo contains "https://" %}{% assign httpsphoto = photo %}{% else %}{% assign httpsphoto = campaign.path | split: "/" | pop | join: "/" | prepend: "/" | prepend: site.github.url | append: "/" | append: photo %}{% endif %}{% assign photos = photos | push: httpsphoto %}{% endfor %}{% else %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %} {% assign photo = site.github.url | append: p.path %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% endif %}
-                    
+
             <li class="eventinactive" data-date='{{ event.date }}'><a data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" class="event {% if eventlocality %}eventlocality{% endif %}" data-mapmarkerkey="{{ event.locality }}, {{ event.country }}" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-latlon="{% if event.latlon %}{{ event.latlon }}{% else %}{{ index.geocoder[event.locality] }}{% endif %}" data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-location="{{ event.location }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
-            
+
+
             {% endfor %}
             {% endfor %}
             {% endfor %}
 
         </ul>
-        
+
         <hr />
         <h3 class="header">All campaigns</h3>
         <nav>
             <ul id="allcampaigns">{% for campaign in campaigns %}{% assign d = campaign.name | replace: ".md", "" %}<li class="campaign {% if d == campaign_name %}campaignactive{% else %}campaigninactive{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date: "%B %-d" }}{{ campaign.date[1] | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
         </nav>
-    
+
     </div><footer><hr />{% include footer.html %}</footer></body>
-    
+
 
 </html>

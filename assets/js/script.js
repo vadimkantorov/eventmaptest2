@@ -3,7 +3,7 @@ function init_map(id)
     const map = L.map(id).setView([20, 0], 2);
     L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {attribution: document.getElementById('map_copyright').outerHTML, maxZoom: 19 }).addTo(map);
     //map.fitBounds(L.latLngBounds(Object.values(data.places).map(place => place.latlng)));
-    map.on('popupopen', e => 
+    map.on('popupopen', e =>
     {
         e.popup._closeButton.removeAttribute("href");
         e.popup._closeButton.style.cursor = "pointer";
@@ -59,20 +59,21 @@ function format_maps_link(link_pattern_id, event_dataset)
 function format_event_info(a)
 {
     const elem = document.getElementById('info').cloneNode(true);
-    
-    elem.querySelector('#place').innerText = `${a.dataset.locality}, ${a.dataset.country}, ${a.dataset.date} ${a.dataset.time}`;
+
+    elem.querySelector('#place_name').innerText = `${a.dataset.locality}, ${a.dataset.country}`;
+    elem.querySelector('#place_date').innerText = `${a.dataset.date} ${a.dataset.time}`;
     elem.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', a.dataset);
     elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
     elem.querySelector('#eventurl').href = a.dataset.eventurl;
     elem.querySelector('#orgurl').href = a.dataset.orgurl;
     elem.querySelector('#orgurl').innerText = a.dataset.orgname;
     elem.querySelector('#location').innerText = a.dataset.location;
-    
+
     if(a.dataset.dateall != null && a.dataset.dateall != '')
     {
         const dateall = a.dataset.dateall.split(';');
         const eventhashall = a.dataset.eventhashall.split(';');
-        const lis = dateall.map((innerText, i) => 
+        const lis = dateall.map((innerText, i) =>
         {
             const li = document.createElement('li');
             li.className = 'date';
@@ -88,10 +89,10 @@ function format_event_info(a)
             lis[0].className = 'visibilityhidden';
         elem.querySelector('#dateall').append(...lis)
     }
-    
+
     elem.querySelector('.eventdescription').innerHTML = '';
     elem.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
-    
+
     return elem;
 }
 
@@ -566,7 +567,7 @@ function slideshow_tick()
 {
     const img = document.getElementById('eventphoto');
     const input = document.getElementById('slideshow_toggle');
-    
+
     const photohrefs = img.dataset.photohrefs.split(';');
     const photohrefsidx = img.dataset.photohrefsidx != '' ? 1 + parseInt(img.dataset.photohrefsidx) : '0';
     if(img.dataset.photohrefs != '' && photohrefsidx < photohrefs.length)
@@ -590,11 +591,11 @@ function navigate(hash)
 
     if(hash == '')
         return;
-    
+
     const img = document.getElementById('eventphoto');
     const info = document.getElementById('info');
-    const a = document.querySelector(`a[data-eventhash~="${hash}"]`); 
-    
+    const a = document.querySelector(`a[data-eventhash~="${hash}"]`);
+
     if(a != null)
     {
         const div = format_event_info(a);
