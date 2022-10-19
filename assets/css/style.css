@@ -1,7 +1,10 @@
+:root {
+--common-radius: 12px;
+}
 
 #slideshow
 {
-text-align: center; 
+text-align: center;
 
 margin: auto;
 width: 50%;
@@ -10,7 +13,8 @@ width: 50%;
 #infopic
 {
 display: flex;
-height: 200px;
+gap: 8px;
+min-height: 200px;
 }
 
 #map
@@ -20,9 +24,12 @@ height: 200px;
 
 #info
 {
-height: 200px;
-border: 1px solid black;
-border-radius: 40px
+/* height: 200px; */
+flex: 1 1 66.66%;
+font-size: 12px;
+line-height: 16px;
+border: 1px solid lightgray;
+border-radius: 10px;
 }
 
 #orgurl:not([href=""])::before
@@ -53,11 +60,8 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214
 
 #campaigndescription
 {
-text-align: center; color: rgb(0, 131, 214) !important;
-width: 200px !important;
-
 margin: auto;
-width: 50%;
+text-align: center; color: rgb(0, 131, 214) !important;
 }
 
 #indextitle
@@ -126,15 +130,15 @@ background-color: #3388ff4d;
 
 #map
 {
-/*border-top-left-radius: 40px;
-border-bottom-left-radius: 40px;*/
-border-radius: 40px;
+/*border-top-left-radius: var(--common-radius);
+border-bottom-left-radius: var(--common-radius);*/
+border-radius: var(--common-radius);
 }
 #eventphoto
 {
-/*border-top-right-radius: 40px;
-border-bottom-right-radius: 40px;*/
-border-radius: 40px;
+/*border-top-right-radius: var(--common-radius);
+border-bottom-right-radius: var(--common-radius);*/
+border-radius: var(--common-radius);
 }
 
 #slideshow_toggle+label::before
@@ -153,6 +157,7 @@ visibility : hidden;
 
 #container
 {
+margin-bottom: 8px;
 /*display:flex;
 flex-direction:row;
 min-height:400px;*/
@@ -160,11 +165,17 @@ min-height:400px;*/
 
 #picbox
 {
-flex:5;
+flex: 1 1 33.33%;
 /*background-image:url(https://placeimg.com/1000/1000/tech);
 background-size:cover;
 background-repeat:no-repeat;
 background-position:center;*/
+}
+
+#picbox img {
+display: block;
+width: 100%;
+height: 100%;
 }
 
 #map
@@ -207,34 +218,34 @@ text-align: center;
 text-decoration: none;
 }
 
-.campaign>a:link,.campaign>a:visited,.campaign>a:hover,.campaign>a:active,     .event>a:link, .event>a:visited,.event>a:hover, .event>a:active  
+.campaign>a:link,.campaign>a:visited,.campaign>a:hover,.campaign>a:active,     .event>a:link, .event>a:visited,.event>a:hover, .event>a:active
 {
-text-decoration:none; 
+text-decoration:none;
 color: inherit
 }
 
 .eventactive
 {
 background-color: rgba(0, 131, 216, 1.0);
-border-radius: 40px;
+border-radius: var(--common-radius);
 }
 
 .eventinactive
 {
 background-color: rgba(0, 131, 216, 0.7);
-border-radius: 40px;
+border-radius: var(--common-radius);
 }
 
 .campaignactive
 {
 background-color: rgba(0, 131, 216, 1.0);
-border-radius: 40px;
+border-radius: var(--common-radius);
 }
 
 .campaigninactive
 {
 background-color: rgba(0, 131, 216, 0.7);
-border-radius: 40px;
+border-radius: var(--common-radius);
 }
 
 .subtitle
@@ -256,35 +267,7 @@ font-size: 90%;
     }
 
     #map {
-        flex: 5;
         position: relative;
         /*border: 1px solid red;*/
-    }
-
-    #eventphoto {
-        height: 100%;
-    }
-
-    #picbox {
-        flex: 5;
-    }
-}
-
-@media screen and (max-width: 799px) {
-    #map {
-        height: 30vh;
-    }
-
-    #picbox {
-        padding-top: 0px; /*5px*/
-        width: 100%;
-        aspect-ratio: 4 / 3;
-        text-align: center;
-    }
-
-    #eventphoto {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
     }
 }
