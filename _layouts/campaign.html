@@ -57,7 +57,7 @@ function body_onload()
     let events = document.querySelectorAll('.event:not([data-latlon=""])'); //.eventlocality
     for(const a of events)
     {
-        const marker = L.marker(JSON.parse('[' + a.dataset.latlon + ']')).addTo(map);
+        const marker = L.circleMarker(JSON.parse('[' + a.dataset.latlon + ']')).addTo(map);
         
         marker.bindPopup(format_event_popup(a).outerHTML);
         
