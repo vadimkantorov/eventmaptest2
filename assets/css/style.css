@@ -7,17 +7,17 @@
 
 .circle-upcoming
 {
-fill: hsl(240, 50%, 50%);
+fill: hsl(230, 69%, 50%);
 }
 
 .circle-past
 {
-fill: hsl(240, 60%, 45%);
+fill: hsl(215, 59%, 53%);
 }
 
 .circle-highlighted
 {
-fill: hsl(240, 70%, 55%);
+fill: hsl(240, 87%, 18%);
 }
 
 summary
