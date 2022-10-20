@@ -5,27 +5,15 @@
 --card-width: 50%;
 }
 
-.markerhighlighted
+summary
 {
-fill: red !important;
-stroke: red !important;
-border: 2px dashed red !important;
+cursor: pointer;
 }
 
-.markerupcoming
+#sticky
 {
-fill-opacity: 1.0;
-fill: blue;
-stroke: blue;
-border: 2px dashed blue;
-}
-
-.markerpast
-{
-fill-opacity: 1.0;
-fill: deepskyblue;
-stroke: deepskyblue;
-border: 2px dashed deepskyblue;
+position: sticky;
+top: 0;
 }
 
 #slideshow
@@ -38,8 +26,6 @@ margin: auto;
 
 #infopic
 {
-position: sticky;
-top: 0;
 display: flex;
 gap: 8px;
 z-index: 1;
