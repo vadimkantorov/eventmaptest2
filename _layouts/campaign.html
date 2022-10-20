@@ -113,8 +113,13 @@ function body_onload()
         <ul class="events" id="upcomingeventsincountry">
             <li hidden class="eventsnone"><div class="eventsnoneerror">No upcoming events</div></li>
         </ul>
-
+        
         <hr />
+        <details open>
+        <summary class="center">
+        <span class="header">All events</span>
+        </summary>
+
         <ul id="allevents" class="events">
 
             {% for country_events in events_grouped_by_country %}
@@ -144,12 +149,18 @@ function body_onload()
             {% endfor %}
 
         </ul>
+        </details>
 
         <hr />
-        <h3 class="header">All campaigns</h3>
+        <details open>
+        <summary class="center">
+        <span class="header">All campaigns</span>
+        </summary>
+
         <nav>
             <ul id="allcampaigns">{% for campaign in campaigns %}{% assign d = campaign.name | replace: ".md", "" %}<li class="campaign {% if d == campaign_name %}campaignactive{% else %}campaigninactive{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date[0] | date: "%B %-d" }}{{ campaign.date[1] | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
         </nav>
+        </details>
 
     </div><footer><hr />{% include footer.html %}</footer></body>
 
