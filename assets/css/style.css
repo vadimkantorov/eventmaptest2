@@ -2,6 +2,7 @@
 --common-radius: 12px;
 --card-font-size: 12px;
 --card-line-height: 16px;
+--card-width: 66.66%;
 }
 
 #slideshow
@@ -33,7 +34,7 @@ border-radius: var(--common-radius);
 
 #info
 {
-flex: 1 1 66.66%;
+flex: 1 1 var(--card-width);
 padding: 8px;
 font-size: var(--card-font-size);
 line-height: var(--card-line-height);
@@ -55,7 +56,7 @@ color: gray;
 
 #picbox
 {
-flex: 1 1 33.33%;
+flex: 1 1 calc(100% - var(--card-width));
 }
 
 #picbox img {
