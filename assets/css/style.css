@@ -2,7 +2,7 @@
 --common-radius: 12px;
 --card-font-size: 12px;
 --card-line-height: 16px;
---card-width: 66.66%;
+--card-width: 50%;
 }
 
 #slideshow
@@ -10,7 +10,7 @@
 text-align: center;
 
 margin: auto;
-width: 50%;
+/*width: 50%;*/
 }
 
 #infopic
