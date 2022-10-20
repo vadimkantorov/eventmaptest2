@@ -26,7 +26,7 @@ function switch_upcoming_events(today_YYYY_MM_DD)
     Array.from(document.querySelectorAll('.events>li:has(a.event)')).filter(li => li.dataset.date >= today_YYYY_MM_DD).forEach(li => li.classList.add('eventactive') || li.classList.remove('eventinactive'));
 }
 
-function populate_map(events, map)
+function populate_map(map, events)
 {
     let mapmarkers = {};
     for(const a of events)
