@@ -1,6 +1,6 @@
 ---
 title: "#StopMurderiZation"
-date: ["2022-02-20" "2022-11-28"]
+date: ["2022-02-20", "2022-11-28"]
 logo: 2022-stopmurderization.jpg
 telegram: https://t.me/vadimkantorov
 email: vadimkantorov@gmail.com
@@ -40,12 +40,12 @@ events:
     country: Cyprus
     eventurl: "https://fb.me/e/2whM65e9O?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
     reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid02vHtziyspwU2tDjUwTEFRFBBMJodzVdVuwwzer7eA2sbfUe2E67SB5rtTJ9qjKXWol"
-#    photos:
-#      - photos/309426992_137208685722659_8899136306961942442_n.jpg
-#      - photos/309383006_137208669055994_1405075722387311074_n.jpg
-#      - photos/309479694_137208709055990_7645597912309613128_n.jpg
-#      - photos/309440607_137208739055987_6784899175788431685_n.jpg
-#      - photos/309427050_137208725722655_237947641183093008_n.jpg
+    photos:
+      - photos/309426992_137208685722659_8899136306961942442_n.jpg
+      - photos/309383006_137208669055994_1405075722387311074_n.jpg
+      - photos/309479694_137208709055990_7645597912309613128_n.jpg
+      - photos/309440607_137208739055987_6784899175788431685_n.jpg
+      - photos/309427050_137208725722655_237947641183093008_n.jpg
 
 #  - locality: Dublin
 #    location: The Spire
