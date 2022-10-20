@@ -1,12 +1,6 @@
 data_dir: data
 
 defaults:
-#
-#  - scope:
-#      path: "assets/img"
-#    values:
-#      image: true
-#
   - scope:
       path: "assets/css"
   -
@@ -14,15 +8,14 @@ defaults:
       path: "data/campaigns/*/*.md"
     values:
       permalink: /:basename/
-#      permalink: /:basename.html
-      layout: campaign
+      layout: index
 
   -
     scope:
       path: "data/index/index.md"
     values:
       permalink: /index.html
-      layout: campaign
+      layout: index
       
 plugins:
   - jekyll-optional-front-matter
