@@ -56,18 +56,19 @@ function format_maps_link(link_pattern_id, event_dataset)
     return url_pattern.replace('{latlon}', event_dataset.latlon.replace(' ', '')).replace('{name}', event_dataset.locality.replace(' ', '+') + ',+' + event_dataset.country.replace(' ', '+'));
 }
 
-function format_event_info(a)
+function format_event_info(a, div = null)
 {
-    const elem = document.getElementById('info').cloneNode(true);
+    if(div == null)
+        div = document.getElementById('info').cloneNode(true);
 
-    elem.querySelector('#place_name').innerText = `${a.dataset.locality}, ${a.dataset.country}`;
-    elem.querySelector('#place_date').innerText = `${a.dataset.date} ${a.dataset.time}`;
-    elem.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', a.dataset);
-    elem.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
-    elem.querySelector('#eventurl').href = a.dataset.eventurl;
-    elem.querySelector('#orgurl').href = a.dataset.orgurl;
-    elem.querySelector('#orgurl').innerText = a.dataset.orgname;
-    elem.querySelector('#location').innerText = a.dataset.location;
+    div.querySelector('#place_name').innerText = `${a.dataset.locality}, ${a.dataset.country}`;
+    div.querySelector('#place_date').innerText = `${a.dataset.date} ${a.dataset.time}`;
+    div.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', a.dataset);
+    div.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
+    div.querySelector('#eventurl').href = a.dataset.eventurl;
+    div.querySelector('#orgurl').href = a.dataset.orgurl;
+    div.querySelector('#orgurl').innerText = a.dataset.orgname;
+    div.querySelector('#location').innerText = a.dataset.location;
 
     if(a.dataset.dateall != null && a.dataset.dateall != '')
     {
@@ -84,16 +85,16 @@ function format_event_info(a)
             li.appendChild(lia);
             return li;
         });
-        elem.querySelector('#dateall').innerHTML = '';
+        div.querySelector('#dateall').innerHTML = '';
         if(lis.length == 1)
             lis[0].className = 'visibilityhidden';
-        elem.querySelector('#dateall').append(...lis)
+        div.querySelector('#dateall').append(...lis)
     }
 
-    elem.querySelector('.eventdescription').innerHTML = '';
-    elem.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
+    div.querySelector('.eventdescription').innerHTML = '';
+    div.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
 
-    return elem;
+    return div;
 }
 
 function format_event_popup(a)

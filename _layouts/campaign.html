@@ -57,11 +57,11 @@ function body_onload()
     let events = document.querySelectorAll('.event:not([data-latlon=""])'); //.eventlocality
     for(const a of events)
     {
-        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, color: 'skyblue', fillOpacity: 1.0}).addTo(map);
+        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, color: 'blue', fillOpacity: 1.0}).addTo(map);
         marker.bindPopup(format_event_popup(a).outerHTML);
 
         //marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
-        marker.eventhash =  a.dataset.eventhash;// marker._icon.eventhash =
+        marker.eventhash = a.dataset.eventhash;// marker._icon.eventhash =
 
         marker.on('click', e =>
         {
@@ -75,6 +75,7 @@ function body_onload()
             //    close.on('click', ev => ev.preventDefault());
             //    close.dataset.fixed = (true).toString();
             //}
+            console.log(e.target);
             window.location.hash = a.dataset.eventhash;
         });
 
@@ -83,9 +84,13 @@ function body_onload()
 
     events = document.querySelectorAll('a.event:not([data-photohrefs=""])');
     slideshow_init(Array.from(events).map(a => a.dataset.eventhash));
-
+    
     const today_YYYY_MM_DD = get_today_YYYY_MM_DD();
     switch_upcoming_events(today_YYYY_MM_DD);
+    
+    const current_country = discover_current_country();
+    populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
+
 
     navigate(window.location.hash);
 }
@@ -101,10 +106,15 @@ function body_onload()
 
         <div id="campaigndescription">{{ page.content | markdownify }}</div>
 
-<hr />
-{% include mapphotos.html %}
+        <hr />
+        {% include mapphotos.html %}
 
+        <h3 class="header">Upcoming events in <span id="country"></span></h3>
+        <ul class="events" id="upcomingeventsincountry">
+            <li hidden class="eventsnone"><div class="eventsnoneerror">No upcoming events</div></li>
+        </ul>
 
+        <hr />
         <ul id="allevents" class="events">
 
             {% for country_events in events_grouped_by_country %}
