@@ -95,7 +95,7 @@ function body_onload()
             slideshow_init(Array.from(document.querySelectorAll('a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash));
             const today_YYYY_MM_DD = get_today_YYYY_MM_DD(), current_country = discover_current_country();
             switch_upcoming_events(today_YYYY_MM_DD);
-            e.target.dataset.isindex == 'true' ? switch_upcoming_campaigns(today_YYYY_MM_DD) : null;
+            document.body.dataset.isindex == 'true' ? switch_upcoming_campaigns(today_YYYY_MM_DD) : null;
             populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
             populate_upcoming_events_everywhere(today_YYYY_MM_DD);
         }
