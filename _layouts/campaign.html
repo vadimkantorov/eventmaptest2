@@ -1,6 +1,6 @@
 <!-- {{ page | jsonify }} -->
 
-{% assign isindex = false %}
+{% assign isindex = page.name == "index.md" %}
 
 {% if isindex %}
 
@@ -166,10 +166,10 @@ function body_onload_campaign()
 
         <h1 id="indextitle"><a href="{{ site.github.url }}">{{ index.title }}</a></h1>
         {% if isindex %}
+        <div id="indexdescription">{{ index.content | markdownify }}</div>
+        {% else %}
         <h2 id="campaigntitle"><a href="">{{ campaign.title }}</a></h2>
         <div id="campaigndescription">{{ campaign.content | markdownify }}</div>
-        {% else %}
-        <div id="indexdescription">{{ index.content | markdownify }}</div>
         {% endif %}
         
         <hr />
