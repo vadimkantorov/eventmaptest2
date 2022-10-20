@@ -83,11 +83,11 @@
 
 var mapmarkers = {};
 
-function body_onload(e)
+function body_onload()
 {
     const map = init_map('map');
 
-    const actions = e.target.dataset.isindex == 'true' ? ['slideshow_populate_events', 'map_index'] : ['map_campaign', 'slideshow_populate_events'];
+    const actions = document.body.dataset.isindex == 'true' ? ['slideshow_populate_events', 'map_index'] : ['map_campaign', 'slideshow_populate_events'];
     for(const action of actions)
     {
         if(action == 'slideshow_populate_events')
@@ -112,7 +112,7 @@ function body_onload(e)
         <title>{{ page.title | xml_escape}}</title>
     </head>
 
-    <body data-isindex="{{ isindex }}" onhashchange="navigate(window.location.hash)" onload="body_onload(event)"><div id="outer-container">
+    <body data-isindex="{{ isindex }}" onhashchange="navigate(window.location.hash)" onload="body_onload()"><div id="outer-container">
 
         <h1 id="indextitle"><a href="{{ site.github.url }}">{{ index.title }}</a></h1>
         {% if isindex %}
