@@ -279,7 +279,11 @@ function body_onload()
         </summary>
 
         <nav>
-            <ul id="allcampaigns">{% for campaign in campaigns %}{% assign d = campaign.name | replace: ".md", "" %}<li class="campaign {% if d != campaign_name %}campaigninactive{% else %}campaignactive{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date | first | date: "%B %-d" }}{{ campaign.date | last | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
+            <ul id="allcampaigns">
+            {% for campaign in campaigns %}{% assign d = campaign.name | replace: ".md", "" %}
+                <li class="campaign {% if d != campaign_name %}campaigninactive{% else %}campaignactive{% endif %}"><a href="{{ site.github.url }}/{{ d }}"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date | first | date: "%B %-d" }}{{ campaign.date | last | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>
+            {% endfor %}
+            </ul>
         </nav>
         </details>
 
