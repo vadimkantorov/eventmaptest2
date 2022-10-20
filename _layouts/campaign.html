@@ -61,8 +61,8 @@ function body_onload()
         
         marker.bindPopup(format_event_popup(a).outerHTML);
         
-        marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
-        marker.eventhash = marker._icon.eventhash = a.dataset.eventhash;
+        //marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
+        marker.eventhash =  a.dataset.eventhash;// marker._icon.eventhash =
         
         marker.on('click', e => 
         {
