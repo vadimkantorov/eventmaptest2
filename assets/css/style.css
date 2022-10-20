@@ -86,7 +86,9 @@ font-size: 90%;
 #campaigntitle
 {
 text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
+background-color: yellow !important;
 }
+
 #campaigntitle > a:link, #campaigntitle > a:visited {
     color: rgb(0, 131, 214) !important;
 }
