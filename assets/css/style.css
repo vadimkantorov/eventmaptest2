@@ -1,7 +1,12 @@
+:root {
+--common-radius: 12px;
+--card-font-size: 12px;
+--card-line-height: 16px;
+}
 
 #slideshow
 {
-text-align: center; 
+text-align: center;
 
 margin: auto;
 width: 50%;
@@ -9,20 +14,55 @@ width: 50%;
 
 #infopic
 {
+position: sticky;
+top: 0;
 display: flex;
-height: 200px;
+gap: 8px;
+z-index: 1;
+padding-bottom: 8px;
+background: white;
+height: 240px;
 }
 
 #map
 {
-height: 200px;
+position:relative;
+height: 120px;
+border-radius: var(--common-radius);
 }
 
 #info
 {
-height: 200px;
-border: 1px solid black;
-border-radius: 40px
+flex: 1 1 66.66%;
+padding: 8px;
+font-size: var(--card-font-size);
+line-height: var(--card-line-height);
+border: 1px solid lightgray;
+border-radius: var(--common-radius);
+}
+
+#info #place
+{
+margin: 0;
+margin-bottom: 8px;
+}
+
+#info #place_date
+{
+font-size: 10px;
+color: gray;
+}
+
+#picbox
+{
+flex: 1 1 33.33%;
+}
+
+#picbox img {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
 }
 
 #orgurl:not([href=""])::before
@@ -53,11 +93,8 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214
 
 #campaigndescription
 {
-text-align: center; color: rgb(0, 131, 214) !important;
-width: 200px !important;
-
 margin: auto;
-width: 50%;
+text-align: center; color: rgb(0, 131, 214) !important;
 }
 
 #indextitle
@@ -107,7 +144,12 @@ margin-right: 10px;
 
 .eventdescription
 {
-height: 50px
+min-height: calc(var(--card-line-height) * 4);
+}
+
+.eventdescription p
+{
+margin: 0;
 }
 
 .dateactive
@@ -124,17 +166,11 @@ border: 2px dashed #3388ff;
 background-color: #3388ff4d;
 }
 
-#map
-{
-/*border-top-left-radius: 40px;
-border-bottom-left-radius: 40px;*/
-border-radius: 40px;
-}
 #eventphoto
 {
-/*border-top-right-radius: 40px;
-border-bottom-right-radius: 40px;*/
-border-radius: 40px;
+/*border-top-right-radius: var(--common-radius);
+border-bottom-right-radius: var(--common-radius);*/
+border-radius: var(--common-radius);
 }
 
 #slideshow_toggle+label::before
@@ -153,25 +189,7 @@ visibility : hidden;
 
 #container
 {
-/*display:flex;
-flex-direction:row;
-min-height:400px;*/
-}
-
-#picbox
-{
-flex:5;
-/*background-image:url(https://placeimg.com/1000/1000/tech);
-background-size:cover;
-background-repeat:no-repeat;
-background-position:center;*/
-}
-
-#map
-{
-flex:5;
-position:relative;
-/*border:1px solid red;*/
+margin-bottom: 8px;
 }
 
 #infoBox
@@ -202,45 +220,49 @@ padding: 0px
 }
 .event, .campaign
 {
-color: #ffffff;
+display: block;
+min-height: 40px;
+padding: 10px;
+font-size: 18px;
+line-height: 22px;
+color: white;
 text-align: center;
 text-decoration: none;
+background: rgba(0, 131, 216, 0.7);
+border-radius: var(--common-radius);
 }
 
-.campaign>a:link,.campaign>a:visited,.campaign>a:hover,.campaign>a:active,     .event>a:link, .event>a:visited,.event>a:hover, .event>a:active  
+.campaign>a:link,.campaign>a:visited,.campaign>a:hover,.campaign>a:active,
+.event>a:link, .event>a:visited,.event>a:hover, .event>a:active
 {
-text-decoration:none; 
+text-decoration:none;
 color: inherit
 }
 
-.eventactive
+.eventactive a
 {
 background-color: rgba(0, 131, 216, 1.0);
-border-radius: 40px;
 }
 
-.eventinactive
+.eventinactive a
 {
 background-color: rgba(0, 131, 216, 0.7);
-border-radius: 40px;
 }
 
-.campaignactive
+.campaignactive a
 {
 background-color: rgba(0, 131, 216, 1.0);
-border-radius: 40px;
 }
 
-.campaigninactive
+.campaigninactive a
 {
 background-color: rgba(0, 131, 216, 0.7);
-border-radius: 40px;
 }
 
 .subtitle
 {
-opacity: 0.7;
-font-size: 90%;
+font-size: 0.9em;
+color: lightgray;
 }
 
 @media screen and (min-width: 800px) {
@@ -256,35 +278,7 @@ font-size: 90%;
     }
 
     #map {
-        flex: 5;
-        position: relative;
+        height: 200px;
         /*border: 1px solid red;*/
-    }
-
-    #eventphoto {
-        height: 100%;
-    }
-
-    #picbox {
-        flex: 5;
-    }
-}
-
-@media screen and (max-width: 799px) {
-    #map {
-        height: 30vh;
-    }
-
-    #picbox {
-        padding-top: 0px; /*5px*/
-        width: 100%;
-        aspect-ratio: 4 / 3;
-        text-align: center;
-    }
-
-    #eventphoto {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
     }
 }
