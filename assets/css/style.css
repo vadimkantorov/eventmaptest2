@@ -7,7 +7,17 @@
 
 .circle-upcoming
 {
-fill: red;
+fill: hsl(240, 50%, 50%);
+}
+
+.circle-past
+{
+fill: hsl(240, 60%, 45%);
+}
+
+.circle-highlighted
+{
+fill: hsl(240, 70%, 55%);
 }
 
 summary
