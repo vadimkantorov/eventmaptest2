@@ -11,7 +11,7 @@ events:
     time: "19:00"
     country: UK
     eventurl: "https://www.facebook.com/groups/689540562252292/posts/800798687793145/"
-    latlng : [51.5072, -0.1275]
+    latlon : 51.5072, -0.1275
     timezone: BST
     orgurl: "https://linktr.ee/RusDemSociety"
     orgname: "Russian Democratic Society | Russians Against War | London"

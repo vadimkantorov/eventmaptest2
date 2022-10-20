@@ -1,7 +1,7 @@
 ---
 locality: London
 country: UK
-latlng : [51.5072, -0.1275]
+latlon : 51.5072,-0.1275
 date: 2022-10-30
 time: "19:00"
 timezone: BST

@@ -42,8 +42,8 @@
             crossorigin="anonymous"></script>-->
         
         <link href="https://tile.openstreetmap.org/{z}/{x}/{y}.png" id="link_tiles" />
-        <link href="https://maps.google.com/maps/place/{name}/@{lat},{lng},12z" id="link_maps_google_pattern" />
-        <link href="https://maps.apple.com/?q={name}&ll=@{lat},{lng}&z=12" id="link_maps_apple_pattern" />
+        <link href="https://maps.google.com/maps/place/{name}/@{latlon},12z" id="link_maps_google_pattern" />
+        <link href="https://maps.apple.com/?q={name}&ll=@{latlon}&z=12" id="link_maps_apple_pattern" />
 
         <link rel="stylesheet" href="{{ site.github.url }}/assets/css/style.css" />
         <script src="{{ site.github.url }}/assets/js/script.js"></script>
@@ -167,7 +167,7 @@ function body_onload()
                 {% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.locality | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}
             {% endif %}
             
-            <li class="eventinactive" data-date="{{ event.date }}"><a class="event" data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" data-date="{{ event.date }}" data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-mapmarkerkey="{{ event.locality }}, {{ event.country }}" data-lat="{{ event.latlng | first }}" data-lng="{{ event.latlng | last }}" data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-location="{{ event.location }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }} - {{ campaign.title }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+            <li class="eventinactive" data-date="{{ event.date }}"><a class="event" data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" data-date="{{ event.date }}" data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-mapmarkerkey="{{ event.locality }}, {{ event.country }}" data-latlon="{{ event.latlon }}" data-locality="{{ event.locality }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-location="{{ event.location }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.locality }}, {{ event.country }}, {{ event.location }} - {{ campaign.title }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
             
             {% endfor %}
             {% endfor %}
