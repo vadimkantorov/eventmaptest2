@@ -5,6 +5,11 @@
 --card-width: 50%;
 }
 
+.circle-upcoming
+{
+fill: red;
+}
+
 summary
 {
 cursor: pointer;
@@ -14,6 +19,7 @@ cursor: pointer;
 {
 position: sticky;
 top: 0;
+background: white;
 }
 
 #slideshow
@@ -30,7 +36,6 @@ display: flex;
 gap: 8px;
 z-index: 1;
 padding-bottom: 8px;
-background: white;
 height: 240px;
 }
 
