@@ -1,6 +1,4 @@
-<!-- {{ page | jsonify }} -->
-
-{% assign isindex = page.name == "index.md" %}
+{% if page.name == "index.md" %}{% assign isindex = true %}{% endif %}
 
 {% if isindex %}
 
@@ -186,6 +184,7 @@ function body_onload_campaign()
         
         {% if isindex %}
         <hr />
+        <details open>
         <summary class="center">
         <span class="header">Upcoming events everywhere</span>
         </summary>
