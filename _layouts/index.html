@@ -1,3 +1,5 @@
+<!-- {{ page | jsonify }} -->
+
 {% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "campaign" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 {% assign index = page %}
 {% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
