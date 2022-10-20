@@ -26,11 +26,46 @@ function switch_upcoming_events(today_YYYY_MM_DD)
     Array.from(document.querySelectorAll('.events>li:has(a.event)')).filter(li => li.dataset.date >= today_YYYY_MM_DD).forEach(li => li.classList.add('eventactive') || li.classList.remove('eventinactive'));
 }
 
+function populate_map(events, map)
+{
+    let mapmarkers = {};
+    for(const a of events)
+    {
+        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, color: 'blue', fillOpacity: 1.0}).addTo(map);
+        marker.bindPopup(format_event_popup(a).outerHTML);
+
+        //marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
+        marker.eventhash = a.dataset.eventhash;// marker._icon.eventhash =
+
+        marker.on('click', e =>
+        {
+            //const _icon = document.querySelector('.markerhighlighted');
+            //if(_icon != null)
+            //    L.DomUtil.removeClass(_icon, 'markerhighlighted');
+            //L.DomUtil.addClass(e.target._icon, 'markerhighlighted');
+            //const close = document.querySelector('.leaflet-popup-close-button');
+            //if(close.dataset.fixed == null)
+            //{
+            //    close.on('click', ev => ev.preventDefault());
+            //    close.dataset.fixed = (true).toString();
+            //}
+            console.log(e.target);
+            window.location.hash = a.dataset.eventhash;
+        });
+
+        mapmarkers[a.dataset.mapmarkerkey] = marker;
+    }
+    return mapmarkers;
+}
+
 function populate_upcoming_events_everywhere(today_YYYY_MM_DD)
 {
     const lis = Array.from(document.querySelectorAll(`#allevents>li:has(a.event)`)).filter(li => li.dataset.date >= today_YYYY_MM_DD).map(li => li.cloneNode(true));
 
     const ul = document.getElementById('upcomingeventseverywhere');
+    if(ul == null)
+        return;
+
     if(lis.length > 0)
         ul.append(...lis);
     else
@@ -44,6 +79,9 @@ function populate_upcoming_events_in_country(today_YYYY_MM_DD, country)
     document.getElementById('country').innerText = country;
 
     const ul = document.getElementById('upcomingeventsincountry');
+    if(ul == null)
+        return;
+
     if(lis.length > 0)
         ul.append(...lis);
     else

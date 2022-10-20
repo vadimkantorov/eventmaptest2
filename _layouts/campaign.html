@@ -1,23 +1,26 @@
 {% if page.name == "index.md" %}{% assign isindex = true %}{% endif %}
 
+{% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "campaign" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
+
 {% if isindex %}
 
-{% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "campaign" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 {% assign index = page %}
+{% assign campaign_name = "" %}
+
 {% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
 {% for campaign in campaigns %}{% for event in campaign.events %}{% assign events = events | push: event %}{% endfor %}{% endfor %}
-{% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 
 {% else %}
 
-{% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "campaign" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
+{% assign index = "" %}{% for p in site.pages %}{% if p.path == "data/index/index.md" %}{% assign index = p %}{% endif %}{% endfor %}
 {% assign campaign = page %}
 {% assign campaign_name = page.name | replace: ".md", "" %}
+
 {% assign events = "" | split: "," %}{% if campaign.events %}{% assign events = campaign.events %}{% endif %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.dir contains campaign_name and p.layout != "campaign" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
-{% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
-{% assign index = "" %}{% for p in site.pages %}{% if p.path == "data/index/index.md" %}{% assign index = p %}{% endif %}{% endfor %}
 
 {% endif %}
+
+{% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 
 
 <!DOCTYPE html>
@@ -80,78 +83,27 @@
 
 var mapmarkers = {};
 
-function body_onload_index()
+function body_onload(e)
 {
     const map = init_map('map');
 
-    let events = document.querySelectorAll('a.event:not([data-photohrefs=""])');
-    slideshow_init(Array.from(events).map(a => a.dataset.eventhash));
-    
-    const today_YYYY_MM_DD = get_today_YYYY_MM_DD();
-    switch_upcoming_events(today_YYYY_MM_DD);
-    switch_upcoming_campaigns(today_YYYY_MM_DD);
-    
-    const current_country = discover_current_country();
-    populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
-    populate_upcoming_events_everywhere(today_YYYY_MM_DD);
-    
-    events = document.querySelectorAll('#upcomingeventseverywhere > li > .event');
-    for(const a of events)
+    const actions = e.target.dataset.isindex == 'true' ? ['slideshow_populate_events', 'map_index'] : ['map_campaign', 'slideshow_populate_events'];
+    for(const action of actions)
     {
-        const marker = L.marker([parseFloat(a.dataset.lat), parseFloat(a.dataset.lng)]).addTo(map);
-        
-        marker.bindPopup(format_event_popup(a).outerHTML);
-        
-        marker.on('click', () => window.location.hash = a.dataset.eventhash);
-        
-        mapmarkers[a.dataset.mapmarkerkey] = marker;
-    }
-
-
-    navigate(window.location.hash);
-}
-
-function body_onload_campaign()
-{
-    const map = init_map('map');
-
-    let events = document.querySelectorAll('.event:not([data-latlon=""])'); //.eventlocality
-    for(const a of events)
-    {
-        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, color: 'blue', fillOpacity: 1.0}).addTo(map);
-        marker.bindPopup(format_event_popup(a).outerHTML);
-
-        //marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
-        marker.eventhash = a.dataset.eventhash;// marker._icon.eventhash =
-
-        marker.on('click', e =>
+        if(action == 'slideshow_populate_events')
         {
-            //const _icon = document.querySelector('.markerhighlighted');
-            //if(_icon != null)
-            //    L.DomUtil.removeClass(_icon, 'markerhighlighted');
-            //L.DomUtil.addClass(e.target._icon, 'markerhighlighted');
-            //const close = document.querySelector('.leaflet-popup-close-button');
-            //if(close.dataset.fixed == null)
-            //{
-            //    close.on('click', ev => ev.preventDefault());
-            //    close.dataset.fixed = (true).toString();
-            //}
-            console.log(e.target);
-            window.location.hash = a.dataset.eventhash;
-        });
-
-        mapmarkers[a.dataset.mapmarkerkey] = marker;
+            slideshow_init(Array.from(document.querySelectorAll('a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash));
+            const today_YYYY_MM_DD = get_today_YYYY_MM_DD(), current_country = discover_current_country();
+            switch_upcoming_events(today_YYYY_MM_DD);
+            e.target.dataset.isindex == 'true' ? switch_upcoming_campaigns(today_YYYY_MM_DD) : null;
+            populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
+            populate_upcoming_events_everywhere(today_YYYY_MM_DD);
+        }
+        else if(action == 'map_index')
+            mapmarkers = populate_map(map, document.querySelectorAll('#upcomingeventseverywhere > li > a.event'));
+        else if(action == 'map_campaign')
+            mapmarkers = populate_map(map, document.querySelectorAll('a.event:not([data-latlon=""])'));
     }
-
-    events = document.querySelectorAll('a.event:not([data-photohrefs=""])');
-    slideshow_init(Array.from(events).map(a => a.dataset.eventhash));
-    
-    const today_YYYY_MM_DD = get_today_YYYY_MM_DD();
-    switch_upcoming_events(today_YYYY_MM_DD);
-    
-    const current_country = discover_current_country();
-    populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
-
 
     navigate(window.location.hash);
 }
@@ -160,7 +112,7 @@ function body_onload_campaign()
         <title>{{ page.title | xml_escape}}</title>
     </head>
 
-    <body data-isindex="{{ isindex }}" onhashchange="navigate(window.location.hash)" onload="{% if isindex %} body_onload_index() {% else %} body_onload_campaign() {% endif %}"><div id="outer-container">
+    <body data-isindex="{{ isindex }}" onhashchange="navigate(window.location.hash)" onload="body_onload(event)"><div id="outer-container">
 
         <h1 id="indextitle"><a href="{{ site.github.url }}">{{ index.title }}</a></h1>
         {% if isindex %}
@@ -195,7 +147,7 @@ function body_onload_campaign()
         {% endif %}
 
         <hr />
-        <details open>
+        <details {% unless isindex %}open{% endunless %} >
         <summary class="center">
         <span class="header">All events</span>
         </summary>
@@ -305,7 +257,7 @@ function body_onload_campaign()
         </summary>
 
         <nav>
-            <ul id="allcampaigns">{% for campaign in campaigns %}{% assign d = campaign.name | replace: ".md", "" %}<li class="campaign {% if isindex or d != campaign_name %}campaigninactive{% else %}campaignactive{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date | first | date: "%B %-d" }}{{ campaign.date | last | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
+            <ul id="allcampaigns">{% for campaign in campaigns %}{% assign d = campaign.name | replace: ".md", "" %}<li class="campaign {% if d != campaign_name %}campaigninactive{% else %}campaignactive{% endif %}"><a href="{{ d }}.html"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date | first | date: "%B %-d" }}{{ campaign.date | last | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>{% endfor %}</ul>
         </nav>
         </details>
 

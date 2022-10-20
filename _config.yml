@@ -22,7 +22,7 @@ defaults:
       path: "data/index/index.md"
     values:
       permalink: /index.html
-      layout: index
+      layout: campaign
       
 plugins:
   - jekyll-optional-front-matter
