@@ -7,8 +7,9 @@
 
 .markerhighlighted
 {
-border: 2px dashed #3388ff;
-background-color: red;
+border: 2px dashed red;
+fill: red;
+stroke: red;
 }
 
 #slideshow
