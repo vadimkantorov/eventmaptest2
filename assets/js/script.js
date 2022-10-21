@@ -25,11 +25,11 @@ function populate_map(map, events)
 
         marker.on('click', e =>
         {
-            const _icon = document.querySelector('.markerhighlighted');
+            const _icon = document.querySelector('.circle-ighlighted');
             if(_icon != null)
-                L.DomUtil.removeClass(_icon, 'markerhighlighted');
+                L.DomUtil.removeClass(_icon, 'circle-highlighted');
 
-            L.DomUtil.addClass(e.target._icon || e.target._path, 'markerhighlighted');
+            L.DomUtil.addClass(e.target._icon || e.target._path, 'circle-highlighted');
 
             window.location.hash = e.target.eventhash;
         });
