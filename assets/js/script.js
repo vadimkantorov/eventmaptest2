@@ -115,26 +115,27 @@ function format_event_info(a, div = null)
     div.querySelector('#orgurl').innerText = a.dataset.orgname;
     div.querySelector('#location').innerText = [a.dataset.location, a.dataset.address].filter(s => s != '').join(', ');
 
-    if(a.dataset.dateall != null && a.dataset.dateall != '')
+    const dateall = a.dataset.dateall.split(';');
+    const eventhashall = a.dataset.eventhashall.split(';');
+
+    const prev = dateall.findIndex(eventhash => eventhash < a.dataset.eventhash);
+    const next = dateall.findLastIndex(eventhash => eventhash > a.dataset.eventhash);
+
+    if(prev >= 0)
     {
-        const dateall = a.dataset.dateall.split(';');
-        const eventhashall = a.dataset.eventhashall.split(';');
-        const lis = dateall.map((innerText, i) =>
-        {
-            const li = document.createElement('li');
-            li.className = 'date';
-            li.classList.add(a.dataset.eventhash == eventhashall[i] ? 'dateactive' : 'dateinactive');
-            const lia = document.createElement('a');
-            lia.href = eventhashall[i];
-            lia.innerText = innerText;
-            li.appendChild(lia);
-            return li;
-        });
-        div.querySelector('#dateall').innerHTML = '';
-        if(lis.length == 1)
-            lis[0].className = 'visibilityhidden';
-        div.querySelector('#dateall').append(...lis)
+        div.querySelector('#prev').innerText = '<' + dateall[prev];
+        div.querySelector('#prev').href = eventhashall[prev];
     }
+    else
+        div.querySelector('#prev').innerText = '';
+
+    if(next >= 0)
+    {
+        div.querySelector('#next').innerText = '>' + dateall[next];
+        div.querySelector('#next').href = eventhashall[next];
+    }
+    else
+        div.querySelector('#next').innerText = '';
 
     div.querySelector('.eventdescription').innerHTML = '';
     div.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
