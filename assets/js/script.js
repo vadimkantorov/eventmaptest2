@@ -1,4 +1,3 @@
-
 function init_map(id)
 {
     const map = L.map(id).setView([20, 0], 2);
