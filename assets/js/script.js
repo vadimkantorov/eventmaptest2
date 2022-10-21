@@ -16,7 +16,8 @@ function populate_map(map, events)
     let mapmarkers = {};
     for(const a of events)
     {
-        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, className: a.parentElement.classList.contains('eventactive') ? 'markerupcoming' : 'markerpast'}).addTo(map);
+        // circle-upcoming, circle-past, circle-highlighted
+        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {stroke: false, radius: 8, className: a.parentElement.classList.contains('eventactive') ? 'circle-upcoming' : 'circle-past'}).addTo(map);
         marker.bindPopup(format_event_popup(a).outerHTML);
 
         //marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
@@ -29,7 +30,7 @@ function populate_map(map, events)
                 L.DomUtil.removeClass(_icon, 'markerhighlighted');
 
             L.DomUtil.addClass(e.target._icon || e.target._path, 'markerhighlighted');
-            
+
             window.location.hash = e.target.eventhash;
         });
 

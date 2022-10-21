@@ -51,13 +51,13 @@
 
         <link rel="stylesheet" href="{{ site.github.url }}/assets/css/style.css" />
         <script src="{{ site.github.url }}/assets/js/script.js"></script>
-        
+
         <meta property="og:site_name"    content="Event map [{{ index.title    | xml_escape }}]" />
 
         {% if isindex %}
         <meta property="og:url" content="{{ site.github.url }}" />
         <link rel="canonical"      href="{{ site.github.url }}" />
-        
+
         <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","headline":{{ index.title | jsonify }},"name": {{index.title | jsonify }},"url":"{{ site.github.url }}}</script>
         {% if index.logo %}
             <meta name="twitter:image" content="{{ site.github.url }}/{{ index.path | replace: "index.md", index.logo }}" />
@@ -123,29 +123,25 @@ function body_onload()
         <h2 id="campaigntitle"><a href="">{{ campaign.title }}</a></h2>
         <div id="campaigndescription">{{ campaign.content | markdownify }}</div>
         {% endif %}
-        
+
         <hr />
-        <div id="slideshow"><input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_toggle" onchange="slideshow_toggle()" /><label for="slideshow_toggle">&nbsp;slideshow{% unless isindex %} for {{ campaign.title | xml_escape }} {% endunless %}</label></span></div>
-
-        <div id="container"><div id="map"><template id="popup"><div><h3 id="place"></h3><h4 id="time"></h4></div></template></div></div>
-
-        <div id="infopic">
-
-                <div id="info" class="visibilityhidden">
-                    <h3 id="place">
-                        <div id="place_name"></div>
-                        <div id="place_date"></div>
-                    </h3>
-                    <h4 id="location"></h4>
-                    <a target="_blank" id="eventurl">Event Link</a>
-                    <br /><a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a>
-                    <br/><a target="_blank" id="orgurl"></a>
-                    <ul id="dateall"></ul>
-                    <div class="eventdescription"></div>
-                </div>
-
-                <div id="picbox"><img data-photohrefs="" data-photohrefsidx="" onclick="img_onclick()" id="eventphoto" alt="Event photo" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" hidden /></div>
-
+        <div id="sticky">
+            <div id="slideshow"><input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_toggle" onchange="slideshow_toggle()" /><label for="slideshow_toggle">&nbsp;slideshow{% unless isindex %} for {{ campaign.title | xml_escape }} {% endunless %}</label></span></div>
+            <div id="container"><div id="map"><template id="popup"><div><h3 id="place"></h3><h4 id="time"></h4></div></template></div></div>
+            <div id="infopic">
+                    <div id="info" class="visibilityhidden">
+                        <h3 id="place">
+                            <div id="place_name"></div>
+                            <div id="place_date"></div>
+                        </h3>
+                        <h4 id="location"></h4>
+                        <a target="_blank" id="eventurl">Event Link</a>&nbsp;&nbsp;|&nbsp;<a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a>
+                        <br/><a target="_blank" id="orgurl"></a>
+                        <ul id="dateall"></ul>
+                        <div class="eventdescription"></div>
+                    </div>
+                    <div id="picbox"><img data-photohrefs="" data-photohrefsidx="" onclick="img_onclick()" id="eventphoto" alt="Event photo" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" hidden /></div>
+            </div>
         </div>
 
         <details open>
@@ -156,7 +152,7 @@ function body_onload()
             <li hidden class="eventsnone"><div class="eventsnoneerror">No upcoming events</div></li>
         </ul>
         </details>
-        
+
         {% if isindex %}
         <hr />
         <details open>
@@ -177,13 +173,13 @@ function body_onload()
 
         {% if isindex %}
         <ul id="allevents" class="events">
-        
+
             {% for country_events in events_grouped_by_country %}
             {% assign grouped_events = country_events.items | sort: "date" | reverse %}
 
             {% for event in grouped_events %}
             {% if forloop.first %}{% assign eventcity = forloop.first %}{% endif %}
-            
+
             {% assign photos = "" | split: "," %}
             {% if event.photos %}
                 {% for photo in event.photos %}
@@ -217,7 +213,7 @@ function body_onload()
                     {% endif %}
                 {% endfor %}
             {% endfor %}
-                
+
             {% assign eventhashall = "" | split: "," %}
             {% for event in grouped_events %}
                 {% if event.path %}{% assign eventhash = event.path | remove: "data/campaigns/" | remove: ".md" | replace: "/", "_" | replace: " ", "_"  | prepend: "#" %}{% else %}{% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.city | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}{% endif %}
@@ -231,16 +227,16 @@ function body_onload()
             {% else %}
                 {% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.city | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}
             {% endif %}
-            
-            <li class="eventinactive" data-date="{{ event.date }}"><a class="event" data-address="{{ event.address }}" data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" data-date="{{ event.date }}" data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-mapmarkerkey="{{ event.city }}, {{ event.country }}" data-latlon="{{ event.latlon }}" data-city="{{ event.city }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-location="{{ event.location }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.city }}, {{ event.country }}, {{ event.location }} - {{ campaign.title }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
-            
+
+            <li class="eventinactive" data-date="{{ event.date }}"><a class="event" data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" data-date="{{ event.date }}" data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-mapmarkerkey="{{ event.city }}, {{ event.country }}" data-latlon="{{ event.latlon }}" data-city="{{ event.city }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-location="{{ event.location }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.city }}, {{ event.country }}, {{ event.location }} - {{ campaign.title }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+
             {% endfor %}
             {% endfor %}
 
         </ul>
 
         {% else %}
-        
+
         <ul id="allevents" class="events">
 
             {% for country_events in events_grouped_by_country %}
@@ -260,34 +256,9 @@ function body_onload()
             {% assign dateall = grouped_events | map: "date" | join: ";" %}
 
             {% for event in grouped_events %}
-            {% if event.path %}
-                {% assign eventhash = event.path | remove: "data/campaigns/" | remove: ".md" | replace: "/", "_" | replace: " ", "_"  | prepend: "#" %}
-            {% else %}
-                {% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.city | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}
-            {% endif %}
-            {% if forloop.first %}
-                {% assign eventcity = forloop.first %}
-            {% endif %}
-            {% if event.photos %}
-                {% assign photos = "" | split: "," %}
-                {% for photo in event.photos %}
-                    {% if photo contains "https://" %}
-                        {% assign httpsphoto = photo %}
-                    {% else %}
-                        {% assign httpsphoto = campaign.path | split: "/" | pop | join: "/" | prepend: "/" | prepend: site.github.url | append: "/" | append: photo %}
-                    {% endif %}
-                    {% assign photos = photos | push: httpsphoto %}
-                {% endfor %}
-            {% else %}
-                {% for p in site.static_files %}
-                    {% if p.extname == ".jpg" and p.path contains event.dir %}
-                        {% assign photo = site.github.url | append: p.path %}
-                        {% assign photos = photos | push: photo %}
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
+            {% if event.path %}{% assign eventhash = event.path | remove: "data/campaigns/" | remove: ".md" | replace: "/", "_" | replace: " ", "_"  | prepend: "#" %}{% else %}{% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.city | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}{% endif %}{% if forloop.first %}{% assign eventcity = forloop.first %}{% endif %}{% if event.photos %}{% assign photos = "" | split: "," %}{% for photo in event.photos %}{% if photo contains "https://" %}{% assign httpsphoto = photo %}{% else %}{% assign httpsphoto = campaign.path | split: "/" | pop | join: "/" | prepend: "/" | prepend: site.github.url | append: "/" | append: photo %}{% endif %}{% assign photos = photos | push: httpsphoto %}{% endfor %}{% else %}{% for p in site.static_files %}{% if p.extname == ".jpg" and p.path contains event.dir %} {% assign photo = site.github.url | append: p.path %}{% assign photos = photos | push: photo %}{% endif %}{% endfor %}{% endif %}
 
-            <li class="eventinactive" data-date='{{ event.date }}'><a data-address="{{ event.address }}" data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" class="event {% if eventcity %}eventcity{% endif %}" data-mapmarkerkey="{{ event.city }}, {{ event.country }}" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-latlon="{% if event.latlon %}{{ event.latlon }}{% else %}{{ index.geocoder[event.city] }}{% endif %}" data-city="{{ event.city }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-location="{{ event.location }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.city }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+            <li class="eventinactive" data-date='{{ event.date }}'><a data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" class="event {% if eventcity %}eventcity{% endif %}" data-mapmarkerkey="{{ event.city }}, {{ event.country }}" data-iconid="" data-date='{{ event.date | date: "%B %-d, %Y" }}' data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-latlon="{% if event.latlon %}{{ event.latlon }}{% else %}{{ index.geocoder[event.city] }}{% endif %}" data-city="{{ event.city }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-location="{{ event.location }}" data-eventurl="{{ event.eventurl }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.city }}, {{ event.country }}, {{ event.location }}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
 
 
             {% endfor %}
@@ -318,7 +289,7 @@ function body_onload()
 
         <hr />
         <div class="center">created with <a target="_blank" href="https://github.com/vadimkantorov/eventmap">https://github.com/vadimkantorov/eventmap</a>, page generated by Jekyll @ {{ site.time | date_to_xmlschema }}, <a target="_blank" id="map_copyright" href="http://osm.org/copyright">map &copy; OpenStreetMap</a></div>
-    
+
     </footer>
     </body>
 
