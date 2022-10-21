@@ -5,19 +5,21 @@
 --card-width: 50%;
 }
 
-.circle-upcoming
+.circleupcoming
 {
 fill: hsl(230, 69%, 50%);
+fill-opacity: 1.0;
 }
 
-.circle-past
+.circlepast
 {
 fill: hsl(215, 59%, 53%);
+fill-opacity: 1.0;
 }
 
-.circle-highlighted
+.circlehighlighted
 {
-fill: hsl(240, 87%, 18%);
+fill: hsl(240, 87%, 18%) !important;
 }
 
 summary

@@ -11,29 +11,30 @@ function init_map(id)
     return map;
 }
 
+function marker_onclick(e)
+{
+    const _icon = document.querySelector('.circlehighlighted');
+    if(_icon != null)
+        L.DomUtil.removeClass(_icon, 'circlehighlighted');
+
+    L.DomUtil.addClass(e.target._icon || e.target._path, 'circlehighlighted');
+
+    window.location.hash = e.target.eventhash;
+}
+
 function populate_map(map, events)
 {
     let mapmarkers = {};
     for(const a of events)
     {
         // circle-upcoming, circle-past, circle-highlighted
-        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {stroke: false, radius: 8, className: a.parentElement.classList.contains('eventactive') ? 'circle-upcoming' : 'circle-past'}).addTo(map);
+        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, stroke: false, className: a.parentElement.classList.contains('eventactive') ? 'circleupcoming' : 'circlepast'}).addTo(map);
         marker.bindPopup(format_event_popup(a).outerHTML);
+        marker.on('click', marker_onclick);
 
         //marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
+
         marker.eventhash = a.dataset.eventhash;// marker._icon.eventhash =
-
-        marker.on('click', e =>
-        {
-            const _icon = document.querySelector('.circle-ighlighted');
-            if(_icon != null)
-                L.DomUtil.removeClass(_icon, 'circle-highlighted');
-
-            L.DomUtil.addClass(e.target._icon || e.target._path, 'circle-highlighted');
-
-            window.location.hash = e.target.eventhash;
-        });
-
         mapmarkers[a.dataset.mapmarkerkey] = marker;
     }
     return mapmarkers;
