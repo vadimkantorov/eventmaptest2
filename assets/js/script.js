@@ -96,7 +96,7 @@ function format_event_info(a, div = null)
     div.querySelector('#eventurl').href = a.dataset.eventurl;
     div.querySelector('#orgurl').href = a.dataset.orgurl;
     div.querySelector('#orgurl').innerText = a.dataset.orgname;
-    div.querySelector('#location').innerText = a.dataset.location;
+    div.querySelector('#location').innerText = a.dataset.location + (a.dataset.address != '' ? (', ' + a.dataset.address) : '');
 
     if(a.dataset.dateall != null && a.dataset.dateall != '')
     {
