@@ -153,6 +153,11 @@ height:auto;
 text-align: center; line-height: 1.4; font-size: 1.48rem; color: gray !important;
 }
 
+.campaignsnoneerror
+{
+text-align: center; line-height: 1.4; font-size: 1.48rem; color: gray !important;
+}
+
 #allevents > li, #allcampaigns > li, #upcomingeventsincountry > li, #upcomingeventseverywhere > li
 {
     margin-bottom: 10px;
