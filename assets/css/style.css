@@ -5,27 +5,31 @@
 --card-width: 50%;
 }
 
-.markerhighlighted
+.circle-upcoming
 {
-fill: red !important;
-stroke: red !important;
-border: 2px dashed red !important;
+fill: hsl(230, 69%, 50%);
 }
 
-.markerupcoming
+.circle-past
 {
-fill-opacity: 1.0;
-fill: blue;
-stroke: blue;
-border: 2px dashed blue;
+fill: hsl(215, 59%, 53%);
 }
 
-.markerpast
+.circle-highlighted
 {
-fill-opacity: 1.0;
-fill: deepskyblue;
-stroke: deepskyblue;
-border: 2px dashed deepskyblue;
+fill: hsl(240, 87%, 18%);
+}
+
+summary
+{
+cursor: pointer;
+}
+
+#sticky
+{
+position: sticky;
+top: 0;
+background: white;
 }
 
 #slideshow
@@ -38,13 +42,10 @@ margin: auto;
 
 #infopic
 {
-position: sticky;
-top: 0;
 display: flex;
 gap: 8px;
 z-index: 1;
 padding-bottom: 8px;
-background: white;
 height: 240px;
 }
 
