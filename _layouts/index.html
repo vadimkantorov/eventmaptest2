@@ -88,7 +88,7 @@ var mapmarkers = {};
 
 function body_onload()
 {
-    const timezone2country = {% site.data.timezone2country | jsonify %};
+    const timezone2country = {{ site.data.timezone2country | jsonify }};
 
     // https://www.techighness.com/post/get-user-country-and-region-on-browser-with-javascript-only/
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
