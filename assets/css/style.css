@@ -7,10 +7,9 @@
 
 .markerhighlighted
 {
-fill-opacity: 1.0;
-fill: red;
-stroke: red;
-border: 2px dashed red;
+fill: red !important;
+stroke: red !important;
+border: 2px dashed red !important;
 }
 
 .markerupcoming
