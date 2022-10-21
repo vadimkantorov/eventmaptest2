@@ -32,6 +32,7 @@ function marker_onclick(e)
 
     L.DomUtil.addClass(e.target._icon || e.target._path, 'circlehighlighted');
 
+    slideshow_toggle(false);
     window.location.hash = e.target.eventhash;
 }
 
@@ -155,11 +156,11 @@ function slideshow_init(eventhash_list)
     document.getElementById('slideshow_toggle').dataset.eventhash = eventhash_list.join(';');
 }
 
-function slideshow_toggle(stop, interval_millis = 7000)
+function slideshow_toggle(state = null, interval_millis = 7000)
 {
     const input = document.getElementById('slideshow_toggle');
     const eventhash = input.dataset.eventhash;
-    if(stop == true || slideshow != null || eventhash == null || eventhash == '')
+    if(state === false || slideshow != null || eventhash == null || eventhash == '')
     {
         slideshow = clearInterval(slideshow);
         input.checked = false;
@@ -236,7 +237,7 @@ function img_onclick()
     const img = document.getElementById('eventphoto');
     if(!img.hidden)
     {
-        slideshow_toggle(true);
+        slideshow_toggle(false);
         const photohrefs = img.dataset.photohrefs.split(';');
         const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
         img.src = photohrefs[photohrefsidx];
