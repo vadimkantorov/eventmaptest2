@@ -116,10 +116,7 @@ function body_onload()
             mapmarkers = populate_map(map, document.querySelectorAll('a.event:not([data-latlon=""])'));
     }
 
-    if(window.location.hash == '' || window.location.hash == '#')
-        
-    else
-        navigate(window.location.hash);
+    navigate(window.location.hash == '' || window.location.hash == '#' ? choose_random_event() : window.location.hash);
 }
 
         </script>

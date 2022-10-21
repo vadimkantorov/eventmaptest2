@@ -1,3 +1,16 @@
+function choose_random_event()
+{
+    const eventhashes = Array.from(document.querySelectorAll('a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash);
+    
+    if(eventhashes.length == 1)
+        return eventhashes[0];
+    
+    if(eventhashes.length == 0)
+        return '';
+
+    return eventhashes[ Math.floor(eventhashes.length * Math.random()) ];
+}
+
 function init_map(id)
 {
     const map = L.map(id).setView([20, 0], 2);
