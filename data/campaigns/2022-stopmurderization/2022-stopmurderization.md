@@ -5,35 +5,35 @@ logo: 2022-stopmurderization.jpg
 telegram: https://t.me/vadimkantorov
 email: vadimkantorov@gmail.com
 events:
-  - locality: Yerevan
+  - city: Yerevan
     location: Freedom Square
     date: 2022-09-27
     time: "15:00"
     country: Armenia
     eventurl: "https://t.me/freeyerevan/205?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Yerevan
+  - city: Yerevan
     location: Russia Square
     date: 2022-10-01
     time: "13:00"
     country: Armenia
     eventurl: "https://t.me/freeyerevan/214?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Montreal
+  - city: Montreal
     location: Ru Consulate
     date: 2022-10-02
     time: "12:00"
     country: Canada
     eventurl: "https://fb.me/e/31MZrDMfD?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Toronto
+  - city: Toronto
     location: Old City Hall
     date: 2022-10-01
     time: "14:00"
     country: Canada
     eventurl: "https://fb.me/e/2Q6i3EEJn?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Paphos
+  - city: Paphos
     location: Harbour Kiosk
     date: 2022-09-30
     time: "18:00"
@@ -47,7 +47,7 @@ events:
       - photos/309440607_137208739055987_6784899175788431685_n.jpg
       - photos/309427050_137208725722655_237947641183093008_n.jpg
 
-  - locality: Dublin
+  - city: Dublin
     location: The Spire
     date: 2022-10-02
     time: "12:00"
@@ -59,21 +59,21 @@ events:
       - photos/307485454_131481239640349_7078820384985756269_n.jpg
       - photos/310300749_131481229640350_6455065693777446385_n.jpg
 
-  - locality: Tampere
+  - city: Tampere
     location: Keskustori Tampere
     date: 2022-09-26
     time: "17:00"
     country: Finland
     eventurl: "https://fb.me/e/25d7pVj3I?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Luxembourg
+  - city: Luxembourg
     location: Place d’Armes
     date: 2022-10-02
     time: "12:00"
     country: Luxembourg
     eventurl: "https://www.facebook.com/RUHelp/posts/pfbid02Bt3DRgWp2oLFpgq2uDvbKhKhFhwua3JWEQ9mtBkRRR1btXhQYZeNRzVGXvKZAXuyl?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Seoul
+  - city: Seoul
     location: Myeongdong station, exit 6
     date: 2022-10-02
     time: "13:00"
@@ -81,21 +81,21 @@ events:
     eventurl: "https://www.instagram.com/p/CjDygw7v9Ul/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
     reportul: "https://www.facebook.com/freerussiansglobal/posts/pfbid0mBybiWPSdiSvwPgnbGvar3modUdNkMj9fCtwXGE76XfYGCyTnRNAQ3tyvnEfsM8Dl"
 
-  - locality: Belgrade
+  - city: Belgrade
     location: Republic Square
     date: 2022-10-01
     time: "17:00"
     country: Serbia
     eventurl: "https://www.facebook.com/piotrnikitin/posts/pfbid02PnaGu9hn7ZxcNRXPTV2VtRr8CkpCVwCXayLqvT8jcFA78JRJsVZGooqn2TiNgUtGl?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Stockholm
+  - city: Stockholm
     location: Ru Embassy
     date: 2022-09-29
     time: "18:00"
     country: Sweden
     eventurl: "https://fb.me/e/1OXsGfEhJ?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Gothenburg
+  - city: Gothenburg
     location: Ru Consulate
     date: 2022-09-29
     time: "17:00"
@@ -105,14 +105,14 @@ events:
     photos:
       - photos/309005511_130941473027659_560508045794909796_n.jpg
 
-  - locality: Wroclaw
+  - city: Wroclaw
     location: Rynek
     date: 2022-09-28
     time: "19:00"
     country: Poland
     eventurl: "https://fb.me/e/2HycxKqmE?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: London
+  - city: London
     location: Ru Embassy
     date: 2022-09-29
     time: "19:00"
@@ -121,14 +121,14 @@ events:
     orgurl: "https://linktr.ee/RusDemSociety"
     orgname: "Russian Democratic Society | Russians Against War | London"
 
-  - locality: London
+  - city: London
     location: Ru Embassy
     date: 2022-10-01
     time: "12:00"
     country: United Kingdom
     eventurl: "https://www.instagram.com/p/CjF7G_fjloe/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Chicago
+  - city: Chicago
     location: Heald Square Monument
     date: 2022-10-02
     time: "15:00"
@@ -138,14 +138,14 @@ events:
     photos:
       - photos/308771037_131374376317702_2303673707340856041_n.jpg
 
-  - locality: Los Angeles
+  - city: Los Angeles
     location: Sakharov Square
     date: 2022-10-01
     time: "18:00"
     country: United States
     eventurl: "https://fb.me/e/49vhQfien?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Miami
+  - city: Miami
     location: City of Hallandale Beach
     date: 2022-10-02
     time: "13:00"
@@ -159,14 +159,14 @@ events:
       - photos/310814352_131678172953989_8941618367063022066_n.jpg
       - photos/310292219_131677999620673_3536801154352689035_n.jpg
 
-  - locality: New York
+  - city: New York
     location: Brighton Beach Boardwalk
     date: 2022-10-02
     time: "16:00"
     country: United States
     eventurl: "https://fb.me/e/2G4Mp2SIc?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Orlando
+  - city: Orlando
     location: 195 N Rosalind Ave
     date: 2022-10-02
     time: "12:00"
@@ -175,28 +175,28 @@ events:
 
 #####
 
-  - locality: Buenos Aires
+  - city: Buenos Aires
     location: Ru Embassy
     date: 2022-09-21
     time: "17:00"
     country: Argentina
     eventurl: "https://t.me/RuArgentina/1868?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Yerevan
+  - city: Yerevan
     location: Ru Embassy
     date: 2022-09-21
     time: "19:00"
     country: Armenia
     eventurl: "https://twitter.com/ariabout1/status/1572564610733182980?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Yerevan
+  - city: Yerevan
     location: Freedom Square
     date: 2022-09-24
     time: "12:00"
     country: Armenia
     eventurl: "https://t.me/freeyerevan/178?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Sydney
+  - city: Sydney
     location: Ru Consulate
     date: 2022-09-22
     country: Australia
@@ -209,35 +209,35 @@ events:
       - photos/306569329_398924735730525_3886598170876588535_n.jpg
       - photos/305926588_398924732397192_1348496014407702078_n.jpg
 
-  - locality: Melbourne
+  - city: Melbourne
     location: Princes Bridge
     date: 2022-09-24
     time: "11:00"
     country: Australia
     eventurl: "https://fb.me/e/3zloi2o0g?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Vienna
+  - city: Vienna
     location: Ru Embassy
     date: 2022-09-21
     time: "17:00"
     country: Austria
     eventurl: "https://www.instagram.com/p/Ciw7-kGsz1q/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Sofia
+  - city: Sofia
     location: Shipka Street 34
     date: 2022-09-24
     time: "17:00"
     country: Bulgaria
     eventurl: "https://fb.me/e/2WzNt7xFt?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Ottawa
+  - city: Ottawa
     location: Ru Embassy
     date: 2022-09-21
     time: "17:00"
     country: Canada
     eventurl: "https://fb.me/e/2uwiLCUo7?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Ottawa
+  - city: Ottawa
     location: Ru Embassy
     date: 2022-09-24
     time: "14:00"
@@ -247,14 +247,14 @@ events:
     photos:
       - photos/307011815_130338306421309_1879053134408204200_n.jpg
 
-  - locality: Montreal
+  - city: Montreal
     location: Ru Consulate
     date: 2022-09-21
     time: "18:30"
     country: Canada
     eventurl: "https://fb.me/e/3rcrdKfRK?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Montreal
+  - city: Montreal
     location: Ru Consulate
     date: 2022-09-25
     time: "12:00"
@@ -267,7 +267,7 @@ events:
       - photos/306788880_158633046780713_3651647123157460495_n.jpg
       - photos/306271382_158633170114034_8379025583666380657_n.jpg
 
-  - locality: Toronto
+  - city: Toronto
     location: Old City Hall
     date: 2022-09-24
     time: "14:00"
@@ -281,7 +281,7 @@ events:
       - photos/308917155_155062527153477_4022260614748764946_n.jpg
       - photos/308734089_155062460486817_1077636224629873072_n.jpg
 
-  - locality: Vancouver
+  - city: Vancouver
     location: Art Gallery Square
     date: 2022-09-21
     time: "19:00"
@@ -294,35 +294,35 @@ events:
       - photos/305766512_129016513220155_2642391864701642005_n.jpg
       - photos/302052449_129027413219065_2828241727463546770_n.jpg
 
-  - locality: Vancouver
+  - city: Vancouver
     location: Art Gallery Square
     date: 2022-09-24
     time: "14:30"
     country: Canada
     eventurl: "https://www.instagram.com/p/Ci3SjWbv_6W/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Waterloo
+  - city: Waterloo
     location: Waterloo Public Square
     date: 2022-09-21
     time: "18:00"
     country: Canada
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Nicosia
+  - city: Nicosia
     location: Ru Embassy
     date: 2022-09-21
     time: "18:30"
     country: Cyprus
     eventurl: "https://www.facebook.com/groups/cybrt/permalink/638835224254731/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Nicosia
+  - city: Nicosia
     location: Ru Embassy
     date: 2022-09-25
     time: "14:00"
     country: Cyprus
     eventurl: "https://fb.me/e/6goXcNfP8?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Limassol
+  - city: Limassol
     location: Ru Consulate
     date: 2022-09-21
     time: "18:30"
@@ -336,21 +336,21 @@ events:
       - photos/306948230_158454196799396_1741387116947296827_n.jpg
       - photos/306947175_158471006797715_8886882681489550672_n.jpg
 
-  - locality: Paphos
+  - city: Paphos
     location: Harbour Kiosk
     date: 2022-09-21
     time: "18:30"
     country: Cyprus
     eventurl: "https://www.facebook.com/groups/cybrt/permalink/638835224254731/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Prague
+  - city: Prague
     location: Václavské Náměstí
     date: 2022-09-21
     time: "18:00"
     country: Czech Republic
     eventurl: "https://www.facebook.com/groups/951685019071511/permalink/1086416338931711/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Prague
+  - city: Prague
     location: Náměstí Míru
     date: 2022-09-25
     time: "14:00"
@@ -364,7 +364,7 @@ events:
       - photos/307872328_129546149833858_3922388162977692561_n.jpg
       - photos/308475382_129546166500523_9136560827745017872_n.jpg
 
-  - locality: Copenhagen
+  - city: Copenhagen
     location: Kristianiagade 5
     date: 2022-09-21
     time: "18:00"
@@ -374,14 +374,14 @@ events:
     photos:
       - photos/307948076_2125692224485437_5203750468553958997_n.jpg
 
-  - locality: Copenhagen
+  - city: Copenhagen
     location: Kristianiagade 5
     date: 2022-09-25
     time: "14:00"
     country: Denmark
     eventurl: "https://fb.me/e/2qGT1oZ7L?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Tallinn
+  - city: Tallinn
     location: Ru Embassy
     date: 2022-09-24
     time: "14:00"
@@ -389,14 +389,14 @@ events:
     eventurl: "https://fb.me/e/5HJ1UbyGW?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
     reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0UfYnDtqKG5gya2R4ETmJ3R4wQYEz2R2pyzDtXcPQaGuoqGKzTwRNusUNLhMADSnul"
 
-  - locality: Helsinki
+  - city: Helsinki
     location: Ru Embassy
     date: 2022-09-21
     time: "19:00"
     country: Finland
     eventurl: "https://fb.me/e/2QCgEguEA?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Helsinki
+  - city: Helsinki
     location: Ru Embassy
     date: 2022-09-24
     time: "17:00"
@@ -410,38 +410,38 @@ events:
       - photos/307849272_179584307928701_8187978308134430110_n.jpg
       - photos/307755063_179584294595369_6605859209279096378_n.jpg
 
-  - locality: Imatra
+  - city: Imatra
     date: 2022-09-24
     country: Finland
     eventurl: "https://fb.me/e/2anoVCZso?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Turku
+  - city: Turku
     location: Ru Consulate
     date: 2022-09-21
     time: "19:00"
     country: Finland
     eventurl: "https://fb.me/e/3OaCfh9Zj?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Turku
+  - city: Turku
     location: Ru Consulate
     date: 2022-09-24
     time: "17:00"
     country: Finland
     eventurl: "https://fb.me/e/2dF5VqCkj?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Paris
+  - city: Paris
     location: Place de la République
     date: 2022-09-21
     time: "20:00"
     country: France
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Paris
+  - city: Paris
     date: 2022-09-24
     country: France
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Strasbourg
+  - city: Strasbourg
     location: Place Kléber
     date: 2022-09-25
     time: "17:00"
@@ -455,61 +455,61 @@ events:
       - photos/309098989_130954699693003_854342363871433157_n.jpg
       - photos/308805963_130954676359672_1351533402225428619_n.jpg
 
-  - locality: Berlin
+  - city: Berlin
     location: Pariser Platz 1
     date: 2022-09-21
     time: "19:00"
     country: Germany
     eventurl: "https://fb.me/e/2WBTFuDOP?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Düsseldorf
+  - city: Düsseldorf
     date: 2022-09-21
     country: Germany
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Düsseldorf
+  - city: Düsseldorf
     location: Grabbeplatz
     date: 2022-09-24
     time: "15:30"
     country: Germany
     eventurl: "https://fb.me/e/4mOIqToE9?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Göttingen
+  - city: Göttingen
     location: Am Gänseliesel
     date: 2022-09-21
     time: "19:00"
     country: Germany
     eventurl: "https://www.instagram.com/p/CixLY6njsdO/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Heidelberg
+  - city: Heidelberg
     location: Bismarkplatz
     date: 2022-09-21
     time: "19:00"
     country: Germany
     eventurl: "https://www.facebook.com/102355319117874/posts/pfbid02YThaG26H33caEuDikux1wL76oQcSX3Fk853nY3TF8YfUqD1JYWj47VKyavk6rK7xl/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Leipzig
+  - city: Leipzig
     location: Ru Consulate
     date: 2022-09-24
     time: "17:00"
     country: Germany
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Leipzig
+  - city: Leipzig
     location: Willy-Brandt-Platz
     date: 2022-09-25
     time: "17:00"
     country: Germany
     eventurl: "https://fb.me/e/2QpW4kPwf?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Munich
+  - city: Munich
     location: Europaplatz
     date: 2022-09-21
     time: "18:00"
     country: Germany
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Nürnberg
+  - city: Nürnberg
     location: Kornmarkt
     date: 2022-09-21
     time: "18:30"
@@ -523,26 +523,26 @@ events:
       - photos/306356318_128629073258899_3220852881419779468_n.jpg
       - photos/305806626_128629029925570_1152130788396200092_n.jpg
 
-  - locality: Stuttgart
+  - city: Stuttgart
     location: Schlossplatz
     date: 2022-09-21
     time: "19:00"
     country: Germany
     eventurl: "https://fb.me/e/3Uiopu7we?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Bologna
+  - city: Bologna
     location: Piazza Minghetti
     date: 2022-09-23
     time: "18:00"
     country: Italy
     eventurl: "https://fb.me/e/3Uiopu7we?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Florence
+  - city: Florence
     date: 2022-09-21
     country: Italy
     eventurl: "https://fb.me/e/3Uiopu7we?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Milan
+  - city: Milan
     location: Arco della Pace
     date: 2022-09-21
     time: "18:30"
@@ -556,7 +556,7 @@ events:
       - photos/308493058_5919319781463294_8949038039011483232_n.jpg 
       - photos/308721051_5919320204796585_8801874913028820796_n.jpg 
 
-  - locality: Dublin
+  - city: Dublin
     location: The Spire
     date: 2022-09-24
     time: "11:30"
@@ -570,7 +570,7 @@ events:
       - photos/307768392_129699703151836_4266299178619519386_n.jpg
       - photos/307769267_129699576485182_3913827661579350968_n.jpg
 
-  - locality: Tokyo
+  - city: Tokyo
     location: Hachiko in Shibuya
     date: 2022-09-24
     time: "14:00"
@@ -580,7 +580,7 @@ events:
     photos:
       - photos/309184182_129890333132773_5400015072776982278_n.jpg
 
-  - locality: Riga
+  - city: Riga
     location: Ru Embassy
     date: 2022-09-24
     time: "13:00"
@@ -588,28 +588,28 @@ events:
     eventurl: "https://fb.me/e/dppPXCXYi?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
     reporturl: "https://www.facebook.com/freerussiansglobal/posts/pfbid0iWTibueNdkxrZAYtcZ74CY2Geved8W8Y1x6KtSNiTCEdggf2fbevFfbG54HB89Wdl"
 
-  - locality: Vilnius
+  - city: Vilnius
     location: Vinco Kudirkos aikštė
     date: 2022-09-21
     time: "18:00"
     country: Lithuania
     eventurl: "https://fb.me/e/3vzP2wNVP?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Luxembourg
+  - city: Luxembourg
     location: Clairefontain
     date: 2022-09-25
     time: "12:00"
     country: Luxembourg
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Amsterdam
+  - city: Amsterdam
     location: Dam Square
     date: 2022-09-21
     time: "19:00"
     country: Netherlands
     eventurl: "https://www.instagram.com/reel/Ciw8HyNjKgw/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: The Hague
+  - city: The Hague
     location: Ru Embassy
     date: 2022-09-24
     time: "14:00"
@@ -617,7 +617,7 @@ events:
     eventurl: "https://www.instagram.com/p/Ciw0mkkDhIq/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
     reportul: "https://www.facebook.com/freerussiansglobal/posts/pfbid034gD8MTiEyCvYwxs9E3Wx5jmcS3MBXjx6SM2JWFiBG4Z6cksJqkkWNgPam9SSoBkPl"
 
-  - locality: Wellington
+  - city: Wellington
     location: Ru Embassy
     date: 2022-09-22
     time: "17:00"
@@ -627,90 +627,90 @@ events:
     photos:
       - photos/309356332_131495999638873_4852929631184093198_n.jpg
 
-  - locality: Auckland
+  - city: Auckland
     date: 2022-09-22
     time: "17:00"
     country: New Zealand
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Oslo
+  - city: Oslo
     location: Ru Embassy
     date: 2022-09-21
     time: "19:00"
     country: Norway
     eventurl: "https://fb.me/e/1X2h0hy4k?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Oslo
+  - city: Oslo
     location: Jernbanetorget
     date: 2022-09-25
     time: "14:00"
     country: Norway
     eventurl: "https://fb.me/e/3GtAXiI6q?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Bergen
+  - city: Bergen
     location: Den blå stein
     date: 2022-09-25
     time: "16:00"
     country: Norway
     eventurl: "https://fb.me/e/21uyHiVaC?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Kirkenes
+  - city: Kirkenes
     location: Ru Consulate
     date: 2022-09-21
     time: "18:00"
     country: Norway
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Warszawa
+  - city: Warszawa
     location: Ru Embassy
     date: 2022-09-21
     time: "19:00"
     country: Poland
     eventurl: "https://t.me/RussiansAgainstTheWar/1152?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Warszawa
+  - city: Warszawa
     location: Ru Embassy
     date: 2022-09-24
     time: "11:00"
     country: Poland
     eventurl: "https://t.me/RussiansAgainstTheWar/1160?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Gdańsk
+  - city: Gdańsk
     location: Ru Consulate
     date: 2022-09-21
     time: "16:30"
     country: Poland
     eventurl: "https://t.me/RussiansAgainstTheWar/1152?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Kraków
+  - city: Kraków
     location: Ru Consulate
     date: 2022-09-21
     time: "19:30"
     country: Poland
     eventurl: "https://t.me/RussiansAgainstTheWar/1152?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Łódź
+  - city: Łódź
     location: Pomnik Jednorożca
     date: 2022-09-21
     time: "18:30"
     country: Poland
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Poznań
+  - city: Poznań
     location: Ru Consulate
     date: 2022-09-21
     time: "19:00"
     country: Poland
     eventurl: "https://t.me/RussiansAgainstTheWar/1152?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Wroclaw
+  - city: Wroclaw
     location: Rynek
     date: 2022-09-21
     time: "19:00"
     country: Poland
     eventurl: "https://fb.me/e/1IwIkGJOf?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Lisbon
+  - city: Lisbon
     location: Ru Embassy
     date: 2022-09-24
     time: "18:00"
@@ -724,84 +724,84 @@ events:
       - photos/309406988_130099749778498_215582456332739164_n.jpg
       - photos/309327958_130099769778496_7812059941859634782_n.jpg
 
-  - locality: Seoul
+  - city: Seoul
     location: Ru Embassy
     date: 2022-09-24
     time: "14:00"
     country: Republic of Korea
     eventurl: "https://www.instagram.com/p/CizgsNOPuhx/?utm_source=ig_web_copy_link&tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Belgrade
+  - city: Belgrade
     location: Republic Square
     date: 2022-09-21
     time: "19:00"
     country: Serbia
     eventurl: "https://www.instagram.com/p/CizgsNOPuhx/?utm_source=ig_web_copy_link&tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Belgrade
+  - city: Belgrade
     location: Republic Square
     date: 2022-09-24
     time: "17:00"
     country: Serbia
     eventurl: "https://www.instagram.com/p/CizgsNOPuhx/?utm_source=ig_web_copy_link&tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Madrid
+  - city: Madrid
     location: Calle de Velázquez 160
     date: 2022-09-21
     time: "18:30"
     country: Spain
     eventurl: "https://fb.me/e/6G3BCA2ue?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Barcelona
+  - city: Barcelona
     location: Plaça de Catalunya
     date: 2022-09-21
     time: "18:00"
     country: Spain
     eventurl: "https://fb.me/e/58vFGLotX?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Barcelona
+  - city: Barcelona
     location: Plaça de Catalunya
     date: 2022-09-25
     time: "17:00"
     country: Spain
     eventurl: "https://fb.me/e/1TvDeO5Jo?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Stockholm
+  - city: Stockholm
     location: Ru Embassy
     date: 2022-09-21
     time: "19:00"
     country: Sweden
     eventurl: "https://fb.me/e/1YhUQ4VJi?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Gothenburg
+  - city: Gothenburg
     location: Ru Consulate
     date: 2022-09-21
     time: "17:00"
     country: Sweden
     eventurl: "https://www.facebook.com/107129771961894/posts/pfbid0N9Sxj2Z2rp2HRfcKqrEkFYhqVSRUeqyxLxAh2CkL6TNvoxEQuiK437nCBFGNrabml?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Gothenburg
+  - city: Gothenburg
     location: Ru Consulate
     date: 2022-09-22
     time: "17:00"
     country: Sweden
     eventurl: "https://fb.me/e/3vDuqKrQO?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Zürich
+  - city: Zürich
     location: Rathausbrücke
     date: 2022-09-21
     time: "18:30"
     country: Switzerland
     eventurl: "https://fb.me/e/3vDuqKrQO?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Zürich
+  - city: Zürich
     location: Bürkliplatz
     date: 2022-09-23
     time: "19:00"
     country: Switzerland
     eventurl: "https://fb.me/e/24Ua5Ovz1?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Geneva
+  - city: Geneva
     location: Place des Nations
     date: 2022-09-25
     time: "14:00"
@@ -815,14 +815,14 @@ events:
       - photos/310270242_130910603030746_7239979834163499827_n.jpg
       - photos/310191894_130910363030770_2910988200368023741_n.jpg
 
-  - locality: Istanbul
+  - city: Istanbul
     location: Odakule
     date: 2022-09-21
     time: "15:00"
     country: Turkey
     eventurl: "https://fb.me/e/5ieGhQ8ZF?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Antalya
+  - city: Antalya
     location: Muratpaşa Kent Meydanı
     date: 2022-09-21
     time: "19:00"
@@ -832,7 +832,7 @@ events:
     photos:
       - photos/307386941_873683850472788_4884294510750197983_n.jpg
 
-  - locality: Antalya
+  - city: Antalya
     location: Akdeniz Blv 19/1
     date: 2022-09-24
     time: "17:00"
@@ -846,42 +846,42 @@ events:
       - photos/308393897_129329849855488_1965296056436742946_n.jpg
       - photos/307485963_129330206522119_6445285677703107657_n.jpg
 
-  - locality: London
+  - city: London
     location: Ru Embassy
     date: 2022-09-21
     time: "19:00"
     country: United Kingdom
     eventurl: "https://www.instagram.com/p/CixCV2ILE19/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: London
+  - city: London
     location: Ru Embassy
     date: 2022-09-23
     time: "18:30"
     country: United Kingdom
     eventurl: "https://fb.me/e/1LJv8D6v1?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: London
+  - city: London
     location: Ru Embassy
     date: 2022-09-24
     time: "17:00"
     country: United Kingdom
     eventurl: "https://www.instagram.com/p/Ci4H-onMxiX/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Edinburgh
+  - city: Edinburgh
     location: Ru Consulate
     date: 2022-09-21
     time: "19:00"
     country: United Kingdom
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Edinburgh
+  - city: Edinburgh
     location: Ru Consulate
     date: 2022-09-24
     time: "10:00"
     country: United Kingdom
     eventurl: "https://fb.me/e/1PNdhQSGp?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Southend-on-Sea
+  - city: Southend-on-Sea
     location: 184 High St
     date: 2022-09-25
     time: "11:00"
@@ -895,21 +895,21 @@ events:
       - photos/307750815_129469379841535_5474639775778530194_n.jpg
       - photos/305479452_129469419841531_1531597044193761700_n.jpg
 
-  - locality: Washington
+  - city: Washington
     location: Ru Embassy
     date: 2022-09-21
     time: "19:00"
     country: United States
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Boston
+  - city: Boston
     location: Massachusetts State House
     date: 2022-09-24
     time: "16:00"
     country: United States
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Chicago
+  - city: Chicago
     location: Heald Square Monument
     date: 2022-09-21
     time: "19:00"
@@ -923,7 +923,7 @@ events:
       - photos/305759952_128639189924554_2024086322072545222_n.jpg
       - photos/306274834_128639303257876_3245800120601807929_n.jpg
 
-  - locality: Denver
+  - city: Denver
     location: 200 E Colfax Ave
     date: 2022-09-21
     time: "18:30"
@@ -937,68 +937,68 @@ events:
       - photos/305203159_128619399926533_9046073086223054873_n.jpg
       - photos/301643227_128619193259887_3611306779947947589_n.jpg
 
-  - locality: Jacksonville
+  - city: Jacksonville
     location: 60 First St N
     date: 2022-09-21
     time: "19:00"
     country: United States
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Los Angeles
+  - city: Los Angeles
     location: Sakharov Square
     date: 2022-09-21
     time: "18:00"
     country: United States
     eventurl: "https://fb.me/e/5bcGnPk4v?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Los Angeles
+  - city: Los Angeles
     location: Sakharov Square
     date: 2022-09-23
     time: "18:00"
     country: United States
     eventurl: "https://fb.me/e/3yjRjdwwL?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Orlando
+  - city: Orlando
     location: 195 N Rosalind Ave
     date: 2022-09-21
     time: "18:00"
     country: United States
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Miami
+  - city: Miami
     location: City of Hallandale Beach
     date: 2022-09-21
     time: "18:00"
     country: United States
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: New York
+  - city: New York
     location: Dag Hammarskjold Plaza
     date: 2022-09-21
     time: "19:00"
     country: United States
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Oklahoma City
+  - city: Oklahoma City
     date: 2022-09-21
     country: United States
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Philadelphia
+  - city: Philadelphia
     location: Museum of Art
     date: 2022-09-21
     time: "18:00"
     country: United States
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Sacramento
+  - city: Sacramento
     location: The Riverfront Promenade
     date: 2022-09-21
     time: "20:00"
     country: United States
     eventurl: "https://fb.me/e/9ysxdH4Jk?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: Sacramento
+  - city: Sacramento
     location: California State Capitol
     date: 2022-09-24
     time: "20:00"
@@ -1012,14 +1012,14 @@ events:
       - photos/308989520_131116593010147_3500405740492853034_n.jpg
       - photos/309028337_131116599676813_4511467551149280760_n.jpg
 
-  - locality: San Diego
+  - city: San Diego
     location: Plaza de Panama
     date: 2022-09-21
     time: "19:00"
     country: United States
     eventurl: "https://fb.me/?tpclid=facebook.IwAR0gLXJhkeG6yS8eFuZ7461PEO2NXeVT3EVw8EkJzOk6RqE91wpd0JXGnmU"
 
-  - locality: San Francisco
+  - city: San Francisco
     location: City Hall
     date: 2022-09-21
     time: "19:00"

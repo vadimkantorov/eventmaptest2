@@ -86,7 +86,7 @@ function populate_upcoming_events_in_country(today_YYYY_MM_DD, country)
 function format_maps_link(link_pattern_id, event_dataset)
 {
     const url_pattern = decodeURI(document.getElementById(link_pattern_id).href);
-    return url_pattern.replace('{latlon}', event_dataset.latlon.replace(' ', '')).replace('{name}', event_dataset.locality.replace(' ', '+') + ',+' + event_dataset.country.replace(' ', '+'));
+    return url_pattern.replace('{latlon}', event_dataset.latlon.replace(' ', '')).replace('{name}', event_dataset.city.replace(' ', '+') + ',+' + event_dataset.country.replace(' ', '+'));
 }
 
 function format_event_info(a, div = null)
@@ -94,7 +94,7 @@ function format_event_info(a, div = null)
     if(div == null)
         div = document.getElementById('info').cloneNode(true);
 
-    div.querySelector('#place_name').innerText = `${a.dataset.locality}, ${a.dataset.country}`;
+    div.querySelector('#place_name').innerText = `${a.dataset.city}, ${a.dataset.country}`;
     div.querySelector('#place_date').innerText = `${a.dataset.date} ${a.dataset.time}`;
     div.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', a.dataset);
     div.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
@@ -133,7 +133,7 @@ function format_event_info(a, div = null)
 function format_event_popup(a)
 {
     const elem = document.getElementById('popup').content.cloneNode(true);
-    elem.querySelector('#place').innerText = `${a.dataset.locality}, ${a.dataset.country}`;
+    elem.querySelector('#place').innerText = `${a.dataset.city}, ${a.dataset.country}`;
     elem.querySelector('#time').innerText = `${a.dataset.date}, ${a.dataset.time}`;
     return elem.firstChild;
 }
