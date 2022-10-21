@@ -44,11 +44,6 @@ function populate_map(map, events)
             //    L.DomUtil.removeClass(_icon, 'markerhighlighted');
             //L.DomUtil.addClass(e.target._icon, 'markerhighlighted');
             //const close = document.querySelector('.leaflet-popup-close-button');
-            //if(close.dataset.fixed == null)
-            //{
-            //    close.on('click', ev => ev.preventDefault());
-            //    close.dataset.fixed = (true).toString();
-            //}
             console.log(e.target);
             window.location.hash = a.dataset.eventhash;
         });
