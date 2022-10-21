@@ -1,3 +1,31 @@
+var mapmarkers = {};
+
+function body_onload()
+{
+    const map = init_map('map');
+
+    const actions = document.body.dataset.isindex == 'true' ? ['slideshow_populate_events', 'map_index'] : ['map_campaign', 'slideshow_populate_events'];
+    for(const action of actions)
+    {
+        if(action == 'slideshow_populate_events')
+        {
+            slideshow_init(Array.from(document.querySelectorAll('a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash));
+            const today_YYYY_MM_DD = get_today_YYYY_MM_DD(), current_country = discover_current_country();
+            switch_upcoming_events(today_YYYY_MM_DD);
+            if(document.body.dataset.isindex == 'true')
+                switch_upcoming_campaigns(today_YYYY_MM_DD);
+            populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
+            populate_upcoming_events_everywhere(today_YYYY_MM_DD);
+        }
+        else if(action == 'map_index')
+            mapmarkers = populate_map(map, document.querySelectorAll('#upcomingeventseverywhere > li > a.event'));
+        else if(action == 'map_campaign')
+            mapmarkers = populate_map(map, document.querySelectorAll('a.event:not([data-latlon=""])'));
+    }
+
+    navigate(window.location.hash);
+}
+
 function init_map(id)
 {
     const map = L.map(id).setView([20, 0], 2);
