@@ -118,8 +118,9 @@ function format_event_info(a, div = null)
     const dateall = a.dataset.dateall.split(';');
     const eventhashall = a.dataset.eventhashall.split(';');
 
-    const prev = dateall.findIndex(eventhash => eventhash < a.dataset.eventhash);
-    const next = dateall.findLastIndex(eventhash => eventhash > a.dataset.eventhash);
+    const curdate = eventhashall.indexOf(a.dataset.eventhash);
+    const prev = dateall.findIndex(date => date < dateall[cur]);
+    const next = dateall.findLastIndex(date => date > dateall[cur]);
 
     if(prev >= 0)
     {
