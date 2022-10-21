@@ -220,7 +220,11 @@ function body_onload()
 
             {% assign eventhashall = "" | split: "," %}
             {% for event in grouped_events %}
-                {% if event.path %}{% assign eventhash = event.path | remove: "data/campaigns/" | remove: ".md" | replace: "/", "_" | replace: " ", "_"  | prepend: "#" %}{% else %}{% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.city | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}{% endif %}
+                {% if event.path %}
+                    {% assign eventhash = event.path | remove: "data/campaigns/" | remove: ".md" | replace: "/", "_" | replace: " ", "_"  | prepend: "#" %}
+                {% else %}
+                    {% assign eventhash = campaign.url | remove_first: "/" | append: event.date | append: "-" | append: event.city | replace: "/", "_" | replace: " ", "_" | prepend: "#" %}
+                {% endif %}
                 {% assign eventhashall = eventhashall | push: eventhash %}
             {% endfor %}
             {% assign eventhashall = eventhashall | join: ";" %}
