@@ -7,9 +7,26 @@
 
 .markerhighlighted
 {
-border: 2px dashed red;
+fill-opacity: 1.0;
 fill: red;
 stroke: red;
+border: 2px dashed red;
+}
+
+.markerupcoming
+{
+fill-opacity: 1.0;
+fill: blue;
+stroke: blue;
+border: 2px dashed blue;
+}
+
+.markerpast
+{
+fill-opacity: 1.0;
+fill: deepskyblue;
+stroke: deepskyblue;
+border: 2px dashed deepskyblue;
 }
 
 #slideshow
