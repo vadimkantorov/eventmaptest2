@@ -82,6 +82,45 @@
         {% endif %}
         {% endif %}
 
+        <script>
+
+var mapmarkers = {};
+
+function body_onload()
+{
+    const timezone2country = {% include timezone2country.json %};
+
+    // https://www.techighness.com/post/get-user-country-and-region-on-browser-with-javascript-only/
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const current_country = timezone2country[timezone];
+    
+    const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
+
+    const map = init_map('map');
+
+    const actions = document.body.dataset.isindex == 'true' ? ['slideshow_populate_events', 'map_index'] : ['map_campaign', 'slideshow_populate_events'];
+    for(const action of actions)
+    {
+        if(action == 'slideshow_populate_events')
+        {
+            slideshow_init(Array.from(document.querySelectorAll('a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash));
+            switch_upcoming_events(today_YYYY_MM_DD);
+            if(document.body.dataset.isindex == 'true')
+                switch_upcoming_campaigns(today_YYYY_MM_DD);
+            populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
+            populate_upcoming_events_everywhere(today_YYYY_MM_DD);
+        }
+        else if(action == 'map_index')
+            mapmarkers = populate_map(map, document.querySelectorAll('#upcomingeventseverywhere > li > a.event'));
+        else if(action == 'map_campaign')
+            mapmarkers = populate_map(map, document.querySelectorAll('a.event:not([data-latlon=""])'));
+    }
+
+    navigate(window.location.hash);
+}
+
+        </script>
+
         <title>{{ page.title | xml_escape}}</title>
     </head>
 
