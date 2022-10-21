@@ -11,27 +11,12 @@ function init_map(id)
     return map;
 }
 
-function get_today_YYYY_MM_DD()
-{
-    return new Date().toISOString().slice(0, 10);
-}
-
-function switch_upcoming_campaigns(today_YYYY_MM_DD)
-{
-    Array.from(document.querySelectorAll('#allcampaigns > .campaign')).filter(li => li.dataset.dateend >= today_YYYY_MM_DD).forEach(li => li.classList.add('campaignactive') || li.classList.remove('campaigninactive'));
-}
-
-function switch_upcoming_events(today_YYYY_MM_DD)
-{
-    Array.from(document.querySelectorAll('.events>li:has(a.event)')).filter(li => li.dataset.date >= today_YYYY_MM_DD).forEach(li => li.classList.add('eventactive') || li.classList.remove('eventinactive'));
-}
-
 function populate_map(map, events)
 {
     let mapmarkers = {};
     for(const a of events)
     {
-        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, className: 'markerupcoming', fillOpacity: 1.0}).addTo(map);
+        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, className: a.parent.classList.contains('eventactive') ? 'markerupcoming' : 'markerpast'}).addTo(map);
         marker.bindPopup(format_event_popup(a).outerHTML);
 
         //marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
@@ -51,6 +36,16 @@ function populate_map(map, events)
         mapmarkers[a.dataset.mapmarkerkey] = marker;
     }
     return mapmarkers;
+}
+
+function switch_upcoming_campaigns(today_YYYY_MM_DD)
+{
+    Array.from(document.querySelectorAll('#allcampaigns > .campaign')).filter(li => li.dataset.dateend >= today_YYYY_MM_DD).forEach(li => li.classList.add('campaignactive') || li.classList.remove('campaigninactive'));
+}
+
+function switch_upcoming_events(today_YYYY_MM_DD)
+{
+    Array.from(document.querySelectorAll('.events>li:has(a.event)')).filter(li => li.dataset.date >= today_YYYY_MM_DD).forEach(li => li.classList.add('eventactive') || li.classList.remove('eventinactive'));
 }
 
 function populate_upcoming_events_everywhere(today_YYYY_MM_DD)
@@ -138,6 +133,10 @@ function format_event_popup(a)
     return elem.firstChild;
 }
 
+function get_today_YYYY_MM_DD()
+{
+    return new Date().toISOString().slice(0, 10);
+}
 
 function discover_current_country()
 {
