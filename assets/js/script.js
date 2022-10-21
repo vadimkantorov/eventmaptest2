@@ -16,7 +16,7 @@ function populate_map(map, events)
     let mapmarkers = {};
     for(const a of events)
     {
-        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, className: a.parent.classList.contains('eventactive') ? 'markerupcoming' : 'markerpast'}).addTo(map);
+        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, className: a.parentElement.classList.contains('eventactive') ? 'markerupcoming' : 'markerpast'}).addTo(map);
         marker.bindPopup(format_event_popup(a).outerHTML);
 
         //marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
