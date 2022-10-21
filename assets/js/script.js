@@ -122,6 +122,14 @@ function format_event_info(a, div = null)
     const prev = dateall.findIndex(date => date < dateall[cur]);
     const next = dateall.findLastIndex(date => date > dateall[cur]);
 
+    if(next >= 0)
+    {
+        div.querySelector('#next').innerText = dateall[next] + '<';
+        div.querySelector('#next').href = eventhashall[next];
+    }
+    else
+        div.querySelector('#next').innerText = '';
+    
     if(prev >= 0)
     {
         div.querySelector('#prev').innerText = '<' + dateall[prev];
@@ -129,14 +137,6 @@ function format_event_info(a, div = null)
     }
     else
         div.querySelector('#prev').innerText = '';
-
-    if(next >= 0)
-    {
-        div.querySelector('#next').innerText = '>' + dateall[next];
-        div.querySelector('#next').href = eventhashall[next];
-    }
-    else
-        div.querySelector('#next').innerText = '';
 
     div.querySelector('.eventdescription').innerHTML = '';
     div.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
