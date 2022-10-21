@@ -39,13 +39,13 @@ function populate_map(map, events)
 
         marker.on('click', e =>
         {
-            //const _icon = document.querySelector('.markerhighlighted');
-            //if(_icon != null)
-            //    L.DomUtil.removeClass(_icon, 'markerhighlighted');
-            //L.DomUtil.addClass(e.target._icon, 'markerhighlighted');
-            //const close = document.querySelector('.leaflet-popup-close-button');
-            console.log(e.target);
-            window.location.hash = a.dataset.eventhash;
+            const _icon = document.querySelector('.markerhighlighted');
+            if(_icon != null)
+                L.DomUtil.removeClass(_icon, 'markerhighlighted');
+
+            L.DomUtil.addClass(e.target._icon || e.target._path, 'markerhighlighted');
+            
+            window.location.hash = e.target.eventhash;
         });
 
         mapmarkers[a.dataset.mapmarkerkey] = marker;

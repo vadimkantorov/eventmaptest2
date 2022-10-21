@@ -5,6 +5,12 @@
 --card-width: 50%;
 }
 
+.markerhighlighted
+{
+border: 2px dashed #3388ff;
+background-color: #3388ff4d;
+}
+
 #slideshow
 {
 text-align: center;
@@ -162,11 +168,6 @@ background-color: yellow;
 .dateinactive
 {
 /*background-color: gray;*/
-}
-.markerhighlighted
-{
-border: 2px dashed #3388ff;
-background-color: #3388ff4d;
 }
 
 #eventphoto
