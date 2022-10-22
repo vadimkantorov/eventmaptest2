@@ -170,7 +170,7 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: gray !important
 padding: 0px;
 }
 
-#dateall > li
+#dateall > li:not([hidden])
 {
 display: inline-block;
 margin-right: 10px;
