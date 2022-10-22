@@ -133,11 +133,19 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
                             <div id="place_date"></div>
                         </h3>
                         <h4 id="location"></h4>
-                        <a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a><br />
-                        <br /><a target="_blank" id="eventurl">Event Link</a>
-                        <br /><a target="_blank" id="orgurl"></a>
                         
-                        <br />
+                        <div id="links_maps">
+                            <a target="_blank" id="link_maps_google">Google Maps</a>
+                            <span>&nbsp;|&nbsp;</span>
+                            <a target="_blank" id="link_maps_apple">Apple Maps</a>
+                        </div>
+                        <div id="links_event">
+                            <a target="_blank" id="eventurl">Event Link</a>
+                        </div>
+                        <div id="links_org">
+                            <a target="_blank" id="orgurl"></a>
+                        </div>
+
                         <ul id="dateall">
                             <li><a id="next"></a></li>
                             <li><a id="cur" class="dateactive"></a></li>
@@ -145,7 +153,10 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
                         </ul>
                         <div class="eventdescription"></div>
                     </div>
-                    <div id="picbox"><img data-photohrefs="" data-photohrefsidx="" onclick="img_onclick()" id="eventphoto" alt="Event photo" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-srcempty="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" hidden /></div>
+                    <div id="picbox">
+                        <img data-photohrefs="" data-photohrefsidx="" onclick="img_onclick()" id="eventphoto" alt="Event photo" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-srcempty="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" hidden />
+                        <div id="picbox_overlay">this is overlay</div>
+                    </div>
             </div>
         </div>
 
