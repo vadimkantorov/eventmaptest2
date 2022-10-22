@@ -115,7 +115,7 @@ function format_event_info(a, div = null)
     div.querySelector('#eventurl').className = a.dataset.eventurl == '' ? 'visibilityhidden' : '';
     div.querySelector('#orgurl').href = a.dataset.orgurl;
     div.querySelector('#orgurl').innerText = a.dataset.orgname;
-    div.querySelector('#location').innerText = [a.dataset.location, a.dataset.address].filter(s => s != '').join(', ');
+    div.querySelector('#location').innerText = [a.dataset.location, a.dataset.address].filter(s => s != '').join(', ') || ' ';
     
     div.querySelector('.eventdescription').innerHTML = '';
     div.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
