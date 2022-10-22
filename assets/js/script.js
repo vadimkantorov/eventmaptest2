@@ -188,7 +188,7 @@ function slideshow_local_tick()
     img.hidden = photohrefs.length > 0;
     if(!img.hidden)
     {
-        const photohrefsidx = img.dataset.photohrefsidx != '' ? ((1 + parseInt(img.dataset.photohrefsidx) % photohrefs.length) : 0;
+        const photohrefsidx = img.dataset.photohrefsidx != '' ? (1 + parseInt(img.dataset.photohrefsidx) % photohrefs.length) : 0;
         img.src = photohrefs[photohrefsidx];
         img.dataset.photohrefsidx = photohrefsidx.toString();
     }
