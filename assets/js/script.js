@@ -188,7 +188,7 @@ function slideshow_local_tick()
     img.hidden = photohrefs.length == 0;
     if(!img.hidden)
     {
-        const photohrefsidx = img.dataset.photohrefsidx != '' ? (1 + parseInt(img.dataset.photohrefsidx) % photohrefs.length) : 0;
+        const photohrefsidx = img.dataset.photohrefsidx == '' ? 0 : ((1 + parseInt(img.dataset.photohrefsidx) % photohrefs.length));
         img.src = photohrefs[photohrefsidx];
         img.dataset.photohrefsidx = photohrefsidx.toString();
     }
@@ -239,14 +239,8 @@ function slideshow_global_tick()
 
 function img_onclick()
 {
-    const img = document.getElementById('eventphoto');
-    //if(!img.hidden)
-    
     slideshow_stop(false);
-    const photohrefs = img.dataset.photohrefs.split(';');
-    const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
-    img.src = photohrefs[photohrefsidx];
-    img.dataset.photohrefsidx = photohrefsidx;
+    slideshow_local_tick();
 }
 
 function navigate(hash)
