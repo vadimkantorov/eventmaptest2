@@ -122,6 +122,9 @@ function format_event_info(a, div = null)
     const prev = dateall.findIndex(date => date < dateall[cur]);
     const next = dateall.findLastIndex(date => date > dateall[cur]);
 
+    div.querySelector('#cur').innerText = '<' + dateall[cur] + '<';
+    div.querySelector('#cur').href = eventhashall[cur];
+    
     if(next >= 0)
     {
         div.querySelector('#next').innerText = dateall[next] + '<';
