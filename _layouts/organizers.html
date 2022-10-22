@@ -89,7 +89,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
     // https://www.techighness.com/post/get-user-country-and-region-on-browser-with-javascript-only/
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const current_country = timezone2country[timezone];
-    
+
     const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
 
     const map = init_map('map');
@@ -100,7 +100,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         switch_upcoming_campaigns(today_YYYY_MM_DD);
     populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
     populate_upcoming_events_everywhere(today_YYYY_MM_DD);
-        
+
     mapmarkers = populate_map(map, document.querySelectorAll('#allevents > li > a.event:not([data-latlon=""])'));
 
     navigate(window.location.hash == '' || window.location.hash == '#' ? choose_random_event() : window.location.hash);
@@ -134,7 +134,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
                         <a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a><br />
                         <br /><a target="_blank" id="eventurl">Event Link</a>
                         <br /><a target="_blank" id="orgurl"></a>
-                        
+
                         <br />
                         <ul id="dateall">
                             <li><a id="next"></a></li>
@@ -143,7 +143,10 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
                         </ul>
                         <div class="eventdescription"></div>
                     </div>
-                    <div id="picbox"><img data-photohrefs="" data-photohrefsidx="" onclick="img_onclick()" id="eventphoto" alt="Event photo" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-srcempty="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" hidden /></div>
+                    <div id="picbox">
+                        <img data-photohrefs="" data-photohrefsidx="" onclick="img_onclick()" id="eventphoto" alt="Event photo" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-srcempty="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" hidden />
+                        <div id="picbox_overlay">this is overlay</div>
+                    </div>
             </div>
         </div>
 
@@ -180,7 +183,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
             {% endif %}
 
             {% for country_events in events_grouped_by_country %}
-            
+
             {% unless isindex %}
             <li><div class="country">{{ country_events.name }}</div></li>
             {% endunless %}

@@ -82,14 +82,32 @@ color: gray;
 
 #picbox
 {
+position: relative;
 flex: 1 1 calc(100% - var(--card-width));
 }
 
-#picbox img {
-/*display: block;*/
+#picbox img
+{
 width: 100%;
 height: 100%;
 object-fit: cover;
+}
+
+#picbox_overlay
+{
+position: absolute;
+right: 0;
+bottom: 0;
+left: 0;
+display: flex;
+align-items: center;
+min-height: calc(var(--card-line-height) * 2);
+padding: 8px;
+font-size: var(--card-line-height);
+font-weight: 700;
+line-height: var(--card-line-height);
+color: white;
+background: hsla(0deg, 0%, 0%, 0.3);
 }
 
 #orgurl:not([href=""])::before
