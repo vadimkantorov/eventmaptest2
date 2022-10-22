@@ -185,7 +185,7 @@ function slideshow_local_tick()
     const img = document.getElementById('eventphoto');
     const photohrefs = (img.dataset.photohrefs || '').length == 0 ? [] : img.dataset.photohrefs.split(';');
     
-    img.hidden = photohrefs.length > 0;
+    img.hidden = photohrefs.length == 0;
     if(!img.hidden)
     {
         const photohrefsidx = img.dataset.photohrefsidx != '' ? (1 + parseInt(img.dataset.photohrefsidx) % photohrefs.length) : 0;
@@ -266,7 +266,7 @@ function navigate(hash)
         const div = format_event_info(a);
         info.innerHTML = div.innerHTML;
         img.dataset.photohrefs = a.dataset.photohrefs;
-        img.dataset.photohrefsidx = '0';
+        img.dataset.photohrefsidx = a.dataset.photohrefs == '' ? '' : (0).toString();
         
         if(!input.checked)
             slideshow_local_start();
