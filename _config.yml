@@ -8,14 +8,14 @@ defaults:
       path: "data/campaigns/*/*.md"
     values:
       permalink: /:basename/
-      layout: index
+      layout: events
 
   -
     scope:
       path: "data/index/index.md"
     values:
       permalink: /index.html
-      layout: index
+      layout: events
       
 plugins:
   - jekyll-optional-front-matter
