@@ -103,7 +103,7 @@ function body_onload()
     {
         if(action == 'slideshow_populate_events')
         {
-            slideshow_init(Array.from(document.querySelectorAll('a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash));
+            slideshow_global_init(Array.from(document.querySelectorAll('a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash));
             switch_upcoming_events(today_YYYY_MM_DD);
             if(document.body.dataset.isindex == 'true')
                 switch_upcoming_campaigns(today_YYYY_MM_DD);
