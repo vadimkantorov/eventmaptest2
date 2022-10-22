@@ -31,7 +31,7 @@ function marker_onclick(e)
 
     L.DomUtil.addClass(e.target._icon || e.target._path, 'markerhighlighted');
 
-    slideshow_toggle(false);
+    slideshow_stop();
     window.location.hash = e.target.eventhash;
 }
 
@@ -162,7 +162,9 @@ var slideshow = null;
 
 function slideshow_stop()
 {
+    const input = document.getElementById('slideshow_global_toggle');
     slideshow = clearInterval(slideshow);
+    input.checked = false;
 }
 
 function slideshow_global_init(eventhash_list)
@@ -204,10 +206,7 @@ function slideshow_global_toggle(state = null, interval_millis = 7000)
     const input = document.getElementById('slideshow_global_toggle');
     const eventhash = input.dataset.eventhash;
     if(state === false || slideshow != null || eventhash == null || eventhash == '')
-    {
         slideshow_stop();
-        input.checked = false;
-    }
     else
     {
         slideshow = slideshow_global_tick() || setInterval(slideshow_global_tick, interval_millis);
