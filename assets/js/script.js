@@ -177,9 +177,10 @@ function slideshow_local_start(interval_millis = 7000)
     const img = document.getElementById('eventphoto');
     
     slideshow_stop();
-    
+    slideshow_local_tick();
+
     if(img.dataset.photohrefs.includes(';'))
-        slideshow = slideshow_local_tick() || setInterval(slideshow_local_tick, interval_millis);
+        slideshow = setInterval(slideshow_local_tick, interval_millis);
 }
 
 function slideshow_local_tick()
