@@ -2,6 +2,7 @@
 --common-radius: 12px;
 --card-font-size: 12px;
 --card-line-height: 16px;
+--card-section-gap: 4px;
 --card-width: 50%;
 }
 
@@ -48,7 +49,38 @@ display: flex;
 gap: 8px;
 z-index: 1;
 padding-bottom: 8px;
-height: 240px;
+/*
+lh = var(--card-line-height)
+mb = var(--card-section-gap)
+ip = inner vertical padding of #info
+ib = inner vertical border of #info
+x < 375
+(#place: lh * 3 + mb) + (#location: lh + mb) + (#links_maps: lh + mb) +
+(#links_event: lh + mb) + (#links_org: lh * 3 + mb) + (#dateall: lh * 3 + mb) + (.eventdescription: lh * 2) + ip + ib
+375 < x < 768
+(#place: lh * 3 + mb) + (#location: lh + mb) + (#links_maps: lh + mb) +
+(#links_event: lh + mb) + (#links_org: lh * 2 + mb) + (#dateall: lh * 2 + mb) + (.eventdescription: lh * 2) + ip + ib
+x > 768
+(#place: lh + mb) + (#location: lh + mb) + (#links_maps: lh + mb) +
+(#links_event: lh + mb) + (#links_org: lh + mb) + (#dateall: lh + mb) + (.eventdescription: lh) + ip + ib
+*/
+height: 266px;
+}
+
+@media only screen and (min-width: 375px)
+{
+    #infopic
+    {
+    height: 234px;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    #infopic
+    {
+    height: 154px;
+    }
 }
 
 #map
@@ -71,7 +103,7 @@ border-radius: var(--common-radius);
 #info #place
 {
 margin: 0;
-margin-bottom: 4px;
+margin-bottom: var(--card-section-gap);
 }
 
 #info #place_name
@@ -89,14 +121,14 @@ color: gray;
 #info #location
 {
 margin: 0;
-margin-bottom: 4px;
+margin-bottom: var(--card-section-gap);
 }
 
 #info #links_maps,
 #info #links_event,
 #info #links_org
 {
-margin-bottom: 4px;
+margin-bottom: var(--card-section-gap);
 }
 
 #dateall
@@ -105,7 +137,7 @@ display: flex;
 flex-wrap: wrap;
 padding: 0;
 margin: 0;
-margin-bottom: 4px;
+margin-bottom: var(--card-section-gap);
 list-style: none;
 }
 
