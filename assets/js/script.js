@@ -15,7 +15,6 @@ function init_map(id)
 {
     const map = L.map(id).setView([20, 0], 2);
     L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {attribution: document.getElementById('map_copyright').outerHTML, maxZoom: 19 }).addTo(map);
-    //map.fitBounds(L.latLngBounds(Object.values(data.places).map(place => place.latlng)));
     map.on('popupopen', e =>
     {
         e.popup._closeButton.removeAttribute("href");
@@ -39,9 +38,11 @@ function marker_onclick(e)
 function populate_map(map, events)
 {
     let mapmarkers = {};
+    const latlons = [];
     for(const a of events)
     {
-        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, stroke: false, className: a.parentElement.classList.contains('eventactive') ? 'markerupcoming' : 'markerpast'}).addTo(map);
+        const latlon = a.dataset.latlon.split(',').map(parseFloat);
+        const marker = L.circleMarker(latlon, {radius: 5, stroke: false, className: a.parentElement.classList.contains('eventactive') ? 'markerupcoming' : 'markerpast'}).addTo(map);
         marker.bindPopup(format_event_popup(a).outerHTML);
         marker.on('click', marker_onclick);
 
@@ -49,7 +50,9 @@ function populate_map(map, events)
 
         marker.eventhash = a.dataset.eventhash;// marker._icon.eventhash =
         mapmarkers[a.dataset.mapmarkerkey] = marker;
+        latlons.push(latlon);
     }
+    map.fitBounds(L.latLngBounds(latlons));
     return mapmarkers;
 }
 
@@ -157,14 +160,43 @@ function format_event_popup(a)
 
 var slideshow = null;
 
+function slideshow_stop()
+{
+    slideshow = clearInterval(slideshow);
+}
+
 function slideshow_global_init(eventhash_list)
 {
     document.getElementById('slideshow_global_toggle').dataset.eventhash = eventhash_list.join(';');
 }
 
-function slideshow_stop()
+function slideshow_local_start(interval_millis = 7000)
 {
-    slideshow = clearInterval(slideshow);
+    const img = document.getElementById('eventphoto');
+    
+    slideshow_stop();
+    
+    if(img.dataset.photohrefs.contains(';'))
+        slideshow = slideshow_local_tick() || setInterval(slideshow_local_tick, interval_millis);
+}
+
+function slideshow_local_tick()
+{
+    const img = document.getElementById('eventphoto');
+    const photohrefs = (img.dataset.photohrefs || '').length == 0 ? [] : img.dataset.photohrefs.split(';');
+    
+    img.hidden = photohrefs.length > 0;
+    if(!img.hidden)
+    {
+        const photohrefsidx = img.dataset.photohrefsidx != '' ? ((1 + parseInt(img.dataset.photohrefsidx) % photohrefs.length) : 0;
+        img.src = photohrefs[photohrefsidx];
+        img.dataset.photohrefsidx = photohrefsidx.toString();
+    }
+    else
+    {
+        img.src = img.dataset.srcempty;
+        img.dataset.photohrefsidx = '';
+    }
 }
 
 function slideshow_global_toggle(state = null, interval_millis = 7000)
@@ -189,7 +221,7 @@ function slideshow_global_tick()
     const input = document.getElementById('slideshow_global_toggle');
 
     const photohrefs = img.dataset.photohrefs.split(';');
-    const photohrefsidx = img.dataset.photohrefsidx != '' ? 1 + parseInt(img.dataset.photohrefsidx) : '0';
+    const photohrefsidx = img.dataset.photohrefsidx != '' ? 1 + parseInt(img.dataset.photohrefsidx) : 0;
     if(img.dataset.photohrefs != '' && photohrefsidx < photohrefs.length)
     {
         img.src = photohrefs[photohrefsidx];
@@ -227,6 +259,7 @@ function navigate(hash)
     const img = document.getElementById('eventphoto');
     const info = document.getElementById('info');
     const a = document.querySelector(`a[data-eventhash~="${hash}"]`);
+    const input = document.getElementById('slideshow_global_toggle');
 
     if(a != null)
     {
@@ -234,9 +267,13 @@ function navigate(hash)
         info.innerHTML = div.innerHTML;
         img.dataset.photohrefs = a.dataset.photohrefs;
         img.dataset.photohrefsidx = '0';
-        img.hidden = (img.dataset.photohrefs || '').length == 0;
-        img.src = img.hidden ? '' : a.dataset.photohrefs.split(';')[0];
+        
+        slideshow_local_tick();
+        
         info.classList.remove('visibilityhidden');
+
+        if(!input.checked)
+            slideshow_local_start();
 
         /*const prev_icon = document.querySelector('.markerhighlighted');
         if(prev_icon != null)
