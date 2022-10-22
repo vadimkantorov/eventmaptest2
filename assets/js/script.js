@@ -52,7 +52,7 @@ function populate_map(map, events)
         mapmarkers[a.dataset.mapmarkerkey] = marker;
         latlons.push(latlon);
     }
-    map.fitBounds(L.latLngBounds(latlons));
+    //map.fitBounds(L.latLngBounds(latlons));
     return mapmarkers;
 }
 
