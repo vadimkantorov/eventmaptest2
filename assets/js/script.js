@@ -268,12 +268,12 @@ function navigate(hash)
         img.dataset.photohrefs = a.dataset.photohrefs;
         img.dataset.photohrefsidx = '0';
         
-        slideshow_local_tick();
-        
-        info.classList.remove('visibilityhidden');
-
         if(!input.checked)
             slideshow_local_start();
+        else
+            slideshow_local_tick();
+        
+        info.classList.remove('visibilityhidden');
 
         /*const prev_icon = document.querySelector('.markerhighlighted');
         if(prev_icon != null)
