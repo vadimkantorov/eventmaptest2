@@ -128,6 +128,7 @@ margin: 0;
 {
 position: relative;
 flex: 1 1 calc(100% - var(--card-width));
+background: aliceblue;
 }
 
 #picbox img
@@ -149,10 +150,9 @@ justify-content: right;
 min-height: calc(var(--card-line-height) * 2);
 padding: 8px;
 font-size: var(--card-line-height);
-font-weight: 700;
 line-height: var(--card-line-height);
-color: white;
-background: hsla(0deg, 0%, 0%, 0.3);
+color: hsl(197, 100%, 33%);
+background: hsla(0, 0%, 100%, 0.9);
 }
 
 #orgurl:not([href=""])::before
