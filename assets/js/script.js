@@ -26,11 +26,11 @@ function init_map(id)
 
 function marker_onclick(e)
 {
-    const _icon = document.querySelector('.circlehighlighted');
+    const _icon = document.querySelector('.markerhighlighted');
     if(_icon != null)
-        L.DomUtil.removeClass(_icon, 'circlehighlighted');
+        L.DomUtil.removeClass(_icon, 'markerhighlighted');
 
-    L.DomUtil.addClass(e.target._icon || e.target._path, 'circlehighlighted');
+    L.DomUtil.addClass(e.target._icon || e.target._path, 'markerhighlighted');
 
     slideshow_toggle(false);
     window.location.hash = e.target.eventhash;
@@ -41,8 +41,7 @@ function populate_map(map, events)
     let mapmarkers = {};
     for(const a of events)
     {
-        // circle-upcoming, circle-past, circle-highlighted
-        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, stroke: false, className: a.parentElement.classList.contains('eventactive') ? 'circleupcoming' : 'circlepast'}).addTo(map);
+        const marker = L.circleMarker(a.dataset.latlon.split(',').map(parseFloat), {radius: 5, stroke: false, className: a.parentElement.classList.contains('eventactive') ? 'markerupcoming' : 'markerpast'}).addTo(map);
         marker.bindPopup(format_event_popup(a).outerHTML);
         marker.on('click', marker_onclick);
 
@@ -201,6 +200,19 @@ function slideshow_tick()
     img.hidden = false;
 }
 
+function img_onclick()
+{
+    const img = document.getElementById('eventphoto');
+    if(!img.hidden)
+    {
+        slideshow_toggle(false);
+        const photohrefs = img.dataset.photohrefs.split(';');
+        const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
+        img.src = photohrefs[photohrefsidx];
+        img.dataset.photohrefsidx = photohrefsidx;
+    }
+}
+
 function navigate(hash)
 {
     hash = (hash == '#undefined' || hash == '#close') ? '' : (hash || '');
@@ -236,18 +248,5 @@ function navigate(hash)
     {
         img.hidden = true;
         info.classList.add('visibilityhidden');
-    }
-}
-
-function img_onclick()
-{
-    const img = document.getElementById('eventphoto');
-    if(!img.hidden)
-    {
-        slideshow_toggle(false);
-        const photohrefs = img.dataset.photohrefs.split(';');
-        const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
-        img.src = photohrefs[photohrefsidx];
-        img.dataset.photohrefsidx = photohrefsidx;
     }
 }
