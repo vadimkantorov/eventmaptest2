@@ -1,13 +1,13 @@
 {% if page.name == "index.md" %}{% assign isindex = true %}{% endif %}
 
-{% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "index" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
+{% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "events" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 
 {% if isindex %}
 
 {% assign index = page %}
 {% assign campaign_name = "" %}
 
-{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout != "index" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
+{% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout != "events" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
 {% for campaign in campaigns %}{% for event in campaign.events %}{% assign events = events | push: event %}{% endfor %}{% endfor %}
 
 {% endif %}
@@ -147,7 +147,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
             {% assign campaign = nil %}
             {% for _campaign in campaigns %}
                 {% assign campaign_path = _campaign.path | split: "/" | pop | join: "/" %}
-                {% if event.dir contains campaign_path and  _campaign.path contains "data/campaigns/" and _campaign.layout == "index" %}
+                {% if event.dir contains campaign_path and  _campaign.path contains "data/campaigns/" and _campaign.layout == "events" %}
                     {% assign campaign = _campaign %}
                     {% break %}
                 {% endif %}
