@@ -136,7 +136,7 @@ function body_onload()
 
         <hr />
         <div id="sticky">
-            <div id="slideshow"><input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_toggle" onchange="slideshow_toggle()" /><label for="slideshow_toggle">&nbsp;slideshow{% unless isindex %} for {{ campaign.title | xml_escape }} {% endunless %}</label></span></div>
+            <div id="slideshow"><input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_toggle" name="slideshow_global_toggle" onchange="slideshow_global_toggle()" /><label for="slideshow_global_toggle">&nbsp;slideshow{% unless isindex %} for {{ campaign.title | xml_escape }} {% endunless %}</label></span></div>
             <div id="container"><div id="map"><template id="popup"><div><h3 id="place"></h3><h4 id="time"></h4></div></template></div></div>
             <div id="infopic">
                     <div id="info" class="visibilityhidden">
@@ -257,7 +257,7 @@ function body_onload()
             {% endif %}
 
             <!-- https://nominatim.openstreetmap.org/search?format=json&limit=1&city=Amsterdam -->
-            <li class="eventinactive" data-date="{{ event.date }}"><a class="event" data-address="{{ event.address }}" data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" data-date="{{ event.date }}" data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-mapmarkerkey="{{ event.city }}, {{ event.country }}" data-latlon="{{ event.latlon }}" data-city="{{ event.city }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-location="{{ event.location }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.city }}, {{ event.country }}, {% if event.location %}{{ event.location }}{% else %}{{ event.address }}{% endif %}{% if isindex %} - {{ campaign.title }}{% endif %}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
+            <li class="eventinactive" data-date="{{ event.date }}"><a class="event" data-address="{{ event.address }}" data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" data-date="{{ event.date }}" data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-mapmarkerkey="{{ event.city }}, {{ event.country }}" data-latlon="{% if event.latlon %}{{ event.latlon }}{% else %}{{ site.data.geocoder[event.city] }}{% endif %}" data-city="{{ event.city }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-location="{{ event.location }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.city }}, {{ event.country }}, {% if event.location %}{{ event.location }}{% else %}{{ event.address }}{% endif %}{% if isindex %} - {{ campaign.title }}{% endif %}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
 
             {% endfor %}
             {% endfor %}

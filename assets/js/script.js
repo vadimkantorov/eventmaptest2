@@ -157,31 +157,36 @@ function format_event_popup(a)
 
 var slideshow = null;
 
-function slideshow_init(eventhash_list)
+function slideshow_global_init(eventhash_list)
 {
-    document.getElementById('slideshow_toggle').dataset.eventhash = eventhash_list.join(';');
+    document.getElementById('slideshow_global_toggle').dataset.eventhash = eventhash_list.join(';');
 }
 
-function slideshow_toggle(state = null, interval_millis = 7000)
+function slideshow_stop()
 {
-    const input = document.getElementById('slideshow_toggle');
+    slideshow = clearInterval(slideshow);
+}
+
+function slideshow_global_toggle(state = null, interval_millis = 7000)
+{
+    const input = document.getElementById('slideshow_global_toggle');
     const eventhash = input.dataset.eventhash;
     if(state === false || slideshow != null || eventhash == null || eventhash == '')
     {
-        slideshow = clearInterval(slideshow);
+        slideshow_stop();
         input.checked = false;
     }
     else
     {
-        slideshow = slideshow_tick() || setInterval(slideshow_tick, interval_millis);
+        slideshow = slideshow_global_tick() || setInterval(slideshow_global_tick, interval_millis);
         input.checked = true;
     }
 }
 
-function slideshow_tick()
+function slideshow_global_tick()
 {
     const img = document.getElementById('eventphoto');
-    const input = document.getElementById('slideshow_toggle');
+    const input = document.getElementById('slideshow_global_toggle');
 
     const photohrefs = img.dataset.photohrefs.split(';');
     const photohrefsidx = img.dataset.photohrefsidx != '' ? 1 + parseInt(img.dataset.photohrefsidx) : '0';
@@ -203,14 +208,13 @@ function slideshow_tick()
 function img_onclick()
 {
     const img = document.getElementById('eventphoto');
-    if(!img.hidden)
-    {
-        slideshow_toggle(false);
-        const photohrefs = img.dataset.photohrefs.split(';');
-        const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
-        img.src = photohrefs[photohrefsidx];
-        img.dataset.photohrefsidx = photohrefsidx;
-    }
+    //if(!img.hidden)
+    
+    slideshow_stop(false);
+    const photohrefs = img.dataset.photohrefs.split(';');
+    const photohrefsidx = (1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length;
+    img.src = photohrefs[photohrefsidx];
+    img.dataset.photohrefsidx = photohrefsidx;
 }
 
 function navigate(hash)
