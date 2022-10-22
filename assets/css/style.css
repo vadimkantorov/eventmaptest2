@@ -2,6 +2,7 @@
 --common-radius: 12px;
 --card-font-size: 12px;
 --card-line-height: 16px;
+--card-section-gap: 4px;
 --card-width: 50%;
 }
 
@@ -48,7 +49,38 @@ display: flex;
 gap: 8px;
 z-index: 1;
 padding-bottom: 8px;
-height: 240px;
+/*
+lh = var(--card-line-height)
+mb = var(--card-section-gap)
+ip = inner vertical padding of #info
+ib = inner vertical border of #info
+x < 375
+(#place: lh * 3 + mb) + (#location: lh + mb) + (#links_maps: lh + mb) +
+(#links_event: lh + mb) + (#links_org: lh * 3 + mb) + (#dateall: lh * 3 + mb) + (.eventdescription: lh * 2) + ip + ib
+375 < x < 768
+(#place: lh * 3 + mb) + (#location: lh + mb) + (#links_maps: lh + mb) +
+(#links_event: lh + mb) + (#links_org: lh * 2 + mb) + (#dateall: lh * 2 + mb) + (.eventdescription: lh * 2) + ip + ib
+x > 768
+(#place: lh + mb) + (#location: lh + mb) + (#links_maps: lh + mb) +
+(#links_event: lh + mb) + (#links_org: lh + mb) + (#dateall: lh + mb) + (.eventdescription: lh) + ip + ib
+*/
+height: 266px;
+}
+
+@media only screen and (min-width: 375px)
+{
+    #infopic
+    {
+    height: 234px;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    #infopic
+    {
+    height: 154px;
+    }
 }
 
 #map
@@ -71,7 +103,13 @@ border-radius: var(--common-radius);
 #info #place
 {
 margin: 0;
-margin-bottom: 8px;
+margin-bottom: var(--card-section-gap);
+}
+
+#info #place_name
+{
+font-size: 14px;
+font-weight: 700;
 }
 
 #info #place_date
@@ -80,16 +118,72 @@ font-size: 10px;
 color: gray;
 }
 
-#picbox
+#info #location
 {
-flex: 1 1 calc(100% - var(--card-width));
+margin: 0;
+margin-bottom: var(--card-section-gap);
 }
 
-#picbox img {
-/*display: block;*/
+#info #links_maps,
+#info #links_event,
+#info #links_org
+{
+margin-bottom: var(--card-section-gap);
+}
+
+#dateall
+{
+display: flex;
+flex-wrap: wrap;
+padding: 0;
+margin: 0;
+margin-bottom: var(--card-section-gap);
+list-style: none;
+}
+
+#dateall > li:not([hidden])
+{
+margin-right: 10px;
+}
+
+.eventdescription
+{
+min-height: calc(var(--card-line-height) * 2);
+}
+
+.eventdescription p
+{
+margin: 0;
+}
+
+#picbox
+{
+position: relative;
+flex: 1 1 calc(100% - var(--card-width));
+background: aliceblue;
+}
+
+#picbox img
+{
 width: 100%;
 height: 100%;
 object-fit: cover;
+}
+
+#picbox_overlay
+{
+position: absolute;
+right: 0;
+bottom: 0;
+left: 0;
+display: flex;
+align-items: center;
+justify-content: right;
+padding: 0 5px;
+font-size: 0.75rem;
+line-height: 1.2;
+color: hsl(197, 100%, 33%);
+background: hsla(0, 0%, 100%, 0.9);
 }
 
 #orgurl:not([href=""])::before
@@ -163,27 +257,6 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: gray !important
 #allevents > li, #allcampaigns > li, #upcomingeventsincountry > li, #upcomingeventseverywhere > li
 {
     margin-bottom: 10px;
-}
-
-#dateall
-{
-padding: 0px;
-}
-
-#dateall > li:not([hidden])
-{
-display: inline-block;
-margin-right: 10px;
-}
-
-.eventdescription
-{
-min-height: calc(var(--card-line-height) * 4);
-}
-
-.eventdescription p
-{
-margin: 0;
 }
 
 .dateactive
