@@ -18,12 +18,12 @@ defaults:
       permalink: /index.html
       layout: events
 
-#  -
-#    scope:
-#      path: "data/index/organizers.md"
-#    values:
-#      permalink: /organizers.html
-#      layout: organizers
+  -
+    scope:
+      path: "data/index/organizers.md"
+    values:
+      permalink: /organizers.html
+      layout: organizers
       
 plugins:
   - jekyll-optional-front-matter
