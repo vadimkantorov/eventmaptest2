@@ -245,9 +245,7 @@ function img_onclick()
 
 function navigate(hash)
 {
-    hash = (hash == '#undefined' || hash == '#close') ? '' : (hash || '');
-
-    if(hash == '')
+    if(hash == '' || hash == '#')
         return;
 
     const img = document.getElementById('eventphoto');
@@ -259,7 +257,7 @@ function navigate(hash)
     {
         const div = format_event_info(a);
         info.innerHTML = div.innerHTML;
-        img.dataset.photohrefs = a.dataset.photohrefs;
+        img.dataset.photohrefs = a.dataset.photohrefs || a.dataset.logo;
         img.dataset.photohrefsidx = a.dataset.photohrefs == '' ? '' : (0).toString();
         
         if(!input.checked)
