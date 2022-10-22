@@ -131,16 +131,24 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
                             <div id="place_date"></div>
                         </h3>
                         <h4 id="location"></h4>
-                        <a target="_blank" id="link_maps_google">Google Maps</a>&nbsp;|&nbsp;<a target="_blank" id="link_maps_apple">Apple Maps</a><br />
-                        <br /><a target="_blank" id="eventurl">Event Link</a>
-                        <br /><a target="_blank" id="orgurl"></a>
+                        <div id="links_maps">
+                            <a target="_blank" id="link_maps_google">Google Maps</a>
+                            <span>&nbsp;|&nbsp;</span>
+                            <a target="_blank" id="link_maps_apple">Apple Maps</a>
+                        </div>
+                        <div id="links_event">
+                            <a target="_blank" id="eventurl">Event Link</a>
+                        </div>
+                        <div id="links_org">
+                            <a target="_blank" id="orgurl"></a>
+                        </div>
 
-                        <br />
                         <ul id="dateall">
                             <li><a id="next"></a></li>
                             <li><a id="cur" class="dateactive"></a></li>
                             <li><a id="prev"></a></li>
                         </ul>
+
                         <div class="eventdescription"></div>
                     </div>
                     <div id="picbox">

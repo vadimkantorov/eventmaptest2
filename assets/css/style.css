@@ -71,13 +71,57 @@ border-radius: var(--common-radius);
 #info #place
 {
 margin: 0;
-margin-bottom: 8px;
+margin-bottom: 4px;
+}
+
+#info #place_name
+{
+font-size: 14px;
+font-weight: 700;
 }
 
 #info #place_date
 {
 font-size: 10px;
 color: gray;
+}
+
+#info #location
+{
+margin: 0;
+margin-bottom: 4px;
+}
+
+#info #links_maps,
+#info #links_event,
+#info #links_org
+{
+margin-bottom: 4px;
+}
+
+#dateall
+{
+display: flex;
+flex-wrap: wrap;
+padding: 0;
+margin: 0;
+margin-bottom: 4px;
+list-style: none;
+}
+
+#dateall > li:not([hidden])
+{
+margin-right: 10px;
+}
+
+.eventdescription
+{
+min-height: calc(var(--card-line-height) * 2);
+}
+
+.eventdescription p
+{
+margin: 0;
 }
 
 #picbox
@@ -101,6 +145,7 @@ bottom: 0;
 left: 0;
 display: flex;
 align-items: center;
+justify-content: right;
 min-height: calc(var(--card-line-height) * 2);
 padding: 8px;
 font-size: var(--card-line-height);
@@ -181,27 +226,6 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: gray !important
 #allevents > li, #allcampaigns > li, #upcomingeventsincountry > li, #upcomingeventseverywhere > li
 {
     margin-bottom: 10px;
-}
-
-#dateall
-{
-padding: 0px;
-}
-
-#dateall > li:not([hidden])
-{
-display: inline-block;
-margin-right: 10px;
-}
-
-.eventdescription
-{
-min-height: calc(var(--card-line-height) * 4);
-}
-
-.eventdescription p
-{
-margin: 0;
 }
 
 .dateactive
