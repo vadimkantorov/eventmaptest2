@@ -114,6 +114,9 @@ function format_event_info(a, div = null)
     div.querySelector('#orgurl').href = a.dataset.orgurl;
     div.querySelector('#orgurl').innerText = a.dataset.orgname;
     div.querySelector('#location').innerText = [a.dataset.location, a.dataset.address].filter(s => s != '').join(', ');
+    
+    div.querySelector('.eventdescription').innerHTML = '';
+    div.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
 
     const dateall = a.dataset.dateall.split(';');
     const eventhashall = a.dataset.eventhashall.split(';');
@@ -121,28 +124,26 @@ function format_event_info(a, div = null)
     const cur = eventhashall.indexOf(a.dataset.eventhash);
     const prev = dateall.findIndex(date => date < dateall[cur]);
     const next = dateall.findLastIndex(date => date > dateall[cur]);
+    
 
     div.querySelector('#cur').innerText = (next >= 0 ? '<' : '') + dateall[cur] + (prev >= 0 ? '<' : '');
     div.querySelector('#cur').href = eventhashall[cur];
     
-    if(next >= 0)
+    div.querySelector('#next').hidden = next == -1;
+    if(!div.querySelector('#next').hidden)
     {
         div.querySelector('#next').innerText = (next > 0 ? '<' : '') + dateall[next] + '<';
         div.querySelector('#next').href = eventhashall[next];
     }
-    else
-        div.querySelector('#next').innerText = '';
     
-    if(prev >= 0)
+    div.querySelector('#prev').hidden = prev == -1;
+    if(!div.querySelector('#prev').hidden)
     {
         div.querySelector('#prev').innerText = '<' + dateall[prev];
         div.querySelector('#prev').href = eventhashall[prev];
     }
-    else
-        div.querySelector('#prev').innerText = '';
-
-    div.querySelector('.eventdescription').innerHTML = '';
-    div.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
+    
+    div.querySelector('#dateall').className = dateall.length == 1 ? 'visibilityhidden' : '';
 
     return div;
 }
