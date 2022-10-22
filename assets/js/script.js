@@ -122,12 +122,12 @@ function format_event_info(a, div = null)
     const prev = dateall.findIndex(date => date < dateall[cur]);
     const next = dateall.findLastIndex(date => date > dateall[cur]);
 
-    div.querySelector('#cur').innerText = '<' + dateall[cur] + '<';
+    div.querySelector('#cur').innerText = (next >= 0 ? '<' : '') + dateall[cur] + (prev >= 0 ? '<' : '');
     div.querySelector('#cur').href = eventhashall[cur];
     
     if(next >= 0)
     {
-        div.querySelector('#next').innerText = dateall[next] + '<';
+        div.querySelector('#next').innerText = (next > 0 ? '<' : '') + dateall[next] + '<';
         div.querySelector('#next').href = eventhashall[next];
     }
     else
