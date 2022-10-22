@@ -176,7 +176,7 @@ function slideshow_local_start(interval_millis = 7000)
     
     slideshow_stop();
     
-    if(img.dataset.photohrefs.contains(';'))
+    if(img.dataset.photohrefs.includes(';'))
         slideshow = slideshow_local_tick() || setInterval(slideshow_local_tick, interval_millis);
 }
 
