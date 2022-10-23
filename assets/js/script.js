@@ -12,7 +12,7 @@ function apply_geo_filter(search, update_filter_field = true)
         document.getElementById('filter_area').value = search;
     
     if(search != '')
-        document.querySelectorAll(`li:has(a.event:not([data-city*="${search}"]))`).forEach(li => li.hidden = true);
+        document.querySelectorAll(`li:has(a.event:not([data-search=""]):not([data-search*="${search.toLowerCase()}"]))`).forEach(li => li.hidden = true);
 }
 
 function choose_random_event()
@@ -269,7 +269,7 @@ function img_onclick()
 
 function get_search_query()
 {
-    return new URLSearchParams(window.location.search).get('search') || '';
+    return new URLSearchParams(window.location.search).get('search').replace('+', ' ') || '';
 }
 
 function navigate(hash, search = '')
