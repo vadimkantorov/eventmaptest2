@@ -24,8 +24,6 @@
 {% assign events_with_org = "" | split: "," %}{% for event in events %}{% if event.orgname %}{% assign events_with_org = events_with_org | push: event %}{% endif %}{% endfor %}
 {% assign events_with_org_grouped_by_country = events_with_org | sort: "country" | group_by: "country" %}
 
-<!-- {{events_with_org | jsonify}} -->
-
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -129,7 +127,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         <div id="sticky">
             <div id="slideshow">
                 <input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_global_toggle" name="slideshow_global_toggle" onchange="slideshow_global_toggle()" />
-                <label for="slideshow_global_toggle">&nbsp;slideshow for {% if isindex %}{{ index.title | xml_escape }}{% else %}{{ campaign.title | xml_escape }}{% endif %}</label><!--</span>-->
+                <label for="slideshow_global_toggle">&nbsp;slideshow for {% if isindex %}{{ index.title | xml_escape }}{% else %}{{ campaign.title | xml_escape }}{% endif %}</label>
                 <div id="searchbox"><form action="."><label><input id="filter_area" type="text" name="search" placeholder="Filter by city or country" onkeyup="return click_filter(event)"></input></label></form></div>
             </div>
             <div id="container">
@@ -197,6 +195,8 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         <summary class="center">
         <span class="header">All events</span>
         </summary>
+        
+        <!-- https://nominatim.openstreetmap.org/search?format=json&limit=1&city=Amsterdam -->
 
         <ul id="allevents" class="events">
             {% if country_events.size == 0 %}
@@ -269,7 +269,6 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
             {% assign campaign_logo = campaign.path | split: "/" | pop | join: "/" | prepend: "/" | prepend: site.github.url | append: "/" | append: campaign.logo %}
             {% assign event_logo = campaign.path | split: "/" | pop | join: "/" | prepend: "/" | prepend: site.github.url | append: "/" | append: event.logo %}
             
-            <!-- https://nominatim.openstreetmap.org/search?format=json&limit=1&city=Amsterdam -->
             <li class="eventinactive" data-date="{{ event.date }}" data-search="{{ event.city | downcase }} {{event.country | downcase }}"><a data-logo="{% if event.logo %}{{ event_logo }}{% elsif campaign.logo %}{{ campaign_logo }}{% elsif index.logo %}{{ index_logo }}{% endif %}" class="event" data-address="{{ event.address }}" data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" data-date="{{ event.date }}" data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-mapmarkerkey="{{ event.city }}, {{ event.country }}" data-latlon="{% if event.latlon %}{{ event.latlon }}{% else %}{{ site.data.geocoder[event.city] }}{% endif %}" data-city="{{ event.city }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-location="{{ event.location }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.city }}, {{ event.country }}, {% if event.location %}{{ event.location }}{% else %}{{ event.address }}{% endif %}{% if isindex %} - {{ campaign.title }}{% endif %}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
 
             {% endfor %}
