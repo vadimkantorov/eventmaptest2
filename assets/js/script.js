@@ -1,7 +1,7 @@
 function click_filter(event)
 {
     if(event.keyCode == 13)
-        window.location = (window.location.pathname.slice(-1) == '/' ? (window.location.pathname + 'all') : '') + '#filter=' + document.getElementById('filter_area').value.split(' ').join('+');
+        window.location.hash = '#filter=' + document.getElementById('filter_area').value.split(' ').join('+');
     
     return false;
 }
