@@ -1,8 +1,7 @@
-{% if page.name == "index.md" %}{% assign isindex = true %}{% endif %}
+{% assign isindex = true %}
 
 {% assign campaigns = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout == "events" %}{% assign campaigns = campaigns | push: p %}{% endif %}{% endfor %}{% assign campaigns = campaigns | sort: "name" %}
 
-{% if isindex %}
 
 {% assign index = page %}
 {% assign campaign_name = "" %}
@@ -10,7 +9,6 @@
 {% assign events = "" | split: "," %}{% for p in site.pages %}{% if p.path contains "data/campaigns/" and p.layout != "events" %}{% assign events = events | push: p %}{% endif %}{% endfor %}
 {% for campaign in campaigns %}{% for event in campaign.events %}{% assign events = events | push: event %}{% endfor %}{% endfor %}
 
-{% endif %}
 
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
 
@@ -78,14 +76,14 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         <title>{{ page.title | xml_escape}}</title>
     </head>
 
-    <body data-isindex="{{ isindex }}" onhashchange="navigate(window.location.hash)" onload="body_onload()"><div id="outer-container">
+    <body onhashchange="navigate(window.location.hash)" onload="body_onload()"><div id="outer-container">
 
         <h1 id="indextitle"><a href="{{ site.github.url }}">{{ index.title }}</a></h1>
         <div id="indexdescription">{{ index.content | markdownify }}</div>
 
         <hr />
         <div id="sticky">
-            <div id="slideshow"><input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_global_toggle" name="slideshow_global_toggle" onchange="slideshow_global_toggle()" /><label for="slideshow_global_toggle">&nbsp;slideshow for {% if isindex %}{{ index.title | xml_escape }}{% else %}{{ campaign.title | xml_escape }}{% endif %}</label></span></div>
+            <div id="slideshow"><input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_global_toggle" name="slideshow_global_toggle" onchange="slideshow_global_toggle()" /><label for="slideshow_global_toggle">&nbsp;slideshow for {{ index.title | xml_escape }}</label></span></div>
             <div id="container"><div id="map"><template id="popup"><div><h3 id="place"></h3><h4 id="time"></h4></div></template></div></div>
             <div id="infopic">
                     <div id="info" class="visibilityhidden">
@@ -116,9 +114,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
             {% for country_events in events_grouped_by_country %}
 
-            {% unless isindex %}
             <li><div class="country">{{ country_events.name }}</div></li>
-            {% endunless %}
 
             {% assign grouped_events = country_events.items | sort: "date" | reverse %}
 
