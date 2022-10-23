@@ -260,7 +260,9 @@ function img_onclick()
 
 function navigate(hash)
 {
-    console.log(window.location);
+    const search = new URLSearchParams(window.location.search).get('search') || '';
+
+    console.log(search);
 
     if(hash == '' || hash == '#')
         return;
