@@ -320,7 +320,7 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214
 {
 text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
 }
-#countries, .events, #allcampaigns, #allevents
+#countries, .events, #allcampaigns, #allevents, #allorganizers
 {
 list-style-type: none;
 padding: 0px
@@ -340,7 +340,8 @@ border-radius: var(--common-radius);
 }
 
 .campaign>a:link,.campaign>a:visited,.campaign>a:hover,.campaign>a:active,
-.event>a:link, .event>a:visited,.event>a:hover, .event>a:active
+.event>a:link, .event>a:visited,.event>a:hover, .event>a:active,
+.organizer>a:link, .organizer>a:visited,.organizer>a:hover, .organizer>a:active
 {
 text-decoration:none;
 color: inherit
