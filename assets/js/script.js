@@ -298,7 +298,7 @@ function navigate(hash, search = '')
         //format_event_info(a, info)
         
         img.dataset.photohrefs = a.dataset.photohrefs || a.dataset.logo;
-        img.dataset.photohrefsalt = new Array(img.dataset.photohrefs.split(';').length).fill(a.dataset.eventhash).join(';');
+        img.dataset.photohrefsalt = new Array(img.dataset.photohrefs.split(';').length).fill(a.dataset.eventalt).join(';');
         img.dataset.photohrefsidx = a.dataset.photohrefs == '' ? '' : (0).toString();
         
         if(!input.checked)
