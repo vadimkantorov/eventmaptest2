@@ -254,7 +254,12 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: gray !important
 text-align: center; line-height: 1.4; font-size: 1.48rem; color: gray !important;
 }
 
-#allevents > li, #allcampaigns > li, #upcomingeventsincountry > li, #upcomingeventseverywhere > li
+.organizersnoneerror
+{
+text-align: center; line-height: 1.4; font-size: 1.48rem; color: gray !important;
+}
+
+#allorganizers > li, #allevents > li, #allcampaigns > li, #upcomingeventsincountry > li, #upcomingeventseverywhere > li
 {
     margin-bottom: 10px;
 }
@@ -320,7 +325,7 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214
 list-style-type: none;
 padding: 0px
 }
-.event, .campaign
+.event, .campaign, .organizer
 {
 display: block;
 min-height: 40px;
