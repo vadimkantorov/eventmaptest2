@@ -186,20 +186,49 @@ function slideshow_local_start(interval_millis = 7000)
 function slideshow_local_tick()
 {
     const img = document.getElementById('eventphoto');
+    const div = document.getElementById('picbox_overlay');
     const photohrefs = (img.dataset.photohrefs || '').length == 0 ? [] : img.dataset.photohrefs.split(';');
+    const photohrefsalt = (img.dataset.photohrefsalt || '').length == 0 ? [] : img.dataset.photohrefsalt.split(';');
     
     img.hidden = photohrefs.length == 0;
     if(!img.hidden)
     {
         const photohrefsidx = img.dataset.photohrefsidx == '' ? 0 : ((1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length);
         img.src = photohrefs[photohrefsidx];
+        img.alt = div.innerText = photohrefsalt[photohrefsidx];
         img.dataset.photohrefsidx = photohrefsidx.toString();
     }
     else
     {
         img.src = img.dataset.srcempty;
+        img.alt = img.dataset.altempty;
         img.dataset.photohrefsidx = '';
     }
+}
+
+function slideshow_global_tick()
+{
+    const img = document.getElementById('eventphoto');
+    const div = document.getElementById('picbox_overlay');
+    const input = document.getElementById('slideshow_global_toggle');
+
+    const photohrefs = img.dataset.photohrefs.split(';');
+    const photohrefsalt = img.dataset.photohrefsalt.split(';');
+    const photohrefsidx = img.dataset.photohrefsidx != '' ? 1 + parseInt(img.dataset.photohrefsidx) : 0;
+    if(img.dataset.photohrefs != '' && photohrefsidx < photohrefs.length)
+    {
+        img.src = photohrefs[photohrefsidx];
+        img.alt = div.innerText = photohrefsalt[photohrefsidx];
+        img.dataset.photohrefsidx = photohrefsidx.toString();
+    }
+    else
+    {
+        const hash = input.dataset.eventhash.split(';');
+        input.dataset.eventidx = (input.dataset.eventidx == '' ? 0 : (1 + parseInt(input.dataset.eventidx)) % hash.length).toString();
+        navigate(hash[parseInt(input.dataset.eventidx)]);
+    }
+
+    img.hidden = false;
 }
 
 function slideshow_global_toggle(state = null, interval_millis = 7000)
@@ -213,28 +242,6 @@ function slideshow_global_toggle(state = null, interval_millis = 7000)
         slideshow = slideshow_global_tick() || setInterval(slideshow_global_tick, interval_millis);
         input.checked = true;
     }
-}
-
-function slideshow_global_tick()
-{
-    const img = document.getElementById('eventphoto');
-    const input = document.getElementById('slideshow_global_toggle');
-
-    const photohrefs = img.dataset.photohrefs.split(';');
-    const photohrefsidx = img.dataset.photohrefsidx != '' ? 1 + parseInt(img.dataset.photohrefsidx) : 0;
-    if(img.dataset.photohrefs != '' && photohrefsidx < photohrefs.length)
-    {
-        img.src = photohrefs[photohrefsidx];
-        img.dataset.photohrefsidx = photohrefsidx.toString();
-    }
-    else
-    {
-        const hash = input.dataset.eventhash.split(';');
-        input.dataset.eventidx = (input.dataset.eventidx == '' ? 0 : (1 + parseInt(input.dataset.eventidx)) % hash.length).toString();
-        navigate(hash[parseInt(input.dataset.eventidx)]);
-    }
-
-    img.hidden = false;
 }
 
 function img_onclick()
@@ -257,7 +264,10 @@ function navigate(hash)
     {
         const div = format_event_info(a);
         info.innerHTML = div.innerHTML;
+        //format_event_info(a, info)
+        
         img.dataset.photohrefs = a.dataset.photohrefs || a.dataset.logo;
+        img.dataset.photohrefsalt = new Array(img.dataset.photohrefs.split(';').length).fill(a.dataset.eventhash).join(';');
         img.dataset.photohrefsidx = a.dataset.photohrefs == '' ? '' : (0).toString();
         
         if(!input.checked)
