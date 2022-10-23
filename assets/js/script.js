@@ -269,7 +269,7 @@ function img_onclick()
 
 function get_search_query()
 {
-    return new URLSearchParams(window.location.search).get('search').replace('+', ' ') || '';
+    return (new URLSearchParams(window.location.search).get('search') || '').replace('+', ' ');
 }
 
 function navigate(hash, search = '')
