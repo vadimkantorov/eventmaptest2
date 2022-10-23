@@ -1,3 +1,11 @@
+function click_filter(event)
+{
+    if(event.keyCode == 13)
+        window.location = (window.location.pathname.slice(-1) == '/' ? (window.location.pathname + 'all') : '') + '#filter=' + document.getElementById('filter_area').value.split(' ').join('+');
+    
+    return false;
+}
+
 function choose_random_event()
 {
     const eventhashes = Array.from(document.querySelectorAll('a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash);
