@@ -148,13 +148,13 @@ function format_event_info(a, div = null)
     const prev = dateall.findIndex(date => date < dateall[cur]);
     const next = dateall.findLastIndex(date => date > dateall[cur]);
     
-    div.querySelector('#next').hidden = next == -1;
-    if(!div.querySelector('#next').hidden)
-        div.querySelector('#next').href = eventhashall[next];
+    const anext = div.querySelector('#next');
+    if(!(anext.hidden = next == -1))
+        anext.href = anext.title = eventhashall[next];
     
-    div.querySelector('#prev').hidden = prev == -1;
-    if(!div.querySelector('#prev').hidden)
-        div.querySelector('#prev').href = eventhashall[prev];
+    const aprev = div.querySelector('#prev');
+    if(!(aprev.hidden = prev == -1))
+        aprev.href = aprev.title = eventhashall[prev];
     
     return div;
 }
