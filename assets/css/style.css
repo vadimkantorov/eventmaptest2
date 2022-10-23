@@ -280,11 +280,11 @@ border-bottom-right-radius: var(--common-radius);*/
 border-radius: var(--common-radius);
 }
 
-#slideshow_toggle+label::before
+#slideshow_global_toggle+label::before
 {
 content: "Start";
 }
-#slideshow_toggle:checked+label::before
+#slideshow_global_toggle:checked+label::before
 {
 content: "Stop";
 }
