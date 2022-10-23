@@ -206,7 +206,7 @@ function slideshow_local_tick()
         img.src = photohrefs[photohrefsidx];
         img.alt = a.innerText = photohrefsalt[photohrefsidx] + `: ${1 + photohrefsidx} / ${ photohrefs.length }`;
         img.dataset.photohrefsidx = photohrefsidx.toString();
-        a.href = photohrefshash[photohrefsidx];
+        a.href = a.title = photohrefshash[photohrefsidx];
     }
     else
     {
