@@ -21,7 +21,7 @@
 {% endif %}
 
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
-{% assign events_with_org = "" | split: "," %}{% for event in events %}{% if event.orgname %}{% assign events_with_org | push: event %}{% endif %}{% endfor %}
+{% assign events_with_org = "" | split: "," %}{% for event in events %}{% if event.orgname %}{% assign events_with_org = events_with_org | push: event %}{% endif %}{% endfor %}
 
 <!DOCTYPE html>
 <html lang="en-US">
