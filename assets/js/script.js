@@ -260,6 +260,8 @@ function img_onclick()
 
 function navigate(hash)
 {
+    console.log(window.location);
+
     if(hash == '' || hash == '#')
         return;
 
