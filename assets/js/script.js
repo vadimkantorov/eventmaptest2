@@ -277,9 +277,9 @@ function navigate(hash, search = '')
 
     if(a != null)
     {
-        const div = format_event_info(a);
-        info.innerHTML = div.innerHTML;
-        //format_event_info(a, info)
+        //const div = format_event_info(a);
+        //info.innerHTML = div.innerHTML;
+        format_event_info(a, info);
         
         img.dataset.photohrefs = a.dataset.photohrefs || a.dataset.logo;
         img.dataset.photohrefsalt = new Array(img.dataset.photohrefs.split(';').length).fill(a.dataset.eventalt).join(';');
