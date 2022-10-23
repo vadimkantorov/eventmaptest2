@@ -11,7 +11,7 @@ function apply_geo_filter(search, update_filter_field = true)
     if(update_filter_field)
         document.getElementById('filter_area').value = search;
     
-    if(serach != '')
+    if(search != '')
         document.querySelectorAll(`li:not([data-city*="${search}"])`).forEach(li => li.hidden = true);
 }
 
