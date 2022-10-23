@@ -6,6 +6,13 @@ function click_filter(event)
     return false;
 }
 
+function apply_geo_filter(search, update_filter_field = true)
+{
+    if(update_filter_field)
+        document.getElementById('filter_area').value = search;
+    document.querySelctorAll(`li:not([data-search*="${search}"])`).forEach(li => li.hidden = true);
+}
+
 function choose_random_event()
 {
     const eventhashes = Array.from(document.querySelectorAll('a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash);
@@ -258,11 +265,15 @@ function img_onclick()
     slideshow_local_tick();
 }
 
-function navigate(hash)
+function get_search_query()
 {
-    const search = new URLSearchParams(window.location.search).get('search') || '';
+    return new URLSearchParams(window.location.search).get('search') || '';
+}
 
-    console.log(search);
+function navigate(hash, search = '')
+{
+    if(search != '')
+        apply_geo_filter(search);
 
     if(hash == '' || hash == '#')
         return;
