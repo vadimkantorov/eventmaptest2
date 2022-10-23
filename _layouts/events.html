@@ -204,12 +204,12 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
             {% endif %}
 
             {% for country_events in events_grouped_by_country %}
+            {% assign grouped_events = country_events.items | sort: "date" | reverse %}
             
             {% unless isindex %}
-            <li><div class="country">{{ country_events.name }}</div></li>
+            <li data-search="{{ country_events.name | downcase }} {% for event in grouped_events %}{{ event.city | downcase }} {% endfor %}"><div class="country">{{ country_events.name }}</div></li>
             {% endunless %}
 
-            {% assign grouped_events = country_events.items | sort: "date" | reverse %}
 
             {% for event in grouped_events %}
             {% if forloop.first %}{% assign eventcity = forloop.first %}{% endif %}
@@ -311,7 +311,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         {% for country_events in events_with_org_grouped_by_country %}
         {% assign organizers = country_events.items | group_by: "orgname" %}
         
-        <li><div class="country">{{ country_events.name }}</div></li>
+        <li data-search="{{ country_events.name | downcase}} {% for event in org_events.items %}{{event.city | downcase}} {% endfor %}"><div class="country">{{ country_events.name }}</div></li>
         
         {% for org_events in organizers %}
         {% assign event = org_events.items | sort: "orgurl", "last" | first %}
