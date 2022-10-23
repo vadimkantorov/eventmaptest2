@@ -210,7 +210,7 @@ function slideshow_local_tick()
     const a = document.getElementById('picbox_overlay_link');
     const photohrefs = (img.dataset.photohrefs || '').length == 0 ? [] : img.dataset.photohrefs.split(';');
     const photohrefsalt = (img.dataset.photohrefsalt || '').length == 0 ? [] : img.dataset.photohrefsalt.split(';');
-    const photohrefhash = (img.dataset.photohrefshash || '').length == 0 ? [] : img.dataset.photohrefshash.split(';');
+    const photohrefshash = (img.dataset.photohrefshash || '').length == 0 ? [] : img.dataset.photohrefshash.split(';');
     
     img.hidden = photohrefs.length == 0;
     if(!img.hidden)
