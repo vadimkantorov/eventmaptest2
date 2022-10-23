@@ -10,7 +10,7 @@ function apply_geo_filter(search, update_filter_field = true)
 {
     if(update_filter_field)
         document.getElementById('filter_area').value = search;
-    document.querySelctorAll(`li:not([data-search*="${search}"])`).forEach(li => li.hidden = true);
+    document.querySelctorAll(`li:not([data-city*="${search}"])`).forEach(li => li.hidden = true);
 }
 
 function choose_random_event()
