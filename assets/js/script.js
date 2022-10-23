@@ -17,15 +17,19 @@ function apply_geo_filter(search, update_filter_field = false)
 
 function choose_random_event()
 {
-    const eventhashes = Array.from(document.querySelectorAll('a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash);
-    
-    if(eventhashes.length == 1)
-        return eventhashes[0];
-    
-    if(eventhashes.length == 0)
-        return '';
+    return {
+        toString: () => {
+            const eventhashes = Array.from(document.querySelectorAll('li:not([hidden]) > a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash);
+            
+            if(eventhashes.length == 1)
+                return eventhashes[0];
+            
+            if(eventhashes.length == 0)
+                return '';
 
-    return eventhashes[ Math.floor(eventhashes.length * Math.random()) ];
+            return eventhashes[ Math.floor(eventhashes.length * Math.random()) ];
+        }
+    };
 }
 
 function init_map(id)
@@ -276,6 +280,8 @@ function navigate(hash, search = '')
 {
     if(search != '')
         apply_geo_filter(search, true);
+
+    hash = hash.toString()
 
     if(hash == '' || hash == '#')
         return;
