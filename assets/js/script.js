@@ -6,7 +6,7 @@ function click_filter(event)
     return false;
 }
 
-function apply_geo_filter(search, update_filter_field = true)
+function apply_geo_filter(search, update_filter_field = false)
 {
     if(update_filter_field)
         document.getElementById('filter_area').value = search;
@@ -275,7 +275,7 @@ function get_search_query()
 function navigate(hash, search = '')
 {
     if(search != '')
-        apply_geo_filter(search);
+        apply_geo_filter(search, true);
 
     if(hash == '' || hash == '#')
         return;
