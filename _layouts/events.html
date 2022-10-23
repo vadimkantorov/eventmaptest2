@@ -140,6 +140,8 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
                         <h3 id="place">
                             <div id="place_name"></div>
                             <div id="place_date"></div>
+                            <li><a id="next">&lt;</a></li>
+                            <li><a id="prev">&gt;</a></li>
                         </h3>
                         <h4 id="location"></h4>
                         
@@ -155,11 +157,6 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
                             <a target="_blank" id="orgurl"></a>
                         </div>
 
-                        <ul id="dateall">
-                            <li><a id="next"></a></li>
-                            <li><a id="cur" class="dateactive"></a></li>
-                            <li><a id="prev"></a></li>
-                        </ul>
                         <div class="eventdescription"></div>
                     </div>
                     <div id="picbox">

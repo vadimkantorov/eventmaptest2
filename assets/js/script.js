@@ -148,26 +148,14 @@ function format_event_info(a, div = null)
     const prev = dateall.findIndex(date => date < dateall[cur]);
     const next = dateall.findLastIndex(date => date > dateall[cur]);
     
-
-    div.querySelector('#cur').innerText = (next >= 0 ? '<' : '') + dateall[cur] + (prev >= 0 ? '<' : '');
-    div.querySelector('#cur').href = eventhashall[cur];
-    
-    div.querySelector('#next').parentElement.hidden = next == -1;
-    if(!div.querySelector('#next').parentElement.hidden)
-    {
-        div.querySelector('#next').innerText = (next > 0 ? '<' : '') + dateall[next] + '<';
+    div.querySelector('#next').hidden = next == -1;
+    if(!div.querySelector('#next').hidden)
         div.querySelector('#next').href = eventhashall[next];
-    }
     
-    div.querySelector('#prev').parentElement.hidden = prev == -1;
-    if(!div.querySelector('#prev').parentElement.hidden)
-    {
-        div.querySelector('#prev').innerText = '<' + dateall[prev];
+    div.querySelector('#prev').hidden = prev == -1;
+    if(!div.querySelector('#prev').hidden)
         div.querySelector('#prev').href = eventhashall[prev];
-    }
     
-    div.querySelector('#dateall').className = dateall.length == 1 ? 'visibilityhidden' : '';
-
     return div;
 }
 
