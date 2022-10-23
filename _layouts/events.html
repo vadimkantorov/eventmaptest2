@@ -285,6 +285,32 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
             </ul>
         </nav>
         </details>
+        
+        <hr />
+        <details>
+        <summary class="center">
+        <span class="header">All organizers</span>
+        </summary>
+
+        <ul id="allorganizers">
+        {% assign organizers = events | group_by: "orgname" %}
+        {% if organizers.size == 0 %}
+        <li class="organizersnone"><div class="organizersnoneerror">No organizers</div></li>
+        {% endif %}
+        
+        {% for country_events in events_grouped_by_country %}
+        {% assign organizers = country_events.items | group_by: "orgname" %}
+        
+        <li><div class="country">{{ country_events.name }}</div></li>
+        
+        {% for org_events in organizers %}
+        {% assign event = org_events.items | sort: "orgurl", "last" | first %}
+        <li><a href="{{ event.orgurl }}">{{ org_events.name }}, {{ event.city }}, {{ event.country }}</a></li>
+        {% endfor %}
+        
+        {% endfor %}
+        </ul>
+        </details>
 
     </div>
     <footer>
