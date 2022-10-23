@@ -308,7 +308,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         
         {% for org_events in organizers %}
         {% assign event = org_events.items | sort: "orgurl", "last" | first %}
-        <li class="organizer"><a href="{{ event.orgurl }}"><div>{{ org_events.name }}, {{ event.city }}, {{ event.country }}</div><div class="subtitle">{{ org_events.items | size }} events</div></a></li>
+        <li class="organizer"><a target="_blank" href="{{ event.orgurl }}"><div>{{ org_events.name }}, {{ event.city }}, {{ event.country }}</div><div class="subtitle">{{ org_events.items | size }} events</div></a></li>
         {% endfor %}
         
         {% endfor %}
