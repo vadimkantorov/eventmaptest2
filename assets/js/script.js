@@ -203,7 +203,7 @@ function slideshow_local_tick()
     {
         const photohrefsidx = img.dataset.photohrefsidx == '' ? 0 : ((1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length);
         img.src = photohrefs[photohrefsidx];
-        img.alt = div.innerText = photohrefsalt[photohrefsidx];
+        img.alt = div.innerText = photohrefsalt[photohrefsidx] + `: {1 + photohrefsidx} / { photohrefs.length }`;
         img.dataset.photohrefsidx = photohrefsidx.toString();
     }
     else
@@ -226,7 +226,7 @@ function slideshow_global_tick()
     if(img.dataset.photohrefs != '' && photohrefsidx < photohrefs.length)
     {
         img.src = photohrefs[photohrefsidx];
-        img.alt = div.innerText = photohrefsalt[photohrefsidx];
+        img.alt = div.innerText = photohrefsalt[photohrefsidx] + `: {1 + photohrefsidx} / { photohrefs.length }`;
         img.dataset.photohrefsidx = photohrefsidx.toString();
     }
     else
