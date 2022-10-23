@@ -207,17 +207,19 @@ function slideshow_local_start(interval_millis = 7000)
 function slideshow_local_tick()
 {
     const img = document.getElementById('eventphoto');
-    const div = document.getElementById('picbox_overlay');
+    const a = document.getElementById('picbox_overlay_link');
     const photohrefs = (img.dataset.photohrefs || '').length == 0 ? [] : img.dataset.photohrefs.split(';');
     const photohrefsalt = (img.dataset.photohrefsalt || '').length == 0 ? [] : img.dataset.photohrefsalt.split(';');
+    const photohrefhash = (img.dataset.photohrefshash || '').length == 0 ? [] : img.dataset.photohrefshash.split(';');
     
     img.hidden = photohrefs.length == 0;
     if(!img.hidden)
     {
         const photohrefsidx = img.dataset.photohrefsidx == '' ? 0 : ((1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length);
         img.src = photohrefs[photohrefsidx];
-        img.alt = div.innerText = photohrefsalt[photohrefsidx] + `: ${1 + photohrefsidx} / ${ photohrefs.length }`;
+        img.alt = a.innerText = photohrefsalt[photohrefsidx] + `: ${1 + photohrefsidx} / ${ photohrefs.length }`;
         img.dataset.photohrefsidx = photohrefsidx.toString();
+        a.href = photohrefshash[photohrefsidx];
     }
     else
     {
@@ -234,14 +236,8 @@ function slideshow_global_tick()
     const input = document.getElementById('slideshow_global_toggle');
 
     const photohrefs = img.dataset.photohrefs.split(';');
-    const photohrefsalt = img.dataset.photohrefsalt.split(';');
-    const photohrefsidx = img.dataset.photohrefsidx != '' ? 1 + parseInt(img.dataset.photohrefsidx) : 0;
-    if(img.dataset.photohrefs != '' && photohrefsidx < photohrefs.length)
-    {
-        img.src = photohrefs[photohrefsidx];
-        img.alt = div.innerText = photohrefsalt[photohrefsidx] + `: ${1 + photohrefsidx} / ${ photohrefs.length }`;
-        img.dataset.photohrefsidx = photohrefsidx.toString();
-    }
+    if(img.dataset.photohrefs != '' && (img.dataset.photohrefsidx == '' || (1 + parseInt(img.dataset.photohrefsidx)) < photohrefs.length))
+        slideshow_local_tick();
     else
     {
         const hash = input.dataset.eventhash.split(';');
@@ -299,6 +295,7 @@ function navigate(hash, search = '')
         
         img.dataset.photohrefs = a.dataset.photohrefs || a.dataset.logo;
         img.dataset.photohrefsalt = new Array(img.dataset.photohrefs.split(';').length).fill(a.dataset.eventalt).join(';');
+        img.dataset.photohrefshash = new Array(img.dataset.photohrefs.split(';').length).fill(a.dataset.eventhash).join(';');
         img.dataset.photohrefsidx = a.dataset.photohrefs == '' ? '' : (0).toString();
         
         if(!input.checked)
