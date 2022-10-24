@@ -55,8 +55,10 @@ function marker_onclick(e, slideshow = true)
     L.DomUtil.addClass(e.target._icon || e.target._path, 'markerhighlighted');
 
     if(slideshow)
+    {
         slideshow_stop();
-    window.location.hash = e.target.eventhash;
+        window.location.hash = e.target.eventhash;
+    }
 }
 
 function populate_map(map, events)
