@@ -198,22 +198,25 @@ function slideshow_local_tick()
     const ainfo = document.getElementById('picbox_overlay_link'), acredits = document.getElementById('picbox_overlay_credits');
     const photohrefs = (img.dataset.photohrefs || '').length == 0 ? [] : img.dataset.photohrefs.split(';');
     const photohrefsalt = (img.dataset.photohrefsalt || '').length == 0 ? [] : img.dataset.photohrefsalt.split(';');
+    const photohrefscredits = (img.dataset.photohrefscredits || '').length == 0 ? [] : img.dataset.photohrefscredits.split(';');
     const photohrefshash = (img.dataset.photohrefshash || '').length == 0 ? [] : img.dataset.photohrefshash.split(';');
     
     if(!(img.parentElement.hidden = photohrefs.length == 0))
     {
         const photohrefsidx = img.dataset.photohrefsidx == '' ? 0 : ((1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length);
         img.src = photohrefs[photohrefsidx];
-        img.alt = ainfo.innerText = photohrefsalt[photohrefsidx] + `: ${1 + photohrefsidx} / ${ photohrefs.length }`;
+        img.title = img.alt = ainfo.innerText = photohrefsalt[photohrefsidx] + `: ${1 + photohrefsidx} / ${ photohrefs.length }`;
         img.dataset.photohrefsidx = photohrefsidx.toString();
         ainfo.href = ainfo.title = photohrefshash[photohrefsidx];
+        acredits.href = acredits.title = photohrefscredits[photohrefsidx];
     }
-    else
+    /*else
     {
         img.src = img.dataset.srcempty;
         img.alt = img.dataset.altempty;
+        img.title = '';
         img.dataset.photohrefsidx = '';
-    }
+    }*/
 }
 
 function slideshow_global_tick()
@@ -282,6 +285,7 @@ function navigate(hash, search = '')
         img.dataset.photohrefs = a.dataset.photohrefs || a.dataset.logo;
         img.dataset.photohrefsalt = new Array(img.dataset.photohrefs.split(';').length).fill(a.dataset.eventalt).join(';');
         img.dataset.photohrefshash = new Array(img.dataset.photohrefs.split(';').length).fill(a.dataset.eventhash).join(';');
+        img.dataset.photohrefscredits = new Array(img.dataset.photohrefs.split(';').length).fill(a.dataset.reporturl).join(';');
         img.dataset.photohrefsidx = a.dataset.photohrefs == '' ? '' : (0).toString();
         
         if(!input.checked)

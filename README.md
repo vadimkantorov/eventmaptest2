@@ -9,6 +9,7 @@
 - multiple organizers
 - photo credits
 - fix formatting of missing address/place on buttons
+- if nothing filtered, show placeholder errors
 ```
 
 ## Example directory structure
