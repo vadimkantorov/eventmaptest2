@@ -134,8 +134,8 @@ function format_event_info(a, div = null)
     div.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
     div.querySelector('#eventurl').href = a.dataset.eventurl;
     div.querySelector('#eventurl').className = a.dataset.eventurl == '' ? 'visibilityhidden' : '';
-    div.querySelector('#orgurl').href = a.dataset.orgurl;
-    div.querySelector('#orgurl').innerText = a.dataset.orgname;
+    div.querySelector('#orgurl').href = a.dataset.orgurl || a.dataset.eventhash;
+    div.querySelector('#orgurl').innerText = a.dataset.orgname || 'N/A';
     div.querySelector('#location').innerText = [a.dataset.location, a.dataset.address].filter(s => s != '').join(', ') || ' ';
     
     div.querySelector('.eventdescription').innerHTML = '';

@@ -188,11 +188,6 @@ color: hsl(197, 100%, 33%);
 background: hsla(0, 0%, 100%, 0.9);
 }
 
-#orgurl:not([href=""])::before
-{
-content: "by ";
-}
-
 .containersticky
 {
 position: sticky;
