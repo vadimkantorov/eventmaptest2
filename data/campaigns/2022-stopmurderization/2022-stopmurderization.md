@@ -6,7 +6,7 @@ date:
 logo: 2022-stopmurderization.jpg
 telegram: https://t.me/vadimkantorov
 email: vadimkantorov@gmail.com
-addevent: https://docs.google.com/forms/d/e/1FAIpQLSf3WmRhLS1IKkT6kp_pTEd3iqVBQD2wPmFH3Zk8LwI7eHYPvA/viewform
+addevent: "https://docs.google.com/forms/d/e/1FAIpQLSf3WmRhLS1IKkT6kp_pTEd3iqVBQD2wPmFH3Zk8LwI7eHYPvA/viewform"
 #organizers:
 #  - orgname: Протесты в Ереване
 #    orgurl: https://t.me/freeyerevan
