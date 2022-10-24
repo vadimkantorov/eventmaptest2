@@ -195,7 +195,7 @@ function slideshow_local_start(interval_millis = 7000)
 function slideshow_local_tick()
 {
     const img = document.getElementById('eventphoto');
-    const a = document.getElementById('picbox_overlay_link');
+    const ainfo = document.getElementById('picbox_overlay_link'), acredits = document.getElementById('picbox_overlay_credits');
     const photohrefs = (img.dataset.photohrefs || '').length == 0 ? [] : img.dataset.photohrefs.split(';');
     const photohrefsalt = (img.dataset.photohrefsalt || '').length == 0 ? [] : img.dataset.photohrefsalt.split(';');
     const photohrefshash = (img.dataset.photohrefshash || '').length == 0 ? [] : img.dataset.photohrefshash.split(';');
@@ -204,9 +204,9 @@ function slideshow_local_tick()
     {
         const photohrefsidx = img.dataset.photohrefsidx == '' ? 0 : ((1 + parseInt(img.dataset.photohrefsidx)) % photohrefs.length);
         img.src = photohrefs[photohrefsidx];
-        img.alt = a.innerText = photohrefsalt[photohrefsidx] + `: ${1 + photohrefsidx} / ${ photohrefs.length }`;
+        img.alt = ainfo.innerText = photohrefsalt[photohrefsidx] + `: ${1 + photohrefsidx} / ${ photohrefs.length }`;
         img.dataset.photohrefsidx = photohrefsidx.toString();
-        a.href = a.title = photohrefshash[photohrefsidx];
+        ainfo.href = ainfo.title = photohrefshash[photohrefsidx];
     }
     else
     {
