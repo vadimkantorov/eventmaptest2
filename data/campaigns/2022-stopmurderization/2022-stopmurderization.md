@@ -66,8 +66,8 @@ organizers:
   - orgname: Протестный Ванкувер
     orgurl: https://www.instagram.com/russianresistance.van/
 
-#  - orgname: ПРАЖСКИЙ РОССИЙСКИЙ АНТИВОЕННЫЙ КОМИТЕТ / PRAŽSKÝ RUSKÝ PROTIVÁLEČNÝ VÝBOR
-#    orgurl: https://www.facebook.com/groups/951685019071511
+  - orgname: ПРАЖСКИЙ РОССИЙСКИЙ АНТИВОЕННЫЙ КОМИТЕТ / PRAŽSKÝ RUSKÝ PROTIVÁLEČNÝ VÝBOR
+    orgurl: https://www.facebook.com/groups/951685019071511
 
   - orgname: Copenhagen For Navalny Danmark For Navalny
     orgurl: https://www.facebook.com/groups/167092451471703
