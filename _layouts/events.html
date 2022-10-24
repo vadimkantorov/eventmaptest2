@@ -345,7 +345,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         {% if organizers_size > 0 %}
         <li data-search="world"><div class="country">World</div></li>
         {% for organizer in organizers %}
-        <li class="organizer" data-search=""><a target="_blank" href="{{ organizer.orgurl }}"><div></div><div class="subtitle">&nbsp;</div></a></li>
+        <li class="organizer" data-search=""><a target="_blank" href="{{ organizer.orgurl }}"><div>{{ organizer.orgname }}</div><div class="subtitle">&nbsp;</div></a></li>
         {% endfor %}
         {% endif %}
 
