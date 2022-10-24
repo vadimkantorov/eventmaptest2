@@ -68,25 +68,25 @@ organizers:
 
 #  - orgname: ПРАЖСКИЙ РОССИЙСКИЙ АНТИВОЕННЫЙ КОМИТЕТ / PRAŽSKÝ RUSKÝ PROTIVÁLEČNÝ VÝBOR
 #    orgurl: https://www.facebook.com/groups/951685019071511
-#
-#  - orgname: Copenhagen For Navalny Danmark For Navalny
-#    orgurl: https://www.facebook.com/groups/167092451471703
-#
-#  - orgname: Russians Against War. Estonia
-#    orgurl: https://www.facebook.com/russians.against.war.estonia
-#
-#  - orgname: Venäjän demokratian puolesta
-#    orgurl: https://www.facebook.com/VenajanDemokratianPuolesta
-#
-#  - orgname: CommePasse
-#    orgurl: https://www.facebook.com/commepasse
-#
-#  - orgname: Demokrati-JA
-#    orgurl: https://www.facebook.com/demokrati.ja.org
-#
-#  - orgname: Freies Russland NRW
-#    orgurl: https://www.facebook.com/NRWFreiesRussland
-#
+
+  - orgname: Copenhagen For Navalny Danmark For Navalny
+    orgurl: https://www.facebook.com/groups/167092451471703
+
+  - orgname: Russians Against War. Estonia
+    orgurl: https://www.facebook.com/russians.against.war.estonia
+
+  - orgname: Venäjän demokratian puolesta
+    orgurl: https://www.facebook.com/VenajanDemokratianPuolesta
+
+  - orgname: CommePasse
+    orgurl: https://www.facebook.com/commepasse
+
+  - orgname: Demokrati-JA
+    orgurl: https://www.facebook.com/demokrati.ja.org
+
+  - orgname: Freies Russland NRW
+    orgurl: https://www.facebook.com/NRWFreiesRussland
+
 #  - orgname: Russ innen gegen Krieg Göttingen
 #    orgurl: https://www.instagram.com/russen.gegen.krieg/
 #
