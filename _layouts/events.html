@@ -24,24 +24,22 @@
 {% assign events_with_org = "" | split: "," %}{% for event in events %}{% if event.orgname %}{% assign events_with_org = events_with_org | push: event %}{% endif %}{% endfor %}
 {% assign events_with_org_grouped_by_country = events_with_org | sort: "country" | group_by: "country" %}
 
-{% if index.organizers %}
-{% assign organizers = index.organizers %}
-{% else %}
 {% assign organizers = "" | split: "," %}
-{% endif %}
+
 {% if isindex %}
-{% for campaign in campaigns %}
-    {% if campaign.organizers %}
-        {% for organizer in campaign.organizers %}
-            {% assign organizers = organizers | push: organizer %}
-        {% endfor %}
-    {% endif %}
-{% endfor %}
+    {% if index.organizers %}
+        {% assign organizers = index.organizers %}
+    endif %}
+    {% for campaign in campaigns %}
+        {% if campaign.organizers %}
+            {% for organizer in campaign.organizers %}
+                {% assign organizers = organizers | push: organizer %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
 {% else %}
     {% if campaign.organizers %}
-        {% for organizer in campaign.organizers %}
-            {% assign organizers = organizers | push: organizer %}
-        {% endfor %}
+        {% assign organizers = campaign.organizers %}
     {% endif %}
 {% endif %}
 {% assign organizers = organizers | sort: "orgname" %}
