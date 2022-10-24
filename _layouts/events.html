@@ -42,7 +42,7 @@
 
 {% for event in events %}{% if event.orgname %}{% assign organizers = organizers | push: organizer %}{% endif %}{% endfor %}
 
-{% assign organizers_grouped_by_country = organizers | sort: "orgname" | group_by: "country" %}
+<!-- {{ organizers | jsonify }} -->
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -311,30 +311,6 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         </details>
         
         <hr />
-        <details>
-        <summary class="center">
-        <span class="header">All organizers</span>
-        </summary>
-
-        <ul id="allorganizers">
-
-        {% if organizers_grouped_by_country.size == 0 %}
-        <li class="organizersnone"><div class="organizersnoneerror">No organizers</div></li>
-        {% endif %}
-        
-        {% for country in organizers_grouped_by_country %}
-        
-        {% if country.name == empty or country.name == nil %}
-        {% assign country_name = "World" %}
-        {% else %}
-        {% assign country_name = country.name %}
-        {% endif %}
-        
-        
-        {% endfor %}
-
-        </ul>
-        </details>
 
     </div>
     <footer>
