@@ -291,7 +291,7 @@ function navigate(hash, search = '')
         
         info.classList.remove('visibilityhidden');
 
-        marker_onclick({target: mapmarkers[a.dataset.eventhash]}, false);
+        marker_onclick({target: mapmarkers[a.dataset.mapmarkerkey]}, false);
         
         if(!input.checked)
             slideshow_local_start();
