@@ -125,14 +125,14 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         
     mapmarkers = populate_map(map, document.querySelectorAll('#allevents > li > a.event:not([data-latlon=""])'));
 
-    navigate(window.location.hash == '' || window.location.hash == '#' ? choose_random_event() : window.location.hash, get_search_query());
+    navigate(get_hash() == '' || get_hash() == '#' ? choose_random_event() : get_hash(), get_search_query());
 }
         </script>
 
         <title>{{ page.title | xml_escape}}</title>
     </head>
 
-    <body data-isindex="{{ isindex }}" onhashchange="navigate(window.location.hash, get_search_query())" onload="body_onload()"><div id="outer-container">
+    <body data-isindex="{{ isindex }}" onhashchange="navigate(get_hash(), get_search_query())" onload="body_onload()"><div id="outer-container">
 
         <h1 id="indextitle"><a href="{{ site.github.url }}">{{ index.title }}</a></h1>
         {% if isindex %}

@@ -250,9 +250,14 @@ function img_onclick()
     slideshow_local_tick();
 }
 
+function get_hash()
+{
+    return  decodeURIComponent(window.location.hash);
+}
+
 function get_search_query()
 {
-    return (new URLSearchParams(window.location.search).get('search') || '').replace('+', ' ');
+    return decodeURIComponent((new URLSearchParams(window.location.search).get('search') || '').replace('+', ' '));
 }
 
 function navigate(hash, search = '')
