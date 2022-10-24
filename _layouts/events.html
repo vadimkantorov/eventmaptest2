@@ -24,6 +24,29 @@
 {% assign events_with_org = "" | split: "," %}{% for event in events %}{% if event.orgname %}{% assign events_with_org = events_with_org | push: event %}{% endif %}{% endfor %}
 {% assign events_with_org_grouped_by_country = events_with_org | sort: "country" | group_by: "country" %}
 
+{% if index.organizers %}
+{% assign organizers = index.organizers %}
+{% else %}
+{% assign organizers = "" | split: "," %}
+{% endif %}
+{% if isindex %}
+{% for campaign in campaigns %}
+    {% if campaign.organizers %}
+        {% for organizer in campaign.organizers %}
+            {% assign organizers = organizers | append: organizer %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+{% else %}
+    {% if campaign.organizers %}
+        {% for organizer in campaign.organizers %}
+            {% assign organizers = organizers | append: organizer %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+{% assign organizers = organizers | sort: "orgname" %}
+{% assign organizers_size = organizers | size %}
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -306,16 +329,24 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         {% endif %}
         
         {% for country_events in events_with_org_grouped_by_country %}
-        {% assign organizers = country_events.items | group_by: "orgname" %}
+        {% assign country_organizers = country_events.items | group_by: "orgname" %}
         
         <li data-search="{{ country_events.name | downcase}} {% for event in org_events.items %}{{event.city | downcase}} {% endfor %}"><div class="country">{{ country_events.name }}</div></li>
         
-        {% for org_events in organizers %}
+        {% for org_events in country_organizers %}
         {% assign event = org_events.items | sort: "orgurl", "last" | first %}
         <li class="organizer" data-search="{{ event.city | downcase }} {{event.country | downcase }}"><a target="_blank" href="{{ event.orgurl }}"><div>{{ org_events.name }}, {{ event.city }}, {{ event.country }}</div><div class="subtitle">{{ org_events.items | size }} events</div></a></li>
         {% endfor %}
         
         {% endfor %}
+
+        {% if organizers_size > 0 %}
+        <li data-search="world"><div class="country">World</div></li>
+        {% for organizer in organizers %}
+        <li class="organizer" data-search=""><a target="_blank" href="{{ organizer.orgurl }}"><div></div><div class="subtitle">&nbsp;</div></a></li>
+        {% endfor %}
+        {% endif %}
+
         </ul>
         </details>
 
