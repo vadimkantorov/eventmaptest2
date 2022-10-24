@@ -29,7 +29,7 @@
 {% if isindex %}
     {% if index.organizers %}
         {% assign organizers = index.organizers %}
-    endif %}
+    {% endif %}
     {% for campaign in campaigns %}
         {% if campaign.organizers %}
             {% for organizer in campaign.organizers %}
