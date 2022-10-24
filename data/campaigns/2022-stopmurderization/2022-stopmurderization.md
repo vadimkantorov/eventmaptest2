@@ -54,12 +54,12 @@ organizers:
   - orgname: RuArgentina, Аргентина по-русски
     orgurl: https://t.me/RuArgentina
 
-#  - orgname: Svoboda Alliance AU&NZ
-#    orgurl: https://www.instagram.com/svoboda_alliance_au_nz/
-#
-#  - orgname: Russians Against War Vienna
-#    orgurl: https://www.instagram.com/raw_vienna/
-#
+  - orgname: Svoboda Alliance AU&NZ
+    orgurl: "https://www.instagram.com/svoboda_alliance_au_nz"
+
+  - orgname: Russians Against War Vienna
+    orgurl: "https://www.instagram.com/raw_vienna"
+
   - orgname: Протестная Оттава-Гатино
     orgurl: https://www.instagram.com/russianresistance.ott
 
@@ -126,11 +126,11 @@ organizers:
   - orgname: День и ночь в Лиссабоне / Афиша событий города
     orgurl: https://t.me/AfishaLisboa
 
-#  - orgname: Feminist Anti-war Resistance
-#    orgurl: https://www.instagram.com/far_korea/
-#
-#  - orgname: Прогрессивная Сербия
-#    orgurl: https://t.me/immi_gration
+  - orgname: Feminist Anti-war Resistance
+    orgurl: "https://www.instagram.com/far_korea"
+
+  - orgname: Прогрессивная Сербия
+    orgurl: "https://t.me/immi_gration"
 
   - orgname: Сообщество Россия Будущего - Швейцария / Verein Russland der Zukunft
     orgurl: https://www.facebook.com/russzurich
