@@ -329,19 +329,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         {% else %}
         {% assign country_name = country.name %}
         {% endif %}
-
-        {% assign country_organizers = country_events.items | group_by: "orgname" %}
         
-        <li data-search="{{ country_name | downcase }} {% for event in org_events.items %}{% if event.city %}{{event.city | downcase}}{% endif %}{% endfor %}"><div class="country">{{ country_name }}</div></li>
-        
-        {% for organizer_events in country_organizers %}
-            {% assign orgurl = organizer_events.items | sort: "orgurl", "last" | map: "orgurl" | first %}
-            
-            {% assign events = "" | split: "," %}{% for event in organizer_events.items %}{% if event.city %}{% assign cities = cities | push: event %}{% endif %}{% endfor %}
-            
-            <li class="organizer" data-search="{{ country_name | downcase }} {{ events | map: "city" | join: " " | downcase }}"><a target="_blank" href="{{ orgurl }}"><div>{{ organizer_events.name }}, {{ events | map: "city" | join: ", " }}, {{ country_name }}</div><div class="subtitle">{{ events | size }} events</div></a></li>
-            
-        {% endfor %}
         
         {% endfor %}
 
