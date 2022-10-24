@@ -35,7 +35,7 @@ function choose_random_event()
 function init_map(id)
 {
     const map = L.map(id).setView([20, 0], 2);
-    L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {attribution: document.getElementById('map_copyright').outerHTML, maxZoom: 19 }).addTo(map);
+    L.tileLayer(decodeURI(document.getElementById('link_tiles').href), {attribution: document.getElementById('map_copyright').outerHTML.replace('hidden', ''), maxZoom: 19 }).addTo(map);
     map.on('popupopen', e =>
     {
         e.popup._closeButton.removeAttribute("href");
