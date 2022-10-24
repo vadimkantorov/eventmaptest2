@@ -136,7 +136,7 @@ function format_event_info(a, div = null)
     div.querySelector('#eventurl').className = a.dataset.eventurl == '' ? 'visibilityhidden' : '';
     div.querySelector('#orgurl').href = a.dataset.orgurl || a.dataset.eventhash;
     div.querySelector('#orgurl').innerText = a.dataset.orgname || 'an unknown organizer';
-    div.querySelector('#location').innerText = ([a.dataset.location, a.dataset.address, s.dataset.city, s.dataset.country].filter(s => s != '').join(', ') || ' ');
+    div.querySelector('#location').innerText = ([a.dataset.location, a.dataset.address, a.dataset.city, a.dataset.country].filter(s => s != '').join(', ') || ' ');
     
     div.querySelector('.eventdescription').innerHTML = '';
     div.querySelector('.eventdescription').appendChild(a.querySelector('.eventdescription').firstChild.cloneNode(true));
