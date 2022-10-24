@@ -886,7 +886,7 @@ events:
 
   - city: Seoul
     location: Embassy of Russia
-    date: 2022-09-24 14:00:00 +0200
+    date: 2022-09-24T14:00:00Z
 #    time: "14:00"
     country: Republic of Korea
     eventurl: https://www.instagram.com/p/CizgsNOPuhx/
