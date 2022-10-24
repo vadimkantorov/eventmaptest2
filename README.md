@@ -4,11 +4,17 @@
 - event merging by city
 - highlight marker on navigate
 - photo crops
+- link for adding custom events
+- single photo url
+- multiple organizers
+- photo credits
 ```
 
 ## Example directory structure
 ```
-./data/
+./assets/geocoder.json
 ./data/campaigns/
-./data/events/
+./data/index/index.md
+./data/campaigns/ABC/ABC.md
+./data/campaigns/ABC/ABC.jpg
 ```
