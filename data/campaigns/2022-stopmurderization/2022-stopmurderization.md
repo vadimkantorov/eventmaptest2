@@ -117,12 +117,12 @@ organizers:
   - orgname: FreeRussiaNL
     orgurl: https://www.instagram.com/freerussia.nl/
 
-#  - orgname: SmåRådina: for demokrati i Russland
-#    orgurl: https://www.facebook.com/SmaaRaadina
-#
-#  - orgname: Russians against the war (Polska)
-#    orgurl: https://t.me/RussiansAgainstTheWar
-#
+  - orgname: SmåRådina: for demokrati i Russland
+    orgurl: https://www.facebook.com/SmaaRaadina
+
+  - orgname: Russians against the war (Polska)
+    orgurl: https://t.me/RussiansAgainstTheWar
+
   - orgname: День и ночь в Лиссабоне / Афиша событий города
     orgurl: https://t.me/AfishaLisboa
 
