@@ -33,18 +33,18 @@
 {% for campaign in campaigns %}
     {% if campaign.organizers %}
         {% for organizer in campaign.organizers %}
-            {% assign organizers = organizers | append: organizer %}
+            {% assign organizers = organizers | push: organizer %}
         {% endfor %}
     {% endif %}
 {% endfor %}
 {% else %}
     {% if campaign.organizers %}
         {% for organizer in campaign.organizers %}
-            {% assign organizers = organizers | append: organizer %}
+            {% assign organizers = organizers | push: organizer %}
         {% endfor %}
     {% endif %}
 {% endif %}
-<!-- assign organizers = organizers | sort: "orgname" -->
+{% assign organizers = organizers | sort: "orgname" %}
 {% assign organizers_size = organizers | size %}
 
 <!-- {{ organizers | jsonify }} -->
