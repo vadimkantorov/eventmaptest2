@@ -8,6 +8,7 @@
 - single photo url
 - multiple organizers
 - photo credits
+- fix formatting of missing address/place on buttons
 ```
 
 ## Example directory structure
