@@ -7,10 +7,11 @@ logo: 2022-stopmurderization.jpg
 telegram: https://t.me/vadimkantorov
 email: vadimkantorov@gmail.com
 addevent: "https://docs.google.com/forms/d/e/1FAIpQLSf3WmRhLS1IKkT6kp_pTEd3iqVBQD2wPmFH3Zk8LwI7eHYPvA/viewform"
-#organizers:
-#  - orgname: Протесты в Ереване
-#    orgurl: https://t.me/freeyerevan
-#
+
+organizers:
+  - orgname: Протесты в Ереване
+    orgurl: https://t.me/freeyerevan
+
 #  - orgname: Russian Resistance Toronto
 #    orgurl: https://www.facebook.com/russianresistancetoronto
 #
