@@ -1,3 +1,5 @@
+var mapmarkers = {};
+
 function click_filter(event)
 {
     if(event.keyCode == 13)
@@ -44,7 +46,7 @@ function init_map(id)
     return map;
 }
 
-function marker_onclick(e)
+function marker_onclick(e, slideshow = true)
 {
     const _icon = document.querySelector('.markerhighlighted');
     if(_icon != null)
@@ -52,7 +54,8 @@ function marker_onclick(e)
 
     L.DomUtil.addClass(e.target._icon || e.target._path, 'markerhighlighted');
 
-    slideshow_stop();
+    if(slideshow)
+        slideshow_stop();
     window.location.hash = e.target.eventhash;
 }
 
@@ -286,22 +289,14 @@ function navigate(hash, search = '')
         img.dataset.photohrefscredits = new Array(img.dataset.photohrefs.split(';').length).fill(a.dataset.reporturl).join(';');
         img.dataset.photohrefsidx = a.dataset.photohrefs == '' ? '' : (0).toString();
         
+        info.classList.remove('visibilityhidden');
+
+        marker_onclick({target: mapmarkers[a.dataset.eventhash]}, false);
+        
         if(!input.checked)
             slideshow_local_start();
         else
             slideshow_local_tick();
-        
-        info.classList.remove('visibilityhidden');
-
-        /*const prev_icon = document.querySelector('.markerhighlighted');
-        if(prev_icon != null)
-            prev_icon.classList.remove('markerhighlighted');
-        const next_icon = document.getElementById(a.dataset.iconid);
-        if(next_icon != null)
-        {
-            next_icon.classList.add('markerhighlighted');
-            next_icon.click();
-        }*/
     }
     else
     {
