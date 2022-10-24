@@ -60,86 +60,86 @@ organizers:
 #  - orgname: Russians Against War Vienna
 #    orgurl: https://www.instagram.com/raw_vienna/
 #
-#  - orgname: Протестная Оттава-Гатино
-#    orgurl: https://www.instagram.com/russianresistance.ott
-#
-#  - orgname: Протестный Ванкувер
-#    orgurl: https://www.instagram.com/russianresistance.van/
-#
-#  - orgname: ПРАЖСКИЙ РОССИЙСКИЙ АНТИВОЕННЫЙ КОМИТЕТ / PRAŽSKÝ RUSKÝ PROTIVÁLEČNÝ VÝBOR
-#    orgurl: https://www.facebook.com/groups/951685019071511
-#
-#  - orgname: Copenhagen For Navalny Danmark For Navalny
-#    orgurl: https://www.facebook.com/groups/167092451471703
-#
-#  - orgname: Russians Against War. Estonia
-#    orgurl: https://www.facebook.com/russians.against.war.estonia
-#
-#  - orgname: Venäjän demokratian puolesta
-#    orgurl: https://www.facebook.com/VenajanDemokratianPuolesta
-#
-#  - orgname: CommePasse
-#    orgurl: https://www.facebook.com/commepasse
-#
-#  - orgname: Demokrati-JA
-#    orgurl: https://www.facebook.com/demokrati.ja.org
-#
-#  - orgname: Freies Russland NRW
-#    orgurl: https://www.facebook.com/NRWFreiesRussland
-#
-#  - orgname: Russ innen gegen Krieg Göttingen
-#    orgurl: https://www.instagram.com/russen.gegen.krieg/
-#
-#  - orgname: Stop dictators HD
-#    orgurl: https://www.facebook.com/StopDictatorsHD/
-#
-#  - orgname: Leipzig für freie Russland und Belarus
-#    orgurl: https://www.facebook.com/groups/leipzig.freie.wahlen
-#
-#  - orgname: Allianz für ein freiheitlich-demokratisches Russland - Nürnberg
-#    orgurl: https://www.facebook.com/AllianzFreiheitDemokratieRusslandInNuernberg
-#
-#  - orgname: Свободные россияне / Free Russians Global
-#    orgurl: https://www.facebook.com/freerussiansglobal
-#
-#  - orgname: Comunità dei Russi Liberi
-#    orgurl: https://www.facebook.com/groups/russiliberi
-#
-#  - orgname: Протестный 2.0
-#    orgurl: https://t.me/irlndinfo
-#
-#  - orgname: Россияне в Японии против войны
-#    orgurl: https://twitter.com/yakinikuprotiv
-#
-#  - orgname: Kustība Krievu balss pret karu / Движение Русский голос против войны
-#    orgurl: https://www.facebook.com/KrievuBalss
-#
-#  - orgname: FreeRussiaNL
-#    orgurl: https://www.instagram.com/freerussia.nl/
-#
-#  - orgname: SmåRådina: for demokrati i Russland
-#    orgurl: https://www.facebook.com/SmaaRaadina
-#
-#  - orgname: Russians against the war (Polska)
-#    orgurl: https://t.me/RussiansAgainstTheWar
-#
-#  - orgname: День и ночь в Лиссабоне / Афиша событий города
-#    orgurl: https://t.me/AfishaLisboa
-#
+  - orgname: Протестная Оттава-Гатино
+    orgurl: https://www.instagram.com/russianresistance.ott
+
+  - orgname: Протестный Ванкувер
+    orgurl: https://www.instagram.com/russianresistance.van/
+
+  - orgname: ПРАЖСКИЙ РОССИЙСКИЙ АНТИВОЕННЫЙ КОМИТЕТ / PRAŽSKÝ RUSKÝ PROTIVÁLEČNÝ VÝBOR
+    orgurl: https://www.facebook.com/groups/951685019071511
+
+  - orgname: Copenhagen For Navalny Danmark For Navalny
+    orgurl: https://www.facebook.com/groups/167092451471703
+
+  - orgname: Russians Against War. Estonia
+    orgurl: https://www.facebook.com/russians.against.war.estonia
+
+  - orgname: Venäjän demokratian puolesta
+    orgurl: https://www.facebook.com/VenajanDemokratianPuolesta
+
+  - orgname: CommePasse
+    orgurl: https://www.facebook.com/commepasse
+
+  - orgname: Demokrati-JA
+    orgurl: https://www.facebook.com/demokrati.ja.org
+
+  - orgname: Freies Russland NRW
+    orgurl: https://www.facebook.com/NRWFreiesRussland
+
+  - orgname: Russ innen gegen Krieg Göttingen
+    orgurl: https://www.instagram.com/russen.gegen.krieg/
+
+  - orgname: Stop dictators HD
+    orgurl: https://www.facebook.com/StopDictatorsHD/
+
+  - orgname: Leipzig für freie Russland und Belarus
+    orgurl: https://www.facebook.com/groups/leipzig.freie.wahlen
+
+  - orgname: Allianz für ein freiheitlich-demokratisches Russland - Nürnberg
+    orgurl: https://www.facebook.com/AllianzFreiheitDemokratieRusslandInNuernberg
+
+  - orgname: Свободные россияне / Free Russians Global
+    orgurl: https://www.facebook.com/freerussiansglobal
+
+  - orgname: Comunità dei Russi Liberi
+    orgurl: https://www.facebook.com/groups/russiliberi
+
+  - orgname: Протестный 2.0
+    orgurl: https://t.me/irlndinfo
+
+  - orgname: Россияне в Японии против войны
+    orgurl: https://twitter.com/yakinikuprotiv
+
+  - orgname: Kustība Krievu balss pret karu / Движение Русский голос против войны
+    orgurl: https://www.facebook.com/KrievuBalss
+
+  - orgname: FreeRussiaNL
+    orgurl: https://www.instagram.com/freerussia.nl/
+
+  - orgname: SmåRådina: for demokrati i Russland
+    orgurl: https://www.facebook.com/SmaaRaadina
+
+  - orgname: Russians against the war (Polska)
+    orgurl: https://t.me/RussiansAgainstTheWar
+
+  - orgname: День и ночь в Лиссабоне / Афиша событий города
+    orgurl: https://t.me/AfishaLisboa
+
 #  - orgname: Feminist Anti-war Resistance
 #    orgurl: https://www.instagram.com/far_korea/
 #
 #  - orgname: Прогрессивная Сербия
 #    orgurl: https://t.me/immi_gration
-#
-#  - orgname: Сообщество Россия Будущего - Швейцария / Verein Russland der Zukunft
-#    orgurl: https://www.facebook.com/russzurich
-#
+
+  - orgname: Сообщество Россия Будущего - Швейцария / Verein Russland der Zukunft
+    orgurl: https://www.facebook.com/russzurich
+
 #  - orgname: «Russians against war» Istanbul
 #    orgurl: https://www.instagram.com/russian_against_war_istanbul/
-#
-#  - orgname: The Voices of Russian Opposition in Sacramento / Голоса Политэмигрантов
-#    orgurl: https://www.facebook.com/groups/1044792662690908
+
+  - orgname: The Voices of Russian Opposition in Sacramento / Голоса Политэмигрантов
+    orgurl: https://www.facebook.com/groups/1044792662690908
 
 events:
   - city: Yerevan
