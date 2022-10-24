@@ -40,9 +40,9 @@
     {% endif %}
 {% endif %}
 
-{% for event in events %}{% if event.orgname %}{% assign organizers = organizers | push: organizer %}{% endif %}{% endfor %}
+{% for event in events %}{% if event.orgname %}{% assign organizers = organizers | push: event %}{% endif %}{% endfor %}
 
-<!-- {{ organizers | jsonify }} -->
+<!-- {{ organizers | inspect }} -->
 
 <!DOCTYPE html>
 <html lang="en-US">
