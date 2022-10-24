@@ -42,7 +42,7 @@
 
 {% for event in events %}{% if event.orgname %}{% assign organizers = organizers | push: event %}{% endif %}{% endfor %}
 
-<!-- {{ organizers | inspect }} -->
+{{ organizers | inspect }}
 
 <!DOCTYPE html>
 <html lang="en-US">
