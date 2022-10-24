@@ -41,10 +41,7 @@
 {% endif %}
 
 {% for event in events %}{% if event.orgname %}{% assign organizers = organizers | push: event %}{% endif %}{% endfor %}
-
 {% assign organizers_grouped_by_country = organizers | sort: "orgname" | group_by: "country" %}
-
-{{ organizers_grouped_by_country | inspect }}
 
 <!DOCTYPE html>
 <html lang="en-US">
