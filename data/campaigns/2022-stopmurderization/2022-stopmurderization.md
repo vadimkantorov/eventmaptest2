@@ -123,23 +123,23 @@ organizers:
 #  - orgname: Russians against the war (Polska)
 #    orgurl: https://t.me/RussiansAgainstTheWar
 #
-#  - orgname: День и ночь в Лиссабоне / Афиша событий города
-#    orgurl: https://t.me/AfishaLisboa
-#
+  - orgname: День и ночь в Лиссабоне / Афиша событий города
+    orgurl: https://t.me/AfishaLisboa
+
 #  - orgname: Feminist Anti-war Resistance
 #    orgurl: https://www.instagram.com/far_korea/
 #
 #  - orgname: Прогрессивная Сербия
 #    orgurl: https://t.me/immi_gration
-#
-#  - orgname: Сообщество Россия Будущего - Швейцария / Verein Russland der Zukunft
-#    orgurl: https://www.facebook.com/russzurich
-#
-#  - orgname: «Russians against war» Istanbul
-#    orgurl: https://www.instagram.com/russian_against_war_istanbul/
-#
-#  - orgname: The Voices of Russian Opposition in Sacramento / Голоса Политэмигрантов
-#    orgurl: https://www.facebook.com/groups/1044792662690908
+
+  - orgname: Сообщество Россия Будущего - Швейцария / Verein Russland der Zukunft
+    orgurl: https://www.facebook.com/russzurich
+
+  - orgname: «Russians against war» Istanbul
+    orgurl: https://www.instagram.com/russian_against_war_istanbul/
+
+  - orgname: The Voices of Russian Opposition in Sacramento / Голоса Политэмигрантов
+    orgurl: https://www.facebook.com/groups/1044792662690908
 
 events:
   - city: Yerevan
