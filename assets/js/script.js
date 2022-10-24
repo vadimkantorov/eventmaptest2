@@ -210,13 +210,6 @@ function slideshow_local_tick()
         ainfo.href = ainfo.title = photohrefshash[photohrefsidx];
         acredits.href = acredits.title = photohrefscredits[photohrefsidx] || '';
     }
-    /*else
-    {
-        img.src = img.dataset.srcempty;
-        img.alt = img.dataset.altempty;
-        img.title = '';
-        img.dataset.photohrefsidx = '';
-    }*/
 }
 
 function slideshow_global_tick()
