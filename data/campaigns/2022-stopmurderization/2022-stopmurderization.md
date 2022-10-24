@@ -87,36 +87,36 @@ organizers:
   - orgname: Freies Russland NRW
     orgurl: https://www.facebook.com/NRWFreiesRussland
 
-#  - orgname: Russ innen gegen Krieg Göttingen
-#    orgurl: https://www.instagram.com/russen.gegen.krieg/
-#
-#  - orgname: Stop dictators HD
-#    orgurl: https://www.facebook.com/StopDictatorsHD/
-#
-#  - orgname: Leipzig für freie Russland und Belarus
-#    orgurl: https://www.facebook.com/groups/leipzig.freie.wahlen
-#
-#  - orgname: Allianz für ein freiheitlich-demokratisches Russland - Nürnberg
-#    orgurl: https://www.facebook.com/AllianzFreiheitDemokratieRusslandInNuernberg
-#
-#  - orgname: Свободные россияне / Free Russians Global
-#    orgurl: https://www.facebook.com/freerussiansglobal
-#
-#  - orgname: Comunità dei Russi Liberi
-#    orgurl: https://www.facebook.com/groups/russiliberi
-#
-#  - orgname: Протестный 2.0
-#    orgurl: https://t.me/irlndinfo
-#
-#  - orgname: Россияне в Японии против войны
-#    orgurl: https://twitter.com/yakinikuprotiv
-#
-#  - orgname: Kustība Krievu balss pret karu / Движение Русский голос против войны
-#    orgurl: https://www.facebook.com/KrievuBalss
-#
-#  - orgname: FreeRussiaNL
-#    orgurl: https://www.instagram.com/freerussia.nl/
-#
+  - orgname: Russ innen gegen Krieg Göttingen
+    orgurl: https://www.instagram.com/russen.gegen.krieg/
+
+  - orgname: Stop dictators HD
+    orgurl: https://www.facebook.com/StopDictatorsHD/
+
+  - orgname: Leipzig für freie Russland und Belarus
+    orgurl: https://www.facebook.com/groups/leipzig.freie.wahlen
+
+  - orgname: Allianz für ein freiheitlich-demokratisches Russland - Nürnberg
+    orgurl: https://www.facebook.com/AllianzFreiheitDemokratieRusslandInNuernberg
+
+  - orgname: Свободные россияне / Free Russians Global
+    orgurl: https://www.facebook.com/freerussiansglobal
+
+  - orgname: Comunità dei Russi Liberi
+    orgurl: https://www.facebook.com/groups/russiliberi
+
+  - orgname: Протестный 2.0
+    orgurl: https://t.me/irlndinfo
+
+  - orgname: Россияне в Японии против войны
+    orgurl: https://twitter.com/yakinikuprotiv
+
+  - orgname: Kustība Krievu balss pret karu / Движение Русский голос против войны
+    orgurl: https://www.facebook.com/KrievuBalss
+
+  - orgname: FreeRussiaNL
+    orgurl: https://www.instagram.com/freerussia.nl/
+
 #  - orgname: SmåRådina: for demokrati i Russland
 #    orgurl: https://www.facebook.com/SmaaRaadina
 #
