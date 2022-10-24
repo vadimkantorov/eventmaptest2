@@ -21,9 +21,6 @@
 {% endif %}
 
 {% assign events_grouped_by_country = events | sort: "country" | group_by: "country" %}
-{% assign events_with_org = "" | split: "," %}{% for event in events %}{% if event.orgname %}{% assign events_with_org = events_with_org | push: event %}{% endif %}{% endfor %}
-{% assign events_with_org_grouped_by_country = events_with_org | sort: "country" | group_by: "country" %}
-
 {% assign organizers = "" | split: "," %}
 
 {% if isindex %}
@@ -42,8 +39,10 @@
         {% assign organizers = campaign.organizers %}
     {% endif %}
 {% endif %}
-{% assign organizers = organizers | sort: "orgname" %}
-{% assign organizers_size = organizers | size %}
+
+{% for event in events %}{% if event.orgname %}{% assign organizers = organizers | push: organizer %}{% endif %}{% endfor %}
+
+{% assign organizers_grouped_by_country = organizers | sort: "orgname" | group_by: "country" %}
 
 <!-- {{ organizers | jsonify }} -->
 
@@ -321,28 +320,31 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
         <ul id="allorganizers">
 
-        {% if events_with_org_grouped_by_country.size == 0 %}
+        {% if organizers_grouped_by_country.size == 0 %}
         <li class="organizersnone"><div class="organizersnoneerror">No organizers</div></li>
         {% endif %}
         
-        {% for country_events in events_with_org_grouped_by_country %}
+        {% for country in organizers_grouped_by_country %}
+        
+        {% if country.name == empty or country.name == nil %}
+        {% assign country_name = "World" %}
+        {% else %}
+        {% assign country_name = country.name %}
+
         {% assign country_organizers = country_events.items | group_by: "orgname" %}
         
-        <li data-search="{{ country_events.name | downcase}} {% for event in org_events.items %}{{event.city | downcase}} {% endfor %}"><div class="country">{{ country_events.name }}</div></li>
+        <li data-search="{{ country_name | downcase }} {% for event in org_events.items %}{% if event.city %}{{event.city | downcase}}{% endif %}{% endfor %}"><div class="country">{{ country_name }}</div></li>
         
-        {% for org_events in country_organizers %}
-        {% assign event = org_events.items | sort: "orgurl", "last" | first %}
-        <li class="organizer" data-search="{{ event.city | downcase }} {{event.country | downcase }}"><a target="_blank" href="{{ event.orgurl }}"><div>{{ org_events.name }}, {{ event.city }}, {{ event.country }}</div><div class="subtitle">{{ org_events.items | size }} events</div></a></li>
+        {% for organizer_events in country_organizers %}
+        {% assign orgurl = organizer_events.items | sort: "orgurl", "last" | map: "orgurl" | first %}
+        
+        {% assign events = "" | split: "," %}{% for event in organizer_events.items %}{% if event.city %}{% assign cities = cities | push: event %}{% endif %}{% endfor %}
+        
+        <li class="organizer" data-search="{{ country_name | downcase }} {{ events | map: "city" | join: " " | downcase }}"><a target="_blank" href="{{ orgurl }}"><div>{{ organizer_events.name }}, {{ events | map: "city" | join: ", " }}, {{ country_name }}</div><div class="subtitle">{{ events | size }} events</div></a></li>
+        
         {% endfor %}
         
         {% endfor %}
-
-        {% if organizers_size > 0 %}
-        <li data-search="world"><div class="country">World</div></li>
-        {% for organizer in organizers %}
-        <li class="organizer" data-search=""><a target="_blank" href="{{ organizer.orgurl }}"><div>{{ organizer.orgname }}</div><div class="subtitle">&nbsp;</div></a></li>
-        {% endfor %}
-        {% endif %}
 
         </ul>
         </details>
