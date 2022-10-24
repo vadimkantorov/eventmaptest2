@@ -29,7 +29,7 @@ organizers:
   - orgname: Voices in Korea
     orgurl: https://www.instagram.com/voicesinkorea/
 
-  - orgname: Антивоенный Комитет в Швеции "Russians Against War"
+  - orgname: Антивоенный Комитет в Швеции Russians Against War
     orgurl: https://www.facebook.com/russiansagainstthewar
 
   - orgname: Русская Дискуссия / Göteborg
@@ -86,7 +86,7 @@ organizers:
   - orgname: Freies Russland NRW
     orgurl: https://www.facebook.com/NRWFreiesRussland
 
-  - orgname: Russ_innen gegen Krieg Göttingen
+  - orgname: Russ innen gegen Krieg Göttingen
     orgurl: https://www.instagram.com/russen.gegen.krieg/
 
   - orgname: Stop dictators HD
@@ -110,7 +110,7 @@ organizers:
   - orgname: Россияне в Японии против войны
     orgurl: https://twitter.com/yakinikuprotiv
 
-  - orgname: Kustība "Krievu balss pret karu" / Движение "Русский голос против войны"
+  - orgname: Kustība Krievu balss pret karu / Движение Русский голос против войны
     orgurl: https://www.facebook.com/KrievuBalss
 
   - orgname: FreeRussiaNL
