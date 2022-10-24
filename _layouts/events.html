@@ -42,9 +42,9 @@
 
 {% for event in events %}{% if event.orgname %}{% assign organizers = organizers | push: event %}{% endif %}{% endfor %}
 
-{% assign organizers_grouped_by_country = organizers | sort: "orgname" %}
+{% assign organizers_grouped_by_country = organizers | sort: "orgname" | group_by: "country" %}
 
-{{ organizers | inspect }}
+{{ organizers_grouped_by_country | inspect }}
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -313,6 +313,36 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         </details>
         
         <hr />
+
+        <details>
+        <summary class="center">
+        <span class="header">All organizers</span>
+        </summary>
+
+        <ul id="allorganizers">
+
+        {% if organizers_grouped_by_country.size == 0 %}
+        <li class="organizersnone"><div class="organizersnoneerror">No organizers</div></li>
+        {% endif %}
+        
+        {% for country in organizers_grouped_by_country %}
+
+        {% assign country_organizers = country_events.items | group_by: "orgname" %}
+        
+        <li data-search="{{ country.name | downcase }} {% for event in org_events.items %}{% if event.city %}{{event.city | downcase}}{% endif %}{% endfor %}"><div class="country">{{ country.name }}</div></li>
+        {% for organizer_events in country_organizers %}
+            {% assign orgurl = organizer_events.items | sort: "orgurl", "last" | map: "orgurl" | first %}
+            
+            {% assign events = "" | split: "," %}{% for event in organizer_events.items %}{% if event.city %}{% assign cities = cities | push: event %}{% endif %}{% endfor %}
+            
+            <li class="organizer" data-search="{{ country.name | downcase }} {{ events | map: "city" | join: " " | downcase }}"><a target="_blank" href="{{ orgurl }}"><div>{{ organizer_events.name }}, {{ events | map: "city" | join: ", " }}, {{ country.name }}</div><div class="subtitle">{{ events | size }} events</div></a></li>
+            
+        {% endfor %}
+        
+        {% endfor %}
+
+        </ul>
+        </details>
 
     </div>
     <footer>
