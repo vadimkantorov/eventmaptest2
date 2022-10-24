@@ -117,7 +117,7 @@ organizers:
   - orgname: FreeRussiaNL
     orgurl: https://www.instagram.com/freerussia.nl/
 
-  - orgname: SmåRådina: for demokrati i Russland
+  - orgname: "SmåRådina for demokrati i Russland"
     orgurl: https://www.facebook.com/SmaaRaadina
 
   - orgname: Russians against the war (Polska)
