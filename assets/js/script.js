@@ -71,7 +71,7 @@ function marker_onclick(e, slideshow = true)
 
 function populate_map(map, events)
 {
-    let mapmarkers = {};
+    let mapmarkers = {map : map};
     const latlons = [];
     for(const a of events)
     {
@@ -301,7 +301,12 @@ function navigate(hash, search = '')
         
         info.classList.remove('visibilityhidden');
 
-        marker_onclick({target: mapmarkers[a.dataset.mapmarkerkey]}, false);
+        const map = mapmarkers['map'];
+        const marker = mapmarkers[a.dataset.mapmarkerkey];
+        marker_onclick({target: marker}, false);
+        
+        if(!map.getBounds().contains(marker.getLatLng())
+            map.panTo(marker.getLatLng());
         
         if(!input.checked)
             slideshow_local_start();
