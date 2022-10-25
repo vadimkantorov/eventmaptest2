@@ -28,15 +28,16 @@ function choose_random_event()
 {
     return {
         toString: () => {
-            const eventhashes = Array.from(document.querySelectorAll('li:not([hidden]) > a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash);
+            const eventhashwithphoto = Array.from(document.querySelectorAll('li:not([hidden]) > a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash);
+            const eventhashall = Array.from(document.querySelectorAll('li:not([hidden]) > a.event')).map(a => a.dataset.eventhash);
             
-            if(eventhashes.length == 1)
-                return eventhashes[0];
+            if(eventhashwithphoto.length > 0)
+                return eventhashwithphoto[ Math.floor(eventhashwithphoto.length * Math.random()) ];
             
-            if(eventhashes.length == 0)
-                return '';
-
-            return eventhashes[ Math.floor(eventhashes.length * Math.random()) ];
+            if(eventhashall.length > 0)
+                return eventhashall[ Math.floor(eventhashall.length * Math.random()) ];
+            
+            return '';
         }
     };
 }
