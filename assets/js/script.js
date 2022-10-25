@@ -306,7 +306,7 @@ function navigate(hash, search = '')
         marker_onclick({target: marker}, false);
         
         if(!map.getBounds().contains(marker.getLatLng())
-            map.panTo(marker.getLatLng());
+            map.flyTo(marker.getLatLng());
         
         if(!input.checked)
             slideshow_local_start();
