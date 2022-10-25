@@ -290,7 +290,6 @@ function navigate(hash, search = '')
 
     if(a != null)
     {
-        //info.innerHTML = format_event_info(a).innerHTML;
         format_event_info(a, info);
         
         img.dataset.photohrefs = a.dataset.photohrefs || a.dataset.logo;
