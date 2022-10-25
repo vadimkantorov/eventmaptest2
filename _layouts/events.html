@@ -187,7 +187,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         <span class="header">Upcoming events in <span id="country"></span></span>
         </summary>
         <ul class="events" id="upcomingeventsincountry">
-            <li hidden class="eventsnone"><div class="eventsnoneerror">No upcoming events</div></li>
+            <li hidden class="none"><div class="eventsnoneerror">No upcoming events</div></li>
         </ul>
         </details>
 
@@ -198,7 +198,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         <span class="header">Upcoming events everywhere</span>
         </summary>
         <ul class="events" id="upcomingeventseverywhere">
-            <li hidden class="eventsnone"><div class="eventsnoneerror">No upcoming events</div></li>
+            <li hidden class="none"><div class="eventsnoneerror">No upcoming events</div></li>
         </ul>
         </details>
         {% endif %}
@@ -213,7 +213,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
         <ul id="allevents" class="events">
             {% if country_events.size == 0 %}
-            <li class="eventsnone"><div class="eventsnoneerror">No events</div></li>
+            <li class="none"><div class="eventsnoneerror">No events</div></li>
             {% endif %}
 
             {% for country_events in events_grouped_by_country %}
@@ -300,7 +300,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         <nav>
             <ul id="allcampaigns">
             {% if campaigns.size == 0 %}
-            <li class="campaignsnone"><div class="campaignsnoneerror">No campaigns</div></li>
+            <li class="none"><div class="campaignsnoneerror">No campaigns</div></li>
             {% endif %}
             {% for campaign in campaigns %}{% assign d = campaign.name | replace: ".md", "" %}
                 <li class="campaign {% if d != campaign_name %}campaigninactive{% else %}campaignactive{% endif %}"><a href="{{ site.github.url }}/{{ d }}"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date | first | date: "%B %-d" }}{{ campaign.date | last | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>
