@@ -3,7 +3,6 @@
 - event merging by city
 - single photo url
 - photo crops
-- pan map when navigate
 - fix formatting of missing address/place on buttons
 - link for adding custom events
 - multiple organizers
