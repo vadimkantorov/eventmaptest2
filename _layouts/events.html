@@ -212,7 +212,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         <!-- https://nominatim.openstreetmap.org/search?format=json&limit=1&city=Amsterdam -->
 
         <ul id="allevents" class="events">
-            <li data-log="{{ country_events.size }}" class="none"{% if country_events.size > 0 %}hidden{% endif %}><div class="eventsnoneerror">No events</div></li>
+            <li class="none"{% if events_grouped_by_country.size > 0 %}hidden{% endif %}><div class="eventsnoneerror">No events</div></li>
 
             {% for country_events in events_grouped_by_country %}
             {% assign grouped_events = country_events.items | sort: "date" | reverse %}
