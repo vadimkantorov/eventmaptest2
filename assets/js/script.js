@@ -305,7 +305,7 @@ function navigate(hash, search = '')
         const marker = mapmarkers[a.dataset.mapmarkerkey];
         marker_onclick({target: marker}, false);
         
-        if(!map.getBounds().contains(marker.getLatLng())
+        if(!map.getBounds().contains(marker.getLatLng()))
             map.flyTo(marker.getLatLng());
         
         if(!input.checked)
