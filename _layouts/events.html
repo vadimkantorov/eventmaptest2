@@ -213,7 +213,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
         <ul id="allevents" class="events">
             
-            <li class="none"{% unless country_events.size == 0 %}hidden{% endunless %}  ><div class="eventsnoneerror">No events</div></li>
+            <li class="none"{% if country_events.size > 0 %}hidden{% endif %}  ><div class="eventsnoneerror">No events</div></li>
 
             {% for country_events in events_grouped_by_country %}
             {% assign grouped_events = country_events.items | sort: "date" | reverse %}
@@ -299,7 +299,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         <nav>
             <ul id="allcampaigns">
             
-            <li class="none" {% unless campaigns.size == 0 %}hidden{% endunless %}><div class="campaignsnoneerror">No campaigns</div></li>
+            <li class="none" {% if campaigns.size >= 0 %}hidden{% endif %}><div class="campaignsnoneerror">No campaigns</div></li>
             {% for campaign in campaigns %}{% assign d = campaign.name | replace: ".md", "" %}
                 <li class="campaign {% if d != campaign_name %}campaigninactive{% else %}campaignactive{% endif %}"><a href="{{ site.github.url }}/{{ d }}"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date | first | date: "%B %-d" }}{{ campaign.date | last | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>
             {% endfor %}
@@ -316,9 +316,9 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
         <ul id="allorganizers">
 
-        {% if organizers_grouped_by_country.size == 0 %}
-        <li class="organizersnone"><div class="organizersnoneerror">No organizers</div></li>
-        {% endif %}
+        
+        <li class="none"{% if organizers_grouped_by_country.size > 0 %}hidden{% endif %}><div class="organizersnoneerror">No organizers</div></li>
+        
         
         {% for country in organizers_grouped_by_country %}
 

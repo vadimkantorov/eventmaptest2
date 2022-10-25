@@ -16,7 +16,7 @@ function apply_geo_filter(search, update_filter_field = false)
     if(search != '')
     {
         document.querySelectorAll(`li[data-search]:not([data-search*="${search.toLowerCase()}"])`).forEach(li => li.hidden = true);
-        for(const ul of ['#allevents', '#upcomingeventseverywhere'])
+        for(const ul of ['#allevents', '#upcomingeventseverywhere', '#allorganizers'])
         {
             if(document.querySelectorAll(`${ul} > li:not([hidden])`).length == 0)
                 document.querySelector(`${ul} > li.none`).hidden = false;
