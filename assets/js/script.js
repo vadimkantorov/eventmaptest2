@@ -62,16 +62,18 @@ function init_map(id)
 
 function marker_onclick(e, slideshow = true)
 {
+    const marker = e.target;
     const _icon = document.querySelector('.markerhighlighted');
     if(_icon != null)
         L.DomUtil.removeClass(_icon, 'markerhighlighted');
 
-    L.DomUtil.addClass(e.target._icon || e.target._path, 'markerhighlighted');
+    L.DomUtil.addClass(marker._icon || marker._path, 'markerhighlighted');
+    marker.bringToFront(); // marker.setZIndexOffset(1000);
 
     if(slideshow)
     {
         slideshow_stop();
-        window.location.hash = e.target.eventhash;
+        window.location.hash = marker.eventhash;
     }
 }
 
