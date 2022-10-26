@@ -1,5 +1,11 @@
 var mapmarkers = {};
 
+function quantiles(arr, p)
+{
+    arr.sort();
+    return [arr[Math.floor(p * arr.length)], arr[Math.floor((1 - p) * arr.length)]];
+}
+
 function click_filter(event)
 {
     if(event.keyCode == 13)
@@ -80,13 +86,14 @@ function populate_map(map, events)
         marker.bindPopup(format_event_popup(a).outerHTML);
         marker.on('click', marker_onclick);
 
-        //marker._icon.id = a.dataset.iconid = a.dataset.eventhash.replace('#', 'marker_icon_');
-
-        marker.eventhash = a.dataset.eventhash;// marker._icon.eventhash =
+        marker.eventhash = a.dataset.eventhash;
         mapmarkers[a.dataset.mapmarkerkey] = marker;
         latlons.push(latlon);
     }
-    //map.fitBounds(L.latLngBounds(latlons));
+    const [latl, latr] = quantiles(latlons.map(([lat, lon]) => lat), 0.1);
+    const [lonl, lonr] = quantiles(latlons.map(([lat, lon]) => lon), 0.1);
+    const latlons_within = latlons.filter(([lat, lon]) => latl <= lat && lat <= latr && lonl <= lon && lon <= lonr);
+    map.fitBounds(L.latLngBounds(latlons_within));
     return mapmarkers;
 }
 
