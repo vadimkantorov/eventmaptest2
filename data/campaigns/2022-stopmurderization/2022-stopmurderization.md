@@ -13,18 +13,6 @@ organizers:
     orgurl: https://www.facebook.com/freerussiansglobal
     country: World
 
-  - orgname: For Freedom in Russia
-    orgurl: https://www.facebook.com/groups/forfreedominrussia
-    country: United States
-
-  - orgname: New Freedom of Russia
-    orgurl: https://www.facebook.com/newfreedomofrussia
-    country: United States
-
-  - orgname: Demokrati-JA
-    orgurl: https://www.facebook.com/demokrati.ja.org
-    country: Germany
-
 events:
   - city: Yerevan
     address: Freedom Square
@@ -203,6 +191,9 @@ events:
       - photos/310048216_131678169620656_939706970717367537_n.jpg
       - photos/310814352_131678172953989_8941618367063022066_n.jpg
       - photos/310292219_131677999620673_3536801154352689035_n.jpg
+    orgname: New Freedom of Russia
+    orgurl: https://www.facebook.com/newfreedomofrussia
+
 
   - city: New York
     address: Brighton Beach Boardwalk
@@ -211,12 +202,15 @@ events:
     country: United States
     eventurl: https://fb.me/e/2G4Mp2SIc
 
+
   - city: Orlando
     address: 195 N Rosalind Ave
     date: 2022-10-02
     time: "12:00"
     country: United States
     eventurl: https://fb.me/e/2NbPwo8vk
+    orgname: New Freedom of Russia
+    orgurl: https://www.facebook.com/newfreedomofrussia
 
 #####
 
@@ -545,6 +539,9 @@ events:
     time: "19:00"
     country: Germany
     eventurl: https://fb.me/e/2WBTFuDOP
+    orgname: Demokrati-JA
+    orgurl: https://www.facebook.com/demokrati.ja.org
+
 
   - city: Düsseldorf
     address: Grabbeplatz
