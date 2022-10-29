@@ -30,11 +30,11 @@ function apply_geo_filter(search, update_filter_field = false)
     }
 }
 
-function choose_random_event()
+function choose_random_event(markers_within_keys)
 {
     return {
         toString: () => {
-            const eventhashwithphoto = Array.from(document.querySelectorAll('li:not([hidden]) > a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash);
+            const eventhashwithphoto = Array.from(document.querySelectorAll('li:not([hidden]) > a.event:not([data-photohrefs=""])')).filter(a => markers_within_keys.includes(a.dataset.mapmarkerkey)).map(a => a.dataset.eventhash);
             const eventhashall = Array.from(document.querySelectorAll('li:not([hidden]) > a.event')).map(a => a.dataset.eventhash);
             
             if(eventhashwithphoto.length > 0)
@@ -80,7 +80,7 @@ function marker_onclick(e, slideshow = true)
 function populate_map(map, events)
 {
     let mapmarkers = {map : map};
-    const latlons = [];
+    const markers = [];
     for(const a of events)
     {
         if(a.dataset.mapmarkerkey in mapmarkers)
@@ -92,14 +92,20 @@ function populate_map(map, events)
         marker.on('click', marker_onclick);
 
         marker.eventhash = a.dataset.eventhash;
+        marker.mapmarkerkey = a.dataset.mapmarkerkey;
         mapmarkers[a.dataset.mapmarkerkey] = marker;
-        latlons.push(latlon);
+        markers.push(marker);
     }
-    const [latl, latr] = quantiles(latlons.map(([lat, lon]) => lat), 0.1);
-    const [lonl, lonr] = quantiles(latlons.map(([lat, lon]) => lon), 0.1);
-    const latlons_within = latlons.filter(([lat, lon]) => latl <= lat && lat <= latr && lonl <= lon && lon <= lonr);
-    map.fitBounds(L.latLngBounds(latlons_within));
-    return mapmarkers;
+    
+    const [latl, latr] = quantiles(markers.map(marker.getLatLng().lat, 0.1);
+    const [lonl, lonr] = quantiles(markers.map(marker.getLatLng().lng, 0.1);
+    
+    const markers_within = markers.filter(marker => latl <= marker.getLatLng().lat && marker.getLatLng().lat <= latr && lonl <= marker.getLatLng().lng && marker.getLatLng().lng <= lonr);
+    const markers_within_keys = markers_within.map(marker => marker.mapmarkerkey);
+    
+    map.fitBounds(L.latLngBounds( markers_within.map(marker => ([marker.getLatLng().lat, marker.getLatLng().lng])) ));
+    
+    return [mapmarkers, markers_within_keys];
 }
 
 function switch_upcoming_campaigns(today_YYYY_MM_DD)

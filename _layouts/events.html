@@ -122,9 +122,9 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
     populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
     populate_upcoming_events_everywhere(today_YYYY_MM_DD);
         
-    mapmarkers = populate_map(map, document.querySelectorAll('#allevents > li > a.event:not([data-latlon=""])'));
+    [mapmarkers, markers_within_keys] = populate_map(map, document.querySelectorAll('#allevents > li > a.event:not([data-latlon=""])'));
 
-    navigate(get_hash() == '' || get_hash() == '#' ? choose_random_event() : get_hash(), get_search_query());
+    navigate(get_hash() == '' || get_hash() == '#' ? choose_random_event(markers_within_keys) : get_hash(), get_search_query());
 }
         </script>
 
