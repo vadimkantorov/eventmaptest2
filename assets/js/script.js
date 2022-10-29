@@ -83,6 +83,9 @@ function populate_map(map, events)
     const latlons = [];
     for(const a of events)
     {
+        if(a.dataset.mapmarkerkey in mapmarkers)
+            continue;
+
         const latlon = a.dataset.latlon.split(',').map(parseFloat);
         const marker = L.circleMarker(latlon, {radius: 5, stroke: false, className: a.parentElement.classList.contains('eventactive') ? 'markerupcoming' : 'markerpast'}).addTo(map);
         marker.bindPopup(format_event_popup(a).outerHTML);

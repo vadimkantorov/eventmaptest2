@@ -1,12 +1,11 @@
 ## TODO
 ```
-- event merging by city
-- single photo url
 - photo crops
 - fix formatting of missing address/place on buttons
 - link for adding custom events
 - multiple organizers
 - fix map links
+- choose random event visible on the map
 ```
 
 ## Example directory structure

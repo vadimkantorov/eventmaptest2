@@ -227,7 +227,12 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
             {% assign photos = "" | split: "," %}
             {% if event.photos %}
-                {% for photo in event.photos %}
+                {% if event.photos.first %}
+                    {% assign event_photos = elsif event.photos %}
+                {% else %}
+                    {% assign event_photos = event.photos | remove: " " | split: ";" %}
+                {% endif %}
+                {% for photo in event_photos %}
                     {% if photo contains "https://" %}
                         {% assign httpsphoto = photo %}
                     {% else %}

@@ -131,7 +131,7 @@ events:
     country: Sweden
     eventurl: https://fb.me/e/1SvY2OQnx
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid024ESKUrVbJckrHUck5zxzrBfetGYFDCb9nvAkBK5ryKuems17BZFz6nRPR596toK2l
-    photo: photos/309005511_130941473027659_560508045794909796_n.jpg
+    photos: photos/309005511_130941473027659_560508045794909796_n.jpg
     orgname: Русская Дискуссия / Göteborg
     orgurl: https://www.facebook.com/RussiansInGothenburg
 
@@ -169,7 +169,7 @@ events:
     country: United States
     eventurl: https://fb.me/e/1SFfNY9Yd
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid0nE9jeBFGAPStjoTkLWDsnWqDKFMSf1bNPmeu9fx8tnt1aQ3PA4FwqHhRXmnUSGRVl
-    photo: photos/308771037_131374376317702_2303673707340856041_n.jpg
+    photos: photos/308771037_131374376317702_2303673707340856041_n.jpg
 
   - city: Los Angeles
     address: Sakharov Square
@@ -295,7 +295,7 @@ events:
     country: Canada
     eventurl: https://fb.me/e/4i5GtzEdp
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid02BEUpkNbez5hwktriiZY8r7rbhw8Fee446nGSqpU4TLkAZRDuadWNsgeufzcqnDtEl
-    photo: photos/307011815_130338306421309_1879053134408204200_n.jpg
+    photos: photos/307011815_130338306421309_1879053134408204200_n.jpg
     orgname: Протестная Оттава-Гатино
     orgurl: https://www.instagram.com/russianresistance.ott
 
@@ -440,7 +440,7 @@ events:
     country: Denmark
     eventurl: https://fb.me/e/28oxxNNKB
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid02mu9XZh2KCNSTYKfDtsx3xdn4NK5QFCZgPA7H2o3a8AXsHjeqTTTNHZL1BW9Yyvbnl
-    photo: photos/307948076_2125692224485437_5203750468553958997_n.jpg
+    photos: photos/307948076_2125692224485437_5203750468553958997_n.jpg
     orgname: Copenhagen For Navalny Danmark For Navalny
     orgurl: https://www.facebook.com/groups/167092451471703
 
@@ -669,7 +669,7 @@ events:
     country: Japan
     eventurl: https://twitter.com/yakinikuprotiv/status/1572845463572606976
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid02zrd4eFMXJoawMJCcqAPV3BnNkiidd45EePMY9CQbY75UVVT6qTj6k5iSepsUC3kql
-    photo: photos/309184182_129890333132773_5400015072776982278_n.jpg
+    photos: photos/309184182_129890333132773_5400015072776982278_n.jpg
     orgname: Россияне в Японии против войны
     orgurl: https://twitter.com/yakinikuprotiv
 
@@ -724,7 +724,7 @@ events:
     country: New Zealand
     eventurl: https://fb.me/e/2zqRgQd0Z
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid0yPSS69vNmkvjj8QobU1ECYEJBAkr21VbyBC6UZKdVGzx4rddKEbuoyN1vvjq2tCel
-    photo: photos/309356332_131495999638873_4852929631184093198_n.jpg
+    photos: photos/309356332_131495999638873_4852929631184093198_n.jpg
     orgname: Svoboda Alliance AU&NZ
     orgurl: https://www.instagram.com/svoboda_alliance_au_nz
 
@@ -972,7 +972,7 @@ events:
     time: "19:00"
     country: Turkey
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid02y2UEZFkavzna1KMgT8bjhGnkmeSW6oiYY2PQi39TPmtz7VgqZa1WQnvVgBdemgp5l
-    photo: photos/307386941_873683850472788_4884294510750197983_n.jpg
+    photos: photos/307386941_873683850472788_4884294510750197983_n.jpg
     orgname: «Russians against war» Istanbul
     orgurl: https://www.instagram.com/russian_against_war_istanbul/
 
