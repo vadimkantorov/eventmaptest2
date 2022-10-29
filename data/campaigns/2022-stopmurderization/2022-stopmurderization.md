@@ -9,45 +9,9 @@ email: vadimkantorov@gmail.com
 addevent: "https://docs.google.com/forms/d/e/1FAIpQLSf3WmRhLS1IKkT6kp_pTEd3iqVBQD2wPmFH3Zk8LwI7eHYPvA/viewform"
 
 organizers:
-  - orgname: Протесты в Ереване
-    orgurl: https://t.me/freeyerevan
-    country: Armenia
-
-  - orgname: Russian Resistance Toronto
-    orgurl: https://www.facebook.com/russianresistancetoronto
-    country: Canada
-
-  - orgname: Russians in Cyprus stand with Ukraine
-    orgurl: https://www.facebook.com/nowarcy
-    country: Cyprus
-
-  - orgname: Free Russians Ireland
-    orgurl: https://www.instagram.com/freerussians.ireland/
-    country: Ireland
-
-  - orgname: Тампере против войны - Tampere sotaa vastaan
-    orgurl: https://www.facebook.com/TampereSotaaVastaan/
-    country: Finland
-
-  - orgname: RUHelp - Russians Against the War
-    orgurl: https://www.facebook.com/RUHelp
-    country: Luxembourg
-
-  - orgname: Voices in Korea
-    orgurl: https://www.instagram.com/voicesinkorea/
-    country: Republic of Korea
-
-  - orgname: Антивоенный Комитет в Швеции Russians Against War
-    orgurl: https://www.facebook.com/russiansagainstthewar
-    country: Sweden
-
-  - orgname: Русская Дискуссия / Göteborg
-    orgurl: https://www.facebook.com/RussiansInGothenburg
-    country: Sweden
-
-  - orgname: Rosjanie przeciwko wojnie!/Russians against war! Wrocław, PL
-    orgurl: https://www.facebook.com/groups/raw.wroclaw
-    country: Poland
+  - orgname: Свободные россияне / Free Russians Global
+    orgurl: https://www.facebook.com/freerussiansglobal
+    country: World
 
   - orgname: Russian Democratic Society / Russians Against War
     orgurl: https://linktr.ee/RusDemSociety
@@ -65,49 +29,13 @@ organizers:
     orgurl: https://www.facebook.com/newfreedomofrussia
     country: United States
 
-  - orgname: RuArgentina, Аргентина по-русски
-    orgurl: https://t.me/RuArgentina
-    country: Argentina
-
-  - orgname: Svoboda Alliance AU&NZ
-    orgurl: "https://www.instagram.com/svoboda_alliance_au_nz"
-    country: Australia
-  
-  - orgname: Svoboda Alliance AU&NZ
-    orgurl: "https://www.instagram.com/svoboda_alliance_au_nz"
-    country: New Zealand
-
-  - orgname: Russians Against War Vienna
-    orgurl: "https://www.instagram.com/raw_vienna"
-    country: Austria
-
   - orgname: Протестная Оттава-Гатино
     orgurl: https://www.instagram.com/russianresistance.ott
-    country: Canada
-
-  - orgname: Протестный Ванкувер
-    orgurl: https://www.instagram.com/russianresistance.van/
     country: Canada
 
   - orgname: ПРАЖСКИЙ РОССИЙСКИЙ АНТИВОЕННЫЙ КОМИТЕТ / PRAŽSKÝ RUSKÝ PROTIVÁLEČNÝ VÝBOR
     orgurl: https://www.facebook.com/groups/951685019071511
     country: Czech Republic
-
-  - orgname: Copenhagen For Navalny Danmark For Navalny
-    orgurl: https://www.facebook.com/groups/167092451471703
-    country: Denmark
-
-  - orgname: Russians Against War. Estonia
-    orgurl: https://www.facebook.com/russians.against.war.estonia
-    country: Estonia
-
-  - orgname: Venäjän demokratian puolesta
-    orgurl: https://www.facebook.com/VenajanDemokratianPuolesta
-    country: Finland
-
-  - orgname: CommePasse
-    orgurl: https://www.facebook.com/commepasse
-    country: France
 
   - orgname: Demokrati-JA
     orgurl: https://www.facebook.com/demokrati.ja.org
@@ -133,61 +61,9 @@ organizers:
     orgurl: https://www.facebook.com/AllianzFreiheitDemokratieRusslandInNuernberg
     country: Germany
 
-  - orgname: Свободные россияне / Free Russians Global
-    orgurl: https://www.facebook.com/freerussiansglobal
-    country: World
-
-  - orgname: Comunità dei Russi Liberi
-    orgurl: https://www.facebook.com/groups/russiliberi
-    country: Italy
-
-  - orgname: Протестный 2.0
-    orgurl: https://t.me/irlndinfo
-    country: Ireland
-
-  - orgname: Россияне в Японии против войны
-    orgurl: https://twitter.com/yakinikuprotiv
-    country: Japan
-
-  - orgname: Kustība Krievu balss pret karu / Движение Русский голос против войны
-    orgurl: https://www.facebook.com/KrievuBalss
-    country: Latvia
-
-  - orgname: FreeRussiaNL
-    orgurl: https://www.instagram.com/freerussia.nl/
-    country: Netherlands
-
-  - orgname: SmåRådina for demokrati i Russland
-    orgurl: https://www.facebook.com/SmaaRaadina
-    country: Norway
-
-  - orgname: Russians against the war (Polska)
-    orgurl: https://t.me/RussiansAgainstTheWar
-    country: Poland
-
-  - orgname: День и ночь в Лиссабоне / Афиша событий города
-    orgurl: https://t.me/AfishaLisboa
-    country: Portugal
-
-  - orgname: Feminist Anti-war Resistance
-    orgurl: "https://www.instagram.com/far_korea"
-    country: Republic of Korea
-
-  - orgname: Прогрессивная Сербия
-    orgurl: "https://t.me/immi_gration"
-    country: Serbia
-
-  - orgname: Сообщество Россия Будущего - Швейцария / Verein Russland der Zukunft
-    orgurl: https://www.facebook.com/russzurich
-    country: Switzerland
-
   - orgname: «Russians against war» Istanbul
     orgurl: https://www.instagram.com/russian_against_war_istanbul/
     country: Turkey
-
-  - orgname: The Voices of Russian Opposition in Sacramento / Голоса Политэмигрантов
-    orgurl: https://www.facebook.com/groups/1044792662690908
-    country: United States
 
 events:
   - city: Yerevan
@@ -197,6 +73,7 @@ events:
     country: Armenia
     eventurl: https://t.me/freeyerevan/205
     orgname: Протесты в Ереване
+    orgurl: https://t.me/freeyerevan
 
   - city: Yerevan
     address: Russia Square
@@ -204,6 +81,8 @@ events:
     time: "13:00"
     country: Armenia
     eventurl: https://t.me/freeyerevan/214
+    orgname: Протесты в Ереване
+    orgurl: https://t.me/freeyerevan
 
   - city: Montreal
     location: Consulate of Russia
@@ -219,6 +98,7 @@ events:
     country: Canada
     eventurl: https://fb.me/e/2Q6i3EEJn
     orgname: Russian Resistance Toronto
+    orgurl: https://www.facebook.com/russianresistancetoronto
 
   - city: Paphos
     location: Harbour Kiosk
@@ -233,6 +113,8 @@ events:
       - photos/309479694_137208709055990_7645597912309613128_n.jpg
       - photos/309440607_137208739055987_6784899175788431685_n.jpg
       - photos/309427050_137208725722655_237947641183093008_n.jpg
+    orgname: Russians in Cyprus stand with Ukraine
+    orgurl: https://www.facebook.com/nowarcy
 
   - city: Dublin
     location: The Spire
@@ -245,6 +127,8 @@ events:
       - photos/310278327_131481219640351_2050526165563002922_n.jpg
       - photos/307485454_131481239640349_7078820384985756269_n.jpg
       - photos/310300749_131481229640350_6455065693777446385_n.jpg
+    orgname: Free Russians Ireland
+    orgurl: https://www.instagram.com/freerussians.ireland/
 
   - city: Tampere
     location: Keskustori Tampere
@@ -252,6 +136,8 @@ events:
     time: "17:00"
     country: Finland
     eventurl: https://fb.me/e/25d7pVj3I
+    orgname: Тампере против войны - Tampere sotaa vastaan
+    orgurl: https://www.facebook.com/TampereSotaaVastaan/
 
   - city: Luxembourg
     address: Place d’Armes
@@ -259,6 +145,8 @@ events:
     time: "12:00"
     country: Luxembourg
     eventurl: https://www.facebook.com/RUHelp/posts/pfbid02Bt3DRgWp2oLFpgq2uDvbKhKhFhwua3JWEQ9mtBkRRR1btXhQYZeNRzVGXvKZAXuyl
+    orgname: RUHelp - Russians Against the War
+    orgurl: https://www.facebook.com/RUHelp
 
   - city: Seoul
     location: Myeongdong station, exit 6
@@ -267,6 +155,8 @@ events:
     country: Republic of Korea
     eventurl: https://www.instagram.com/p/CjDygw7v9Ul
     reportul: https://www.facebook.com/freerussiansglobal/posts/pfbid0mBybiWPSdiSvwPgnbGvar3modUdNkMj9fCtwXGE76XfYGCyTnRNAQ3tyvnEfsM8Dl
+    orgname: Feminist Anti-war Resistance
+    orgurl: "https://www.instagram.com/far_korea"
 
   - city: Belgrade
     address: Republic Square
@@ -274,6 +164,8 @@ events:
     time: "17:00"
     country: Serbia
     eventurl: https://www.facebook.com/piotrnikitin/posts/pfbid02PnaGu9hn7ZxcNRXPTV2VtRr8CkpCVwCXayLqvT8jcFA78JRJsVZGooqn2TiNgUtGl
+    orgname: Прогрессивная Сербия
+    orgurl: "https://t.me/immi_gration"
 
   - city: Stockholm
     location: Embassy of Russia
@@ -281,6 +173,8 @@ events:
     time: "18:00"
     country: Sweden
     eventurl: https://fb.me/e/1OXsGfEhJ
+    orgname: Антивоенный Комитет в Швеции Russians Against War
+    orgurl: https://www.facebook.com/russiansagainstthewar
 
   - city: Gothenburg
     location: Consulate of Russia
@@ -290,6 +184,8 @@ events:
     eventurl: https://fb.me/e/1SvY2OQnx
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid024ESKUrVbJckrHUck5zxzrBfetGYFDCb9nvAkBK5ryKuems17BZFz6nRPR596toK2l
     photo: photos/309005511_130941473027659_560508045794909796_n.jpg
+    orgname: Русская Дискуссия / Göteborg
+    orgurl: https://www.facebook.com/RussiansInGothenburg
 
   - city: Wroclaw
     location: Rynek
@@ -297,6 +193,8 @@ events:
     time: "19:00"
     country: Poland
     eventurl: https://fb.me/e/2HycxKqmE
+    orgname: Rosjanie przeciwko wojnie!/Russians against war! Wrocław, PL
+    orgurl: https://www.facebook.com/groups/raw.wroclaw
 
   - city: London
     location: Embassy of Russia
@@ -365,6 +263,8 @@ events:
     time: "17:00"
     country: Argentina
     eventurl: https://t.me/RuArgentina/1868
+    orgname: RuArgentina, Аргентина по-русски
+    orgurl: https://t.me/RuArgentina
 
   - city: Yerevan
     location: Embassy of Russia
@@ -379,6 +279,8 @@ events:
     time: "12:00"
     country: Armenia
     eventurl: https://t.me/freeyerevan/178
+    orgname: Протесты в Ереване
+    orgurl: https://t.me/freeyerevan
 
   - city: Sydney
     location: Consulate of Russia
@@ -392,6 +294,8 @@ events:
       - photos/307134538_398924572397208_8483676257055565484_n.jpg
       - photos/306569329_398924735730525_3886598170876588535_n.jpg
       - photos/305926588_398924732397192_1348496014407702078_n.jpg
+    orgname: Svoboda Alliance AU&NZ
+    orgurl: https://www.instagram.com/svoboda_alliance_au_nz
 
   - city: Melbourne
     address: Princes Bridge
@@ -399,6 +303,8 @@ events:
     time: "11:00"
     country: Australia
     eventurl: https://fb.me/e/3zloi2o0g
+    orgname: Svoboda Alliance AU&NZ
+    orgurl: https://www.instagram.com/svoboda_alliance_au_nz
 
   - city: Vienna
     location: Embassy of Russia
@@ -406,6 +312,8 @@ events:
     time: "17:00"
     country: Austria
     eventurl: https://www.instagram.com/p/Ciw7-kGsz1q
+    orgname: Russians Against War Vienna
+    orgurl: https://www.instagram.com/raw_vienna
 
   - city: Sofia
     address: Shipka Street 34
@@ -463,6 +371,8 @@ events:
       - photos/309159024_155062397153490_8360612272441374469_n.jpg
       - photos/308917155_155062527153477_4022260614748764946_n.jpg
       - photos/308734089_155062460486817_1077636224629873072_n.jpg
+    orgname: Russian Resistance Toronto
+    orgurl: https://www.facebook.com/russianresistancetoronto
 
   - city: Vancouver
     address: Art Gallery Square
@@ -476,6 +386,8 @@ events:
       - photos/306269520_129016479886825_298270434430591709_n.jpg
       - photos/305766512_129016513220155_2642391864701642005_n.jpg
       - photos/302052449_129027413219065_2828241727463546770_n.jpg
+    orgname: Протестный Ванкувер
+    orgurl: https://www.instagram.com/russianresistance.van/
 
   - city: Vancouver
     address: Art Gallery Square
@@ -483,6 +395,8 @@ events:
     time: "14:30"
     country: Canada
     eventurl: https://www.instagram.com/p/Ci3SjWbv_6W
+    orgname: Протестный Ванкувер
+    orgurl: https://www.instagram.com/russianresistance.van/
 
   - city: Waterloo
     address: Waterloo Public Square
@@ -496,6 +410,8 @@ events:
     time: "18:30"
     country: Cyprus
     eventurl: https://www.facebook.com/groups/cybrt/permalink/638835224254731
+    orgname: Russians in Cyprus stand with Ukraine
+    orgurl: https://www.facebook.com/nowarcy
 
   - city: Nicosia
     location: Embassy of Russia
@@ -503,6 +419,8 @@ events:
     time: "14:00"
     country: Cyprus
     eventurl: https://fb.me/e/6goXcNfP8
+    orgname: Russians in Cyprus stand with Ukraine
+    orgurl: https://www.facebook.com/nowarcy
 
   - city: Limassol
     location: Consulate of Russia
@@ -517,6 +435,8 @@ events:
       - photos/306988961_158454076799408_8163671827201659404_n.jpg
       - photos/306948230_158454196799396_1741387116947296827_n.jpg
       - photos/306947175_158471006797715_8886882681489550672_n.jpg
+    orgname: Russians in Cyprus stand with Ukraine
+    orgurl: https://www.facebook.com/nowarcy
 
   - city: Paphos
     location: Harbour Kiosk
@@ -524,6 +444,8 @@ events:
     time: "18:30"
     country: Cyprus
     eventurl: https://www.facebook.com/groups/cybrt/permalink/638835224254731
+    orgname: Russians in Cyprus stand with Ukraine
+    orgurl: https://www.facebook.com/nowarcy
 
   - city: Prague
     location: Václavské Náměstí
@@ -554,6 +476,8 @@ events:
     eventurl: https://fb.me/e/28oxxNNKB
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid02mu9XZh2KCNSTYKfDtsx3xdn4NK5QFCZgPA7H2o3a8AXsHjeqTTTNHZL1BW9Yyvbnl
     photo: photos/307948076_2125692224485437_5203750468553958997_n.jpg
+    orgname: Copenhagen For Navalny Danmark For Navalny
+    orgurl: https://www.facebook.com/groups/167092451471703
 
   - city: Copenhagen
     address: Kristianiagade 5
@@ -561,6 +485,8 @@ events:
     time: "14:00"
     country: Denmark
     eventurl: https://fb.me/e/2qGT1oZ7L
+    orgname: Copenhagen For Navalny Danmark For Navalny
+    orgurl: https://www.facebook.com/groups/167092451471703
 
   - city: Tallinn
     location: Embassy of Russia
@@ -569,6 +495,8 @@ events:
     country: Estonia
     eventurl: https://fb.me/e/5HJ1UbyGW
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid0UfYnDtqKG5gya2R4ETmJ3R4wQYEz2R2pyzDtXcPQaGuoqGKzTwRNusUNLhMADSnul
+    orgname: Russians Against War. Estonia
+    orgurl: https://www.facebook.com/russians.against.war.estonia
 
   - city: Helsinki
     location: Embassy of Russia
@@ -590,11 +518,15 @@ events:
       - photos/308182860_179584317928700_7556393346243555173_n.jpg
       - photos/307849272_179584307928701_8187978308134430110_n.jpg
       - photos/307755063_179584294595369_6605859209279096378_n.jpg
+    orgname: Venäjän demokratian puolesta
+    orgurl: https://www.facebook.com/VenajanDemokratianPuolesta
 
   - city: Imatra
     date: 2022-09-24
     country: Finland
     eventurl: https://fb.me/e/2anoVCZso
+    orgname: Venäjän demokratian puolesta
+    orgurl: https://www.facebook.com/VenajanDemokratianPuolesta
 
   - city: Turku
     location: Consulate of Russia
@@ -602,6 +534,8 @@ events:
     time: "19:00"
     country: Finland
     eventurl: https://fb.me/e/3OaCfh9Zj
+    orgname: Venäjän demokratian puolesta
+    orgurl: https://www.facebook.com/VenajanDemokratianPuolesta
 
   - city: Turku
     location: Consulate of Russia
@@ -609,6 +543,8 @@ events:
     time: "17:00"
     country: Finland
     eventurl: https://fb.me/e/2dF5VqCkj
+    orgname: Venäjän demokratian puolesta
+    orgurl: https://www.facebook.com/VenajanDemokratianPuolesta
 
   - city: Paris
     address: Place de la République
@@ -629,6 +565,8 @@ events:
       - photos/309192411_130954869692986_7809276811723836673_n.jpg
       - photos/309098989_130954699693003_854342363871433157_n.jpg
       - photos/308805963_130954676359672_1351533402225428619_n.jpg
+    orgname: CommePasse
+    orgurl: https://www.facebook.com/commepasse
 
   - city: Berlin
     address: Pariser Platz 1
@@ -703,10 +641,14 @@ events:
     date: 2022-09-23
     time: "18:00"
     country: Italy
+    orgname: Comunità dei Russi Liberi
+    orgurl: https://www.facebook.com/groups/russiliberi
 
   - city: Florence
     date: 2022-09-21
     country: Italy
+    orgname: Comunità dei Russi Liberi
+    orgurl: https://www.facebook.com/groups/russiliberi
 
   - city: Milan
     address: Arco della Pace
@@ -721,6 +663,8 @@ events:
       - photos/307664330_5919319808129958_4231536197626993715_n.jpg 
       - photos/308493058_5919319781463294_8949038039011483232_n.jpg 
       - photos/308721051_5919320204796585_8801874913028820796_n.jpg 
+    orgname: Comunità dei Russi Liberi
+    orgurl: https://www.facebook.com/groups/russiliberi
 
   - city: Dublin
     location: The Spire
@@ -735,6 +679,8 @@ events:
       - photos/308068709_129699593151847_563939130245614284_n.jpg
       - photos/307768392_129699703151836_4266299178619519386_n.jpg
       - photos/307769267_129699576485182_3913827661579350968_n.jpg
+    orgname: Протестный 2.0
+    orgurl: https://t.me/irlndinfo
 
   - city: Tokyo
     location: Hachiko in Shibuya
@@ -744,6 +690,8 @@ events:
     eventurl: https://twitter.com/yakinikuprotiv/status/1572845463572606976
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid02zrd4eFMXJoawMJCcqAPV3BnNkiidd45EePMY9CQbY75UVVT6qTj6k5iSepsUC3kql
     photo: photos/309184182_129890333132773_5400015072776982278_n.jpg
+    orgname: Россияне в Японии против войны
+    orgurl: https://twitter.com/yakinikuprotiv
 
   - city: Riga
     location: Embassy of Russia
@@ -752,6 +700,8 @@ events:
     country: Latvia
     eventurl: https://fb.me/e/dppPXCXYi
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid0iWTibueNdkxrZAYtcZ74CY2Geved8W8Y1x6KtSNiTCEdggf2fbevFfbG54HB89Wdl
+    orgname: Kustība Krievu balss pret karu / Движение Русский голос против войны
+    orgurl: https://www.facebook.com/KrievuBalss
 
   - city: Vilnius
     location: Vinco Kudirkos aikštė
@@ -765,6 +715,8 @@ events:
     date: 2022-09-25
     time: "12:00"
     country: Luxembourg
+    orgname: RUHelp - Russians Against the War
+    orgurl: https://www.facebook.com/RUHelp
 
   - city: Amsterdam
     location: Dam Square
@@ -772,6 +724,8 @@ events:
     time: "19:00"
     country: Netherlands
     eventurl: https://www.instagram.com/reel/Ciw8HyNjKgw/
+    orgname: FreeRussiaNL
+    orgurl: https://www.instagram.com/freerussia.nl/
 
   - city: The Hague
     location: Embassy of Russia
@@ -780,6 +734,8 @@ events:
     country: Netherlands
     eventurl: https://www.instagram.com/p/Ciw0mkkDhIq
     reportul: https://www.facebook.com/freerussiansglobal/posts/pfbid034gD8MTiEyCvYwxs9E3Wx5jmcS3MBXjx6SM2JWFiBG4Z6cksJqkkWNgPam9SSoBkPl
+    orgname: FreeRussiaNL
+    orgurl: https://www.instagram.com/freerussia.nl/
 
   - city: Wellington
     location: Embassy of Russia
@@ -789,11 +745,15 @@ events:
     eventurl: https://fb.me/e/2zqRgQd0Z
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid0yPSS69vNmkvjj8QobU1ECYEJBAkr21VbyBC6UZKdVGzx4rddKEbuoyN1vvjq2tCel
     photo: photos/309356332_131495999638873_4852929631184093198_n.jpg
+    orgname: Svoboda Alliance AU&NZ
+    orgurl: https://www.instagram.com/svoboda_alliance_au_nz
 
   - city: Auckland
     date: 2022-09-22
     time: "17:00"
     country: New Zealand
+    orgname: Svoboda Alliance AU&NZ
+    orgurl: https://www.instagram.com/svoboda_alliance_au_nz
 
   - city: Oslo
     location: Embassy of Russia
@@ -801,6 +761,8 @@ events:
     time: "19:00"
     country: Norway
     eventurl: https://fb.me/e/1X2h0hy4k
+    orgname: SmåRådina for demokrati i Russland
+    orgurl: https://www.facebook.com/SmaaRaadina
 
   - city: Oslo
     location: Jernbanetorget
@@ -808,6 +770,8 @@ events:
     time: "14:00"
     country: Norway
     eventurl: https://fb.me/e/3GtAXiI6q
+    orgname: SmåRådina for demokrati i Russland
+    orgurl: https://www.facebook.com/SmaaRaadina
 
   - city: Bergen
     location: Den blå stein
@@ -815,12 +779,16 @@ events:
     time: "16:00"
     country: Norway
     eventurl: https://fb.me/e/21uyHiVaC
+    orgname: SmåRådina for demokrati i Russland
+    orgurl: https://www.facebook.com/SmaaRaadina
 
   - city: Kirkenes
     location: Consulate of Russia
     date: 2022-09-21
     time: "18:00"
     country: Norway
+    orgname: SmåRådina for demokrati i Russland
+    orgurl: https://www.facebook.com/SmaaRaadina
 
   - city: Warszawa
     location: Embassy of Russia
@@ -828,6 +796,8 @@ events:
     time: "19:00"
     country: Poland
     eventurl: https://t.me/RussiansAgainstTheWar/1152
+    orgname: Russians against the war (Polska)
+    orgurl: https://t.me/RussiansAgainstTheWar
 
   - city: Warszawa
     location: Embassy of Russia
@@ -835,6 +805,8 @@ events:
     time: "11:00"
     country: Poland
     eventurl: https://t.me/RussiansAgainstTheWar/1160
+    orgname: Russians against the war (Polska)
+    orgurl: https://t.me/RussiansAgainstTheWar
 
   - city: Gdańsk
     location: Consulate of Russia
@@ -842,6 +814,8 @@ events:
     time: "16:30"
     country: Poland
     eventurl: https://t.me/RussiansAgainstTheWar/1152
+    orgname: Russians against the war (Polska)
+    orgurl: https://t.me/RussiansAgainstTheWar
 
   - city: Kraków
     location: Consulate of Russia
@@ -849,12 +823,16 @@ events:
     time: "19:30"
     country: Poland
     eventurl: https://t.me/RussiansAgainstTheWar/1152
+    orgname: Russians against the war (Polska)
+    orgurl: https://t.me/RussiansAgainstTheWar
 
   - city: Łódź
     location: Pomnik Jednorożca
     date: 2022-09-21
     time: "18:30"
     country: Poland
+    orgname: Russians against the war (Polska)
+    orgurl: https://t.me/RussiansAgainstTheWar
 
   - city: Poznań
     location: Consulate of Russia
@@ -862,6 +840,8 @@ events:
     time: "19:00"
     country: Poland
     eventurl: https://t.me/RussiansAgainstTheWar/1152
+    orgname: Russians against the war (Polska)
+    orgurl: https://t.me/RussiansAgainstTheWar
 
   - city: Wroclaw
     location: Rynek
@@ -869,6 +849,8 @@ events:
     time: "19:00"
     country: Poland
     eventurl: https://fb.me/e/1IwIkGJOf
+    orgname: Rosjanie przeciwko wojnie!/Russians against war! Wrocław, PL
+    orgurl: https://www.facebook.com/groups/raw.wroclaw
 
   - city: Lisbon
     location: Embassy of Russia
@@ -883,6 +865,8 @@ events:
       - photos/309290319_130099656445174_8840251284218068082_n.jpg
       - photos/309406988_130099749778498_215582456332739164_n.jpg
       - photos/309327958_130099769778496_7812059941859634782_n.jpg
+    orgname: День и ночь в Лиссабоне / Афиша событий города
+    orgurl: https://t.me/AfishaLisboa
 
   - city: Seoul
     location: Embassy of Russia
@@ -890,6 +874,8 @@ events:
     time: "14:00"
     country: Republic of Korea
     eventurl: https://www.instagram.com/p/CizgsNOPuhx/
+    orgname: Voices in Korea
+    orgurl: https://www.instagram.com/voicesinkorea/
 
   - city: Belgrade
     address: Republic Square
@@ -897,6 +883,8 @@ events:
     time: "19:00"
     country: Serbia
     eventurl: https://t.me/immi_gration/4499
+    orgname: Прогрессивная Сербия
+    orgurl: "https://t.me/immi_gration"
 
   - city: Belgrade
     address: Republic Square
@@ -904,6 +892,8 @@ events:
     time: "17:00"
     country: Serbia
     eventurl: https://t.me/immi_gration/4500
+    orgname: Прогрессивная Сербия
+    orgurl: "https://t.me/immi_gration"
 
   - city: Madrid
     address: Calle de Velázquez 160
@@ -932,6 +922,8 @@ events:
     time: "19:00"
     country: Sweden
     eventurl: https://fb.me/e/1YhUQ4VJi
+    orgname: Антивоенный Комитет в Швеции Russians Against War
+    orgurl: https://www.facebook.com/russiansagainstthewar
 
   - city: Gothenburg
     location: Consulate of Russia
@@ -939,6 +931,8 @@ events:
     time: "17:00"
     country: Sweden
     eventurl: https://www.facebook.com/107129771961894/posts/pfbid0N9Sxj2Z2rp2HRfcKqrEkFYhqVSRUeqyxLxAh2CkL6TNvoxEQuiK437nCBFGNrabml
+    orgname: Русская Дискуссия / Göteborg
+    orgurl: https://www.facebook.com/RussiansInGothenburg
 
   - city: Gothenburg
     location: Consulate of Russia
@@ -946,6 +940,8 @@ events:
     time: "17:00"
     country: Sweden
     eventurl: https://fb.me/e/3vDuqKrQO
+    orgname: Русская Дискуссия / Göteborg
+    orgurl: https://www.facebook.com/RussiansInGothenburg
 
   - city: Zürich
     address: Rathausbrücke
@@ -953,6 +949,8 @@ events:
     time: "18:30"
     country: Switzerland
     eventurl: https://fb.me/e/24Ua5Ovz1
+    orgname: Сообщество Россия Будущего - Швейцария / Verein Russland der Zukunft
+    orgurl: https://www.facebook.com/russzurich
 
   - city: Zürich
     address: Bürkliplatz
@@ -960,6 +958,8 @@ events:
     time: "19:00"
     country: Switzerland
     eventurl: https://fb.me/e/24Ua5Ovz1
+    orgname: Сообщество Россия Будущего - Швейцария / Verein Russland der Zukunft
+    orgurl: https://www.facebook.com/russzurich
 
   - city: Geneva
     address: Place des Nations
@@ -974,6 +974,8 @@ events:
       - photos/309890899_130910789697394_4855196086177663300_n.jpg
       - photos/310270242_130910603030746_7239979834163499827_n.jpg
       - photos/310191894_130910363030770_2910988200368023741_n.jpg
+    orgname: Сообщество Россия Будущего - Швейцария / Verein Russland der Zukunft
+    orgurl: https://www.facebook.com/russzurich
 
   - city: Istanbul
     location: Odakule
@@ -1145,6 +1147,8 @@ events:
     time: "20:00"
     country: United States
     eventurl: https://fb.me/e/9ysxdH4Jk
+    orgname: The Voices of Russian Opposition in Sacramento / Голоса Политэмигрантов
+    orgurl: https://www.facebook.com/groups/1044792662690908
 
   - city: Sacramento
     location: California State Capitol
@@ -1158,6 +1162,8 @@ events:
       - photos/309169732_131116556343484_6620332474806310945_n.jpg
       - photos/308989520_131116593010147_3500405740492853034_n.jpg
       - photos/309028337_131116599676813_4511467551149280760_n.jpg
+    orgname: The Voices of Russian Opposition in Sacramento / Голоса Политэмигрантов
+    orgurl: https://www.facebook.com/groups/1044792662690908
 
   - city: San Diego
     location: Plaza de Panama
