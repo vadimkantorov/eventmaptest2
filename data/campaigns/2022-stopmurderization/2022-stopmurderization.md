@@ -25,10 +25,6 @@ organizers:
     orgurl: https://www.facebook.com/demokrati.ja.org
     country: Germany
 
-  - orgname: Freies Russland NRW
-    orgurl: https://www.facebook.com/NRWFreiesRussland
-    country: Germany
-
 events:
   - city: Yerevan
     address: Freedom Square
@@ -556,6 +552,8 @@ events:
     time: "15:30"
     country: Germany
     eventurl: https://fb.me/e/4mOIqToE9
+    orgname: Freies Russland NRW
+    orgurl: https://www.facebook.com/NRWFreiesRussland
 
   - city: Göttingen
     address: Am Gänseliesel
