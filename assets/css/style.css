@@ -6,6 +6,8 @@
 --card-width: 50%;
 }
 
+[hidden] { display: none !important; }
+
 .markerupcoming
 {
 fill: hsl(230, 69%, 50%);
@@ -324,7 +326,7 @@ padding: 0px
 }
 .event, .campaign, .organizer
 {
-/*display: block;*/
+display: block;
 min-height: 40px;
 padding: 10px;
 font-size: 18px;
