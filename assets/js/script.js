@@ -35,7 +35,7 @@ function choose_random_event(markers_within_keys)
     return {
         toString: () => {
             const eventhashwithphoto = Array.from(document.querySelectorAll('li:not([hidden]) > a.event:not([data-photohrefs=""])')).filter(a => markers_within_keys.includes(a.dataset.mapmarkerkey)).map(a => a.dataset.eventhash);
-            const eventhashall = Array.from(document.querySelectorAll('li:not([hidden]) > a.event')).map(a => a.dataset.eventhash);
+            const eventhashall = Array.from(document.querySelectorAll('li:not([hidden]) > a.event')).filter(a => markers_within_keys.includes(a.dataset.mapmarkerkey)).map(a => a.dataset.eventhash);
             
             if(eventhashwithphoto.length > 0)
                 return eventhashwithphoto[ Math.floor(eventhashwithphoto.length * Math.random()) ];
@@ -63,11 +63,14 @@ function init_map(id)
 function marker_onclick(e, slideshow = true)
 {
     const marker = e.target;
-    const _icon = document.querySelector('.markerhighlighted');
+    let _icon = document.querySelector('.markerhighlighted');
     if(_icon != null)
         L.DomUtil.removeClass(_icon, 'markerhighlighted');
 
-    L.DomUtil.addClass(marker._icon || marker._path, 'markerhighlighted');
+    _icon = marker._icon || marker._path;
+    if(_icon != null)
+        L.DomUtil.addClass(_icon, 'markerhighlighted');
+    
     marker.bringToFront(); // marker.setZIndexOffset(1000);
 
     if(slideshow)
@@ -320,10 +323,11 @@ function navigate(hash, search = '')
 
         const map = mapmarkers['map'];
         const marker = mapmarkers[a.dataset.mapmarkerkey];
-        marker_onclick({target: marker}, false);
         
         if(!map.getBounds().contains(marker.getLatLng()))
             map.flyTo(marker.getLatLng());
+        
+        marker_onclick({target: marker}, false);
         
         if(!input.checked)
             slideshow_local_start();
