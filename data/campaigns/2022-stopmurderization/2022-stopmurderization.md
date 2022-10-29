@@ -6,20 +6,12 @@ date:
 logo: 2022-stopmurderization.jpg
 telegram: https://t.me/vadimkantorov
 email: vadimkantorov@gmail.com
-addevent: "https://docs.google.com/forms/d/e/1FAIpQLSf3WmRhLS1IKkT6kp_pTEd3iqVBQD2wPmFH3Zk8LwI7eHYPvA/viewform"
+addevent: https://docs.google.com/forms/d/e/1FAIpQLSf3WmRhLS1IKkT6kp_pTEd3iqVBQD2wPmFH3Zk8LwI7eHYPvA/viewform
 
 organizers:
   - orgname: Свободные россияне / Free Russians Global
     orgurl: https://www.facebook.com/freerussiansglobal
     country: World
-
-  - orgname: Russian Democratic Society / Russians Against War
-    orgurl: https://linktr.ee/RusDemSociety
-    country: United Kingdom
-
-  - orgname: Коренные народы РФ против войны
-    orgurl: https://www.instagram.com/indigenous_in_london/
-    country: United Kingdom
 
   - orgname: For Freedom in Russia
     orgurl: https://www.facebook.com/groups/forfreedominrussia
@@ -29,14 +21,6 @@ organizers:
     orgurl: https://www.facebook.com/newfreedomofrussia
     country: United States
 
-  - orgname: Протестная Оттава-Гатино
-    orgurl: https://www.instagram.com/russianresistance.ott
-    country: Canada
-
-  - orgname: ПРАЖСКИЙ РОССИЙСКИЙ АНТИВОЕННЫЙ КОМИТЕТ / PRAŽSKÝ RUSKÝ PROTIVÁLEČNÝ VÝBOR
-    orgurl: https://www.facebook.com/groups/951685019071511
-    country: Czech Republic
-
   - orgname: Demokrati-JA
     orgurl: https://www.facebook.com/demokrati.ja.org
     country: Germany
@@ -44,26 +28,6 @@ organizers:
   - orgname: Freies Russland NRW
     orgurl: https://www.facebook.com/NRWFreiesRussland
     country: Germany
-
-  - orgname: Russ innen gegen Krieg Göttingen
-    orgurl: https://www.instagram.com/russen.gegen.krieg/
-    country: Germany
-
-  - orgname: Stop dictators HD
-    orgurl: https://www.facebook.com/StopDictatorsHD/
-    country: Germany
-
-  - orgname: Leipzig für freie Russland und Belarus
-    orgurl: https://www.facebook.com/groups/leipzig.freie.wahlen
-    country: Germany
-
-  - orgname: Allianz für ein freiheitlich-demokratisches Russland - Nürnberg
-    orgurl: https://www.facebook.com/AllianzFreiheitDemokratieRusslandInNuernberg
-    country: Germany
-
-  - orgname: «Russians against war» Istanbul
-    orgurl: https://www.instagram.com/russian_against_war_istanbul/
-    country: Turkey
 
 events:
   - city: Yerevan
@@ -203,6 +167,7 @@ events:
     country: United Kingdom
     eventurl: https://www.facebook.com/groups/689540562252292/posts/800798687793145/
     orgname: Russian Democratic Society / Russians Against War
+    orgurl: https://linktr.ee/RusDemSociety
 
   - city: London
     location: Embassy of Russia
@@ -210,6 +175,8 @@ events:
     time: "12:00"
     country: United Kingdom
     eventurl: https://www.instagram.com/p/CjF7G_fjloe
+    orgname: Коренные народы РФ против войны
+    orgurl: https://www.instagram.com/indigenous_in_london/
 
   - city: Chicago
     location: Heald Square Monument
@@ -328,6 +295,8 @@ events:
     time: "17:00"
     country: Canada
     eventurl: https://fb.me/e/2uwiLCUo7
+    orgname: Протестная Оттава-Гатино
+    orgurl: https://www.instagram.com/russianresistance.ott
 
   - city: Ottawa
     location: Embassy of Russia
@@ -337,6 +306,8 @@ events:
     eventurl: https://fb.me/e/4i5GtzEdp
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid02BEUpkNbez5hwktriiZY8r7rbhw8Fee446nGSqpU4TLkAZRDuadWNsgeufzcqnDtEl
     photo: photos/307011815_130338306421309_1879053134408204200_n.jpg
+    orgname: Протестная Оттава-Гатино
+    orgurl: https://www.instagram.com/russianresistance.ott
 
   - city: Montreal
     location: Consulate of Russia
@@ -453,6 +424,8 @@ events:
     time: "18:00"
     country: Czech Republic
     eventurl: https://www.facebook.com/groups/951685019071511/permalink/1086416338931711
+    orgname: ПРАЖСКИЙ РОССИЙСКИЙ АНТИВОЕННЫЙ КОМИТЕТ / PRAŽSKÝ RUSKÝ PROTIVÁLEČNÝ VÝBOR
+    orgurl: https://www.facebook.com/groups/951685019071511
 
   - city: Prague
     location: Náměstí Míru
@@ -467,6 +440,8 @@ events:
       - photos/308627223_129546156500524_7187101329560509928_n.jpg
       - photos/307872328_129546149833858_3922388162977692561_n.jpg
       - photos/308475382_129546166500523_9136560827745017872_n.jpg
+    orgname: ПРАЖСКИЙ РОССИЙСКИЙ АНТИВОЕННЫЙ КОМИТЕТ / PRAŽSKÝ RUSKÝ PROTIVÁLEČNÝ VÝBOR
+    orgurl: https://www.facebook.com/groups/951685019071511
 
   - city: Copenhagen
     address: Kristianiagade 5
@@ -588,6 +563,8 @@ events:
     time: "19:00"
     country: Germany
     eventurl: https://www.instagram.com/p/CixLY6njsdO
+    orgname: Russ innen gegen Krieg Göttingen
+    orgurl: https://www.instagram.com/russen.gegen.krieg/
 
   - city: Heidelberg
     address: Bismarkplatz
@@ -595,12 +572,16 @@ events:
     time: "19:00"
     country: Germany
     eventurl: https://www.facebook.com/102355319117874/posts/pfbid02YThaG26H33caEuDikux1wL76oQcSX3Fk853nY3TF8YfUqD1JYWj47VKyavk6rK7xl
+    orgname: Stop dictators HD
+    orgurl: https://www.facebook.com/StopDictatorsHD/
 
   - city: Leipzig
     location: Consulate of Russia
     date: 2022-09-24
     time: "17:00"
     country: Germany
+    orgname: Leipzig für freie Russland und Belarus
+    orgurl: https://www.facebook.com/groups/leipzig.freie.wahlen
 
   - city: Leipzig
     address: Willy-Brandt-Platz
@@ -608,6 +589,8 @@ events:
     time: "17:00"
     country: Germany
     eventurl: https://fb.me/e/2QpW4kPwf
+    orgname: Leipzig für freie Russland und Belarus
+    orgurl: https://www.facebook.com/groups/leipzig.freie.wahlen
 
   - city: Munich
     address: Europaplatz
@@ -628,6 +611,8 @@ events:
       - photos/305465406_128629056592234_821657662282310086_n.jpg
       - photos/306356318_128629073258899_3220852881419779468_n.jpg
       - photos/305806626_128629029925570_1152130788396200092_n.jpg
+    orgname: Allianz für ein freiheitlich-demokratisches Russland - Nürnberg
+    orgurl: https://www.facebook.com/AllianzFreiheitDemokratieRusslandInNuernberg
 
   - city: Stuttgart
     address: Schlossplatz
@@ -983,6 +968,8 @@ events:
     time: "15:00"
     country: Turkey
     eventurl: https://www.instagram.com/p/CizywUODI9m/
+    orgname: «Russians against war» Istanbul
+    orgurl: https://www.instagram.com/russian_against_war_istanbul/
 
   - city: Antalya
     location: Muratpaşa Kent Meydanı
@@ -991,6 +978,8 @@ events:
     country: Turkey
     reporturl: https://www.facebook.com/freerussiansglobal/posts/pfbid02y2UEZFkavzna1KMgT8bjhGnkmeSW6oiYY2PQi39TPmtz7VgqZa1WQnvVgBdemgp5l
     photo: photos/307386941_873683850472788_4884294510750197983_n.jpg
+    orgname: «Russians against war» Istanbul
+    orgurl: https://www.instagram.com/russian_against_war_istanbul/
 
   - city: Antalya
     address: Akdeniz Blv 19/1
@@ -1004,6 +993,8 @@ events:
       - photos/307984884_129329796522160_1143952509530833148_n.jpg
       - photos/308393897_129329849855488_1965296056436742946_n.jpg
       - photos/307485963_129330206522119_6445285677703107657_n.jpg
+    orgname: «Russians against war» Istanbul
+    orgurl: https://www.instagram.com/russian_against_war_istanbul/
 
   - city: London
     location: Embassy of Russia
@@ -1011,6 +1002,8 @@ events:
     time: "19:00"
     country: United Kingdom
     eventurl: https://www.instagram.com/p/CixCV2ILE19
+    orgname: Russian Democratic Society / Russians Against War
+    orgurl: https://linktr.ee/RusDemSociety
 
   - city: London
     location: Embassy of Russia
@@ -1018,6 +1011,8 @@ events:
     time: "18:30"
     country: United Kingdom
     eventurl: https://fb.me/e/1LJv8D6v1
+    orgname: Протесный Лондон
+    orgurl: https://www.facebook.com/protestldn
 
   - city: London
     location: Embassy of Russia
@@ -1025,6 +1020,8 @@ events:
     time: "17:00"
     country: United Kingdom
     eventurl: https://www.instagram.com/p/Ci4H-onMxiX
+    orgname: Russian Democratic Society / Russians Against War
+    orgurl: https://linktr.ee/RusDemSociety
 
   - city: Edinburgh
     location: Consulate of Russia
