@@ -97,8 +97,8 @@ function populate_map(map, events)
         markers.push(marker);
     }
     
-    const [latl, latr] = quantiles(markers.map(marker.getLatLng().lat, 0.1);
-    const [lonl, lonr] = quantiles(markers.map(marker.getLatLng().lng, 0.1);
+    const [latl, latr] = quantiles(markers.map(marker => marker.getLatLng().lat), 0.1);
+    const [lonl, lonr] = quantiles(markers.map(marker => marker.getLatLng().lng), 0.1);
     
     const markers_within = markers.filter(marker => latl <= marker.getLatLng().lat && marker.getLatLng().lat <= latr && lonl <= marker.getLatLng().lng && marker.getLatLng().lng <= lonr);
     const markers_within_keys = markers_within.map(marker => marker.mapmarkerkey);
