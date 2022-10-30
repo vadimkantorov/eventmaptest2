@@ -3,7 +3,7 @@
 - photo crops
 - link for adding custom events
 - multiple organizers
-- geocoder
+- geocoder for top cities
 ```
 
 ## Example directory structure
