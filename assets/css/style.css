@@ -4,9 +4,31 @@
 --card-line-height: 16px;
 --card-section-gap: 4px;
 --card-width: 50%;
+--color-link: hsl(240, 100%, 47%);
+--color-link-visited: hsl(271, 68%, 32%);
 }
 
 [hidden] { display: none !important; }
+
+a
+{
+color: var(--color-link);
+}
+
+a:visited
+{
+color: var(--color-link-visited);
+}
+
+.link_no_decoration
+{
+text-decoration: none;
+}
+
+.link_never_visited:visited
+{
+color: var(--color-link);
+}
 
 .markerupcoming
 {

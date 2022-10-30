@@ -110,7 +110,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
     // https://www.techighness.com/post/get-user-country-and-region-on-browser-with-javascript-only/
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const current_country = timezone2country[timezone];
-    
+
     const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
 
     const map = init_map('map');
@@ -121,7 +121,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         switch_upcoming_campaigns(today_YYYY_MM_DD);
     populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
     populate_upcoming_events_everywhere(today_YYYY_MM_DD);
-        
+
     [mapmarkers, markers_within_keys] = populate_map(map, document.querySelectorAll('#allevents > li > a.event:not([data-latlon=""])'));
 
     navigate(get_hash() == '' || get_hash() == '#' ? choose_random_event(markers_within_keys) : get_hash(), get_search_query());
@@ -159,17 +159,17 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
                             <div id="place_name"></div>
                             <div id="location"></div>
                             <span id="place_date"></span>
-                            <a id="next">&#8592;</a>
-                            <a id="prev">&#8594;</a>
+                            <a id="next" class="link_never_visited">&#8592;</a>
+                            <a id="prev" class="link_never_visited">&#8594;</a>
                         </h3>
-                        
+
                         <div id="links_maps">
-                            <a target="_blank" id="link_maps_google">Google Maps</a>
+                            <a target="_blank" id="link_maps_google" class="link_never_visited">Google Maps</a>
                             <span>&nbsp;|&nbsp;</span>
                             <a target="_blank" id="link_maps_apple">Apple Maps</a>
                         </div>
                         <div id="links_event">
-                            <a target="_blank" id="eventurl">Event Link<span class="none" hidden>&nbsp;not provided</span></a>
+                            <a target="_blank" id="eventurl" class="link_never_visited">Event Link<span class="none" hidden>&nbsp;not provided</span></a>
                             <br />by <a target="_blank" id="orgurl" data-none="unknown organizer"></a>
                         </div>
 
@@ -177,7 +177,9 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
                     </div>
                     <div id="picbox" hidden>
                         <img alt="Event photo" data-photohrefs="" data-photohrefsidx="" data-photohrefsalt="" data-photohrefshash="" onclick="img_onclick()" id="eventphoto" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-srcempty="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-altempty="Event photo" />
-                        <div id="picbox_overlay"><a target="_blank" id="picbox_overlay_credits">photo credits</a>&nbsp;|&nbsp;<a id="picbox_overlay_link" href="#">&nbsp;</a></div>
+                        <div id="picbox_overlay">
+                            <a target="_blank" id="picbox_overlay_credits" class="link_never_visited link_no_decoration">photo credits</a>&nbsp;|&nbsp;<a id="picbox_overlay_link" href="#" class="link_never_visited link_no_decoration">&nbsp;</a>
+                        </div>
                     </div>
             </div>
         </div>
@@ -208,7 +210,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
         <summary class="center">
         <span class="header">All events</span>
         </summary>
-        
+
         <!-- https://nominatim.openstreetmap.org/search?format=json&limit=1&city=Amsterdam -->
 
         <ul id="allevents" class="events">
@@ -216,7 +218,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
             {% for country_events in events_grouped_by_country %}
             {% assign grouped_events = country_events.items | sort: "date" | reverse %}
-            
+
             {% unless isindex %}
             <li data-search="{{ country_events.name | downcase }} {% for event in grouped_events %}{{ event.city | downcase }} {% endfor %}"><div class="country">{{ country_events.name }}</div></li>
             {% endunless %}
@@ -284,7 +286,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
             {% assign campaign_logo = campaign.path | split: "/" | pop | join: "/" | prepend: "/" | prepend: site.github.url | append: "/" | append: campaign.logo %}
             {% assign event_logo = campaign.path | split: "/" | pop | join: "/" | prepend: "/" | prepend: site.github.url | append: "/" | append: event.logo %}
-            
+
             <li class="eventinactive" data-date="{{ event.date }}" data-search="{{ event.city | downcase }} {{event.country | downcase }}"><a data-reporturl="{{ event.reporturl }}" data-eventalt="{{ event.date | date_to_string }}, {{ event.country }}, {{ event.city }}" data-logo="{% if event.logo %}{{ event_logo }}{% elsif campaign.logo %}{{ campaign_logo }}{% elsif index.logo %}{{ index_logo }}{% endif %}" class="event" data-address="{{ event.address }}" data-dateall="{{ dateall }}" data-eventhashall="{{ eventhashall }}" data-date="{{ event.date }}" data-time="{{ event.time }}" data-photohrefs="{{ photos | join: ";" }}" data-mapmarkerkey="{{ event.city }}, {{ event.country }}" data-latlon="{% if event.latlon %}{{ event.latlon }}{% else %}{{ site.data.geocoder[event.city] }}{% endif %}" data-city="{{ event.city }}" data-country="{{ event.country }}" data-orgname="{{ event.orgname }}" data-orgurl="{{ event.orgurl }}" data-eventurl="{{ event.eventurl }}" data-location="{{ event.location }}" data-eventhash="{{ eventhash }}" href="{{ eventhash }}"><div>{{ event.city }}, {{ event.country }}, {% if event.location %}{{ event.location }}{% else %}{{ event.address }}{% endif %}{% if isindex %} - {{ campaign.title }}{% endif %}</div><div class="subtitle" title="time zone {{ event.timezone }}">{{ event.date | date: "%B %-d, %Y" }}, {{ event.time }}</div><div hidden class="eventdescription"><div>{{ event.content | markdownify }}</div></div></a></li>
 
             {% endfor %}
@@ -302,7 +304,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
         <nav>
             <ul id="allcampaigns">
-            
+
             <li class="none" {% if campaigns.size >= 0 %}hidden{% endif %}><div class="campaignsnoneerror">No campaigns</div></li>
             {% for campaign in campaigns %}{% assign d = campaign.name | replace: ".md", "" %}
                 <li class="campaign {% if d != campaign_name %}campaigninactive{% else %}campaignactive{% endif %}"><a href="{{ site.github.url }}/{{ d }}"><div>{{ campaign.title | xml_escape }}</div>{% if campaign.date %}<div class="subtitle">{% if campaign.date.first %} {{ campaign.date | first | date: "%B %-d" }}{{ campaign.date | last | date: " - %B %-d, %Y" }}{% else %}{{ campaign.date | date: "%B %-d, %Y" }}{% endif %}</div>{% endif %}</a></li>
@@ -310,7 +312,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
             </ul>
         </nav>
         </details>
-        
+
         <hr />
 
         <details>
@@ -320,26 +322,26 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
         <ul id="allorganizers">
 
-        
+
         <li class="none"{% if organizers_grouped_by_country.size > 0 %}hidden{% endif %}><div class="organizersnoneerror">No organizers</div></li>
-        
-        
+
+
         {% for country in organizers_grouped_by_country %}
 
         {% assign country_organizers = country.items | group_by: "orgname" %}
-        
+
         <li data-search="{{ country.name | downcase }} {% for event in org_events.items %}{% if event.city %}{{event.city | downcase}}{% endif %}{% endfor %}"><div class="country">{{ country.name }}</div></li>
         {% for organizer_events in country_organizers %}
             {% assign orgurl = organizer_events.items | sort: "orgurl", "last" | map: "orgurl" | first %}
-            
+
             {% assign events = "" | split: "," %}{% for event in organizer_events.items %}{% if event.city %}{% assign events = events | push: event %}{% endif %}{% endfor %}
             {% assign cities =  events | map: "city" | join: ", " %}
             {% if cities.size > 0 %}{% assign cities = cities | prepend: ", " %}{% endif %}
 
             <li class="organizer" data-search="{{ country.name | downcase }} {{ events | map: "city" | join: " " | downcase }}"><a target="_blank" href="{{ orgurl }}"><div>{{ organizer_events.name }}{{ cities }}, {{ country.name }}</div><div class="subtitle">{{ events | size }} events</div></a></li>
-            
+
         {% endfor %}
-        
+
         {% endfor %}
 
         </ul>
