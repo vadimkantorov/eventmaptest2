@@ -370,6 +370,13 @@ background: rgba(0, 131, 216, 0.7);
 border-radius: var(--common-radius);
 }
 
+.event:visited,
+.campaign:visited,
+.organizer:visited
+{
+color: white;
+}
+
 .campaign>a:link,.campaign>a:visited,.campaign>a:hover,.campaign>a:active,
 .event>a:link, .event>a:visited,.event>a:hover, .event>a:active,
 .organizer>a:link, .organizer>a:visited,.organizer>a:hover, .organizer>a:active
