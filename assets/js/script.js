@@ -166,10 +166,19 @@ function format_event_info(a, div = null)
     div.querySelector('#place_date').innerText = `${a.dataset.date} ${a.dataset.time}`;
     div.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', a.dataset);
     div.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
+    
+    div.querySelector('#eventurlnone').hidden = a.dataset.eventurl != '';
+    div.querySelector('#eventurl').hidden = a.dataset.eventurl == '';
     div.querySelector('#eventurl').href = a.dataset.eventurl;
     div.querySelector('#eventurl').className = a.dataset.eventurl == '' ? 'visibilityhidden' : '';
-    div.querySelector('#orgurl').href = a.dataset.orgurl || a.dataset.eventhash;
+    
+    //div.querySelector('#orgurl').hidden = a.dataset.eventurl == '';
+
     div.querySelector('#orgurl').innerText = a.dataset.orgname || 'an unknown organizer';
+    div.querySelector('#orgurl').href = a.dataset.orgurl;
+    if(a.dataset.orgurl == '')
+        div.querySelector('#orgurl').removeAttribute('href');
+    
     div.querySelector('#location').innerText = ([a.dataset.location, a.dataset.address].filter(s => s != '').join(', ') || ' ');
     
     div.querySelector('.eventdescription').innerHTML = '';
@@ -177,15 +186,12 @@ function format_event_info(a, div = null)
 
     const dateall = a.dataset.dateall.split(';');
     const eventhashall = a.dataset.eventhashall.split(';');
-
     const cur = eventhashall.indexOf(a.dataset.eventhash);
     const prev = dateall.findIndex(date => date < dateall[cur]);
     const next = dateall.findLastIndex(date => date > dateall[cur]);
-    
     const anext = div.querySelector('#next');
     if(!(anext.hidden = next == -1))
         anext.href = anext.title = eventhashall[next];
-    
     const aprev = div.querySelector('#prev');
     if(!(aprev.hidden = prev == -1))
         aprev.href = aprev.title = eventhashall[prev];
