@@ -4,7 +4,6 @@
 - link for adding custom events
 - multiple organizers
 - fix map links (based on address, latlng)
-- embed css / js
 ```
 
 ## Example directory structure
