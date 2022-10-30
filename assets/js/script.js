@@ -163,22 +163,33 @@ function format_event_info(a, div = null)
         div = document.getElementById('info').cloneNode(true);
 
     const place_name = div.querySelector('#place_name');
-    place_name.innerText = [a.dataset.city, a.dataset.country].filter(s => s != '').join(', ') || place_name.dataset.none;
-
     const place_date = div.querySelector('#place_date');
+    const eventurl = div.querySelector('#eventurl');
+    const orgurl = div.querySelector('#orgurl');
+    const link_maps_google = div.querySelector('#link_maps_google');
+    const link_maps_apple = div.querySelector('#link_maps_apple');
+
+    place_name.innerText = [a.dataset.city, a.dataset.country].filter(s => s != '').join(', ') || place_name.dataset.none;
     place_date.innerText = [a.dataset.date, a.dataset.time].filter(s => s != '').join(' ') || place_date.dataset.none;
 
-    div.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', a.dataset);
-    div.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
+    link_maps_google.querySelector('.none').hidden = link_maps_apple.querySelector('.none').hidden = a.dataset.latlng != '';
+    if(a.dataset.latlng != '')
+    {
+        link_maps_google.href = format_maps_link('link_maps_google_pattern', a.dataset);
+        link_maps_apple.href = format_maps_link('link_maps_apple_pattern', a.dataset);
+    }
+    else
+    {
+        link_maps_google.removeAttribute('href');
+        link_maps_apple.removeAttribute('href');
+    }
     
-    const eventurl = div.querySelector('#eventurl');
     eventurl.querySelector('.none').hidden = a.dataset.eventurl != ''
     if(a.dataset.eventurl != '')
         eventurl.href = a.dataset.eventurl;
     else
         eventurl.removeAttribute('href');
     
-    const orgurl = div.querySelector('#orgurl');
     orgurl.innerText = a.dataset.orgname || orgurl.dataset.none;
     if(a.dataset.orgurl != '')
         orgurl.href = a.dataset.orgurl;
