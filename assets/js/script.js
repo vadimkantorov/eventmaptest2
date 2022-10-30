@@ -168,17 +168,16 @@ function format_event_info(a, div = null)
     div.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
     
     const eventurl = div.querySelector('#eventurl');
-    //eventurl.querySelector('.none').hidden = a.dataset.eventurl != ''
+    eventurl.querySelector('.none').hidden = a.dataset.eventurl != ''
     if(a.dataset.eventurl != '')
         eventurl.href = a.dataset.eventurl;
     else
         eventurl.removeAttribute('href');
     
     const orgurl = div.querySelector('#orgurl');
-    orgurl.innerText = a.dataset.orgname || '';
-    //orgurl.querySelector('.none').hidden = a.dataset.orgname != '';
+    orgurl.innerText = a.dataset.orgname || orgurl.dataset.none;
     if(a.dataset.orgurl != '')
-        div.querySelector('#orgurl').href = a.dataset.orgurl;
+        orgurl.href = a.dataset.orgurl;
     else
         orgurl.removeAttribute('href');
     
