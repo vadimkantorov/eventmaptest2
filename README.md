@@ -3,7 +3,7 @@
 - photo crops
 - link for adding custom events
 - multiple organizers
-- fix map links (based on address, latlng)
+- geocoder
 ```
 
 ## Example directory structure

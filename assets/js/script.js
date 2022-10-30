@@ -151,10 +151,30 @@ function populate_upcoming_events_in_country(today_YYYY_MM_DD, country)
         ul.querySelector('li[hidden]').hidden = false;
 }
 
-function format_maps_link(link_pattern_id, event_dataset)
+function format_googlemaps_link(event_dataset, domain = 'https://maps.google.com')
 {
-    const url_pattern = decodeURI(document.getElementById(link_pattern_id).href);
-    return url_pattern.replace('{latlon}', event_dataset.latlon.replace(' ', '')).replace('{name}', event_dataset.city.replace(' ', '+') + ',+' + event_dataset.country.replace(' ', '+'));
+    const place = [];
+    if(event_dataset.address != '')
+        place.push(event_dataset.address);
+    if(event_dataset.location != '')
+        place.push(event_dataset.location);
+    if(event_dataset.city != '')
+        place.push(event_dataset.city);
+    if(event_dataset.country != '')
+        place.push(event_dataset.country);
+    
+    const querystring = [];
+    if(event_dataset.latlon != '')
+        querystring.push('ll=' + event_dataset.latlon.replace(' ', ''));
+    if(place.length > 0)
+        querystring.push('q=' + place.join(',').replace(' ', '+'));
+        
+    return domain + '/?' + encodeURIComponent(querystring.join('&'));
+}
+
+function format_applemaps_link(event_dataset)
+{
+    return format_googlemaps_link(event_dataset, 'https://maps.apple.com');
 }
 
 function format_event_info(a, div = null)
@@ -175,8 +195,8 @@ function format_event_info(a, div = null)
     link_maps_google.querySelector('.none').hidden = link_maps_apple.querySelector('.none').hidden = a.dataset.latlng != '';
     if(a.dataset.latlng != '')
     {
-        link_maps_google.href = format_maps_link('link_maps_google_pattern', a.dataset);
-        link_maps_apple.href = format_maps_link('link_maps_apple_pattern', a.dataset);
+        link_maps_google.href = format_googlemaps_link('link_maps_google_pattern', a.dataset);
+        link_maps_apple.href = format_applemaps_link('link_maps_apple_pattern', a.dataset);
     }
     else
     {
