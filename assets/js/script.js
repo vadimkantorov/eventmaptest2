@@ -1,19 +1,5 @@
 var mapmarkers = {};
 
-function quantiles(arr, p)
-{
-    arr.sort();
-    return [arr[Math.floor(p * arr.length)], arr[Math.floor((1 - p) * arr.length)]];
-}
-
-function click_filter(event)
-{
-    if(event.keyCode == 13)
-        window.location.hash = '#filter=' + document.getElementById('filter_area').value.split(' ').join('+');
-    
-    return false;
-}
-
 function apply_geo_filter(search, update_filter_field = false)
 {
     if(update_filter_field)
@@ -99,6 +85,8 @@ function populate_map(map, events)
         mapmarkers[a.dataset.mapmarkerkey] = marker;
         markers.push(marker);
     }
+
+    const quantiles = (arr, p) => arr.sort() && [arr[Math.floor(p * arr.length)], arr[Math.floor((1 - p) * arr.length)]];
     
     const [latl, latr] = quantiles(markers.map(marker => marker.getLatLng().lat), 0.1);
     const [lonl, lonr] = quantiles(markers.map(marker => marker.getLatLng().lng), 0.1);
@@ -195,8 +183,8 @@ function format_event_info(a, div = null)
     link_maps_google.querySelector('.none').hidden = link_maps_apple.querySelector('.none').hidden = a.dataset.latlng != '';
     if(a.dataset.latlng != '')
     {
-        link_maps_google.href = format_googlemaps_link('link_maps_google_pattern', a.dataset);
-        link_maps_apple.href = format_applemaps_link('link_maps_apple_pattern', a.dataset);
+        link_maps_google.href = format_googlemaps_link(a.dataset);
+        link_maps_apple.href = format_applemaps_link(a.dataset);
     }
     else
     {
