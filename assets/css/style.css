@@ -212,6 +212,16 @@ color: hsl(197, 100%, 33%);
 background: hsla(0, 0%, 100%, 0.9);
 }
 
+#picbox_overlay > a
+{
+color: hsl(197, 100%, 33%);
+}
+
+#picbox_overlay > a:visited
+{
+color: hsl(197, 100%, 33%);
+}
+
 .containersticky
 {
 position: sticky;
