@@ -4,9 +4,31 @@
 --card-line-height: 16px;
 --card-section-gap: 4px;
 --card-width: 50%;
+--color-link: hsl(240, 100%, 47%);
+--color-link-visited: hsl(271, 68%, 32%);
 }
 
 [hidden] { display: none !important; }
+
+a
+{
+color: var(--color-link);
+}
+
+a:visited
+{
+color: var(--color-link-visited);
+}
+
+.link_no_decoration
+{
+text-decoration: none;
+}
+
+.link_never_visited:visited
+{
+color: var(--color-link);
+}
 
 .markerupcoming
 {
@@ -190,6 +212,16 @@ color: hsl(197, 100%, 33%);
 background: hsla(0, 0%, 100%, 0.9);
 }
 
+#picbox_overlay > a
+{
+color: hsl(197, 100%, 33%);
+}
+
+#picbox_overlay > a:visited
+{
+color: hsl(197, 100%, 33%);
+}
+
 .containersticky
 {
 position: sticky;
@@ -336,6 +368,13 @@ text-align: center;
 text-decoration: none;
 background: rgba(0, 131, 216, 0.7);
 border-radius: var(--common-radius);
+}
+
+.event:visited,
+.campaign:visited,
+.organizer:visited
+{
+color: white;
 }
 
 .campaign>a:link,.campaign>a:visited,.campaign>a:hover,.campaign>a:active,
