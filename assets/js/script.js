@@ -162,8 +162,12 @@ function format_event_info(a, div = null)
     if(div == null)
         div = document.getElementById('info').cloneNode(true);
 
-    div.querySelector('#place_name').innerText = `${a.dataset.city}, ${a.dataset.country}`;
-    div.querySelector('#place_date').innerText = `${a.dataset.date} ${a.dataset.time}`;
+    const place_name = div.querySelector('#place_name');
+    place_name.innerText = [a.dataset.city, a.dataset.country].filter(s => s != '').join(', ') || place_name.dataset.none;
+
+    const place_date = div.querySelector('#place_date');
+    place_date.innerText = [a.dataset.date, a.dataset.time].filter(s => s != '').join(' ') || place_date.dataset.none;
+
     div.querySelector('#link_maps_google').href = format_maps_link('link_maps_google_pattern', a.dataset);
     div.querySelector('#link_maps_apple').href = format_maps_link('link_maps_apple_pattern', a.dataset);
     

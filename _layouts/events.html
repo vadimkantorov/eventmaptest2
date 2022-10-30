@@ -156,9 +156,9 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
             <div id="infopic">
                     <div id="info" class="visibilityhidden">
                         <h3 id="place">
-                            <div id="place_name"></div>
+                            <div id="place_name" data-none="place N/A"></div>
                             <div id="location"></div>
-                            <span id="place_date"></span>
+                            <span id="place_date" data-none="date N/A"></span>
                             <a id="next">&#8592;</a>
                             <a id="prev">&#8594;</a>
                         </h3>
