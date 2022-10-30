@@ -10,7 +10,7 @@
 
 [hidden] { display: none !important; }
 
-a
+a[href]
 {
 color: var(--color-link);
 }
@@ -356,7 +356,12 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214
 list-style-type: none;
 padding: 0px
 }
-.event, .campaign, .organizer
+.event,
+a.event,
+.campaign,
+a.campaign,
+a.organizer,
+.organizer
 {
 display: block;
 min-height: 40px;
