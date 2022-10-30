@@ -53,12 +53,14 @@
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        <style> {% include leaflet.css %}</style>
+        <script>{% include leaflet.js  %}</script>
+        <!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
    crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-   crossorigin=""></script>
+   crossorigin=""></script>-->
         <!--<script type="text/javascript"
             src="https://cdn.jsdelivr.net/gh/hosuaby/Leaflet.SmoothMarkerBouncing@v3.0.2/dist/bundle.js"
             crossorigin="anonymous"></script>-->
@@ -156,21 +158,21 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
             <div id="infopic">
                     <div id="info" class="visibilityhidden">
                         <h3 id="place">
-                            <div id="place_name"></div>
+                            <div id="place_name" data-none="place N/A"></div>
                             <div id="location"></div>
-                            <span id="place_date"></span>
-                            <a id="next" class="link_never_visited link_no_decoration">&#8592;</a>
-                            <a id="prev" class="link_never_visited link_no_decoration">&#8594;</a>
+                            <span id="place_date" data-none="date N/A"></span>
+                            <a id="next"  class="link_never_visited link_no_decoration">&#8592;</a>
+                            <a id="prev"  class="link_never_visited link_no_decoration">&#8594;</a>
                         </h3>
 
                         <div id="links_maps">
-                            <a target="_blank" id="link_maps_google" class="link_never_visited">Google Maps</a>
+                            <a target="_blank" id="link_maps_google" class="link_never_visited">Google Maps<span class="none">&nbsp;N/A</span></a>
                             <span>&nbsp;|&nbsp;</span>
-                            <a target="_blank" id="link_maps_apple">Apple Maps</a>
+                            <a target="_blank" id="link_maps_apple">Apple Maps<span class="none">&nbsp;N/A</span></a>
                         </div>
                         <div id="links_event">
-                            <a target="_blank" id="eventurl" class="link_never_visited">Event Link<span class="none" hidden>&nbsp;not provided</span></a>
-                            <br />by <a target="_blank" id="orgurl" class="link_never_visited" data-none="unknown organizer"></a>
+                            <a target="_blank" id="eventurl" class="link_never_visited">Event Link<span class="none" hidden>&nbsp;not provided yet</span></a>
+                            <br />by <a target="_blank" id="orgurl"  class="link_never_visited" data-none="an unknown organizer"></a>
                         </div>
 
                         <div class="eventdescription"></div>

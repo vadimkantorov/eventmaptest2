@@ -1,11 +1,10 @@
 ## TODO
 ```
 - photo crops
-- fix formatting of missing address/place on buttons
 - link for adding custom events
 - multiple organizers
-- fix map links
-- choose random event visible on the map
+- fix map links (based on address, latlng)
+- embed css / js
 ```
 
 ## Example directory structure
