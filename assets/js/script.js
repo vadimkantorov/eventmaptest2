@@ -173,7 +173,7 @@ function format_event_info(a, div = null)
     const place_name = div.querySelector('#place_name');
     const place_date = div.querySelector('#place_date');
     const eventurl = div.querySelector('#eventurl');
-    const orgurl = div.querySelector('#orgurl');
+    const orgurls = div.querySelector('#orgurls');
     const link_maps_google = div.querySelector('#link_maps_google');
     const link_maps_apple = div.querySelector('#link_maps_apple');
 
@@ -198,11 +198,20 @@ function format_event_info(a, div = null)
     else
         eventurl.removeAttribute('href');
     
-    orgurl.innerText = a.dataset.orgname || orgurl.dataset.none;
-    if(a.dataset.orgurl != '')
-        orgurl.href = a.dataset.orgurl;
-    else
-        orgurl.removeAttribute('href');
+    const lis = [], orgnames = [a.dataset.orgname.split(';'), a.dataset.orgurl.split(';')];
+    for(let i = 0; i < orgnames[0].length; i++)
+    {
+        const li = orgurls.firstChild.cloneNode(true);
+        const lia = orgurl.firstChild;
+        lia.innerText = orgnames[0][i] || lia.dataset.none;
+        if(orgnames[1][i] != '')
+            lia.href = orgnames[1][i];
+        else
+            lia.removeAttribute('href');
+        lis.push(li);
+    }
+    orgurls.innerHTML = '';
+    orgurls.append(...lis);
     
     div.querySelector('#location').innerText = ([a.dataset.location, a.dataset.address].filter(s => s != '').join(', ') || ' ');
     

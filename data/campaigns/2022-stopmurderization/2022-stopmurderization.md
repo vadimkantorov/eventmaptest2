@@ -516,6 +516,12 @@ events:
     date: 2022-09-21
     time: "20:00"
     country: France
+    orgname:
+      - org1
+      - org2
+    orgurl:
+      - https://www.google.com
+      - https://www.yandex.com
 
   - city: Strasbourg
     address: Place Kléber

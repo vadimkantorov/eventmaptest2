@@ -351,7 +351,7 @@ text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214
 {
 text-align: center; line-height: 1.4; font-size: 1.48rem; color: rgb(0, 131, 214) !important;
 }
-#countries, .events, #allcampaigns, #allevents, #allorganizers
+#orgurls, #allcampaigns, #allevents, #allorganizers, .events  
 {
 list-style-type: none;
 padding: 0px
