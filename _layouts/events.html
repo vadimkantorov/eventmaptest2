@@ -61,8 +61,9 @@
         <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
    crossorigin=""></script>-->
-        <link rel="stylesheet" href="{{ site.github.url }}/assets/css/style.css" />
+        <!--<link rel="stylesheet" href="{{ site.github.url }}/assets/css/style.css" />-->
         <!--<script src="{{ site.github.url }}/assets/js/script.js"></script>-->
+        <style> {% include style.css %}</style>
         <script>{% include script.js %}</script>
 
         <link href="https://tile.openstreetmap.org/{z}/{x}/{y}.png" id="link_tiles" />
@@ -140,13 +141,6 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
         <hr />
         <div id="sticky">
-            
-            <!--<div id="slideshow">
-                <input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_global_toggle" name="slideshow_global_toggle" onchange="slideshow_global_toggle()" />
-                <label for="slideshow_global_toggle">&nbsp;slideshow for {% if isindex %}{{ index.title | xml_escape }}{% else %}{{ campaign.title | xml_escape }}{% endif %}</label>
-                <div id="searchbox"><form action="."><label><input type="submit" value="Filter" /><input id="filter_area" type="text" name="search" placeholder="Filter by city or country" data-onkeyup="return click_filter(event)" ></input></label></form></div>
-            </div>-->
-            
             <div id="slideshow">
                 <div>{% if isindex %}{{ index.title | xml_escape }}{% else %}{{ campaign.title | xml_escape }}{% endif %}</div>
 
