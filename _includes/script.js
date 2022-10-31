@@ -1,5 +1,3 @@
-var mapmarkers = {};
-
 function apply_geo_filter(search, update_filter_field = false)
 {
     if(update_filter_field)
@@ -337,6 +335,8 @@ function get_search_query()
 {
     return decodeURIComponent((new URLSearchParams(window.location.search).get('search') || '').replace('+', ' '));
 }
+
+var mapmarkers = {};
 
 function navigate(hash, search = '')
 {
