@@ -151,10 +151,11 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
                 <div>{% if isindex %}{{ index.title | xml_escape }}{% else %}{{ campaign.title | xml_escape }}{% endif %}</div>
 
                 <div id="searchbox">
-                    <form action="."><label><input type="submit" value="Filter" /><input id="filter_area" type="text" name="search" placeholder="Filter by city or country" data-onkeyup="return click_filter(event)" ></input></label></form>
-                    
-                    <input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_global_toggle" name="slideshow_global_toggle" onchange="slideshow_global_toggle()" /><label for="slideshow_global_toggle">&nbsp;slideshow</label>
+                    <form action=".">
+                        <label><input type="submit" value="Filter" /><input id="filter_area" type="text" name="search" placeholder="Filter by city or country" data-onkeyup="return click_filter(event)" ></input></label>
 
+                        <input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_global_toggle" name="slideshow_global_toggle" onchange="slideshow_global_toggle()" /><label for="slideshow_global_toggle">&nbsp;slideshow</label>
+                    </form>
                 </div>
             </div>
 
