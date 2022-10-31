@@ -225,10 +225,14 @@ function format_event_info(a, div = null)
     const next = dateall.findLastIndex(date => date > dateall[cur]);
     const aprev = div.querySelector('#prev');
     const anext = div.querySelector('#next');
-    if(!(aprev.hidden = prev == -1))
-        aprev.href = aprev.title = eventhashall[prev];
-    if(!(anext.hidden = next == -1))
-        anext.href = anext.title = eventhashall[next];
+    if(prev != -1)
+        aprev.href = eventhashall[prev];
+    else
+        aprev.removeAttribute('href');
+    if(next != -1)
+        anext.href = eventhashall[next];
+    else
+        anext.removeAttribute('href');
     
     return div;
 }
