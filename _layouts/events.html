@@ -336,7 +336,7 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
 
         {% for country in organizers_grouped_by_country %}
-        <li data-search="{{ country.name | downcase }} {% for event in org_events.items %}{% if event.city %}{{event.city | downcase}}{% endif %}{% endfor %}"><div class="country">{{ country.name }}</div></li>
+        {% unless isindex %}<li data-search="{{ country.name | downcase }} {% for event in org_events.items %}{% if event.city %}{{event.city | downcase}}{% endif %}{% endfor %}"><div class="country">{{ country.name }}</div></li>{% endunless %}
         
         {% assign country_organizers = "" | split: "," %}
         {% assign country_organizers_multiple = "" | split: "," %}
