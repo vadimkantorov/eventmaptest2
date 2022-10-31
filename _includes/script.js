@@ -153,9 +153,9 @@ function format_googlemaps_link(event_dataset, domain = 'https://maps.google.com
     if(event_dataset.latlon != '')
         querystring.push('ll=' + event_dataset.latlon.replace(' ', ''));
     if(place.length > 0)
-        querystring.push('q=' + place.join(',').replace(' ', '+'));
+        querystring.push('q=' + encodeURIComponent(place.join(',').replace(' ', '+')));
         
-    return domain + '/?' + encodeURIComponent(querystring.join('&'));
+    return domain + '/?' + querystring.join('&');
 }
 
 function format_applemaps_link(event_dataset)

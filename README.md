@@ -2,7 +2,6 @@
 ```
 - photo crops
 - link for adding custom events
-- multiple organizers
 - geocoder for top cities
 ```
 
