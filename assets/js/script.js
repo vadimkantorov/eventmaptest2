@@ -202,7 +202,7 @@ function format_event_info(a, div = null)
     for(let i = 0; i < orgnames[0].length; i++)
     {
         const li = orgurls.firstChild.cloneNode(true);
-        const lia = orgurl.firstChild;
+        const lia = li.firstChild;
         lia.innerText = orgnames[0][i] || lia.dataset.none;
         if(orgnames[1][i] != '')
             lia.href = orgnames[1][i];
