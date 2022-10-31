@@ -139,11 +139,25 @@ function body_onload(timezone2country = {{ site.data.timezone2country | jsonify 
 
         <hr />
         <div id="sticky">
-            <div id="slideshow">
+            
+            <!--<div id="slideshow">
                 <input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_global_toggle" name="slideshow_global_toggle" onchange="slideshow_global_toggle()" />
                 <label for="slideshow_global_toggle">&nbsp;slideshow for {% if isindex %}{{ index.title | xml_escape }}{% else %}{{ campaign.title | xml_escape }}{% endif %}</label>
                 <div id="searchbox"><form action="."><label><input type="submit" value="Filter" /><input id="filter_area" type="text" name="search" placeholder="Filter by city or country" data-onkeyup="return click_filter(event)" ></input></label></form></div>
+            </div>-->
+            
+            <div id="slideshow">
+                <div>{% if isindex %}{{ index.title | xml_escape }}{% else %}{{ campaign.title | xml_escape }}{% endif %}</div>
+
+                <div id="searchbox">
+                    <form action="."><label><input type="submit" value="Filter" /><input id="filter_area" type="text" name="search" placeholder="Filter by city or country" data-onkeyup="return click_filter(event)" ></input></label></form>
+                    
+                    <input data-eventhash="" data-eventidx="" type="checkbox" id="slideshow_global_toggle" name="slideshow_global_toggle" onchange="slideshow_global_toggle()" /><label for="slideshow_global_toggle">&nbsp;slideshow</label>
+
+                </div>
             </div>
+
+
             <div id="container">
                 <div id="map">
                     <template id="popup"><div><h3 id="place"></h3><h4 id="time"></h4></div></template>
