@@ -25,5 +25,8 @@ LIMIT 10
 
 print(url.replace('sparql', '#') + urllib.parse.quote(query))
 
-#j = json.loads(urllib.request.urlopen(url + '?' + urllib.parse.urlencode(dict(format = 'json', query = query))).read().decode('utf-8'))
-#print(j)
+j = json.loads(urllib.request.urlopen(url + '?' + urllib.parse.urlencode(dict(format = 'json', query = query))).read().decode('utf-8'))
+
+geocoder = {v['cityLabel']['value'] : v['population']['value'] for  v in j['results']['bindings']}
+
+json.dump(geocoder, open('geocoder.json', 'w'), indent = 2, sort_keys = True, ensure_ascii = False)
