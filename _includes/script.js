@@ -384,3 +384,25 @@ function navigate(hash, search = '')
         info.classList.add('visibilityhidden');
     }
 }
+
+function body_onload(timezone2country = {})
+{
+    // https://www.techighness.com/post/get-user-country-and-region-on-browser-with-javascript-only/
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const current_country = timezone2country[timezone];
+
+    const today_YYYY_MM_DD = new Date().toISOString().slice(0, 10);
+
+    const map = init_map('map');
+
+    slideshow_global_init(Array.from(document.querySelectorAll('a.event:not([data-photohrefs=""])')).map(a => a.dataset.eventhash));
+    switch_upcoming_events(today_YYYY_MM_DD);
+    if(document.body.dataset.isindex == 'true')
+        switch_upcoming_campaigns(today_YYYY_MM_DD);
+    populate_upcoming_events_in_country(today_YYYY_MM_DD, current_country);
+    populate_upcoming_events_everywhere(today_YYYY_MM_DD);
+
+    [mapmarkers, markers_within_keys] = populate_map(map, document.querySelectorAll('#allevents > li > a.event:not([data-latlon=""])'));
+
+    navigate(get_hash() == '' || get_hash() == '#' ? choose_random_event(markers_within_keys) : get_hash(), get_search_query());
+}
