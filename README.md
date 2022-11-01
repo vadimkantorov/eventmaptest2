@@ -1,6 +1,7 @@
-`eventmap` is a webpage generator for showcasing real-world events/demonstrations driven by a common goal or a theme, along with a map and posted photos.
+# EventMap
+**EventMap** is a webpage generator for showcasing real-world events/demonstrations driven by a common goal or a theme, along with a map and posted photos.
 
-`eventmap` is based on Jekyll page generator, and the events are described in YAML files following a specific directory structure. Below is described the file formats and the directory structure.
+**EventMap** is based on Jekyll page generator, and the events are described in YAML-like files following a specific directory structure. Below is described the file formats and the directory structure.
 
 ## Campaign pages
 `data/campaigns/2022-my-campaign-name-for-url/2022-my-campaign-name-for-url.md`:
