@@ -1,9 +1,11 @@
 # EventMap
 **EventMap** is a website generator for showcasing real-world events/demonstrations driven by a common goal or a theme, along with a map and posted photos.
 
-**EventMap** is based on [Jekyll](https://jekyllrb.com/) static website generator, and the events are described in YAML-like files following a specific directory structure. Below are described the file formats and the directory structure.
+**EventMap** is based on [Jekyll](https://jekyllrb.com/) static website generator, and the events are described in YAML-like files following a specific directory structure.
 
 An event map consists of the main page and of campaign pages. Each campaign consists of multiple events. The main page lists all events from all campaigns.
+
+ Below are described the file formats and the directory structure providing information about campaigns, events and the main page.
 
 ## Campaign pages
 `data/campaigns/2022-my-campaign-name-for-url/2022-my-campaign-name-for-url.md`:
