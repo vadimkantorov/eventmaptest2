@@ -78,37 +78,37 @@ In general, main page file format is same as for campaign pages, but the paths a
 
 ## Reference on Campaign, Event, Organizer fields
 Index record fields:
-- title (mandatory; string)
-- logo (optional; string)
-- content (optional; string for intro text markdown)
+- `title` (mandatory; string)
+- `logo` (optional; string)
+- `content` (optional; string for intro text markdown)
 
 Campaign record fields:
-- title (mandatory; string)
-- logo (optional; string)
-- country (mandatory; string)
-- date (mandatory; string in YYYY-MM-DD format)
-- events (optional; array of event records)
-- organizers (optional; array of organizer records)
-- content (optional; string for intro text markdown)
+- `title` (mandatory; string)
+- `logo` (optional; string)
+- `country` (mandatory; string)
+- `date` (mandatory; string in YYYY-MM-DD format)
+- `events` (optional; array of event records)
+- `organizers` (optional; array of organizer records)
+- `content` (optional; string for intro text markdown)
 
 Organizer record fields:
-- country (mandatory; string)
-- city (optional; string)
-- orgname (optional; string)
-- orgurl (optional; string)
+- `country` (mandatory; string)
+- `city` (optional; string)
+- `orgname` (optional; string)
+- `orgurl` (optional; string)
 
 Event record fields:
-- country (mandatory; string)
-- city (optional; string)
-- date (mandatory; string in YYYY-MM-DD format)
-- address (optional; string)
-- location (optional; string)
-- time (optional; string)
-- eventurl (optional; string)
-- photos (optional; semicolon-delimited string or array of strings)
-- orgname (optional; string or array of strings)
-- orgurl (optional; string or array of strings)
-- content (optional; string for intro text markdown)
+- `country` (mandatory; string)
+- `city` (optional; string)
+- `date` (mandatory; string in YYYY-MM-DD format)
+- `address` (optional; string)
+- `location` (optional; string)
+- `time` (optional; string)
+- `eventurl` (optional; string)
+- `photos` (optional; semicolon-delimited string or array of strings)
+- `orgname` (optional; string or array of strings)
+- `orgurl` (optional; string or array of strings)
+- `content` (optional; string for intro text markdown)
 
 ## Geocoding information
 `assets/geocoder.json`:
@@ -126,8 +126,8 @@ Crude geocoding based on city is used if an event doesn't provide custom GPS coo
 - [`_layouts/events.html`](_layouts/events.html) contains all HTML for main page and for campaign pages
 - [`assets/geocoder.json`](assets/geocoder.json) contains the latitude,longitude GPS coordinates for major cities
 - [`assets/timezone2country.json`](assets/timezone2country.json) contains the TimeZone:Country mapping to be used for showing events in the user's current country
+- [`_includes/leaflet@1.8.0/dist/leaflet.css`](_includes/leaflet@1.8.0/dist/leaflet.css), [`_includes/leaflet@1.8.0/dist/leaflet.js`](_includes/leaflet@1.8.0/dist/leaflet.js) are the [LeafletJS](https://leafletjs.com/) script and style files
 - [`_config.yml`](_config.yml) is the config for Jekyll
-- [`_includes/leaflet@1.8.0/dist/leaflet.css`](_includes/leaflet@1.8.0/dist/leaflet.css), [`_includes/leaflet@1.8.0/dist/leaflet.css`](_includes/leaflet@1.8.0/dist/leaflet.js) are the [LeafletJS](https://leafletjs.com/) script and style files
 
 ## Example directory structure
 ```
