@@ -1,8 +1,10 @@
 `eventmap` is a webpage generator for showcasing real-world events/demonstrations driven by a common goal or theme.
 
+`eventmap` is based on Jekyll page generator, and the events are described in YAML files.
+
 ## Campaign pages
 `data/campaigns/2022-my-campaign-name-for-url/2022-my-campaign-name-for-url.md`:
-```
+```yaml
 ---
 title: campaign page header text
 logo:  main page logo, absolute https-path or file path relative to data/index/ e.g. index.jpg would refer to data/index/index.jpg 
