@@ -3,6 +3,8 @@
 
 **EventMap** is based on [Jekyll](https://jekyllrb.com/) static website generator, and the events are described in YAML-like files following a specific directory structure. Below are described the file formats and the directory structure.
 
+An event map consists of the main page and of campaign pages. Each campaign consists of multiple events. The main page lists all events from all campaigns.
+
 ## Campaign pages
 `data/campaigns/2022-my-campaign-name-for-url/2022-my-campaign-name-for-url.md`:
 ```yaml
