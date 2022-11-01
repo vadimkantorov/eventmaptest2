@@ -2,12 +2,9 @@
 # https://github.com/OSMNames/OSMNames
 # https://osmnames.org/download/
 
-import sys
 import json
 import urllib.parse
 import urllib.request
-
-output_path = 'geocoder.json' if len(sys.argv) < 2 else sys.argv[1]
 
 url = 'https://query.wikidata.org/sparql'
 
@@ -33,4 +30,4 @@ print(output_path, end = '\n\n')
 
 j = json.loads(urllib.request.urlopen(url + '?' + urllib.parse.urlencode(dict(format = 'json', query = sparql))).read().decode('utf-8'))
 geocoder = {v['cityLabel']['value'] : v['gps']['value'].replace('Point', '').strip('()').replace(' ', ',') for  v in j['results']['bindings']}
-json.dump(geocoder, open(output_path, 'w'), indent = 2, sort_keys = True, ensure_ascii = False)
+print(json.dumps(geocoder, indent = 2, sort_keys = True, ensure_ascii = False))
