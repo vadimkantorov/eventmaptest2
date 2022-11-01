@@ -11,7 +11,7 @@ output_path = 'geocoder.json' if len(sys.argv) < 2 else sys.argv[1]
 
 url = 'https://query.wikidata.org/sparql'
 
-query = '''
+sparql = '''
 SELECT DISTINCT ?city ?cityLabel ?countryLabel ?iso ?population ?gps
 WHERE {
     ?city wdt:P31/wdt:P279* wd:Q515 .
@@ -28,9 +28,9 @@ ORDER BY DESC(?population)
 LIMIT 5000
 '''.strip()
 
-print(url.replace('sparql', '#') + urllib.parse.quote(query), end = '\n\n')
+print(url.replace('sparql', '#') + urllib.parse.quote(sparql), end = '\n\n')
 print(output_path, end = '\n\n')
 
-j = json.loads(urllib.request.urlopen(url + '?' + urllib.parse.urlencode(dict(format = 'json', query = query))).read().decode('utf-8'))
+j = json.loads(urllib.request.urlopen(url + '?' + urllib.parse.urlencode(dict(format = 'json', query = sparql))).read().decode('utf-8'))
 geocoder = {v['cityLabel']['value'] : v['gps']['value'].replace('Point', '').strip('()').replace(' ', ',') for  v in j['results']['bindings']}
 json.dump(geocoder, open(output_path, 'w'), indent = 2, sort_keys = True, ensure_ascii = False)
