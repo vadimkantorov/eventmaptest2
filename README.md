@@ -24,19 +24,37 @@ organizers: # array of following records
 
 events: # array of following records
   - city: Yerevan
+    country: Armenia
     address: Freedom Square
     date: 2022-09-27
     time: "15:00"
-    country: Armenia
     eventurl: https://t.me/freeyerevan/205
     orgname: Протесты в Ереване
     orgurl: https://t.me/freeyerevan
+    photos: photos/photo1.jpg; photos/photo2.jpg
+
+  - city: Yerevan
+    country: Armenia
+    address: Freedom Square
+    date: 2022-09-27
+    time: "15:00"
+    eventurl: https://t.me/freeyerevan/205
+    orgname:
+      - org1
+      - org2
+    orgurl: 
+      - https://org1.com
+      - https://org2.com
+    photos:
+      - photos/photo1.jpg
+      - photos/photo2.jpg
+
 # - city: ...
 #   address: ...
 #   date: ...
   
 ---
-(markdown) campaign page intro text, same as for Main page
+(markdown) campaign page intro text
 ```
 
 ## Main page
@@ -46,7 +64,7 @@ events: # array of following records
 title: same as for campaign pages
 logo:  same as for campaign pages 
 ---
-same as for campaign pages
+(markdown) same as for campaign pages
 ```
 
 In general, main page file format is same as for campaign pages, but the paths are computed relative to `data/index/` instead of `data/campaigns/my-campaign-name`.
