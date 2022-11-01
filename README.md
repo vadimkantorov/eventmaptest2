@@ -1,5 +1,5 @@
 # EventMap
-**EventMap** is a webpage generator for showcasing real-world events/demonstrations driven by a common goal or a theme, along with a map and posted photos.
+**EventMap** is a website generator for showcasing real-world events/demonstrations driven by a common goal or a theme, along with a map and posted photos.
 
 **EventMap** is based on [Jekyll](https://jekyllrb.com/) static website generator, and the events are described in YAML-like files following a specific directory structure. Below are described the file formats and the directory structure.
 
