@@ -27,22 +27,24 @@ organizers: # array of following records
 #   ...
 
 events: # array of following records
-  - city: Yerevan
-    country: Armenia
-    address: Freedom Square
-    date: 2022-09-27
-    time: "15:00"
-    eventurl: https://t.me/freeyerevan/205
-    orgname: Протесты в Ереване
-    orgurl: https://t.me/freeyerevan
+  - city: city name (optional)
+    country: country name (mandatory)
+    date: 2022-09-27 (YYY-MM-DD format, mandatory)
+    time: "15:00" (optional)
+    address: (optional)
+    location: (optional)
+    eventurl: https-url (optional)
+    orgname: organizer name (same as for organizer format)
+    orgurl: organizer https-url (same as for organizer format)
     photos: photos/photo1.jpg; photos/photo2.jpg
+    content: "(markdown) event page intro text"
 
   - city: Yerevan
     country: Armenia
     address: Freedom Square
     date: 2022-09-27
     time: "15:00"
-    eventurl: https://t.me/freeyerevan/205
+    eventurl: https://t.me/freeyerevan
     orgname:
       - org1
       - org2
@@ -52,6 +54,7 @@ events: # array of following records
     photos:
       - photos/photo1.jpg
       - photos/photo2.jpg
+    content: My Yerevan event
 
 # - city: ...
 #   address: ...
@@ -75,6 +78,21 @@ In general, main page file format is same as for campaign pages, but the paths a
 
 
 ## Event info
+`data/campaigns/2022-my-campaign-name-for-url/2022-09-27-yerevan/photo1.jpg`,
+`data/campaigns/2022-my-campaign-name-for-url/2022-09-27-yerevan/2022-09-27-yerevan.md`:
+```yaml
+---
+city: Yerevan
+country: Armenia
+address: Freedom Square
+date: 2022-09-27
+time: "15:00"
+eventurl: https://t.me/freeyerevan/205
+orgname: Протесты в Ереване
+orgurl: https://t.me/freeyerevan
+---
+My Yerevan event
+```
 
 ## Reference on Campaign, Event, Organizer fields
 Index record fields:
