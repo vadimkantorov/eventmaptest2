@@ -149,7 +149,7 @@ Crude geocoding based on city is used if an event doesn't provide custom GPS coo
 - [`_includes/script.js`](_includes/script.js) contains all JavaScript
 - [`_includes/leaflet@1.8.0/dist/leaflet.css`](_includes/leaflet@1.8.0/dist/leaflet.css), [`_includes/leaflet@1.8.0/dist/leaflet.js`](_includes/leaflet@1.8.0/dist/leaflet.js) are the [LeafletJS](https://leafletjs.com/) script and style files
 - [`geocoder.json`](assets/geocoder.json) contains the `"latitude,longitude"` GPS coordinates for major cities
-- [`timezone2country.json`](assets/timezone2country.json) contains the TimeZone:Country mapping to be used for showing events in the user's current country
+- [`timezone2country.json`](assets/timezone2country.json) contains the TimeZone:Country mapping to be used for showing events in the user's current country ([original method idea](https://www.techighness.com/post/get-user-country-and-region-on-browser-with-javascript-only))
 - [`_config.yml`](_config.yml) is the config for Jekyll
 
 ## TODO

@@ -387,7 +387,6 @@ function navigate(hash, search = '')
 
 function body_onload(timezone2country = {})
 {
-    // https://www.techighness.com/post/get-user-country-and-region-on-browser-with-javascript-only/
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const current_country = timezone2country[timezone];
 

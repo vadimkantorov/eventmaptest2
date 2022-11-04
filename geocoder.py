@@ -1,5 +1,5 @@
 # https://www.wikidata.org/wiki/Wikidata:SPARQL_tutorial/en
-# https://github.com/OSMNames/OSMNames
+# https://github.com/OSMNames/OSMNames, http://github.com/OSMNames/OSMNames/issues/208
 # https://osmnames.org/download/
 
 import json
