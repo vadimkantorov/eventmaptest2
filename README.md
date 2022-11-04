@@ -146,8 +146,8 @@ Crude geocoding based on city is used if an event doesn't provide custom GPS coo
 ## **EventMap** source files
 - [`_includes/style.css`](_includes/style.css) specifies all styles and can be modified for style customization
 - [`_layouts/events.html`](_layouts/events.html) contains all HTML for main page and for campaign pages
-- [`assets/geocoder.json`](assets/geocoder.json) contains the `"latitude,longitude"` GPS coordinates for major cities
-- [`assets/timezone2country.json`](assets/timezone2country.json) contains the TimeZone:Country mapping to be used for showing events in the user's current country
+- [`geocoder.json`](assets/geocoder.json) contains the `"latitude,longitude"` GPS coordinates for major cities
+- [`timezone2country.json`](assets/timezone2country.json) contains the TimeZone:Country mapping to be used for showing events in the user's current country
 - [`_includes/leaflet@1.8.0/dist/leaflet.css`](_includes/leaflet@1.8.0/dist/leaflet.css), [`_includes/leaflet@1.8.0/dist/leaflet.js`](_includes/leaflet@1.8.0/dist/leaflet.js) are the [LeafletJS](https://leafletjs.com/) script and style files
 - [`_config.yml`](_config.yml) is the config for Jekyll
 
