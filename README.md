@@ -9,7 +9,7 @@ See an example of an event map at https://vadimkantorov.github.io/eventmaptest, 
 
 Below are described the file formats and the directory structure providing information about campaigns, events and the main page.
 
-## Minimal file structure
+## Minimal file structure of `data` directory
 
 ## Campaign pages
 `data/campaigns/2022-my-campaign-name-for-url/2022-my-campaign-name-for-url.md`:
