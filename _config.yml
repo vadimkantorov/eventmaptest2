@@ -1,4 +1,4 @@
-data_dir: assets
+data_dir: .
 
 defaults:
   - scope:
