@@ -99,9 +99,10 @@
 
         <link href="https://tile.openstreetmap.org/{z}/{x}/{y}.png" id="link_tiles" />
         <title>{{ page.title | xml_escape}}</title>
+        <script>var timezone2country = {{ site.data.timezone2country | jsonify }};</script>
     </head>
 
-    <body data-isindex="{{ isindex }}" onhashchange="navigate(get_hash(), get_search_query())" onload='body_onload({{ site.data.timezone2country | jsonify }})'><div id="outer-container">
+    <body data-isindex="{{ isindex }}" onhashchange="navigate(get_hash(), get_search_query())" onload="body_onload(timezone2country)"><div id="outer-container">
 
         <h1 id="indextitle"><a href="{{ site.github.url }}">{{ index.title }}</a></h1>
         {% if isindex %}
