@@ -5,7 +5,11 @@
 
 An event map consists of the main page and of campaign pages. Each campaign consists of multiple events. The main page lists all events from all campaigns.
 
- Below are described the file formats and the directory structure providing information about campaigns, events and the main page.
+See an example of an event map at https://vadimkantorov.github.io/eventmaptest, and of its contents at https://github.com/vadimkantorov/eventmaptest.
+
+Below are described the file formats and the directory structure providing information about campaigns, events and the main page.
+
+
 
 ## Campaign pages
 `data/campaigns/2022-my-campaign-name-for-url/2022-my-campaign-name-for-url.md`:
@@ -146,17 +150,6 @@ Crude geocoding based on city is used if an event doesn't provide custom GPS coo
 - [`assets/timezone2country.json`](assets/timezone2country.json) contains the TimeZone:Country mapping to be used for showing events in the user's current country
 - [`_includes/leaflet@1.8.0/dist/leaflet.css`](_includes/leaflet@1.8.0/dist/leaflet.css), [`_includes/leaflet@1.8.0/dist/leaflet.js`](_includes/leaflet@1.8.0/dist/leaflet.js) are the [LeafletJS](https://leafletjs.com/) script and style files
 - [`_config.yml`](_config.yml) is the config for Jekyll
-
-## Example directory structure
-```
-./assets/geocoder.json
-./data/campaigns/
-./data/index/index.md
-./data/index/index.jpg
-./data/campaigns/ABC/ABC.md
-./data/campaigns/ABC/ABC.jpg
-./data/campaigns/ABC/photos/EFG.jpg
-```
 
 ## TODO
 ```
