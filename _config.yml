@@ -2,7 +2,7 @@ data_dir: .
 
 defaults:
   - scope:
-      path: "assets/css"
+      path: "robots.txt"
 
   -
     scope:
